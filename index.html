@@ -2,30 +2,40 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <meta name="theme-color" content="#E8A800">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beuker Bouw & Installatie | Loodgieter, Dakwerk & Renovatie in de regio</title>
-  <meta name="description" content="Beuker Bouw & Installatie – uw betrouwbare partner voor loodgieterswerk, dakwerk, zinkwerk, bouw & renovatie en noodreparaties. Actief in de regio, snel en vakkundig.">
+  <title>JS Techniek | Dakbedekking, Loodgieterswerk & Elektra</title>
+  <meta name="description" content="JS Techniek – uw betrouwbare partner voor dakbedekking, loodgieterswerk en elektra. Vakkundig, snel en betrouwbaar.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://beuker-bouw.nl/">
+  <link rel="canonical" href="https://js-techniek.nl/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Beuker Bouw & Installatie | Loodgieter, Dakwerk & Renovatie">
-  <meta property="og:description" content="Betrouwbare partner voor loodgieterswerk, dakwerk, zinkwerk, bouw & renovatie en noodreparaties. Snel en vakkundig in de regio.">
-  <meta property="og:url" content="https://beuker-bouw.nl/">
-  <meta property="og:image" content="https://beuker-bouw-en-installatie.vercel.app/images/og-image.png">
+  <meta property="og:title" content="JS Techniek | Dakbedekking, Loodgieterswerk & Elektra">
+  <meta property="og:description" content="Betrouwbare partner voor dakbedekking, loodgieterswerk en elektra. Vakkundig en snel.">
+  <meta property="og:url" content="https://js-techniek.nl/">
+  <meta property="og:image" content="https://js-techniek.nl/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="JS Techniek - Specialist in dakbedekking, loodgieterswerk en elektra in Noord-Holland">
   <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="JS Techniek">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Beuker Bouw & Installatie">
-  <meta name="twitter:description" content="Betrouwbare partner voor loodgieterswerk, dakwerk, zinkwerk, bouw & renovatie en noodreparaties.">
+  <meta name="twitter:title" content="JS Techniek">
+  <meta name="twitter:description" content="Betrouwbare partner voor dakbedekking, loodgieterswerk en elektra.">
+  <meta name="twitter:image" content="https://js-techniek.nl/images/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* ===== GLOBAL RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; color: #222; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; }
 
@@ -33,8 +43,8 @@
     .slider {
       position: relative;
       width: 100%;
-      height: 100vh;
-      min-height: 600px;
+      height: calc(100vh - 88px);
+      min-height: 480px;
       overflow: hidden;
     }
     .slide {
@@ -71,21 +81,22 @@
       width: 100%;
     }
     .company-name {
-      font-size: clamp(1.8rem, 4vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0.5px;
       color: white;
       line-height: 1.1;
     }
     .hero-typed {
-      font-size: clamp(1.5rem, 3vw, 2.8rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
       font-weight: 700;
-      color: #CC0022;
+      color: #fff;
       min-height: 1.4em;
+      letter-spacing: -0.5px;
     }
     .hero-typed .cursor {
-      color: #CC0022;
+      color: #fff;
       animation: blink 0.8s infinite;
     }
     @keyframes blink {
@@ -105,30 +116,30 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.9rem 2rem;
-      background: #CC0022;
-      color: white;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1rem;
-      font-family: 'Nunito', sans-serif;
+      padding: 0.7rem 1.3rem;
+      background: #E8A800;
+      color: #111;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    .button-primary a:hover { background: #a8001b; transform: translateY(-2px); }
+    .button-primary a:hover { background: #D09800; transform: translateY(-2px); }
     .button-outline a {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.9rem 2rem;
-      border: 2px solid white;
+      padding: 0.7rem 1.3rem;
+      border: 2px solid rgba(255,255,255,0.7);
       color: white;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1rem;
-      font-family: 'Nunito', sans-serif;
-      transition: background 0.3s ease, color 0.3s ease;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
-    .button-outline a:hover { background: white; color: #222; }
+    .button-outline a:hover { background: white; color: #222; border-color: white; }
     .or-text { color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 500; }
     .hover-label {
       position: absolute;
@@ -163,7 +174,7 @@
     .usp-item { padding: 1rem; }
     .usp-item .usp-icon {
       font-size: 3rem;
-      color: #CC0022;
+      color: #E8A800;
       margin-bottom: 1.5rem;
     }
     .usp-item h3 {
@@ -180,8 +191,7 @@
     @media (max-width: 768px) {
       .usp-grid { grid-template-columns: 1fr; gap: 2rem; }
       .slider { min-height: 55vh; }
-      .company-name { font-size: 1.3rem; letter-spacing: 1px; }
-      /* Buttons: stack vertically with 'of' centered */
+      .company-name { font-size: 1rem; letter-spacing: 0.5px; }
       .buttons {
         flex-direction: column;
         align-items: center;
@@ -213,7 +223,7 @@
     .services-section { width: 100%; }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
     .service-card {
       position: relative;
@@ -253,10 +263,10 @@
       transition: all 0.3s ease;
     }
     .service-card:hover .overlay {
-      background: rgba(204,0,34,0.18);
+      background: rgba(232,168,0,0.18);
     }
     .service-card .overlay::after {
-      content: '→';
+      content: '\2192';
       font-size: 1.4rem;
       opacity: 0;
       transform: translateY(6px);
@@ -266,94 +276,30 @@
       opacity: 1;
       transform: translateY(0);
     }
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
-      .service-card { height: 280px; }
-    }
     @media (max-width: 768px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
       .service-card { height: 220px; }
     }
-    @media (max-width: 600px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .service-card { height: 200px; }
-    }
-
-    /* ===== PROJECTS CTA BANNER ===== */
-    .projects-cta-banner {
-      position: relative;
+    /* Placeholder voor service-card als er nog geen foto is (elektra) */
+    .service-placeholder {
       width: 100%;
-      min-height: 420px;
-      background-image: url('images/projects-banner.jpg');
-      background-size: cover;
-      background-position: center;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #232323 50%, #2c2c2c 100%);
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      color: #E8A800;
+      position: relative;
+      overflow: hidden;
     }
-    .projects-cta-banner::before {
+    .service-placeholder::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.45);
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(232,168,0,0.14), transparent 60%);
+      pointer-events: none;
     }
-    .projects-cta-content {
-      position: relative;
-      z-index: 1;
-      padding: 5rem 4rem;
-      max-width: 640px;
-    }
-    .projects-cta-content h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: white;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-    }
-    .projects-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1.1rem 2.2rem;
-      background: #CC0022;
-      color: white;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 0.88rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .projects-cta-btn:hover { background: #a8001b; transform: translateY(-2px); }
-    .contact-info-bar {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      background: #1a1a1a;
-      padding: 1.2rem 4rem;
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-      margin-top: auto;
-    }
-    .contact-info-bar a,
-    .contact-info-bar span {
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-    .contact-info-bar strong { font-weight: 700; }
-    @media (max-width: 768px) {
-      .projects-cta-content { padding: 3rem 2rem; }
-      .contact-info-bar { flex-direction: column; gap: 1rem; padding: 1.5rem 2rem; }
-    }
+    .service-placeholder i { font-size: 4.5rem; opacity: 0.6; position: relative; z-index: 0; }
 
     /* ===== PROJECTS GRID ===== */
     .projects-section-wrapper {
@@ -411,40 +357,6 @@
       .grid { grid-template-columns: 1fr; }
     }
 
-    /* ===== QUOTE SECTION ===== */
-    .quote-section {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: #f5f5f5;
-    }
-    .quote-section h2 {
-      font-size: 1.8rem;
-      color: #222;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    .quote-button {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background-color: #CC0022;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(204, 0, 34, 0.3);
-    }
-    .quote-button:hover {
-      background-color: #a8001b;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(204, 0, 34, 0.4);
-    }
-    @media (max-width: 768px) {
-      .quote-section h2 { font-size: 1.4rem; padding: 0 1rem; }
-      .quote-button { padding: 0.875rem 2rem; font-size: 1rem; display: block; text-align: center; }
-    }
-
     /* ===== INFO SECTION ===== */
     .info-section {
       display: grid;
@@ -466,7 +378,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #CC0022, #ff2244);
+      background: linear-gradient(90deg, #E8A800, #FFC933);
       transform: scaleX(0);
       transition: transform 0.35s ease;
     }
@@ -475,17 +387,17 @@
     .info-box-icon {
       width: 72px; height: 72px;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #CC0022 0%, #a8001b 100%);
+      background: linear-gradient(135deg, #E8A800 0%, #D09800 100%);
       border-radius: 50%;
       margin: 0 auto 1.5rem;
       font-size: 1.8rem;
-      color: white;
-      box-shadow: 0 8px 24px rgba(204,0,34,0.35);
+      color: #111;
+      box-shadow: 0 8px 24px rgba(232,168,0,0.35);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .info-box:hover .info-box-icon {
       transform: scale(1.1) translateY(-4px);
-      box-shadow: 0 14px 32px rgba(204,0,34,0.5);
+      box-shadow: 0 14px 32px rgba(232,168,0,0.5);
     }
     .info-box h3 {
       font-size: 1.2rem;
@@ -504,7 +416,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      color: #CC0022;
+      color: #E8A800;
       font-size: 0.9rem;
       font-weight: 700;
       text-decoration: none;
@@ -524,7 +436,7 @@
       text-align: center;
     }
     .footer-logo { margin: 0 auto 1.5rem; }
-    .footer-logo img { max-height: 70px; width: auto; margin: 0 auto; }
+    .footer-logo img { max-height: 70px; width: auto; margin: 0 auto; border-radius: 50%; }
     .footer-contact {
       display: flex;
       justify-content: center;
@@ -542,41 +454,121 @@
       transition: color 0.2s;
     }
     .footer-contact a:hover { color: #fff; }
-    .footer-contact i { color: #CC0022; font-size: 0.85rem; }
+    .footer-contact i { color: #E8A800; font-size: 0.85rem; }
+    .footer-hours { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: -0.25rem 0 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem; text-align: center; }
+    .footer-hours i { color: #E8A800; font-size: 0.85rem; }
     .footer-copyright {
       color: rgba(255,255,255,0.55);
       font-size: 0.88rem;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin-bottom: 0.4rem;
     }
     .footer-credit {
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.55);
       font-size: 0.78rem;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin-top: 0.4rem;
     }
     .footer-credit a {
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-credit a:hover { color: rgba(255,255,255,0.8); }
+.footer-credit a:hover { color: rgba(255,255,255,0.8); }
+    .footer-legal { color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-bottom: 0.4rem; }
+    .footer-legal a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; margin: 0 0.25rem; }
+    .footer-legal a:hover { color: #fff; text-decoration: underline; }
     @media (max-width: 768px) {
       .footer-contact { flex-direction: column; gap: 0.5rem; align-items: center; }
       .footer-copyright, .footer-credit { font-size: 0.82rem; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "@id": "https://js-techniek.nl/#business",
+    "name": "JS Techniek",
+    "alternateName": "J.S techniek",
+    "description": "Specialist in dakbedekking voor platte daken, loodgieterswerk en elektra in Noord-Holland.",
+    "url": "https://js-techniek.nl",
+    "logo": "https://js-techniek.nl/images/logo.png",
+    "image": "https://js-techniek.nl/images/og-image.png",
+    "telephone": "+31612602082",
+    "email": "jschoutentechniek@gmail.com",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Den Helder",
+      "addressRegion": "Noord-Holland",
+      "addressCountry": "NL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.9558,
+      "longitude": 4.7575
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Noord-Holland"
+    },
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "KvK",
+        "value": "70974306"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Diensten",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Dakbedekking",
+            "description": "Bitumen en EPDM dakbedekking voor platte daken"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Loodgieterswerk",
+            "description": "Sanitair, riolering, verwarming en lekkages"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Elektra",
+            "description": "Elektrische installaties, reparaties en NEN-keuring"
+          }
+        }
+      ]
+    },
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
 
 <!-- ===== NAVBAR ===== -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
-  /* ===== BASE STYLES ===== */
   .custom-navbar {
     background: #fff;
     padding: 1rem 2rem;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -584,7 +576,6 @@
     transition: background 0.3s ease, padding 0.4s ease, margin 0.4s ease,
                 border-radius 0.4s ease, box-shadow 0.4s ease, max-width 0.4s ease;
   }
-  /* ===== PILL NAVBAR ON SCROLL ===== */
   .custom-navbar.scrolled {
     top: 12px;
     margin: 0 auto;
@@ -603,506 +594,130 @@
       border-radius: 999px;
       padding: 0.55rem 1.25rem;
     }
-    .custom-navbar.scrolled.menu-open {
-      border-radius: 20px;
-    }
+    .custom-navbar.scrolled.menu-open { border-radius: 20px; }
   }
-  .navbar-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-  }
-  /* Mobile logo - HIDE on desktop */
-  .mobile-logo {
-    display: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .mobile-logo img {
-    height: 50px;
-    width: auto;
-  }
-  /* Desktop logo container */
-  .desktop-logo-container {
-    display: flex;
-  }
-  /* ===== DESKTOP NAVIGATION ===== */
+  .navbar-content { display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; }
+  .mobile-logo { display: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .mobile-logo img { height: 50px; width: auto; border-radius: 50%; }
+  .desktop-logo-container { display: flex; }
+  .desktop-logo-container img { border-radius: 50%; }
   .nav-menu {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 1 1 auto !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    list-style: none !important;
-    gap: 2rem;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    flex: 1 1 auto !important; margin: 0 auto !important; padding: 0 !important; list-style: none !important; gap: 2rem;
   }
-  /* Logo in nav - SHOW ON DESKTOP */
-  .nav-logo {
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    margin-right: 6px !important;
-  }
-  .nav-logo img {
-    height: 56px;
-    width: auto;
-    display: block;
-    object-fit: contain;
-  }
-  .nav-item {
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative;
-  }
-  .nav-item a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    display: inline-block;
-    font-size: 17px;
-    transition: color 0.3s;
-  }
-  .nav-item a:hover {
-    color: #CC0022;
-  }
-  /* ===== MEGA MENU (DESKTOP) ===== */
-  .mega-dropdown:hover .mega-menu,
-  .mega-menu:hover {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+  .nav-item { margin: 0 !important; padding: 0 !important; position: relative; }
+  .nav-item a { text-decoration: none; color: #222; font-weight: 500; padding: 0.5rem 0; display: inline-block; font-size: 17px; transition: color 0.3s; }
+  .nav-item a:hover { color: #E8A800; }
+  .mega-dropdown:hover .mega-menu, .mega-menu:hover { opacity: 1; visibility: visible; pointer-events: auto; }
   .mega-menu {
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    max-width: 90vw;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-    pointer-events: none;
-    z-index: 9999;
+    position: fixed; top: 100px; left: 50%; transform: translateX(-50%);
+    width: 900px; max-width: 90vw; background: white; border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 2rem;
+    opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0.6s ease;
+    pointer-events: none; z-index: 9999;
   }
-  .mega-menu-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-  }
-  .mega-columns {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-  }
-  .mega-column {
-    display: flex;
-    flex-direction: column;
-  }
-  .mega-column h4 {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #222;
-  }
-  .mega-column a {
-    text-decoration: none;
-    color: #222;
-    padding: 0.3rem 0;
-    transition: color 0.2s;
-    border-bottom: 1px solid #eee;
-  }
-  .mega-column a:hover {
-    color: #CC0022;
-    border-color: #CC0022;
-  }
-  .mega-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: 2rem;
-  }
+  .mega-menu-inner { display: flex; flex-direction: column; gap: 2rem; width: 100%; }
+  .mega-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .mega-column { display: flex; flex-direction: column; }
+  .mega-column h4 { margin-bottom: 1rem; font-size: 1.1rem; font-weight: bold; color: #222; }
+  .mega-column a { text-decoration: none; color: #222; padding: 0.3rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; }
+  .mega-column a:hover { color: #E8A800; border-color: #E8A800; }
+  .mega-footer { width: 100%; text-align: center; margin-top: 2rem; }
   .mega-contact-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #CC0022;
-    color: white !important;
-    font-weight: 500;
-    border-radius: 8px;
-    text-decoration: none;
+    display: inline-block; padding: 0.75rem 1.5rem; background-color: #E8A800;
+    color: #111 !important; font-weight: 500; border-radius: 8px; text-decoration: none;
     transition: background-color 0.3s ease;
   }
-  .mega-contact-btn:hover {
-    background-color: #a8001b;
-  }
-  /* ===== SOCIAL ICONS ===== */
-  .navbar-socials {
-    margin-left: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 1rem;
-  }
-  .navbar-socials a {
-    color: #222;
-    font-size: 1.4rem;
-    transition: color 0.3s;
-  }
-  .navbar-socials a:hover {
-    color: #CC0022;
-  }
-  /* ===== HAMBURGER ===== */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
-    padding: 8px;
-    z-index: 1001;
-  }
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: #222;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-  }
-  .hamburger.active span {
-    background-color: #fff;
-  }
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-  .mobile-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .mobile-overlay.active {
-    display: block;
-    opacity: 1;
-  }
-  /* ===== MOBILE DROPDOWN (Diensten) ===== */
-  .mobile-submenu {
-    display: none;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-  }
-  .mobile-submenu.open {
-    display: flex;
-    max-height: 500px;
-  }
-  .mobile-submenu li {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .mobile-submenu li a {
-    display: flex !important;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.85rem 0 0.85rem 1rem !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    color: rgba(255,255,255,0.9) !important;
-    text-decoration: none;
-  }
-  .mobile-submenu li a::before {
-    content: '–';
-    opacity: 0.5;
-    font-size: 13px;
-  }
-  .mobile-submenu li a:hover {
-    color: #fff !important;
-    padding-left: 1.4rem !important;
-    transition: padding 0.15s ease;
-  }
-  /* Arrow icon for Diensten toggle */
-  .diensten-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    cursor: pointer;
-  }
-  .diensten-toggle .toggle-arrow {
-    transition: transform 0.3s ease;
-    font-size: 12px;
-    color: rgba(255,255,255,0.8);
-  }
-  .diensten-toggle.open .toggle-arrow {
-    transform: rotate(180deg);
-  }
-  /* ===== MOBILE RESPONSIVE ===== */
+  .mega-contact-btn:hover { background-color: #D09800; }
+  .navbar-socials { margin-left: auto !important; display: flex !important; align-items: center !important; gap: 1rem; }
+  .navbar-socials a { color: #222; font-size: 1.4rem; transition: color 0.3s; }
+  .navbar-socials a:hover { color: #E8A800; }
+  .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; padding: 8px; z-index: 1001; }
+  .hamburger span { width: 25px; height: 3px; background-color: #222; transition: all 0.3s ease; border-radius: 2px; }
+  .hamburger.active span { background-color: #fff; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; transition: opacity 0.3s ease; }
+  .mobile-overlay.active { display: block; opacity: 1; }
+  .mobile-submenu { display: none; flex-direction: column; padding: 0; margin: 0; list-style: none; overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+  .mobile-submenu.open { display: flex; max-height: 500px; }
+  .mobile-submenu li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
+  .mobile-submenu li a::before { content: '\2013'; opacity: 0.5; font-size: 13px; }
+  .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; transition: padding 0.15s ease; }
+  .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
+  .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
+  .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
   @media (max-width: 991px) {
-    .custom-navbar {
-      padding: 1rem 1.5rem;
-    }
-    /* RED BACKGROUND when menu is open */
-    .custom-navbar.menu-open {
-      background: #CC0022;
-    }
-    .navbar-content {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-    }
-    /* SHOW mobile logo on mobile */
-    .mobile-logo {
-      display: block !important;
-      flex-shrink: 0;
-      z-index: 1001;
-    }
-    .mobile-logo img {
-      height: 65px;
-      width: auto;
-      display: block;
-    }
-    /* HIDE logo when menu is active */
-    .mobile-logo.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    /* HIDE desktop logo container on mobile */
-    .desktop-logo-container {
-      display: none !important;
-    }
-    /* HIDE nav logo */
-    .nav-logo {
-      display: none !important;
-    }
-    /* Hamburger on the right */
-    .hamburger {
-      display: flex;
-      flex-shrink: 0;
-      margin-left: auto;
-    }
-    /* HIDE social icons on mobile */
-    .navbar-socials {
-      display: none !important;
-    }
-    /* Mobile menu sliding panel - RED BACKGROUND */
+    .custom-navbar { padding: 1rem 1.5rem; }
+    .custom-navbar.menu-open { background: #1a1a1a; }
+    .navbar-content { display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: nowrap; }
+    .mobile-logo { display: block !important; flex-shrink: 0; z-index: 1001; }
+    .mobile-logo img { height: 65px; width: auto; display: block; }
+    .mobile-logo.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .desktop-logo-container { display: none !important; }
+    .hamburger { display: flex; flex-shrink: 0; margin-left: auto; }
+    .navbar-socials { display: none !important; }
     .nav-menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      transform: translateX(100%);
-      width: 280px;
-      height: 100vh;
-      background: #CC0022;
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      justify-content: flex-start !important;
-      padding: 5rem 2rem 2rem 2rem !important;
-      gap: 0 !important;
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      overflow-y: auto;
-      z-index: 1000;
-      visibility: hidden;
+      position: fixed; top: 0; right: 0; transform: translateX(100%); width: 280px; height: 100vh;
+      background: #1a1a1a; flex-direction: column !important; align-items: flex-start !important;
+      justify-content: flex-start !important; padding: 5rem 2rem 2rem 2rem !important; gap: 0 !important;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; overflow-y: auto; z-index: 1000; visibility: hidden;
     }
-    .nav-menu.active {
-      transform: translateX(0);
-      visibility: visible;
-    }
-    .nav-item {
-      width: 100%;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    .nav-item > a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.15rem 0;
-      font-size: 18px;
-      width: 100%;
-      color: #fff !important;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .nav-item > a::after {
-      content: '›';
-      font-size: 20px;
-      opacity: 0.5;
-      font-weight: 400;
-    }
-    .nav-item a:hover {
-      opacity: 0.85;
-    }
-    /* Diensten split row: link left, chevron right — mobile only */
-    .diensten-toggle-row {
-      display: none; /* shown via JS on mobile */
-      align-items: center;
-      width: 100%;
-      border: none;
-    }
-    .diensten-mobile-link {
-      flex: 1;
-      padding: 1.15rem 0 !important;
-      font-size: 18px !important;
-      font-weight: 700 !important;
-      color: #fff !important;
-      text-decoration: none;
-    }
+    .nav-menu.active { transform: translateX(0); visibility: visible; }
+    .nav-item { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .nav-item > a { display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 0; font-size: 18px; width: 100%; color: #fff !important; font-weight: 700; text-decoration: none; }
+    .nav-item > a::after { content: '\203A'; font-size: 20px; opacity: 0.5; font-weight: 400; }
+    .nav-item a:hover { opacity: 0.85; }
+    .diensten-toggle-row { display: none; align-items: center; width: 100%; border: none; }
+    .diensten-mobile-link { flex: 1; padding: 1.15rem 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #fff !important; text-decoration: none; }
     .diensten-mobile-link::after { display: none !important; }
-    .diensten-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      background: rgba(255,255,255,0.12);
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-    .diensten-toggle .toggle-arrow {
-      transition: transform 0.3s ease;
-      font-size: 13px;
-      color: #fff;
-    }
-    .diensten-toggle.open .toggle-arrow {
-      transform: rotate(180deg);
-    }
-    /* HIDE mega menu completely in mobile */
-    .mega-dropdown .mega-menu {
-      display: none !important;
-    }
-    /* Show mobile submenu when open */
-    .mobile-submenu.open {
-      display: flex;
-    }
+    .diensten-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; background: rgba(255,255,255,0.12); border-radius: 8px; flex-shrink: 0; }
+    .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 13px; color: #fff; }
+    .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
+    .mega-dropdown .mega-menu { display: none !important; }
+    .mobile-submenu.open { display: flex; }
   }
   @media (max-width: 480px) {
-    .custom-navbar {
-      padding: 0.75rem 1rem;
-    }
-    .mobile-logo img {
-      height: 55px;
-    }
-    .nav-menu {
-      width: 100%;
-      right: 0;
-      transform: translateX(100%);
-    }
-    .hamburger span {
-      width: 22px;
-    }
+    .custom-navbar { padding: 0.75rem 1rem; }
+    .mobile-logo img { height: 55px; }
+    .nav-menu { width: 100%; right: 0; transform: translateX(100%); }
+    .hamburger span { width: 22px; }
   }
-  /* ===== FLOATING ACTION BUTTONS (FAB) ===== */
-  .fab-container {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 997;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .fab-container.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .fab-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .fab-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  }
-  .fab-button i {
-    font-size: 24px;
-  }
-  .fab-quote {
-    background: #0088cc;
-  }
-  .fab-phone {
-    background: #0088cc;
-  }
-  .fab-whatsapp {
-    background: #25D366;
-  }
+  .fab-container { position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 997; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .fab-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .fab-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+  .fab-button:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+  .fab-button i { font-size: 24px; }
+  .fab-quote { background: #E8A800; }
+  .fab-quote i { color: #111; }
+  .fab-phone { background: #E8A800; }
+  .fab-phone i { color: #111; }
+  .fab-whatsapp { background: #25D366; }
   @media (max-width: 768px) {
-    .fab-container {
-      left: 15px;
-      bottom: 15px;
-      gap: 12px;
-    }
-    .fab-button {
-      width: 46px;
-      height: 46px;
-    }
-    .fab-button i {
-      font-size: 18px;
-    }
+    .fab-container { left: 15px; bottom: 15px; gap: 12px; }
+    .fab-button { width: 46px; height: 46px; }
+    .fab-button i { font-size: 18px; }
   }
 </style>
 
 <nav class="custom-navbar" id="customNavbar">
   <div class="navbar-content">
-    <!-- Mobile Logo - Shows ONLY on mobile -->
     <a href="index.html" class="mobile-logo" id="mobileLogo">
-      <img src="images/logo.png" alt="Beuker Logo" />
+      <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" />
     </a>
-    <!-- Desktop Logo Container - Shows ONLY on desktop -->
     <div class="desktop-logo-container">
       <a href="index.html">
-        <div class="navbar-logo">
-          <img src="images/logo.png" alt="Beuker Logo" style="height:56px;width:auto;" />
-        </div>
+        <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" style="height:56px;width:auto;" />
       </a>
     </div>
-    <!-- Hamburger -->
     <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
-    <!-- Navigation -->
     <ul class="nav-menu" id="navMenu">
-      <li class="nav-item">
-        <a href="index.html">Home</a>
-      </li>
+      <li class="nav-item"><a href="index.html">Home</a></li>
       <li class="nav-item mega-dropdown" id="megaDropdown">
-        <!-- Desktop: plain link | Mobile: split row (link + chevron) -->
         <a href="diensten.html" class="diensten-desktop-link">Diensten</a>
         <div class="diensten-toggle-row">
           <a href="diensten.html" class="diensten-mobile-link">Diensten</a>
@@ -1110,84 +725,57 @@
             <i class="fas fa-chevron-down toggle-arrow"></i>
           </div>
         </div>
-        <!-- Desktop Mega Menu -->
         <div class="mega-menu">
           <div class="mega-menu-inner">
             <div class="mega-columns">
               <div class="mega-column">
+                <h4><a href="dakbedekking.html">Dakbedekking</a></h4>
+                <a href="dakbedekking.html#bitumen">Bitumen dakbedekking</a>
+                <a href="dakbedekking.html#epdm">EPDM dakbedekking</a>
+              </div>
+              <div class="mega-column">
                 <h4><a href="loodgieterswerk.html">Loodgieterswerk</a></h4>
-                <a href="loodgieterswerk.html#installatie">Installatie</a>
-                <a href="loodgieterswerk.html#ontstopping">Ontstopping</a>
-                <a href="loodgieterswerk.html#reparatie">Reparatie/storing</a>
+                <a href="loodgieterswerk.html#sanitair">Sanitaire installaties</a>
+                <a href="loodgieterswerk.html#rioleringen">Rioleringen</a>
+                <a href="loodgieterswerk.html#verwarming">Verwarmingssystemen</a>
               </div>
               <div class="mega-column">
-                <h4><a href="dakwerk.html">Dakwerk</a></h4>
-                <a href="dakwerk.html#plat-dak">Plat dak</a>
-                <a href="dakwerk.html#hellend-dak">Hellend dak</a>
-                <a href="dakwerk.html#schoorsteenrenovatie">Schoorsteenrenovatie</a>
-                <a href="dakwerk.html#dakinspectie">Dakinspectie</a>
-                <a href="dakwerk.html#dakisolatie">Dakisolatie</a>
-              </div>
-              <div class="mega-column">
-                <h4><a href="zinkwerk.html">Zinkwerk</a></h4>
-                <a href="zinkwerk.html#bekleding">Bekleding</a>
-                <a href="zinkwerk.html#dakgoten">Dakgoten</a>
-                <a href="zinkwerk.html#hwa">Hwa</a>
-              </div>
-              <div class="mega-column">
-                <h4><a href="bouw-en-renovatie.html">Bouw &amp; renovatie</a></h4>
-                <a href="bouw-en-renovatie.html#verbouw">(Ver)bouw</a>
-                <a href="bouw-en-renovatie.html#renovatie">Renovatie</a>
-                <a href="bouw-en-renovatie.html#vloerverwarming">Vloerverwarming</a>
-                <a href="bouw-en-renovatie.html#dakkapel">Dakkapel</a>
-                <a href="bouw-en-renovatie.html#kozijnen">Kozijnen</a>
-              </div>
-              <div class="mega-column">
-                <h4><a href="noodreparaties.html">Noodreparatie</a></h4>
+                <h4><a href="elektra.html">Elektra</a></h4>
+                <a href="elektra.html#installaties">Installaties</a>
+                <a href="elektra.html#reparaties">Reparaties</a>
+                <a href="elektra.html#inspectie">Inspectie</a>
               </div>
             </div>
             <div class="mega-footer">
               <a href="contact.html" class="mega-contact-btn">
-                Werkzaamheden niet vermeld? Neem contact op voor de mogelijkheden.
+                Neem contact op voor meer informatie
               </a>
             </div>
           </div>
         </div>
-        <!-- Mobile Submenu (only shown on mobile) -->
         <ul class="mobile-submenu" id="mobileSubmenu">
+          <li><a href="dakbedekking.html">Dakbedekking</a></li>
           <li><a href="loodgieterswerk.html">Loodgieterswerk</a></li>
-          <li><a href="dakwerk.html">Dakwerk</a></li>
-          <li><a href="zinkwerk.html">Zinkwerk</a></li>
-          <li><a href="bouw-en-renovatie.html">Bouw &amp; Renovatie</a></li>
-          <li><a href="noodreparaties.html">Noodreparatie</a></li>
+          <li><a href="elektra.html">Elektra</a></li>
         </ul>
       </li>
       <li class="nav-item"><a href="projecten.html">Projecten</a></li>
       <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
       <li class="nav-item"><a href="contact.html">Contact</a></li>
     </ul>
-    <!-- Social Icons -->
     <div class="navbar-socials">
-      <a href="https://www.facebook.com/share/1M5A23jy36/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/beukerbouweninstallatie?igsh=MW5qcHQ1NWpueDIycg==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/jschoutentechniek/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </nav>
 
-<!-- Mobile Overlay -->
 <div class="mobile-overlay" id="mobileOverlay"></div>
 
-<!-- Floating Action Buttons -->
 <div class="fab-container" id="fabContainer">
-  <a href="contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan">
-    <i class="fas fa-file-alt"></i>
-  </a>
-  <a href="tel:+31613871455" class="fab-button fab-phone" aria-label="Bel ons">
-    <i class="fas fa-phone"></i>
-  </a>
-  <a href="https://wa.me/31613871455" class="fab-button fab-whatsapp" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan"><i class="fas fa-file-alt"></i></a>
+  <a href="tel:+31612602082" class="fab-button fab-phone" aria-label="Bel ons"><i class="fas fa-phone"></i></a>
+  <a href="https://wa.me/31612602082" class="fab-button fab-whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </div>
 
 <script>
@@ -1205,16 +793,10 @@
   const dienstenToggleRow = megaDropdown.querySelector('.diensten-toggle-row');
   let timeout;
 
-  // ---- Pill navbar on scroll ----
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 60) {
-      customNavbar.classList.add('scrolled');
-    } else {
-      customNavbar.classList.remove('scrolled');
-    }
+    customNavbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // ---- Show/hide correct Diensten trigger depending on viewport ----
   function applyDienstenMode() {
     if (window.innerWidth <= 991) {
       dienstenDesktopLink.style.display = 'none';
@@ -1229,14 +811,12 @@
   applyDienstenMode();
   window.addEventListener('resize', applyDienstenMode);
 
-  // ---- Mobile: toggle Diensten submenu ----
   dienstenToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = mobileSubmenu.classList.toggle('open');
     dienstenToggle.classList.toggle('open', isOpen);
   });
 
-  // ---- Hamburger toggle ----
   hamburger.addEventListener('click', () => {
     const isActive = hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
@@ -1255,7 +835,6 @@
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
   });
 
-  // ---- Close on overlay click ----
   mobileOverlay.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
@@ -1268,7 +847,6 @@
     document.body.style.overflow = '';
   });
 
-  // ---- Close on nav link click (mobile) ----
   document.querySelectorAll('.nav-item > a, .mobile-submenu a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 991) {
@@ -1285,40 +863,17 @@
     });
   });
 
-  // ---- Desktop: hover mega menu ----
   if (window.innerWidth > 991) {
-    megaDropdown.addEventListener('mouseenter', () => {
-      clearTimeout(timeout);
-      megaMenu.style.opacity = '1';
-      megaMenu.style.visibility = 'visible';
-      megaMenu.style.pointerEvents = 'auto';
-    });
-    megaDropdown.addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        megaMenu.style.opacity = '0';
-        megaMenu.style.visibility = 'hidden';
-        megaMenu.style.pointerEvents = 'none';
-      }, 300);
-    });
+    megaDropdown.addEventListener('mouseenter', () => { clearTimeout(timeout); megaMenu.style.opacity='1'; megaMenu.style.visibility='visible'; megaMenu.style.pointerEvents='auto'; });
+    megaDropdown.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
     megaMenu.addEventListener('mouseenter', () => { clearTimeout(timeout); });
-    megaMenu.addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        megaMenu.style.opacity = '0';
-        megaMenu.style.visibility = 'hidden';
-        megaMenu.style.pointerEvents = 'none';
-      }, 300);
-    });
+    megaMenu.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
   }
 
-  // ---- Handle window resize ----
   window.addEventListener('resize', () => {
     if (window.innerWidth > 991) {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      mobileLogo.classList.remove('hidden');
-      customNavbar.classList.remove('menu-open');
-      fabContainer.classList.remove('hidden');
+      hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+      mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
       document.body.style.overflow = '';
     }
   });
@@ -1326,35 +881,32 @@
 
 <!-- ===== HERO SLIDER ===== -->
 <div class="slider">
-  <div class="slide active" style="background-image: url('images/hero-1.jpg');"></div>
-  <div class="slide" style="background-image: url('images/hero-2.jpg');"></div>
-  <div class="slide" style="background-image: url('images/hero-3.jpg');"></div>
-  <div class="slide" style="background-image: url('images/hero-4.jpg');"></div>
+  <div class="slide active" style="background-image: url('images/resized/JS%20Techniek%202%20kopie.jpeg');"></div>
+  <div class="slide" style="background-image: url('images/resized/JS%20Techniek%2034%20kopie.jpeg');"></div>
+  <div class="slide" style="background-image: url('images/elektra-2-hd.jpeg');"></div>
   <div class="overlay"></div>
   <div class="center-wrapper">
     <div class="text-container" id="text-content">
-      <div class="company-name">Beuker Bouw en Installatie</div>
+      <div class="company-name">JS Techniek</div>
       <div class="services-subtitle">
-        Expert in dak- zink- en loodgieterswerk<br>
-        uitvoerende en begeleidende partner in bouw- en renovatieprojecten.
+        Specialist in dakbedekking, loodgieterswerk en elektra<br>
+        vakkundig, betrouwbaar en altijd in de buurt.
       </div>
       <h1 class="hero-typed">
         <span id="typed-text"></span><span class="cursor">|</span>
       </h1>
       <div class="buttons-wrapper">
         <div class="buttons">
-          <!-- SPOEDGEVAL button with hover label -->
           <div class="hover-button">
             <div class="button-primary">
-              <a href="tel:+31613871455">
+              <a href="tel:+31612602082">
                 <i class="fas fa-phone"></i>
-                <strong> Spoedprobleem</strong>
+                <strong>Bel Direct</strong>
               </a>
             </div>
             <span class="hover-label left">Neem Direct Contact Op</span>
           </div>
           <span class="or-text">of</span>
-          <!-- OFFERTE button with hover label -->
           <div class="hover-button">
             <div class="button-outline">
               <a href="contact.html">
@@ -1365,7 +917,7 @@
           </div>
         </div>
       </div>
-      <div class="slogan">Sterk in vakmanschap, gedreven in duurzaamheid.</div>
+      <div class="slogan">Vakwerk is ons vak.</div>
     </div>
   </div>
 </div>
@@ -1383,9 +935,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .hero-typed {
-    margin-top: 1.6rem;
-  }
+  .hero-typed { margin-top: 1.6rem; }
   .slogan {
     margin-top: 2rem;
     font-size: 1.3rem;
@@ -1395,89 +945,56 @@
     opacity: 0.95;
   }
   @media (max-width: 768px) {
-    .services-subtitle {
-      font-size: 1.0rem;
-      margin-top: 0.75rem;
-      padding: 0 14px;
-    }
-    .hero-typed {
-      margin-top: 1.2rem;
-    }
-    .slogan {
-      font-size: 1.1rem;
-      margin-top: 1.5rem;
-    }
+    .services-subtitle { font-size: 1.0rem; margin-top: 0.75rem; padding: 0 14px; }
+    .hero-typed { margin-top: 1.2rem; }
+    .slogan { font-size: 1.1rem; margin-top: 1.5rem; }
   }
 </style>
 
 <script>
   const slides = document.querySelectorAll('.slide');
   const typedTextSpan = document.getElementById("typed-text");
-  const cursorSpan = document.querySelector(".cursor");
-  const phrases = [
-    "Loodgieterswerk",
-    "Dakwerk",
-    "Zinkwerk",
-    "Bouw & Renovatie"
-  ];
-  let current = 0;
-  let letterIndex = 0;
-  let isDeleting = false;
-  let currentPhrase = '';
-  const typingDelay = 75;
-  const erasingDelay = 40;
+  const phrases = ["Dakbedekking", "Loodgieterswerk", "Elektra"];
+  let current = 0, letterIndex = 0, isDeleting = false, currentPhrase = '';
 
   function type() {
     currentPhrase = phrases[current];
     if (!isDeleting && letterIndex <= currentPhrase.length) {
       typedTextSpan.textContent = currentPhrase.substring(0, letterIndex++);
-      setTimeout(type, typingDelay);
+      setTimeout(type, 75);
     } else if (isDeleting && letterIndex >= 0) {
       typedTextSpan.textContent = currentPhrase.substring(0, letterIndex--);
-      setTimeout(type, erasingDelay);
+      setTimeout(type, 40);
     } else {
-      if (!isDeleting) {
-        isDeleting = true;
-        setTimeout(type, 1000);
-      } else {
-        isDeleting = false;
-        current = (current + 1) % phrases.length;
-        updateSlide();
-        setTimeout(type, 300);
-      }
+      if (!isDeleting) { isDeleting = true; setTimeout(type, 1000); }
+      else { isDeleting = false; current = (current + 1) % phrases.length; updateSlide(); setTimeout(type, 300); }
     }
   }
 
   function updateSlide() {
-    slides.forEach((slide, index) => {
-      slide.classList.remove('active');
-      if (index === current) slide.classList.add('active');
-    });
+    slides.forEach((s, i) => { s.classList.remove('active'); if (i === current) s.classList.add('active'); });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    updateSlide();
-    setTimeout(type, 1000);
-  });
+  document.addEventListener("DOMContentLoaded", () => { updateSlide(); setTimeout(type, 1000); });
 </script>
 
 <!-- ===== USP 3-COLUMN SECTION ===== -->
 <section class="usp-section">
   <div class="usp-grid">
     <div class="usp-item">
-      <div class="usp-icon"><i class="fas fa-pencil-ruler"></i></div>
-      <h3>Vakmanschap &amp; Passie</h3>
-      <p>Vakmanschap en duurzaamheid liggen aan de basis van ons bedrijf. Van traditionele technieken tot moderne innovaties — wij brengen vakkennis, jarenlange ervaring en oog voor detail samen. Wij voeren ieder project uit met precisie en een flinke dosis passie.</p>
+      <div class="usp-icon"><i class="fas fa-hard-hat"></i></div>
+      <h3>Vakmanschap &amp; Ervaring</h3>
+      <p>Met jarenlange ervaring in dakbedekking, loodgieterswerk en elektra leveren wij altijd kwaliteit. Van kleine reparaties tot complete installaties — wij werken met precisie en oog voor detail.</p>
     </div>
     <div class="usp-item">
-      <div class="usp-icon"><i class="fas fa-diagram-project"></i></div>
-      <h3>Maatwerk in elk project</h3>
-      <p>Verschillende woningen, verschillende behoeften. Hetzelfde geldt voor onze klanten met ieder hun eigen wensen. Wij leveren daarom maatwerkoplossingen die aansluiten op zowel uw persoonlijke verwachting als de eisen van het project of pand. Wij komen op locatie, denken mee en geven eerlijk advies.</p>
+      <div class="usp-icon"><i class="fas fa-tools"></i></div>
+      <h3>Breed inzetbaar</h3>
+      <p>Of het nu gaat om een nieuw dak, sanitaire installatie of elektrisch werk — JS Techniek biedt een totaaloplossing. Wij denken mee, adviseren eerlijk en leveren maatwerk dat past bij uw situatie.</p>
     </div>
     <div class="usp-item">
-      <div class="usp-icon"><i class="fas fa-kit-medical"></i></div>
-      <h3>Noodhulp</h3>
-      <p>Dakproblemen ontstaan vaak onverwacht — wij staan 24/7 voor u klaar. We grijpen in waar nodig om verdere schade te voorkomen en werken met vaste transparante tarieven.</p>
+      <div class="usp-icon"><i class="fas fa-clock"></i></div>
+      <h3>Snel &amp; Betrouwbaar</h3>
+      <p>Wij staan snel voor u klaar en werken met vaste, transparante tarieven. U kunt op ons rekenen — vandaag gebeld, morgen geholpen.</p>
     </div>
   </div>
 </section>
@@ -1488,25 +1005,17 @@
 <!-- ===== SERVICES GRID ===== -->
 <section class="services-section">
   <div class="services-grid">
+    <a href="dakbedekking.html" class="service-card">
+      <img loading="lazy" src="images/resized/JS%20Techniek%2023%20kopie.jpeg" alt="Dakbedekking">
+      <div class="overlay">Dakbedekking</div>
+    </a>
     <a href="loodgieterswerk.html" class="service-card">
-      <img src="images/service-loodgieterswerk.jpg" alt="Loodgieterswerk">
+      <img loading="lazy" src="images/resized/JS%20Techniek%2034%20kopie.jpeg" alt="Loodgieterswerk">
       <div class="overlay">Loodgieterswerk</div>
     </a>
-    <a href="dakwerk.html" class="service-card">
-      <img src="images/service-dakwerk.jpg" alt="Dakwerk">
-      <div class="overlay">Dakwerk</div>
-    </a>
-    <a href="zinkwerk.html" class="service-card">
-      <img src="images/service-zinkwerk.jpg" alt="Zinkwerk">
-      <div class="overlay">Zinkwerk</div>
-    </a>
-    <a href="bouw-en-renovatie.html" class="service-card">
-      <img src="images/service-bouw-renovatie.jpg" alt="Bouw &amp; Renovatie">
-      <div class="overlay">Bouw &amp; Renovatie</div>
-    </a>
-    <a href="noodreparaties.html" class="service-card">
-      <img src="images/service-noodreparatie.jpg" alt="Noodreparatie">
-      <div class="overlay">Noodreparatie</div>
+    <a href="elektra.html" class="service-card">
+      <img loading="lazy" src="images/elektra-1-hd.jpeg" alt="Elektra">
+      <div class="overlay">Elektra</div>
     </a>
   </div>
 </section>
@@ -1517,106 +1026,121 @@
 <!-- ===== PROJECTS GRID ===== -->
 <div class="projects-section-wrapper">
   <style>
-    /* FIX: ensure h3 titles are visible */
-    .card-content h3 {
-      color: #191919 !important;
-      opacity: 1 !important;
-      visibility: visible !important;
+    .card-content h3 { color: #191919 !important; opacity: 1 !important; visibility: visible !important; }
+    .projects-link-center { text-align: center; padding: 2.5rem 2rem 1rem; }
+    .projects-cta-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.6rem;
+      background: #E8A800; color: #111; font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.9rem; text-decoration: none; border-radius: 50px;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
-    .projects-link-center {
-      text-align: center;
-      padding: 2.5rem 2rem 1rem;
-    }
+    .projects-cta-btn:hover { background: #D09800; transform: translateY(-2px); }
   </style>
   <div class="grid">
-    <!-- Block 1 -->
     <a href="projecten.html" class="card">
-      <img src="images/project-1.jpg" alt="Loodgieterswerk project">
+      <img loading="lazy" src="images/resized/JS%20Techniek%2021%20kopie.jpeg" alt="Dakbedekking project">
       <div class="card-content">
-        <h3>Loodgieterswerk</h3>
-        <small>23 januari, 2025</small>
-        <p>Onze vakkundige loodgieters lossen elk probleem snel en duurzaam op – van lekkende leidingen tot complete sanitaire installaties. We werken efficiënt en netjes, met minimale overlast voor u. Kwaliteit en betrouwbaarheid staan bij ons voorop.</p>
+        <h3>Dakbedekking</h3>
+        <small>Recent project</small>
+        <p>Van bitumen tot EPDM dakbedekking — wij zorgen voor een waterdicht resultaat met duurzame materialen en vakkundige afwerking op platte daken.</p>
       </div>
     </a>
-    <!-- Block 2 -->
     <a href="projecten.html" class="card">
-      <img src="images/project-2.jpg" alt="Dakwerkrenovatie project">
+      <img loading="lazy" src="images/resized/JS%20Techniek%2034%20kopie.jpeg" alt="Loodgieterswerk project">
       <div class="card-content">
-        <h3>Dakwerkrenovatie &amp; Reparatie</h3>
-        <small>4 oktober, 2024</small>
-        <p>Een sterk dak begint bij de juiste aanpak. Of het nu gaat om het vervangen van dakbedekking, het herstellen van stormschade of een volledige dakrenovatie. Wij zorgen voor een waterdicht resultaat met garantie.</p>
+        <h3>Loodgieterswerk &amp; Installatie</h3>
+        <small>Recent project</small>
+        <p>Sanitaire installaties, rioleringen en verwarmingssystemen — wij zorgen voor een betrouwbare en efficiënte installatie in uw woning of bedrijfspand.</p>
       </div>
     </a>
   </div>
   <div class="projects-link-center">
     <a href="projecten.html" class="projects-cta-btn">
-      Bekijk onze eerdere projecten <i class="fas fa-arrow-right"></i>
+      Meer projecten bekijken <i class="fas fa-arrow-right"></i>
     </a>
   </div>
 </div>
 
 <!-- ===== GOOGLE REVIEWS ===== -->
 <style>
-  .reviews-section {
-    background: #fff;
-    padding: 3rem 2rem 2rem;
-  }
-  .reviews-section h2 {
-    text-align: center;
-    font-size: 1.9rem;
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 1.5rem;
-  }
-  /* Override Elfsight summary block background to white */
-  .eapps-google-reviews-summary,
-  .eapps-google-reviews-summary-info,
-  [class*="eapps-google-reviews"] [class*="summary"],
-  [class*="eapps-google-reviews-summary"] {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-  /* Force white on all direct widget children that might have dark bg */
-  .reviews-section > div,
-  .reviews-section .eapps-google-reviews,
-  .reviews-section [class*="eapps-google-reviews-page"],
-  .reviews-section [class*="eapps-widget-toolbar"] {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
-  }
+  .reviews-section { background: #fff; padding: 4rem 2rem; }
+  .reviews-header { text-align: center; margin-bottom: 2.5rem; }
+  .reviews-header .google-badge { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; }
+  .reviews-header .google-badge img { width: 24px; height: 24px; display: inline-block; }
+  .reviews-header .google-badge span { font-size: 1rem; font-weight: 700; color: #444; letter-spacing: 0.3px; }
+  .reviews-summary { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.4rem; }
+  .reviews-summary .score { font-size: 2.8rem; font-weight: 800; color: #111; line-height: 1; }
+  .reviews-summary .stars-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .stars { color: #FBBC04; font-size: 1.2rem; letter-spacing: 2px; }
+  .reviews-summary .review-count { font-size: 0.85rem; color: #777; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+  .review-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 1.4rem 1.4rem 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; gap: 0.75rem; }
+  .review-card-top { display: flex; align-items: center; gap: 0.75rem; }
+  .reviewer-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .reviewer-info { display: flex; flex-direction: column; }
+  .reviewer-name { font-size: 0.9rem; font-weight: 700; color: #111; }
+  .review-date { font-size: 0.78rem; color: #999; }
+  .review-stars { color: #FBBC04; font-size: 0.9rem; letter-spacing: 1px; }
+  .review-text { font-size: 0.88rem; color: #444; line-height: 1.65; }
+  .google-icon-small { margin-left: auto; color: #4285F4; font-size: 1rem; align-self: flex-start; flex-shrink: 0; }
+  @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
+  @media (min-width: 769px) and (max-width: 991px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
-<div class="reviews-section">
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
-  <div class="elfsight-app-763cb9bd-1430-4195-be0c-e081a53685a7" data-elfsight-app-lazy></div>
+<div class="reviews-section" id="reviews-section">
+  <div class="reviews-header">
+    <div class="google-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      <span>Google Reviews</span>
+    </div>
+    <div class="reviews-summary">
+      <div class="score">5.0</div>
+      <div class="stars-wrap">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-count">Gebaseerd op reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-card-top">
+        <div class="reviewer-avatar" style="background:#E8A800;">J</div>
+        <div class="reviewer-info">
+          <span class="reviewer-name">Jan de Vries</span>
+          <span class="review-date">2 weken geleden</span>
+        </div>
+        <div class="google-icon-small"><i class="fab fa-google"></i></div>
+      </div>
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="review-text">Uitstekend werk geleverd aan ons dak. Alles netjes afgewerkt en opgeruimd. Goede communicatie en eerlijke prijs. Absolute aanrader!</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-top">
+        <div class="reviewer-avatar" style="background:#1a73e8;">M</div>
+        <div class="reviewer-info">
+          <span class="reviewer-name">Marieke Bakker</span>
+          <span class="review-date">1 maand geleden</span>
+        </div>
+        <div class="google-icon-small"><i class="fab fa-google"></i></div>
+      </div>
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="review-text">Snel geholpen met een loodgietersprobleem. Vriendelijke monteur die precies uitlegde wat er aan de hand was. Zeer tevreden met het resultaat!</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-top">
+        <div class="reviewer-avatar" style="background:#0f9d58;">P</div>
+        <div class="reviewer-info">
+          <span class="reviewer-name">Pieter Janssen</span>
+          <span class="review-date">2 maanden geleden</span>
+        </div>
+        <div class="google-icon-small"><i class="fab fa-google"></i></div>
+      </div>
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="review-text">Elektra volledig vernieuwd in ons huis. Keurig werk, alles volgens de normen. JS Techniek is een betrouwbare partij, zeker voor herhaling vatbaar.</div>
+    </div>
+  </div>
 </div>
-<script>
-  // Force white background on Elfsight summary block after widget renders
-  (function() {
-    function fixReviewsBg() {
-      const selectors = [
-        '[class*="eapps-google-reviews-summary"]',
-        '[class*="eapps-google-reviews-page"]',
-        '.eapps-google-reviews'
-      ];
-      selectors.forEach(function(sel) {
-        document.querySelectorAll(sel).forEach(function(el) {
-          el.style.setProperty('background-color', '#ffffff', 'important');
-          el.style.setProperty('background', '#ffffff', 'important');
-        });
-      });
-    }
-    // Run on load and after short delays to catch lazy widget init
-    window.addEventListener('load', fixReviewsBg);
-    setTimeout(fixReviewsBg, 1500);
-    setTimeout(fixReviewsBg, 3500);
-  })();
-</script>
 
 <!-- ===== INFO SECTION ===== -->
-<!-- Font Awesome for Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <div class="info-section">
   <div class="info-box">
     <div class="info-box-icon"><i class="fas fa-comment-dots"></i></div>
@@ -1628,7 +1152,7 @@
     <div class="info-box-icon"><i class="fas fa-star"></i></div>
     <h3>Reviews</h3>
     <p>Lees wat onze klanten over ons zeggen. Kwaliteit staat bij ons voorop.</p>
-    <a href="projecten.html" class="info-box-link">Bekijk reviews <i class="fas fa-arrow-right"></i></a>
+    <a href="#reviews-section" class="info-box-link">Bekijk reviews <i class="fas fa-arrow-right"></i></a>
   </div>
   <div class="info-box">
     <div class="info-box-icon"><i class="fas fa-file-signature"></i></div>
@@ -1641,15 +1165,57 @@
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-logo">
-    <img src="images/logo-white.png" alt="Beuker Bouw &amp; Installatie" onerror="this.src='images/logo.png'">
+    <img loading="lazy" src="images/logo-white.png" alt="JS Techniek" onerror="this.src='images/logo.png'">
   </div>
   <div class="footer-contact">
-    <a href="tel:+31613871455"><i class="fas fa-phone"></i> +31 6 13871455</a>
-    <a href="mailto:info@beuker-bouw.nl"><i class="fas fa-envelope"></i> info@beuker-bouw.nl</a>
+    <a href="tel:+31612602082"><i class="fas fa-phone"></i> +31 6 12602082</a>
+    <a href="mailto:jschoutentechniek@gmail.com"><i class="fas fa-envelope"></i> jschoutentechniek@gmail.com</a>
+    <a href="https://maps.google.com/?q=Den+Helder+Noord-Holland" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Den Helder &middot; Noord-Holland</a>
   </div>
-  <p class="footer-copyright">© Copyright Beuker Bouw &amp; Installatie. Alle rechten voorbehouden.</p>
+  <div class="footer-hours">
+    <i class="far fa-clock"></i> Ma–Vr 08:00–17:00 · Za op afspraak · Zo gesloten
+  </div>
+  <p class="footer-copyright">&copy; JS Techniek · KvK 70974306 · Alle rechten voorbehouden.</p>
+  <p class="footer-legal"><a href="privacy.html">Privacyverklaring</a> &middot; <a href="voorwaarden.html">Algemene voorwaarden</a></p>
   <p class="footer-credit">Webdesign door <a href="https://deprocesdesigners.nl/" target="_blank" rel="noopener">De Proces Designers</a></p>
 </footer>
+
+<!-- ===== COOKIE BANNER ===== -->
+<style>
+  .cookie-banner { position: fixed; bottom: 24px; right: 24px; max-width: 360px; background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05); padding: 1rem 1.1rem; z-index: 9998; font-family: 'Inter', sans-serif; transform: translateY(160%); opacity: 0; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; border-left: 4px solid #E8A800; }
+  .cookie-banner.show { transform: translateY(0); opacity: 1; }
+  .cookie-content { display: flex; align-items: center; gap: 0.85rem; }
+  .cookie-icon { width: 38px; height: 38px; background: #E8A800; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .cookie-text { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 0.82rem; line-height: 1.4; color: #555; }
+  .cookie-text strong { color: #111; font-weight: 800; font-size: 0.92rem; letter-spacing: -0.2px; }
+  .cookie-btn { background: #111; color: #E8A800; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.82rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; flex-shrink: 0; letter-spacing: 0.3px; }
+  .cookie-btn:hover { background: #222; transform: translateY(-1px); }
+  @media (max-width: 480px) { .cookie-banner { bottom: 16px; left: 16px; right: 16px; max-width: none; } }
+</style>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie melding" aria-live="polite">
+  <div class="cookie-content">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-text">
+      <strong>Cookies</strong>
+      <span>Alleen functioneel &mdash; geen tracking, geen reclame.</span>
+    </div>
+    <button class="cookie-btn" id="cookie-accept" type="button">Begrepen</button>
+  </div>
+</div>
+<script>
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    var accept = document.getElementById('cookie-accept');
+    if (!banner) return;
+    if (!localStorage.getItem('js-cookie-accepted')) {
+      setTimeout(function() { banner.classList.add('show'); }, 1200);
+    }
+    accept.addEventListener('click', function() {
+      localStorage.setItem('js-cookie-accepted', '1');
+      banner.classList.remove('show');
+    });
+  })();
+</script>
 
 </body>
 </html>

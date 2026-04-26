@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <meta name="theme-color" content="#E8A800">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacyverklaring | JS Techniek</title>
+  <meta name="description" content="Privacyverklaring van JS Techniek - hoe wij omgaan met persoonsgegevens conform de AVG.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://js-techniek.nl/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacyverklaring | JS Techniek">
+  <meta property="og:description" content="Hoe JS Techniek omgaat met persoonsgegevens.">
+  <meta property="og:url" content="https://js-techniek.nl/privacy.html">
+  <meta property="og:image" content="https://js-techniek.nl/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Privacyverklaring JS Techniek">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="JS Techniek">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacyverklaring | JS Techniek">
+  <meta name="twitter:description" content="Privacyverklaring van JS Techniek (AVG-conform).">
+  <meta name="twitter:image" content="https://js-techniek.nl/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; background: #f5f5f5; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact JS Techniek",
+    "mainEntity": {
+      "@type": "RoofingContractor",
+      "@id": "https://js-techniek.nl/#business",
+      "name": "JS Techniek",
+      "alternateName": "J.S techniek",
+      "url": "https://js-techniek.nl",
+      "logo": "https://js-techniek.nl/images/logo.png",
+      "image": "https://js-techniek.nl/images/og-image.png",
+      "telephone": "+31612602082",
+      "email": "jschoutentechniek@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Den Helder",
+        "addressRegion": "Noord-Holland",
+        "addressCountry": "NL"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": { "@type": "AdministrativeArea", "name": "Noord-Holland" },
+      "identifier": [{ "@type": "PropertyValue", "propertyID": "KvK", "value": "70974306" }]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<style>
+  .custom-navbar {
+    background: #fff;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s ease, padding 0.4s ease, margin 0.4s ease,
+                border-radius 0.4s ease, box-shadow 0.4s ease, max-width 0.4s ease;
+  }
+  /* ===== PILL NAVBAR ON SCROLL ===== */
+  .custom-navbar.scrolled {
+    top: 12px;
+    margin: 0 auto;
+    max-width: 900px;
+    left: 0; right: 0;
+    border-radius: 999px;
+    padding: 0.6rem 2rem;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 1.5px 6px rgba(0,0,0,0.07);
+  }
+  @media (max-width: 991px) {
+    .custom-navbar.scrolled {
+      max-width: calc(100% - 32px);
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+    }
+    .custom-navbar.scrolled.menu-open {
+      border-radius: 20px;
+    }
+  }
+  .navbar-content { display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; }
+  .mobile-logo { display: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .mobile-logo img { height: 50px; width: auto; }
+  .desktop-logo-container { display: flex; }
+  .desktop-logo-container img, .mobile-logo img { border-radius: 50%; }
+  .nav-menu { display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 auto !important; margin: 0 auto !important; padding: 0 !important; list-style: none !important; gap: 2rem; }
+  .nav-item { margin: 0 !important; padding: 0 !important; position: relative; }
+  .nav-item a { text-decoration: none; color: #222; font-weight: 500; padding: 0.5rem 0; display: inline-block; font-size: 17px; transition: color 0.3s; }
+  .nav-item a:hover { color: #E8A800; }
+  .mega-dropdown:hover .mega-menu, .mega-menu:hover { opacity: 1; visibility: visible; pointer-events: auto; }
+  .mega-menu { position: fixed; top: 100px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 90vw; background: white; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0.6s ease; pointer-events: none; z-index: 9999; }
+  .mega-menu-inner { display: flex; flex-direction: column; gap: 2rem; width: 100%; }
+  .mega-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .mega-column { display: flex; flex-direction: column; }
+  .mega-column h4 { margin-bottom: 1rem; font-size: 1.1rem; font-weight: bold; color: #222; }
+  .mega-column a { text-decoration: none; color: #222; padding: 0.3rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; }
+  .mega-column a:hover { color: #E8A800; border-color: #E8A800; }
+  .mega-footer { width: 100%; text-align: center; margin-top: 2rem; }
+  .mega-contact-btn { display: inline-block; padding: 0.7rem 1.3rem; background-color: #E8A800; color: #111 !important; font-weight: 500; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: background-color 0.3s ease; }
+  .mega-contact-btn:hover { background-color: #D09800; }
+  .navbar-socials { margin-left: auto !important; display: flex !important; align-items: center !important; gap: 1rem; }
+  .navbar-socials a { color: #222; font-size: 1.4rem; transition: color 0.3s; }
+  .navbar-socials a:hover { color: #E8A800; }
+  .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; padding: 8px; z-index: 1001; }
+  .hamburger span { width: 25px; height: 3px; background-color: #222; transition: all 0.3s ease; border-radius: 2px; }
+  .hamburger.active span { background-color: #fff; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; transition: opacity 0.3s ease; }
+  .mobile-overlay.active { display: block; opacity: 1; }
+  .mobile-submenu { display: none; flex-direction: column; padding: 0; margin: 0; list-style: none; overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+  .mobile-submenu.open { display: flex; max-height: 500px; }
+  .mobile-submenu li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
+  .mobile-submenu li a::before { content: '–'; opacity: 0.5; font-size: 13px; }
+  .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; }
+  .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
+  .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
+  .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
+  .fab-container { position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 997; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .fab-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .fab-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #111; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+  .fab-button:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+  .fab-button i { font-size: 24px; }
+  .fab-quote { background: #E8A800; }
+  .fab-phone { background: #E8A800; }
+  .fab-whatsapp { background: #25D366; color: white; }
+  .fab-whatsapp i { color: white; }
+  @media (max-width: 991px) {
+    .custom-navbar { padding: 1rem 1.5rem; }
+    .custom-navbar.menu-open { background: #1a1a1a; }
+    .navbar-content { display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: nowrap; }
+    .mobile-logo { display: block !important; flex-shrink: 0; z-index: 1001; }
+    .mobile-logo img { height: 65px; width: auto; display: block; }
+    .mobile-logo.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .desktop-logo-container { display: none !important; }
+    .hamburger { display: flex; flex-shrink: 0; margin-left: auto; }
+    .navbar-socials { display: none !important; }
+    .nav-menu { position: fixed; top: 0; right: 0; transform: translateX(100%); width: 280px; height: 100vh; background: #1a1a1a; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; padding: 5rem 2rem 2rem 2rem !important; gap: 0 !important; box-shadow: -5px 0 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; overflow-y: auto; z-index: 1000; visibility: hidden; }
+    .nav-menu.active { transform: translateX(0); visibility: visible; }
+    .nav-item { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .nav-item > a { display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 0; font-size: 18px; width: 100%; color: #fff !important; font-weight: 700; text-decoration: none; }
+    .nav-item > a::after { content: '›'; font-size: 20px; opacity: 0.5; font-weight: 400; }
+    .nav-item a:hover { opacity: 0.85; color: #E8A800 !important; }
+    .diensten-toggle-row { display: none; align-items: center; width: 100%; }
+    .diensten-mobile-link { flex: 1; padding: 1.15rem 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #fff !important; text-decoration: none; }
+    .diensten-mobile-link::after { display: none !important; }
+    .diensten-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; background: rgba(255,255,255,0.12); border-radius: 8px; flex-shrink: 0; }
+    .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 13px; color: #fff; }
+    .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
+    .mega-dropdown .mega-menu { display: none !important; }
+    .mobile-submenu.open { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .custom-navbar { padding: 0.75rem 1rem; }
+    .mobile-logo img { height: 55px; }
+    .nav-menu { width: 100%; right: 0; transform: translateX(100%); }
+    .hamburger span { width: 22px; }
+  }
+  @media (max-width: 768px) {
+    .fab-container { left: 15px; bottom: 15px; gap: 12px; }
+    .fab-button { width: 46px; height: 46px; }
+    .fab-button i { font-size: 18px; }
+  }
+</style>
+
+<nav class="custom-navbar" id="customNavbar">
+  <div class="navbar-content">
+    <a href="index.html" class="mobile-logo" id="mobileLogo">
+      <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" />
+    </a>
+    <div class="desktop-logo-container">
+      <a href="index.html">
+        <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" style="height:56px;width:auto;" />
+      </a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a href="index.html">Home</a></li>
+      <li class="nav-item mega-dropdown" id="megaDropdown">
+        <a href="diensten.html" class="diensten-desktop-link">Diensten</a>
+        <div class="diensten-toggle-row">
+          <a href="diensten.html" class="diensten-mobile-link">Diensten</a>
+          <div class="diensten-toggle" id="dienstenToggle">
+            <i class="fas fa-chevron-down toggle-arrow"></i>
+          </div>
+        </div>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-columns">
+              <div class="mega-column">
+                <h4><a href="dakbedekking.html">Dakbedekking</a></h4>
+                <a href="dakbedekking.html#bitumen">Bitumen dakbedekking</a>
+                <a href="dakbedekking.html#epdm">EPDM dakbedekking</a>
+              </div>
+              <div class="mega-column">
+                <h4><a href="loodgieterswerk.html">Loodgieterswerk</a></h4>
+                <a href="loodgieterswerk.html#sanitair">Sanitaire installaties</a>
+                <a href="loodgieterswerk.html#rioleringen">Rioleringen</a>
+                <a href="loodgieterswerk.html#verwarming">Verwarmingssystemen</a>
+              </div>
+              <div class="mega-column">
+                <h4><a href="elektra.html">Elektra</a></h4>
+                <a href="elektra.html#installaties">Installaties</a>
+                <a href="elektra.html#reparaties">Reparaties</a>
+                <a href="elektra.html#inspectie">Inspectie</a>
+              </div>
+            </div>
+            <div class="mega-footer">
+              <a href="contact.html" class="mega-contact-btn">Neem contact op voor meer informatie</a>
+            </div>
+          </div>
+        </div>
+        <ul class="mobile-submenu" id="mobileSubmenu">
+          <li><a href="dakbedekking.html">Dakbedekking</a></li>
+          <li><a href="loodgieterswerk.html">Loodgieterswerk</a></li>
+          <li><a href="elektra.html">Elektra</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="projecten.html">Projecten</a></li>
+      <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
+      <li class="nav-item"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-socials">
+      <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/jschoutentechniek/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="fab-container" id="fabContainer">
+  <a href="contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan"><i class="fas fa-file-alt"></i></a>
+  <a href="tel:+31612602082" class="fab-button fab-phone" aria-label="Bel ons"><i class="fas fa-phone"></i></a>
+  <a href="https://wa.me/31612602082" class="fab-button fab-whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const fabContainer = document.getElementById('fabContainer');
+  const mobileLogo = document.getElementById('mobileLogo');
+  const customNavbar = document.getElementById('customNavbar');
+  const megaDropdown = document.getElementById('megaDropdown');
+  const megaMenu = megaDropdown.querySelector('.mega-menu');
+  const dienstenToggle = document.getElementById('dienstenToggle');
+  const mobileSubmenu = document.getElementById('mobileSubmenu');
+  const dienstenDesktopLink = megaDropdown.querySelector('.diensten-desktop-link');
+  const dienstenToggleRow = megaDropdown.querySelector('.diensten-toggle-row');
+  let timeout;
+  // ---- Pill navbar on scroll ----
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      customNavbar.classList.add('scrolled');
+    } else {
+      customNavbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  function applyDienstenMode() {
+    if (window.innerWidth <= 991) { dienstenDesktopLink.style.display = 'none'; dienstenToggleRow.style.display = 'flex'; }
+    else { dienstenDesktopLink.style.display = 'inline-block'; dienstenToggleRow.style.display = 'none'; mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); }
+  }
+  applyDienstenMode();
+  window.addEventListener('resize', applyDienstenMode);
+  dienstenToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = mobileSubmenu.classList.toggle('open'); dienstenToggle.classList.toggle('open', isOpen); });
+  hamburger.addEventListener('click', () => {
+    const isActive = hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active'); mobileOverlay.classList.toggle('active');
+    if (isActive) { mobileLogo.classList.add('hidden'); customNavbar.classList.add('menu-open'); fabContainer.classList.add('hidden'); }
+    else { mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden'); mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); }
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  mobileOverlay.addEventListener('click', () => {
+    hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+    mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
+    mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); document.body.style.overflow = '';
+  });
+  document.querySelectorAll('.nav-item > a, .mobile-submenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 991) {
+        hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+        mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
+        mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  });
+  if (window.innerWidth > 991) {
+    megaDropdown.addEventListener('mouseenter', () => { clearTimeout(timeout); megaMenu.style.opacity='1'; megaMenu.style.visibility='visible'; megaMenu.style.pointerEvents='auto'; });
+    megaDropdown.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
+    megaMenu.addEventListener('mouseenter', () => { clearTimeout(timeout); });
+    megaMenu.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
+  }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 991) { hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden'); document.body.style.overflow = ''; }
+  });
+</script>
+
+<!-- ===== LEGAL PAGE ===== -->
+<style>
+  .legal-section { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem 4rem; font-family: 'Inter', sans-serif; }
+  .legal-header { text-align: center; margin-bottom: 3rem; }
+  .legal-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #191919; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+  .legal-header .legal-meta { color: #888; font-size: 0.9rem; }
+  .legal-content { background: #fff; padding: 2.5rem 2.5rem; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .legal-content h2 { font-size: 1.35rem; font-weight: 800; color: #191919; margin: 2rem 0 0.85rem; padding-bottom: 0.5rem; border-bottom: 2px solid #E8A800; }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content h3 { font-size: 1.05rem; font-weight: 700; color: #191919; margin: 1.5rem 0 0.5rem; }
+  .legal-content p { color: #444; line-height: 1.75; font-size: 0.97rem; margin-bottom: 1rem; }
+  .legal-content ul { margin: 0.5rem 0 1.25rem 1.5rem; }
+  .legal-content ul li { color: #444; line-height: 1.75; font-size: 0.97rem; margin-bottom: 0.4rem; }
+  .legal-content a { color: #E8A800; text-decoration: none; font-weight: 600; }
+  .legal-content a:hover { text-decoration: underline; }
+  .legal-content strong { color: #191919; }
+  .legal-back { text-align: center; margin-top: 2.5rem; }
+  .legal-back a { color: #E8A800; font-weight: 700; text-decoration: none; }
+  .legal-back a:hover { color: #D09800; }
+  @media (max-width: 768px) { .legal-section { padding: 3rem 1rem 2.5rem; } .legal-content { padding: 1.75rem 1.5rem; } }
+</style>
+
+<section class="legal-section">
+  <div class="legal-header">
+    <h1>Privacyverklaring</h1>
+    <p class="legal-meta">Laatst bijgewerkt: 26 april 2026</p>
+  </div>
+  <article class="legal-content">
+    <p>JS Techniek hecht veel waarde aan jouw privacy. In deze privacyverklaring lees je hoe wij omgaan met persoonsgegevens die wij verzamelen via deze website en bij het uitvoeren van onze werkzaamheden.</p>
+
+    <h2>1. Wie zijn wij?</h2>
+    <p>JS Techniek is een eenmanszaak gevestigd in Den Helder, ingeschreven bij de Kamer van Koophandel onder nummer <strong>70974306</strong>. Wij zijn verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze verklaring.</p>
+    <p><strong>Contact:</strong><br>
+    Telefoon: <a href="tel:+31612602082">+31 6 12602082</a><br>
+    E-mail: <a href="mailto:jschoutentechniek@gmail.com">jschoutentechniek@gmail.com</a></p>
+
+    <h2>2. Welke gegevens verzamelen wij?</h2>
+    <p>Wij verwerken alleen die persoonsgegevens die je actief aan ons doorgeeft, bijvoorbeeld via het contactformulier of bij het aanvragen van een offerte. Het gaat om de volgende gegevens:</p>
+    <ul>
+      <li>Voor- en achternaam</li>
+      <li>E-mailadres</li>
+      <li>Telefoonnummer</li>
+      <li>Adresgegevens van het werkadres (alleen indien nodig voor uitvoering)</li>
+      <li>Inhoud van je bericht of offerte-aanvraag</li>
+    </ul>
+
+    <h2>3. Waarom verwerken wij deze gegevens?</h2>
+    <p>Wij gebruiken jouw gegevens uitsluitend voor:</p>
+    <ul>
+      <li>Het beantwoorden van je vraag of contactaanvraag</li>
+      <li>Het opstellen en versturen van een offerte</li>
+      <li>Het uitvoeren van een opdracht en de bijbehorende administratie</li>
+      <li>Het voldoen aan wettelijke verplichtingen (zoals fiscale bewaarplicht)</li>
+    </ul>
+
+    <h2>4. Hoe lang bewaren wij gegevens?</h2>
+    <p>Wij bewaren persoonsgegevens niet langer dan noodzakelijk voor de hierboven genoemde doelen. Voor klant- en offertegegevens hanteren wij de wettelijke fiscale bewaartermijn van zeven jaar. Berichten zonder vervolgactie worden binnen één jaar verwijderd.</p>
+
+    <h2>5. Met wie delen wij gegevens?</h2>
+    <p>Wij delen jouw persoonsgegevens niet met derden, tenzij dit noodzakelijk is voor de uitvoering van de overeenkomst (bijvoorbeeld een leverancier voor een bepaald materiaal) of wanneer wij hiertoe wettelijk verplicht zijn. Wij verkopen geen gegevens aan derden voor marketingdoeleinden.</p>
+
+    <h2>6. Cookies</h2>
+    <p>Deze website gebruikt uitsluitend functionele cookies die noodzakelijk zijn voor het correct functioneren van de site. Wij plaatsen geen tracking-cookies, geen advertentie-cookies en geen analytische cookies van derden. Je hoeft hier dus geen toestemming voor te geven, maar wij tonen wel een korte melding bij je eerste bezoek zodat je dit weet.</p>
+
+    <h2>7. Beveiliging van gegevens</h2>
+    <p>Wij nemen passende technische en organisatorische maatregelen om jouw persoonsgegevens te beschermen tegen verlies, misbruik of ongeautoriseerde toegang. Onze website wordt aangeboden over een beveiligde HTTPS-verbinding.</p>
+
+    <h2>8. Jouw rechten</h2>
+    <p>Je hebt onder de Algemene Verordening Gegevensbescherming (AVG) de volgende rechten:</p>
+    <ul>
+      <li><strong>Inzage</strong>: weten welke gegevens wij van je hebben</li>
+      <li><strong>Correctie</strong>: onjuiste gegevens laten aanpassen</li>
+      <li><strong>Verwijdering</strong>: gegevens laten wissen wanneer dit kan</li>
+      <li><strong>Beperking</strong>: het gebruik van gegevens beperken</li>
+      <li><strong>Bezwaar</strong>: bezwaar maken tegen het verwerken van jouw gegevens</li>
+      <li><strong>Overdraagbaarheid</strong>: jouw gegevens in een gangbare vorm ontvangen</li>
+    </ul>
+    <p>Wil je gebruik maken van deze rechten? Stuur dan een e-mail naar <a href="mailto:jschoutentechniek@gmail.com">jschoutentechniek@gmail.com</a>. Wij reageren binnen vier weken.</p>
+
+    <h2>9. Klachten</h2>
+    <p>Heb je een klacht over hoe wij omgaan met jouw persoonsgegevens? Neem dan eerst contact met ons op zodat wij dit samen kunnen oplossen. Kom je er met ons niet uit, dan heb je het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens via <a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">autoriteitpersoonsgegevens.nl</a>.</p>
+
+    <h2>10. Wijzigingen</h2>
+    <p>Wij kunnen deze privacyverklaring van tijd tot tijd aanpassen. De meest recente versie staat altijd op deze pagina. Bij ingrijpende wijzigingen worden bestaande klanten per e-mail geïnformeerd.</p>
+  </article>
+  <div class="legal-back">
+    <a href="index.html">&larr; Terug naar de homepage</a>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<style>
+  .site-footer { background: #1a1a1a; padding: 3rem 2rem 2rem; text-align: center; }
+  .footer-logo { margin: 0 auto 1.5rem; }
+  .footer-logo img { max-height: 70px; width: auto; margin: 0 auto; border-radius: 50%; }
+  .footer-contact { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .footer-contact a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .footer-contact a:hover { color: #fff; }
+  .footer-contact i { color: #E8A800; font-size: 0.85rem; }
+  .footer-hours { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: -0.25rem 0 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem; text-align: center; }
+  .footer-hours i { color: #E8A800; font-size: 0.85rem; }
+  .footer-copyright { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin-bottom: 0.4rem; }
+  .footer-credit { color: rgba(255,255,255,0.55); font-size: 0.78rem; margin-top: 0.4rem; }
+  .footer-credit a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+  .footer-credit a:hover { color: rgba(255,255,255,0.8); }
+  .footer-legal { color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .footer-legal a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; margin: 0 0.25rem; }
+  .footer-legal a:hover { color: #fff; text-decoration: underline; }
+  @media (max-width: 768px) {
+    .footer-contact { flex-direction: column; gap: 0.5rem; align-items: center; }
+    .footer-copyright, .footer-credit { font-size: 0.82rem; }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-logo">
+    <img loading="lazy" src="images/logo-white.png" alt="JS Techniek" onerror="this.src='images/logo.png'">
+  </div>
+  <div class="footer-contact">
+    <a href="tel:+31612602082"><i class="fas fa-phone"></i> +31 6 12602082</a>
+    <a href="mailto:jschoutentechniek@gmail.com"><i class="fas fa-envelope"></i> jschoutentechniek@gmail.com</a>
+    <a href="https://maps.google.com/?q=Den+Helder+Noord-Holland" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Den Helder &middot; Noord-Holland</a>
+  </div>
+  <div class="footer-hours">
+    <i class="far fa-clock"></i> Ma–Vr 08:00–17:00 · Za op afspraak · Zo gesloten
+  </div>
+  <p class="footer-copyright">&copy; JS Techniek · KvK 70974306 · Alle rechten voorbehouden.</p>
+  <p class="footer-legal"><a href="privacy.html">Privacyverklaring</a> &middot; <a href="voorwaarden.html">Algemene voorwaarden</a></p>
+  <p class="footer-credit">Webdesign door <a href="https://deprocesdesigners.nl/" target="_blank" rel="noopener">De Proces Designers</a></p>
+</footer>
+
+<!-- ===== COOKIE BANNER ===== -->
+<style>
+  .cookie-banner { position: fixed; bottom: 24px; right: 24px; max-width: 360px; background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05); padding: 1rem 1.1rem; z-index: 9998; font-family: 'Inter', sans-serif; transform: translateY(160%); opacity: 0; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; border-left: 4px solid #E8A800; }
+  .cookie-banner.show { transform: translateY(0); opacity: 1; }
+  .cookie-content { display: flex; align-items: center; gap: 0.85rem; }
+  .cookie-icon { width: 38px; height: 38px; background: #E8A800; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .cookie-text { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 0.82rem; line-height: 1.4; color: #555; }
+  .cookie-text strong { color: #111; font-weight: 800; font-size: 0.92rem; letter-spacing: -0.2px; }
+  .cookie-btn { background: #111; color: #E8A800; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.82rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; flex-shrink: 0; letter-spacing: 0.3px; }
+  .cookie-btn:hover { background: #222; transform: translateY(-1px); }
+  @media (max-width: 480px) { .cookie-banner { bottom: 16px; left: 16px; right: 16px; max-width: none; } }
+</style>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie melding" aria-live="polite">
+  <div class="cookie-content">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-text">
+      <strong>Cookies</strong>
+      <span>Alleen functioneel &mdash; geen tracking, geen reclame.</span>
+    </div>
+    <button class="cookie-btn" id="cookie-accept" type="button">Begrepen</button>
+  </div>
+</div>
+<script>
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    var accept = document.getElementById('cookie-accept');
+    if (!banner) return;
+    if (!localStorage.getItem('js-cookie-accepted')) {
+      setTimeout(function() { banner.classList.add('show'); }, 1200);
+    }
+    accept.addEventListener('click', function() {
+      localStorage.setItem('js-cookie-accepted', '1');
+      banner.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>

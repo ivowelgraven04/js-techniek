@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+  }
+  .card {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/resized/JS%20Techniek%202%20kopie.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.28) saturate(1.1);
+  }
+  .gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.78) 100%),
+      radial-gradient(circle at 20% 30%, rgba(232,168,0,0.18), transparent 55%);
+  }
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 10px;
+    background: linear-gradient(180deg, #E8A800 0%, #FFC933 50%, #E8A800 100%);
+  }
+  .gold-shape {
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 460px;
+    height: 460px;
+    background: linear-gradient(135deg, #E8A800 0%, #b88300 100%);
+    transform: rotate(20deg);
+    opacity: 0.10;
+    border-radius: 80px;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+  .logo-row img {
+    height: 84px;
+    width: 84px;
+    border-radius: 50%;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 0 3px rgba(232,168,0,0.3);
+  }
+  .logo-row .brand {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .tagline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E8A800;
+    color: #0a0a0a;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+    width: fit-content;
+  }
+  h1 {
+    font-size: 62px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 22px;
+    max-width: 640px;
+  }
+  h1 .accent {
+    background: linear-gradient(135deg, #FFC933 0%, #E8A800 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.78);
+    font-weight: 500;
+    line-height: 1.55;
+    max-width: 540px;
+  }
+  .icons-col {
+    position: absolute;
+    right: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 2;
+  }
+  .icon-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(232,168,0,0.25);
+    border-radius: 14px;
+    padding: 14px 20px;
+    width: 240px;
+    backdrop-filter: blur(8px);
+  }
+  .icon-circle {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #E8A800 0%, #b88300 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+    flex-shrink: 0;
+  }
+  .icon-circle svg { width: 22px; height: 22px; }
+  .icon-text {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .bottom-row {
+    position: absolute;
+    bottom: 28px;
+    left: 80px;
+    right: 80px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .domain {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .domain::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #E8A800;
+    border-radius: 50%;
+  }
+  .location {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #E8A800 0%, #FFC933 50%, #E8A800 100%);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg"></div>
+  <div class="gradient-overlay"></div>
+  <div class="accent-bar"></div>
+  <div class="gold-shape"></div>
+
+  <div class="content">
+    <div class="logo-row">
+      <img src="images/circular_logo_full.png" alt="JS Techniek">
+      <div class="brand">JS Techniek</div>
+    </div>
+
+    <div class="tagline-pill">
+      ★ Specialist Noord-Holland
+    </div>
+
+    <h1>Platte daken,<br>loodgieterswerk &amp; <span class="accent">elektra</span>.</h1>
+
+    <p class="sub">Vakkundig, betrouwbaar en altijd in de buurt.<br>Van bitumen tot EPDM &mdash; vandaag gebeld, morgen geholpen.</p>
+  </div>
+
+  <div class="icons-col">
+    <div class="icon-badge">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9v12h20V9L12 2zm0 2.5L19.5 10v9h-15v-9L12 4.5z"/></svg>
+      </div>
+      <span class="icon-text">Dakbedekking</span>
+    </div>
+    <div class="icon-badge">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 5h14v2H5zm0 4h14v2H5zm0 4h14v2H5zm0 4h14v2H5z" opacity=".2"/><path d="M11 2v4H8v2h3v6c0 1.1.9 2 2 2s2-.9 2-2V8h3V6h-3V2h-4z"/></svg>
+      </div>
+      <span class="icon-text">Loodgieterswerk</span>
+    </div>
+    <div class="icon-badge">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l3-8z"/></svg>
+      </div>
+      <span class="icon-text">Elektra</span>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="domain">js-techniek.nl</div>
+    <div class="location">📍 Den Helder &middot; Noord-Holland</div>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+</body>
+</html>

@@ -1,48 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://beuker-bouw.nl/</loc>
+    <loc>https://js-techniek.nl/</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/loodgieterswerk.html</loc>
+    <loc>https://js-techniek.nl/diensten.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/dakwerk.html</loc>
+    <loc>https://js-techniek.nl/dakbedekking.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/zinkwerk.html</loc>
+    <loc>https://js-techniek.nl/loodgieterswerk.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/bouw-en-renovatie.html</loc>
+    <loc>https://js-techniek.nl/elektra.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/noodreparaties.html</loc>
+    <loc>https://js-techniek.nl/projecten.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/over-ons.html</loc>
+    <loc>https://js-techniek.nl/over-ons.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/projecten.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://js-techniek.nl/contact.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://beuker-bouw.nl/contact.html</loc>
+    <loc>https://js-techniek.nl/privacy.html</loc>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://js-techniek.nl/voorwaarden.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

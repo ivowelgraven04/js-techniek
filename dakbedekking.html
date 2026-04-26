@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <meta name="theme-color" content="#E8A800">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dakbedekking | JS Techniek</title>
+  <meta name="description" content="Professionele dakbedekking voor platte daken door JS Techniek. Bitumen en EPDM dakbedekking – vakkundig en betrouwbaar.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://js-techniek.nl/dakbedekking.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dakbedekking | JS Techniek">
+  <meta property="og:description" content="Professionele dakbedekking voor platte daken door JS Techniek. Bitumen en EPDM dakbedekking – vakkundig en betrouwbaar.">
+  <meta property="og:url" content="https://js-techniek.nl/dakbedekking.html">
+  <meta property="og:image" content="https://js-techniek.nl/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="JS Techniek - Specialist in platte dakbedekking">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="JS Techniek">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dakbedekking | JS Techniek">
+  <meta name="twitter:description" content="Professionele dakbedekking voor platte daken – bitumen en EPDM systemen.">
+  <meta name="twitter:image" content="https://js-techniek.nl/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; background: #fff; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "@id": "https://js-techniek.nl/#business",
+    "name": "JS Techniek",
+    "alternateName": "J.S techniek",
+    "url": "https://js-techniek.nl",
+    "logo": "https://js-techniek.nl/images/logo.png",
+    "image": "https://js-techniek.nl/images/og-image.png",
+    "telephone": "+31612602082",
+    "email": "jschoutentechniek@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Den Helder",
+      "addressRegion": "Noord-Holland",
+      "addressCountry": "NL"
+    },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Noord-Holland" },
+    "identifier": [{ "@type": "PropertyValue", "propertyID": "KvK", "value": "70974306" }]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<style>
+  .custom-navbar {
+    background: #fff;
+    padding: 1rem 2rem;
+    font-family: 'Inter', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s ease, padding 0.4s ease, margin 0.4s ease,
+                border-radius 0.4s ease, box-shadow 0.4s ease, max-width 0.4s ease;
+  }
+  /* ===== PILL NAVBAR ON SCROLL ===== */
+  .custom-navbar.scrolled {
+    top: 12px;
+    margin: 0 auto;
+    max-width: 900px;
+    left: 0; right: 0;
+    border-radius: 999px;
+    padding: 0.6rem 2rem;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 1.5px 6px rgba(0,0,0,0.07);
+  }
+  @media (max-width: 991px) {
+    .custom-navbar.scrolled {
+      max-width: calc(100% - 32px);
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+    }
+    .custom-navbar.scrolled.menu-open {
+      border-radius: 20px;
+    }
+  }
+  .navbar-content { display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; }
+  .mobile-logo { display: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .mobile-logo img { height: 50px; width: auto; }
+  .desktop-logo-container { display: flex; }
+  .desktop-logo-container img, .mobile-logo img { border-radius: 50%; }
+  .nav-menu { display: flex !important; align-items: center !important; justify-content: center !important; flex: 1 1 auto !important; margin: 0 auto !important; padding: 0 !important; list-style: none !important; gap: 2rem; }
+  .nav-item { margin: 0 !important; padding: 0 !important; position: relative; }
+  .nav-item a { text-decoration: none; color: #222; font-weight: 500; padding: 0.5rem 0; display: inline-block; font-size: 17px; transition: color 0.3s; }
+  .nav-item a:hover { color: #E8A800; }
+  .mega-dropdown:hover .mega-menu, .mega-menu:hover { opacity: 1; visibility: visible; pointer-events: auto; }
+  .mega-menu { position: fixed; top: 100px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 90vw; background: white; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0.6s ease; pointer-events: none; z-index: 9999; }
+  .mega-menu-inner { display: flex; flex-direction: column; gap: 2rem; width: 100%; }
+  .mega-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .mega-column { display: flex; flex-direction: column; }
+  .mega-column h4 { margin-bottom: 1rem; font-size: 1.1rem; font-weight: bold; color: #222; }
+  .mega-column a { text-decoration: none; color: #222; padding: 0.3rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; }
+  .mega-column a:hover { color: #E8A800; border-color: #E8A800; }
+  .mega-footer { width: 100%; text-align: center; margin-top: 2rem; }
+  .mega-contact-btn { display: inline-block; padding: 0.75rem 1.5rem; background-color: #E8A800; color: #111 !important; font-weight: 500; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease; }
+  .mega-contact-btn:hover { background-color: #D09800; }
+  .navbar-socials { margin-left: auto !important; display: flex !important; align-items: center !important; gap: 1rem; }
+  .navbar-socials a { color: #222; font-size: 1.4rem; transition: color 0.3s; }
+  .navbar-socials a:hover { color: #E8A800; }
+  .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; padding: 8px; z-index: 1001; }
+  .hamburger span { width: 25px; height: 3px; background-color: #222; transition: all 0.3s ease; border-radius: 2px; }
+  .hamburger.active span { background-color: #fff; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+  .mobile-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; transition: opacity 0.3s ease; }
+  .mobile-overlay.active { display: block; opacity: 1; }
+  .mobile-submenu { display: none; flex-direction: column; padding: 0; margin: 0; list-style: none; overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+  .mobile-submenu.open { display: flex; max-height: 500px; }
+  .mobile-submenu li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
+  .mobile-submenu li a::before { content: '–'; opacity: 0.5; font-size: 13px; }
+  .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; }
+  .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
+  .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
+  .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
+  .fab-container { position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 997; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .fab-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .fab-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+  .fab-button:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+  .fab-button i { font-size: 24px; }
+  .fab-quote { background: #E8A800; color: #111; }
+  .fab-phone { background: #E8A800; color: #111; }
+  .fab-whatsapp { background: #25D366; color: white; }
+  @media (max-width: 991px) {
+    .custom-navbar { padding: 1rem 1.5rem; }
+    .custom-navbar.menu-open { background: #1a1a1a; }
+    .navbar-content { display: flex; flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: nowrap; }
+    .mobile-logo { display: block !important; flex-shrink: 0; z-index: 1001; }
+    .mobile-logo img { height: 65px; width: auto; display: block; }
+    .mobile-logo.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .desktop-logo-container { display: none !important; }
+    .hamburger { display: flex; flex-shrink: 0; margin-left: auto; }
+    .navbar-socials { display: none !important; }
+    .nav-menu { position: fixed; top: 0; right: 0; transform: translateX(100%); width: 280px; height: 100vh; background: #1a1a1a; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; padding: 5rem 2rem 2rem 2rem !important; gap: 0 !important; box-shadow: -5px 0 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; overflow-y: auto; z-index: 1000; visibility: hidden; }
+    .nav-menu.active { transform: translateX(0); visibility: visible; }
+    .nav-item { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .nav-item > a { display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 0; font-size: 18px; width: 100%; color: #fff !important; font-weight: 700; text-decoration: none; }
+    .nav-item > a::after { content: '\203A'; font-size: 20px; opacity: 0.5; font-weight: 400; }
+    .nav-item a:hover { color: #E8A800 !important; }
+    .diensten-toggle-row { display: none; align-items: center; width: 100%; }
+    .diensten-mobile-link { flex: 1; padding: 1.15rem 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #fff !important; text-decoration: none; }
+    .diensten-mobile-link::after { display: none !important; }
+    .diensten-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; background: rgba(255,255,255,0.12); border-radius: 8px; flex-shrink: 0; }
+    .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 13px; color: #fff; }
+    .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
+    .mega-dropdown .mega-menu { display: none !important; }
+    .mobile-submenu.open { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .custom-navbar { padding: 0.75rem 1rem; }
+    .mobile-logo img { height: 55px; }
+    .nav-menu { width: 100%; right: 0; transform: translateX(100%); }
+    .hamburger span { width: 22px; }
+  }
+  @media (max-width: 768px) {
+    .fab-container { left: 15px; bottom: 15px; gap: 12px; }
+    .fab-button { width: 46px; height: 46px; }
+    .fab-button i { font-size: 18px; }
+  }
+</style>
+
+<nav class="custom-navbar" id="customNavbar">
+  <div class="navbar-content">
+    <a href="index.html" class="mobile-logo" id="mobileLogo">
+      <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" />
+    </a>
+    <div class="desktop-logo-container">
+      <a href="index.html">
+        <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" style="height:56px;width:auto;" />
+      </a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a href="index.html">Home</a></li>
+      <li class="nav-item mega-dropdown" id="megaDropdown">
+        <a href="diensten.html" class="diensten-desktop-link">Diensten</a>
+        <div class="diensten-toggle-row">
+          <a href="diensten.html" class="diensten-mobile-link">Diensten</a>
+          <div class="diensten-toggle" id="dienstenToggle">
+            <i class="fas fa-chevron-down toggle-arrow"></i>
+          </div>
+        </div>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-columns">
+              <div class="mega-column">
+                <h4><a href="dakbedekking.html">Dakbedekking</a></h4>
+                <a href="dakbedekking.html#bitumen">Bitumen dakbedekking</a>
+                <a href="dakbedekking.html#epdm">EPDM dakbedekking</a>
+              </div>
+              <div class="mega-column">
+                <h4><a href="loodgieterswerk.html">Loodgieterswerk</a></h4>
+                <a href="loodgieterswerk.html#sanitair">Sanitaire installaties</a>
+                <a href="loodgieterswerk.html#rioleringen">Rioleringen</a>
+                <a href="loodgieterswerk.html#verwarming">Verwarmingssystemen</a>
+              </div>
+              <div class="mega-column">
+                <h4><a href="elektra.html">Elektra</a></h4>
+                <a href="elektra.html#installaties">Installaties</a>
+                <a href="elektra.html#reparaties">Reparaties</a>
+                <a href="elektra.html#inspectie">Inspectie</a>
+              </div>
+            </div>
+            <div class="mega-footer">
+              <a href="contact.html" class="mega-contact-btn">Neem contact op voor meer informatie</a>
+            </div>
+          </div>
+        </div>
+        <ul class="mobile-submenu" id="mobileSubmenu">
+          <li><a href="dakbedekking.html">Dakbedekking</a></li>
+          <li><a href="loodgieterswerk.html">Loodgieterswerk</a></li>
+          <li><a href="elektra.html">Elektra</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="projecten.html">Projecten</a></li>
+      <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
+      <li class="nav-item"><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="navbar-socials">
+      <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/jschoutentechniek/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="fab-container" id="fabContainer">
+  <a href="contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan"><i class="fas fa-file-alt"></i></a>
+  <a href="tel:+31612602082" class="fab-button fab-phone" aria-label="Bel ons"><i class="fas fa-phone"></i></a>
+  <a href="https://wa.me/31612602082" class="fab-button fab-whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const fabContainer = document.getElementById('fabContainer');
+  const mobileLogo = document.getElementById('mobileLogo');
+  const customNavbar = document.getElementById('customNavbar');
+  const megaDropdown = document.getElementById('megaDropdown');
+  const megaMenu = megaDropdown.querySelector('.mega-menu');
+  const dienstenToggle = document.getElementById('dienstenToggle');
+  const mobileSubmenu = document.getElementById('mobileSubmenu');
+  const dienstenDesktopLink = megaDropdown.querySelector('.diensten-desktop-link');
+  const dienstenToggleRow = megaDropdown.querySelector('.diensten-toggle-row');
+  let timeout;
+  // ---- Pill navbar on scroll ----
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      customNavbar.classList.add('scrolled');
+    } else {
+      customNavbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  function applyDienstenMode() {
+    if (window.innerWidth <= 991) { dienstenDesktopLink.style.display = 'none'; dienstenToggleRow.style.display = 'flex'; }
+    else { dienstenDesktopLink.style.display = 'inline-block'; dienstenToggleRow.style.display = 'none'; mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); }
+  }
+  applyDienstenMode();
+  window.addEventListener('resize', applyDienstenMode);
+  dienstenToggle.addEventListener('click', (e) => { e.stopPropagation(); const isOpen = mobileSubmenu.classList.toggle('open'); dienstenToggle.classList.toggle('open', isOpen); });
+  hamburger.addEventListener('click', () => {
+    const isActive = hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active'); mobileOverlay.classList.toggle('active');
+    if (isActive) { mobileLogo.classList.add('hidden'); customNavbar.classList.add('menu-open'); fabContainer.classList.add('hidden'); }
+    else { mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden'); mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); }
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  mobileOverlay.addEventListener('click', () => {
+    hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+    mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
+    mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); document.body.style.overflow = '';
+  });
+  document.querySelectorAll('.nav-item > a, .mobile-submenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 991) {
+        hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+        mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
+        mobileSubmenu.classList.remove('open'); dienstenToggle.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  });
+  if (window.innerWidth > 991) {
+    megaDropdown.addEventListener('mouseenter', () => { clearTimeout(timeout); megaMenu.style.opacity='1'; megaMenu.style.visibility='visible'; megaMenu.style.pointerEvents='auto'; });
+    megaDropdown.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
+    megaMenu.addEventListener('mouseenter', () => { clearTimeout(timeout); });
+    megaMenu.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
+  }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 991) { hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active'); mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden'); document.body.style.overflow = ''; }
+  });
+</script>
+
+<!-- ===== HERO ===== -->
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    background-image: url('images/resized/JS%20Techniek%202%20kopie.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+  .hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+  }
+  .hero h1 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .card-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 760px;
+  }
+  .card-container .card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .card-container .card:hover {
+    background: rgba(232,168,0,0.8);
+    transform: translateY(-4px);
+  }
+  .card-container .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .card-container .card p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .card-container .card .arrow {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    color: #E8A800;
+    transition: color 0.3s;
+  }
+  .card-container .card:hover .arrow { color: white; }
+  @media (max-width: 900px) {
+    .card-container { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero { min-height: 55vh; padding: 2rem 1rem; }
+    .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 1.5rem; }
+  }
+  @media (max-width: 560px) {
+    .card-container { grid-template-columns: 1fr; }
+    .hero { min-height: auto; }
+  }
+</style>
+
+<section class="hero">
+  <div class="overlay"></div>
+  <h1>Dakbedekking</h1>
+  <div class="card-container">
+    <a href="#bitumen" class="card">
+      <h3>Bitumen dakbedekking</h3>
+      <p>Betrouwbare waterdichte dakbedekking voor platte daken.</p>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <a href="#epdm" class="card">
+      <h3>EPDM dakbedekking</h3>
+      <p>Moderne synthetische rubber dakbedekking met 50+ jaar levensduur.</p>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== INFO SECTION ===== -->
+<style>
+  .info-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  .info-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+  .info-columns h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #191919;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  .info-columns h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 50px; height: 3px;
+    background: #E8A800;
+    border-radius: 2px;
+  }
+  .info-columns p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 0.98rem;
+  }
+  .photo-text-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background: #f8f8f8;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .photo-text-section img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+  }
+  .photo-text {
+    padding: 3rem 3rem 3rem 0;
+  }
+  .photo-text h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #191919;
+    margin-bottom: 1rem;
+  }
+  .photo-text p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+  @media (max-width: 900px) {
+    .info-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+    .photo-text-section { grid-template-columns: 1fr; }
+    .photo-text-section img { height: 260px; }
+    .photo-text { padding: 2rem; }
+  }
+  @media (max-width: 480px) {
+    .info-section { padding: 3rem 1.25rem; }
+  }
+</style>
+
+<section class="info-section">
+  <div class="info-columns">
+    <div>
+      <h2>Vakmanschap in Dakbedekking</h2>
+      <p>Een goed plat dak is de basis van elk gebouw met bedrijfspand, garage of aanbouw. JS Techniek is gespecialiseerd in het aanbrengen, vervangen en onderhouden van platte daken. Of het nu gaat om bitumen of een modern EPDM-systeem: wij leveren kwaliteit die jarenlang meegaat.</p>
+    </div>
+    <div>
+      <h2>Duurzaam en Betrouwbaar</h2>
+      <p>Wij werken uitsluitend met hoogwaardige materialen en bewezen technieken. Elk dakproject wordt zorgvuldig voorbereid en uitgevoerd door ervaren vakmensen. Zo bent u verzekerd van een waterdicht dak dat bestand is tegen alle weersomstandigheden, vandaag en in de toekomst.</p>
+    </div>
+  </div>
+  <div class="photo-text-section">
+    <img loading="lazy" src="images/resized/JS%20Techniek%2021%20kopie.jpeg" alt="Dakbedekking werkzaamheden">
+    <div class="photo-text">
+      <h2>Dakbedekking op maat</h2>
+      <p>Of het nu gaat om nieuwbouw of renovatie, JS Techniek biedt dakbedekkingsoplossingen die perfect aansluiten bij uw wensen en budget. Wij adviseren u graag over de beste optie voor uw situatie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES DETAIL SECTIONS ===== -->
+<style>
+  .detail-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+  }
+  .detail-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .detail-block.reversed { direction: rtl; }
+  .detail-block.reversed > * { direction: ltr; }
+  .detail-block img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+  }
+  .detail-content {
+    padding: 2.5rem;
+  }
+  .detail-content h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #191919;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  .detail-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 50px; height: 3px;
+    background: #E8A800;
+    border-radius: 2px;
+  }
+  .detail-content p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .detail-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .detail-content ul li {
+    padding: 0.4rem 0;
+    color: #555;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .detail-content ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #E8A800;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 900px) {
+    .detail-block { grid-template-columns: 1fr; gap: 0; }
+    .detail-block.reversed { direction: ltr; }
+    .detail-block img { height: 260px; }
+    .detail-content { padding: 2rem; }
+  }
+  @media (max-width: 480px) {
+    .detail-section { padding: 0 1.25rem 3rem; }
+    .detail-content { padding: 1.5rem; }
+  }
+</style>
+
+<section class="detail-section">
+  <!-- Bitumen -->
+  <div class="detail-block" id="bitumen">
+    <img loading="lazy" src="images/resized/JS%20Techniek%207%20kopie.jpeg" alt="Bitumen dakbedekking">
+    <div class="detail-content">
+      <h2>Bitumen Dakbedekking</h2>
+      <p>Bitumen is al jarenlang de meest toegepaste dakbedekking voor platte daken in Nederland. Dit betrouwbare materiaal biedt uitstekende waterdichtheid en is bestand tegen extreme weersomstandigheden.</p>
+      <p>JS Techniek plaatst en vervangt bitumen dakbedekking volgens de hoogste normen. Wij werken met eersteklas materialen voor een langdurig resultaat.</p>
+      <ul>
+        <li>Geschikt voor platte daken</li>
+        <li>Uitstekende waterdichtheid</li>
+        <li>Lange levensduur bij goed onderhoud</li>
+        <li>Professionele aanleg en reparatie</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EPDM -->
+  <div class="detail-block" id="epdm">
+    <img loading="lazy" src="images/resized/JS%20Techniek%2011%20kopie.jpeg" alt="EPDM dakbedekking">
+    <div class="detail-content">
+      <h2>EPDM Dakbedekking</h2>
+      <p>EPDM (Ethyleen-Propyleen-Dieen-Monomeer) is een moderne, synthetische rubber dakbedekking die steeds populairder wordt. Het materiaal is uitermate flexibel, UV-bestendig en heeft een levensduur van meer dan 50 jaar.</p>
+      <p>JS Techniek plaatst EPDM dakbedekking op platte daken, garages, aanbouwen en meer. Een duurzame keuze voor de lange termijn.</p>
+      <ul>
+        <li>Levensduur van 50+ jaar</li>
+        <li>UV- en weerbestendig</li>
+        <li>Flexibel en onderhoudsarm</li>
+        <li>Ideaal voor platte daken en garages</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES LIST ===== -->
+<style>
+  .other-services-section {
+    margin-bottom: 3rem;
+  }
+  .other-services-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.5rem;
+  }
+  .other-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .other-service-card {
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    text-decoration: none;
+    color: #222;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .other-service-card:hover {
+    border-color: #E8A800;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(232,168,0,0.12);
+  }
+  .other-service-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #191919;
+  }
+  .other-service-card p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .other-service-card .arrow {
+    font-size: 1.1rem;
+    color: #E8A800;
+    margin-top: 0.25rem;
+  }
+  @media (max-width: 768px) {
+    .other-services-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .other-services-grid { grid-template-columns: 1fr; }
+  }
+  .services-list-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem 4rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .services-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .services-header h2 {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .header-accent {
+    width: 80px;
+    height: 4px;
+    background: #E8A800;
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .service-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    background: white;
+    border-left: 4px solid #E8A800;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(232,168,0,0.15);
+    border-left-width: 6px;
+  }
+  .service-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    border-radius: 8px;
+    color: #E8A800;
+    font-size: 1.1rem;
+  }
+  .service-content h3 {
+    font-size: 1.05rem;
+    color: #222;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .cta-box {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+    border-radius: 12px;
+    border: 2px solid #E8A800;
+    margin-top: 3rem;
+  }
+  .cta-text {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #E8A800;
+    color: #111;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(232,168,0,0.3);
+  }
+  .cta-button:hover {
+    background: #D09800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(232,168,0,0.4);
+  }
+  @media (max-width: 768px) {
+    .services-list-section { padding: 0 1.5rem 3rem; margin-bottom: 3rem; }
+    .services-header h2 { font-size: 1.8rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .service-card { padding: 1.5rem 1.25rem; }
+    .service-icon { width: 45px; height: 45px; font-size: 1.3rem; }
+    .service-content h3 { font-size: 1rem; }
+    .cta-box { padding: 2rem 1.5rem; }
+    .cta-text { font-size: 1.1rem; }
+    .cta-button { padding: 0.875rem 2rem; font-size: 1rem; }
+  }
+</style>
+
+<section class="services-list-section">
+  <div class="services-header">
+    <h2>Onze dakbedekking diensten op een rij:</h2>
+    <div class="header-accent"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-fire"></i></div>
+      <div class="service-content"><h3>Bitumen dakbedekking</h3></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="service-content"><h3>EPDM dakbedekking</h3></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-search"></i></div>
+      <div class="service-content"><h3>Dakinspectie</h3></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-tint"></i></div>
+      <div class="service-content"><h3>Lekkages opsporen en herstellen</h3></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-tools"></i></div>
+      <div class="service-content"><h3>Dakreparatie en renovatie</h3></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-thermometer-half"></i></div>
+      <div class="service-content"><h3>Dakisolatie</h3></div>
+    </div>
+  </div>
+  <div class="other-services-section">
+    <h3 class="other-services-title">Bekijk ook onze andere diensten</h3>
+    <div class="other-services-grid">
+      <a href="loodgieterswerk.html" class="other-service-card">
+        <h4>Loodgieterswerk</h4>
+        <p>Professioneel loodgieterswerk: sanitaire installaties, rioleringen en verwarmingssystemen.</p>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a href="elektra.html" class="other-service-card">
+        <h4>Elektra</h4>
+        <p>Elektrische installaties, reparaties en inspecties door vakkundige monteurs.</p>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+  <div class="cta-box">
+    <p class="cta-text">Wilt u een vrijblijvende offerte voor dakbedekking?</p>
+    <a href="contact.html" class="cta-button">Neem contact op en ontdek wat we voor u kunnen betekenen</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<style>
+  .site-footer { background: #1a1a1a; padding: 3rem 2rem 2rem; text-align: center; }
+  .footer-logo { margin: 0 auto 1.5rem; }
+  .footer-logo img { max-height: 70px; width: auto; margin: 0 auto; border-radius: 50%; }
+  .footer-contact { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .footer-contact a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .footer-contact a:hover { color: #fff; }
+  .footer-contact i { color: #E8A800; font-size: 0.85rem; }
+  .footer-hours { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin: -0.25rem 0 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem; text-align: center; }
+  .footer-hours i { color: #E8A800; font-size: 0.85rem; }
+  .footer-copyright { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin-bottom: 0.4rem; }
+  .footer-credit { color: rgba(255,255,255,0.55); font-size: 0.78rem; margin-top: 0.4rem; }
+  .footer-credit a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+  .footer-credit a:hover { color: rgba(255,255,255,0.8); }
+  .footer-legal { color: rgba(255,255,255,0.55); font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .footer-legal a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; margin: 0 0.25rem; }
+  .footer-legal a:hover { color: #fff; text-decoration: underline; }
+  @media (max-width: 768px) {
+    .footer-contact { flex-direction: column; gap: 0.5rem; align-items: center; }
+    .footer-copyright, .footer-credit { font-size: 0.82rem; }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="footer-logo">
+    <img loading="lazy" src="images/logo-white.png" alt="JS Techniek Logo" onerror="this.src='images/logo.png'">
+  </div>
+  <div class="footer-contact">
+    <a href="tel:+31612602082"><i class="fas fa-phone"></i> +31 6 12602082</a>
+    <a href="mailto:jschoutentechniek@gmail.com"><i class="fas fa-envelope"></i> jschoutentechniek@gmail.com</a>
+    <a href="https://maps.google.com/?q=Den+Helder+Noord-Holland" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Den Helder &middot; Noord-Holland</a>
+  </div>
+  <div class="footer-hours">
+    <i class="far fa-clock"></i> Ma–Vr 08:00–17:00 · Za op afspraak · Zo gesloten
+  </div>
+  <p class="footer-copyright">&copy; JS Techniek · KvK 70974306 · Alle rechten voorbehouden.</p>
+  <p class="footer-legal"><a href="privacy.html">Privacyverklaring</a> &middot; <a href="voorwaarden.html">Algemene voorwaarden</a></p>
+  <p class="footer-credit">Webdesign door <a href="https://deprocesdesigners.nl/" target="_blank" rel="noopener">De Proces Designers</a></p>
+</footer>
+
+<!-- ===== COOKIE BANNER ===== -->
+<style>
+  .cookie-banner { position: fixed; bottom: 24px; right: 24px; max-width: 360px; background: #fff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05); padding: 1rem 1.1rem; z-index: 9998; font-family: 'Inter', sans-serif; transform: translateY(160%); opacity: 0; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease; border-left: 4px solid #E8A800; }
+  .cookie-banner.show { transform: translateY(0); opacity: 1; }
+  .cookie-content { display: flex; align-items: center; gap: 0.85rem; }
+  .cookie-icon { width: 38px; height: 38px; background: #E8A800; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .cookie-text { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 0.82rem; line-height: 1.4; color: #555; }
+  .cookie-text strong { color: #111; font-weight: 800; font-size: 0.92rem; letter-spacing: -0.2px; }
+  .cookie-btn { background: #111; color: #E8A800; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.82rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; flex-shrink: 0; letter-spacing: 0.3px; }
+  .cookie-btn:hover { background: #222; transform: translateY(-1px); }
+  @media (max-width: 480px) { .cookie-banner { bottom: 16px; left: 16px; right: 16px; max-width: none; } }
+</style>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie melding" aria-live="polite">
+  <div class="cookie-content">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-text">
+      <strong>Cookies</strong>
+      <span>Alleen functioneel &mdash; geen tracking, geen reclame.</span>
+    </div>
+    <button class="cookie-btn" id="cookie-accept" type="button">Begrepen</button>
+  </div>
+</div>
+<script>
+  (function() {
+    var banner = document.getElementById('cookie-banner');
+    var accept = document.getElementById('cookie-accept');
+    if (!banner) return;
+    if (!localStorage.getItem('js-cookie-accepted')) {
+      setTimeout(function() { banner.classList.add('show'); }, 1200);
+    }
+    accept.addEventListener('click', function() {
+      localStorage.setItem('js-cookie-accepted', '1');
+      banner.classList.remove('show');
+    });
+  })();
+</script>
+
+</body>
+</html>
