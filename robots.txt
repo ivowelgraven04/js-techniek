@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://js-techniek.nl/sitemap.xml
+Sitemap: https://js-techniek.vercel.app/sitemap.xml

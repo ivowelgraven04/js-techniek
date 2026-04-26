@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://js-techniek.nl/</loc>
+    <loc>https://js-techniek.vercel.app/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/diensten.html</loc>
+    <loc>https://js-techniek.vercel.app/diensten.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/dakbedekking.html</loc>
+    <loc>https://js-techniek.vercel.app/dakbedekking.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/loodgieterswerk.html</loc>
+    <loc>https://js-techniek.vercel.app/loodgieterswerk.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/elektra.html</loc>
+    <loc>https://js-techniek.vercel.app/elektra.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/projecten.html</loc>
+    <loc>https://js-techniek.vercel.app/projecten.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/over-ons.html</loc>
+    <loc>https://js-techniek.vercel.app/over-ons.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/contact.html</loc>
+    <loc>https://js-techniek.vercel.app/contact.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/privacy.html</loc>
+    <loc>https://js-techniek.vercel.app/privacy.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://js-techniek.nl/voorwaarden.html</loc>
+    <loc>https://js-techniek.vercel.app/voorwaarden.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
