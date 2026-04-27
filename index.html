@@ -945,7 +945,13 @@
           </div>
         </div>
       </div>
-      <div class="slogan"><span class="rating-stars">★★★★★</span> 5.0 op Google Reviews</div>
+      <div class="hero-rating-wrap">
+        <a href="#reviews-section" class="hero-rating" aria-label="5.0 op Google Reviews">
+          <span class="rating-stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <span class="rating-text"><strong>5.0</strong> op Google Reviews</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -964,25 +970,54 @@
     margin-right: auto;
   }
   .hero-typed { margin-top: 1.6rem; }
-  .slogan {
+  .hero-rating-wrap {
     margin-top: 2rem;
-    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 1.1rem 0.6rem 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.92rem;
     font-weight: 500;
-    color: white;
-    text-align: center;
-    opacity: 0.95;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
+    transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
   }
-  .slogan .rating-stars {
+  .hero-rating:hover {
+    background: rgba(255,255,255,0.13);
+    border-color: rgba(255,201,51,0.5);
+    transform: translateY(-1px);
+  }
+  .hero-rating .rating-stars {
     color: #FFC933;
-    letter-spacing: 3px;
-    margin-right: 0.5rem;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+    line-height: 1;
   }
+  .hero-rating .rating-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(255,255,255,0.22);
+  }
+  .hero-rating .rating-text { color: rgba(255,255,255,0.92); }
+  .hero-rating .rating-text strong { color: #fff; font-weight: 800; margin-right: 0.15rem; letter-spacing: -0.2px; }
   @media (max-width: 768px) {
     .services-subtitle { font-size: 1.0rem; margin-top: 0.75rem; padding: 0 14px; }
     .hero-typed { margin-top: 1.2rem; }
-    .slogan { font-size: 1.1rem; margin-top: 1.5rem; }
+    .hero-rating-wrap { margin-top: 1.5rem; }
+    .hero-rating { font-size: 0.85rem; padding: 0.5rem 0.95rem; gap: 0.55rem; }
+    .hero-rating .rating-stars { font-size: 0.88rem; letter-spacing: 1.5px; }
   }
 </style>
 
