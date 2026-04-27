@@ -123,8 +123,8 @@
   .mega-menu-inner { display: flex; flex-direction: column; gap: 2rem; width: 100%; }
   .mega-columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; } @media (max-width: 991px){ .mega-columns { grid-template-columns: repeat(2, 1fr); } }
   .mega-column { display: flex; flex-direction: column; }
-  .mega-column h4 { margin-bottom: 1rem; font-size: 1.1rem; font-weight: bold; color: #222; }
-  .mega-column a { text-decoration: none; color: #222; padding: 0.3rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; }
+  .mega-column h4 { margin-bottom: 0.85rem; font-size: 1.05rem; font-weight: 800; color: #222; padding-bottom: 0.45rem; border-bottom: 2px solid #E8A800; }
+  .mega-column a { text-decoration: none; color: #222; padding: 0.55rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; font-size: 0.92rem; line-height: 1.4; }
   .mega-column a:hover { color: #E8A800; border-color: #E8A800; }
   .mega-footer { width: 100%; text-align: center; margin-top: 2rem; }
   .mega-contact-btn {
@@ -414,104 +414,71 @@
 
 <!-- ===== REGIONS ===== -->
 <style>
-  .wg-regions { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .wg-region { margin-bottom: 3rem; }
-  .wg-region-header { margin-bottom: 1.25rem; }
-  .wg-ring { display: inline-block; background: rgba(232,168,0,0.15); color: #B27A00; font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 50px; margin-bottom: 0.65rem; }
-  .wg-region-header h3 { font-size: 1.5rem; font-weight: 800; color: #191919; margin-bottom: 0.3rem; }
-  .wg-region-header p { color: #666; font-size: 0.95rem; }
-  .wg-region-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; }
-  .wg-region-card { background: #fff; border: 2px solid #f0f0f0; border-radius: 12px; padding: 1.1rem 1.25rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.2rem; transition: all 0.2s ease; position: relative; }
-  .wg-region-card::after { content: '\2192'; position: absolute; right: 1rem; top: 1.1rem; color: #E8A800; opacity: 0; transition: opacity 0.2s, transform 0.2s; }
-  .wg-region-card:hover { border-color: #E8A800; transform: translateY(-3px); box-shadow: 0 8px 18px rgba(232,168,0,0.13); }
-  .wg-region-card:hover::after { opacity: 1; transform: translateX(3px); }
-  .wg-region-card h4 { font-size: 1rem; font-weight: 800; color: #191919; }
-  .wg-region-card p { font-size: 0.82rem; color: #777; }
-  @media (max-width: 991px) { .wg-region-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .wg-region-grid { grid-template-columns: 1fr; } }
+  .wg-regions { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+  .wg-region { margin-bottom: 2.25rem; padding-bottom: 2rem; border-bottom: 1px solid #ececec; }
+  .wg-region:last-child { border-bottom: none; }
+  .wg-region h3 { font-size: 1.15rem; font-weight: 800; color: #191919; margin-bottom: 1rem; letter-spacing: -0.2px; }
+  .wg-region-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+  .wg-region-card { padding: 0.7rem 1rem; text-decoration: none; color: #222; border-left: 3px solid #E8A800; background: #fafafa; border-radius: 4px; transition: background 0.2s, transform 0.15s; font-size: 0.95rem; font-weight: 600; }
+  .wg-region-card:hover { background: #fff; color: #E8A800; transform: translateX(2px); }
+  @media (max-width: 991px) { .wg-region-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .wg-region-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 380px) { .wg-region-grid { grid-template-columns: 1fr; } }
 </style>
 <section class="wg-regions">
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 1</span>
-      <h3>Den Helder & directe omgeving</h3>
-      <p>Onze thuisbasis &mdash; korte aanrijtijden en directe service.</p>
-    </div>
+    <h3>Den Helder &amp; directe omgeving</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/den-helder.html"><h4>Den Helder</h4><p>de Lange Jaap-vuurtoren</p></a>
-      <a class="wg-region-card" href="werkgebied/julianadorp.html"><h4>Julianadorp</h4><p>de tulpenvelden</p></a>
+      <a class="wg-region-card" href="werkgebied/den-helder.html">Den Helder</a>
+      <a class="wg-region-card" href="werkgebied/julianadorp.html">Julianadorp</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 2</span>
-      <h3>Waddeneilanden</h3>
-      <p>Wij komen met de boot mee voor volle werkdagen op Texel.</p>
-    </div>
+    <h3>Waddeneilanden</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/texel.html"><h4>Texel</h4><p>de schapenweides en duinen</p></a>
+      <a class="wg-region-card" href="werkgebied/texel.html">Texel</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 3</span>
-      <h3>Hollands Kroon</h3>
-      <p>Polderlandschap, kustinvloeden en typische dakuitdagingen.</p>
-    </div>
+    <h3>Hollands Kroon</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/anna-paulowna.html"><h4>Anna Paulowna</h4><p>de bloembollenpolders</p></a>
-      <a class="wg-region-card" href="werkgebied/den-oever.html"><h4>Den Oever</h4><p>de Afsluitdijk</p></a>
-      <a class="wg-region-card" href="werkgebied/hippolytushoef.html"><h4>Hippolytushoef</h4><p>de Michaelskerk</p></a>
+      <a class="wg-region-card" href="werkgebied/anna-paulowna.html">Anna Paulowna</a>
+      <a class="wg-region-card" href="werkgebied/den-oever.html">Den Oever</a>
+      <a class="wg-region-card" href="werkgebied/hippolytushoef.html">Hippolytushoef</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 4</span>
-      <h3>Kop van Noord-Holland</h3>
-      <p>Levendige kernen, monumentale panden en kustwoningen.</p>
-    </div>
+    <h3>Kop van Noord-Holland</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/schagen.html"><h4>Schagen</h4><p>het Slot Schagen</p></a>
-      <a class="wg-region-card" href="werkgebied/petten.html"><h4>Petten</h4><p>de Hondsbossche Zeewering</p></a>
-      <a class="wg-region-card" href="werkgebied/callantsoog.html"><h4>Callantsoog</h4><p>het strand en het Zwanenwater</p></a>
+      <a class="wg-region-card" href="werkgebied/schagen.html">Schagen</a>
+      <a class="wg-region-card" href="werkgebied/petten.html">Petten</a>
+      <a class="wg-region-card" href="werkgebied/callantsoog.html">Callantsoog</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 5</span>
-      <h3>Regio Alkmaar</h3>
-      <p>Mix van historisch erfgoed en moderne woonwijken.</p>
-    </div>
+    <h3>Regio Alkmaar</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/alkmaar.html"><h4>Alkmaar</h4><p>de kaasmarkt</p></a>
-      <a class="wg-region-card" href="werkgebied/heerhugowaard.html"><h4>Heerhugowaard</h4><p>de Stad van de Zon</p></a>
-      <a class="wg-region-card" href="werkgebied/bergen.html"><h4>Bergen</h4><p>het kunstenaarsdorp</p></a>
-      <a class="wg-region-card" href="werkgebied/egmond-aan-zee.html"><h4>Egmond aan Zee</h4><p>de vuurtoren Jan van Speijk</p></a>
-      <a class="wg-region-card" href="werkgebied/heiloo.html"><h4>Heiloo</h4><p>de Witte Kerk</p></a>
-      <a class="wg-region-card" href="werkgebied/castricum.html"><h4>Castricum</h4><p>de duinen en het strand</p></a>
+      <a class="wg-region-card" href="werkgebied/alkmaar.html">Alkmaar</a>
+      <a class="wg-region-card" href="werkgebied/heerhugowaard.html">Heerhugowaard</a>
+      <a class="wg-region-card" href="werkgebied/bergen.html">Bergen</a>
+      <a class="wg-region-card" href="werkgebied/egmond-aan-zee.html">Egmond aan Zee</a>
+      <a class="wg-region-card" href="werkgebied/heiloo.html">Heiloo</a>
+      <a class="wg-region-card" href="werkgebied/castricum.html">Castricum</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 6</span>
-      <h3>West-Friesland</h3>
-      <p>Historische havensteden langs het IJsselmeer.</p>
-    </div>
+    <h3>West-Friesland</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/hoorn.html"><h4>Hoorn</h4><p>de Hoofdtoren</p></a>
-      <a class="wg-region-card" href="werkgebied/enkhuizen.html"><h4>Enkhuizen</h4><p>het Zuiderzeemuseum</p></a>
-      <a class="wg-region-card" href="werkgebied/medemblik.html"><h4>Medemblik</h4><p>kasteel Radboud</p></a>
+      <a class="wg-region-card" href="werkgebied/hoorn.html">Hoorn</a>
+      <a class="wg-region-card" href="werkgebied/enkhuizen.html">Enkhuizen</a>
+      <a class="wg-region-card" href="werkgebied/medemblik.html">Medemblik</a>
     </div>
   </div>
   <div class="wg-region">
-    <div class="wg-region-header">
-      <span class="wg-ring">Ring 7</span>
-      <h3>Zuidelijk Noord-Holland</h3>
-      <p>Voor grotere projecten reizen wij ook zuidwaarts.</p>
-    </div>
+    <h3>Zuidelijk Noord-Holland</h3>
     <div class="wg-region-grid">
-      <a class="wg-region-card" href="werkgebied/haarlem.html"><h4>Haarlem</h4><p>de Grote Kerk</p></a>
-      <a class="wg-region-card" href="werkgebied/amsterdam.html"><h4>Amsterdam</h4><p>de grachten</p></a>
+      <a class="wg-region-card" href="werkgebied/haarlem.html">Haarlem</a>
+      <a class="wg-region-card" href="werkgebied/amsterdam.html">Amsterdam</a>
     </div>
   </div>
 </section>
