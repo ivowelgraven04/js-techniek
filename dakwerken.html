@@ -136,6 +136,16 @@
   .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
   .mobile-submenu li a::before { content: '–'; opacity: 0.5; font-size: 13px; }
   .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; }
+  .nav-rating-li { display: none; }
+  @media (max-width: 991px) {
+    .nav-rating-li { display: flex !important; margin-top: auto !important; padding: 1.5rem 0 0.5rem !important; width: 100%; border-bottom: none !important; justify-content: center; }
+    .nav-rating-pill { display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.6rem 1.1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff !important; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.2px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+    .nav-rating-pill:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,201,51,0.55); transform: translateY(-1px); }
+    .nav-rating-pill .nav-rating-stars { color: #FFC933; letter-spacing: 1.5px; font-size: 0.88rem; line-height: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
+    .nav-rating-pill .nav-rating-divider { width: 1px; height: 13px; background: rgba(255,255,255,0.25); }
+    .nav-rating-pill .nav-rating-text { color: rgba(255,255,255,0.92); }
+    .nav-rating-pill .nav-rating-text strong { font-weight: 800; color: #fff; margin-right: 0.15rem; letter-spacing: -0.2px; }
+  }
   .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
   .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
   .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
@@ -246,6 +256,13 @@
       <li class="nav-item"><a href="projecten.html">Projecten</a></li>
       <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
       <li class="nav-item"><a href="contact.html">Contact</a></li>
+      <li class="nav-rating-li">
+        <a href="index.html#reviews-section" class="nav-rating-pill" aria-label="5.0 op Google Reviews">
+          <span class="nav-rating-stars" aria-hidden="true">★★★★★</span>
+          <span class="nav-rating-divider" aria-hidden="true"></span>
+          <span class="nav-rating-text"><strong>5.0</strong> op Google Reviews</span>
+        </a>
+      </li>
     </ul>
     <div class="navbar-socials">
       <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
