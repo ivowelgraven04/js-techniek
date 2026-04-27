@@ -945,7 +945,7 @@
           </div>
         </div>
       </div>
-      <div class="slogan">Vakwerk is ons vak.</div>
+      <div class="slogan"><span class="rating-stars">★★★★★</span> 5.0 op Google Reviews</div>
     </div>
   </div>
 </div>
@@ -967,10 +967,17 @@
   .slogan {
     margin-top: 2rem;
     font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 500;
     color: white;
     text-align: center;
     opacity: 0.95;
+    letter-spacing: 0.3px;
+  }
+  .slogan .rating-stars {
+    color: #FFC933;
+    letter-spacing: 3px;
+    margin-right: 0.5rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
   @media (max-width: 768px) {
     .services-subtitle { font-size: 1.0rem; margin-top: 0.75rem; padding: 0 14px; }
