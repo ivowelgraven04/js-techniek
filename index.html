@@ -81,10 +81,10 @@
       width: 100%;
     }
     .company-name {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700;
       text-transform: none;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.3px;
       color: white;
       line-height: 1.1;
     }
@@ -191,7 +191,7 @@
     @media (max-width: 768px) {
       .usp-grid { grid-template-columns: 1fr; gap: 2rem; }
       .slider { min-height: 55vh; }
-      .company-name { font-size: 1rem; letter-spacing: 0.5px; }
+      .company-name { font-size: 1.4rem; letter-spacing: -0.2px; }
       .buttons {
         flex-direction: column;
         align-items: center;
@@ -1276,7 +1276,7 @@
   .cookie-text strong { color: #111; font-weight: 800; font-size: 0.92rem; letter-spacing: -0.2px; }
   .cookie-btn { background: #111; color: #E8A800; border: none; padding: 0.55rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: 0.82rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; flex-shrink: 0; letter-spacing: 0.3px; }
   .cookie-btn:hover { background: #222; transform: translateY(-1px); }
-  @media (max-width: 480px) { .cookie-banner { bottom: 16px; left: 16px; right: 16px; max-width: none; padding: 0.85rem 1rem; } .cookie-text { font-size: 0.78rem; } .cookie-text strong { font-size: 0.88rem; } .cookie-icon { width: 32px; height: 32px; font-size: 0.95rem; } .cookie-btn { padding: 0.5rem 0.9rem; font-size: 0.78rem; } }
+  @media (max-width: 480px) { .cookie-banner { bottom: 16px; right: 16px; left: auto; max-width: calc(100vw - 95px); padding: 0.7rem 0.85rem; } .cookie-text { font-size: 0.74rem; } .cookie-text strong { font-size: 0.85rem; } .cookie-icon { width: 28px; height: 28px; font-size: 0.85rem; } .cookie-btn { padding: 0.4rem 0.75rem; font-size: 0.72rem; } .cookie-content { gap: 0.55rem; } }
 </style>
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie melding" aria-live="polite">
   <div class="cookie-content">
@@ -1292,19 +1292,13 @@
   (function() {
     var banner = document.getElementById('cookie-banner');
     var accept = document.getElementById('cookie-accept');
-    var fab = document.getElementById('fabContainer');
     if (!banner) return;
-    var isMobile = function() { return window.matchMedia('(max-width: 480px)').matches; };
     if (!localStorage.getItem('js-cookie-accepted')) {
-      setTimeout(function() {
-        banner.classList.add('show');
-        if (fab && isMobile()) fab.classList.add('hidden');
-      }, 1200);
+      setTimeout(function() { banner.classList.add('show'); }, 800);
     }
     accept.addEventListener('click', function() {
       localStorage.setItem('js-cookie-accepted', '1');
       banner.classList.remove('show');
-      if (fab) fab.classList.remove('hidden');
     });
   })();
 </script>
