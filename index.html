@@ -35,7 +35,7 @@
     /* ===== GLOBAL RESET ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; background: #fff; }
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; }
 
@@ -213,10 +213,22 @@
     /* ===== SECTION HEADINGS ===== */
     .section-heading {
       text-align: center;
-      padding: 3rem 2rem 1rem;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      padding: 4rem 2rem 1rem;
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
       font-weight: 800;
       color: #191919;
+      letter-spacing: -0.5px;
+      background: #fff;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 4px;
+      background: #E8A800;
+      margin: 0.85rem auto 0;
+      border-radius: 2px;
     }
 
     /* ===== SERVICES GRID ===== */
