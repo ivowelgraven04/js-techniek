@@ -2,31 +2,31 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
-  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png">
+  <link rel="manifest" href="../images/site.webmanifest">
   <meta name="theme-color" content="#E8A800">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://js-techniek.vercel.app/diensten.html">
-  <title>Diensten — JS Techniek</title>
-  <meta name="description" content="Onze diensten: dakwerken voor platte daken, zinkwerk, loodgieterswerk en noodreparaties. Vakkundig en betrouwbaar in Noord-Holland.">
+  <title>Dakwerken Den Helder | JS Techniek — Plat dak, Zinkwerk, Loodgieter</title>
+  <meta name="description" content="Dakwerken in Den Helder? JS Techniek verzorgt vakkundig plat-dakwerk, zinkwerk, loodgieterswerk en noodreparaties in Den Helder en omgeving. Vraag een vrijblijvende offerte aan.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://js-techniek.vercel.app/werkgebied/den-helder.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Diensten — JS Techniek">
-  <meta property="og:description" content="Dakbedekking, loodgieterswerk en elektra door JS Techniek - specialist Noord-Holland.">
-  <meta property="og:url" content="https://js-techniek.vercel.app/diensten.html">
+  <meta property="og:title" content="Dakwerken Den Helder | JS Techniek">
+  <meta property="og:description" content="Vakkundig dakwerk, zinkwerk en spoedreparaties in Den Helder door JS Techniek.">
+  <meta property="og:url" content="https://js-techniek.vercel.app/werkgebied/den-helder.html">
   <meta property="og:image" content="https://js-techniek.vercel.app/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="JS Techniek - Diensten Noord-Holland">
+  <meta property="og:image:alt" content="JS Techniek - Dakwerken in Den Helder">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="JS Techniek">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Diensten — JS Techniek">
-  <meta name="twitter:description" content="Dakbedekking, loodgieterswerk en elektra in Noord-Holland.">
+  <meta name="twitter:title" content="Dakwerken Den Helder | JS Techniek">
+  <meta name="twitter:description" content="Vakkundig dakwerk en zinkwerk in Den Helder door JS Techniek.">
   <meta name="twitter:image" content="https://js-techniek.vercel.app/images/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,7 +44,6 @@
     "@type": "RoofingContractor",
     "@id": "https://js-techniek.vercel.app/#business",
     "name": "JS Techniek",
-    "alternateName": "J.S techniek",
     "url": "https://js-techniek.vercel.app",
     "logo": "https://js-techniek.vercel.app/images/logo.png",
     "image": "https://js-techniek.vercel.app/images/og-image.png",
@@ -56,14 +55,18 @@
       "addressRegion": "Noord-Holland",
       "addressCountry": "NL"
     },
-    "areaServed": { "@type": "AdministrativeArea", "name": "Noord-Holland" },
+    "areaServed": {
+      "@type": "City",
+      "name": "Den Helder",
+      "containedInPlace": { "@type": "AdministrativeArea", "name": "Noord-Holland" }
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 52.9568, "longitude": 4.761 },
     "identifier": [{ "@type": "PropertyValue", "propertyID": "KvK", "value": "70974306" }]
   }
   </script>
 </head>
 <body>
-
-<!-- ===== NAVBAR (identical to homepage) ===== -->
+<!-- ===== NAVBAR ===== -->
 <style>
   .custom-navbar {
     background: #fff;
@@ -76,7 +79,6 @@
     transition: background 0.3s ease, padding 0.4s ease, margin 0.4s ease,
                 border-radius 0.4s ease, box-shadow 0.4s ease, max-width 0.4s ease;
   }
-  /* ===== PILL NAVBAR ON SCROLL ===== */
   .custom-navbar.scrolled {
     top: 12px;
     margin: 0 auto;
@@ -95,33 +97,17 @@
       border-radius: 999px;
       padding: 0.55rem 1.25rem;
     }
-    .custom-navbar.scrolled.menu-open {
-      border-radius: 20px;
-    }
+    .custom-navbar.scrolled.menu-open { border-radius: 20px; }
   }
-  .navbar-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-  }
+  .navbar-content { display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; }
   .mobile-logo { display: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
   .mobile-logo img { height: 50px; width: auto; border-radius: 50%; }
   .desktop-logo-container { display: flex; }
   .desktop-logo-container img { border-radius: 50%; }
   .nav-menu {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 1 1 auto !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    list-style: none !important;
-    gap: 2rem;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    flex: 1 1 auto !important; margin: 0 auto !important; padding: 0 !important; list-style: none !important; gap: 2rem;
   }
-  .nav-logo { display: flex !important; align-items: center !important; margin: 0 !important; padding: 0 !important; margin-right: 6px !important; }
-  .nav-logo img { height: 56px; width: auto; display: block; object-fit: contain; }
   .nav-item { margin: 0 !important; padding: 0 !important; position: relative; }
   .nav-item a { text-decoration: none; color: #222; font-weight: 500; padding: 0.5rem 0; display: inline-block; font-size: 17px; transition: color 0.3s; }
   .nav-item a:hover { color: #E8A800; }
@@ -140,7 +126,11 @@
   .mega-column a { text-decoration: none; color: #222; padding: 0.3rem 0; transition: color 0.2s; border-bottom: 1px solid #eee; }
   .mega-column a:hover { color: #E8A800; border-color: #E8A800; }
   .mega-footer { width: 100%; text-align: center; margin-top: 2rem; }
-  .mega-contact-btn { display: inline-block; padding: 0.75rem 1.5rem; background-color: #E8A800; color: #111 !important; font-weight: 500; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease; font-size: 0.9rem; }
+  .mega-contact-btn {
+    display: inline-block; padding: 0.75rem 1.5rem; background-color: #E8A800;
+    color: #111 !important; font-weight: 500; border-radius: 8px; text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
   .mega-contact-btn:hover { background-color: #D09800; }
   .navbar-socials { margin-left: auto !important; display: flex !important; align-items: center !important; gap: 1rem; }
   .navbar-socials a { color: #222; font-size: 1.4rem; transition: color 0.3s; }
@@ -157,19 +147,11 @@
   .mobile-submenu.open { display: flex; max-height: 500px; }
   .mobile-submenu li { border-bottom: 1px solid rgba(255,255,255,0.1); }
   .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
-  .mobile-submenu li a::before { content: '–'; opacity: 0.5; font-size: 13px; }
-  .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; }
+  .mobile-submenu li a::before { content: '\2013'; opacity: 0.5; font-size: 13px; }
+  .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; transition: padding 0.15s ease; }
   .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
   .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
   .diensten-toggle.open .toggle-arrow { transform: rotate(180deg); }
-  .fab-container { position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 997; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
-  .fab-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-  .fab-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #111; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-  .fab-button:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
-  .fab-button i { font-size: 24px; }
-  .fab-quote { background: #E8A800; }
-  .fab-phone { background: #E8A800; }
-  .fab-whatsapp { background: #25D366; color: white; }
   @media (max-width: 991px) {
     .custom-navbar { padding: 1rem 1.5rem; }
     .custom-navbar.menu-open { background: #1a1a1a; }
@@ -178,16 +160,20 @@
     .mobile-logo img { height: 65px; width: auto; display: block; }
     .mobile-logo.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     .desktop-logo-container { display: none !important; }
-    .nav-logo { display: none !important; }
     .hamburger { display: flex; flex-shrink: 0; margin-left: auto; }
     .navbar-socials { display: none !important; }
-    .nav-menu { position: fixed; top: 0; right: 0; transform: translateX(100%); width: 280px; height: 100vh; background: #1a1a1a; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; padding: 5rem 2rem 2rem 2rem !important; gap: 0 !important; box-shadow: -5px 0 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; overflow-y: auto; z-index: 1000; visibility: hidden; }
+    .nav-menu {
+      position: fixed; top: 0; right: 0; transform: translateX(100%); width: 280px; height: 100vh;
+      background: #1a1a1a; flex-direction: column !important; align-items: flex-start !important;
+      justify-content: flex-start !important; padding: 5rem 2rem 2rem 2rem !important; gap: 0 !important;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; overflow-y: auto; z-index: 1000; visibility: hidden;
+    }
     .nav-menu.active { transform: translateX(0); visibility: visible; }
     .nav-item { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.15); }
     .nav-item > a { display: flex; align-items: center; justify-content: space-between; padding: 1.15rem 0; font-size: 18px; width: 100%; color: #fff !important; font-weight: 700; text-decoration: none; }
-    .nav-item > a::after { content: '›'; font-size: 20px; opacity: 0.5; font-weight: 400; }
-    .nav-item a:hover { color: #E8A800 !important; opacity: 1; }
-    .diensten-toggle-row { display: none; align-items: center; width: 100%; }
+    .nav-item > a::after { content: '\203A'; font-size: 20px; opacity: 0.5; font-weight: 400; }
+    .nav-item a:hover { opacity: 0.85; }
+    .diensten-toggle-row { display: none; align-items: center; width: 100%; border: none; }
     .diensten-mobile-link { flex: 1; padding: 1.15rem 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #fff !important; text-decoration: none; }
     .diensten-mobile-link::after { display: none !important; }
     .diensten-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; background: rgba(255,255,255,0.12); border-radius: 8px; flex-shrink: 0; }
@@ -202,6 +188,16 @@
     .nav-menu { width: 100%; right: 0; transform: translateX(100%); }
     .hamburger span { width: 22px; }
   }
+  .fab-container { position: fixed; left: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 997; transform: translate3d(0, 0, 0); will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .fab-container.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .fab-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+  .fab-button:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+  .fab-button i { font-size: 24px; }
+  .fab-quote { background: #E8A800; }
+  .fab-quote i { color: #111; }
+  .fab-phone { background: #E8A800; }
+  .fab-phone i { color: #111; }
+  .fab-whatsapp { background: #25D366; }
   @media (max-width: 768px) {
     .fab-container { left: 15px; bottom: 15px; gap: 12px; }
     .fab-button { width: 46px; height: 46px; }
@@ -211,23 +207,23 @@
 
 <nav class="custom-navbar" id="customNavbar">
   <div class="navbar-content">
-    <a href="index.html" class="mobile-logo" id="mobileLogo">
-      <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" />
+    <a href="../index.html" class="mobile-logo" id="mobileLogo">
+      <img loading="lazy" src="../images/logo.png" alt="JS Techniek Logo" />
     </a>
     <div class="desktop-logo-container">
-      <a href="index.html">
-        <img loading="lazy" src="images/logo.png" alt="JS Techniek Logo" style="height:56px;width:auto;" />
+      <a href="../index.html">
+        <img loading="lazy" src="../images/logo.png" alt="JS Techniek Logo" style="height:56px;width:auto;" />
       </a>
     </div>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
     <ul class="nav-menu" id="navMenu">
-      <li class="nav-item"><a href="index.html">Home</a></li>
+      <li class="nav-item"><a href="../index.html">Home</a></li>
       <li class="nav-item mega-dropdown" id="megaDropdown">
-        <a href="diensten.html" class="diensten-desktop-link">Diensten</a>
+        <a href="../diensten.html" class="diensten-desktop-link">Diensten</a>
         <div class="diensten-toggle-row">
-          <a href="diensten.html" class="diensten-mobile-link">Diensten</a>
+          <a href="../diensten.html" class="diensten-mobile-link">Diensten</a>
           <div class="diensten-toggle" id="dienstenToggle">
             <i class="fas fa-chevron-down toggle-arrow"></i>
           </div>
@@ -236,44 +232,44 @@
           <div class="mega-menu-inner">
             <div class="mega-columns">
               <div class="mega-column">
-                <h4><a href="dakwerken.html">Dakwerken</a></h4>
+                <h4><a href="../dakwerken.html">Dakwerken</a></h4>
                 <a href="dakwerken.html#bitumen">Bitumen dakbedekking</a>
                 <a href="dakwerken.html#loodwerk">Loodwerk</a>
               </div>
               <div class="mega-column">
-                <h4><a href="zinkwerk.html">Zinkwerk</a></h4>
+                <h4><a href="../zinkwerk.html">Zinkwerk</a></h4>
                 <a href="zinkwerk.html#goten">Zinken goten &amp; HWA</a>
                 <a href="zinkwerk.html#dakdetails">Zink dakdetails</a>
               </div>
               <div class="mega-column">
-                <h4><a href="loodgieterswerk.html">Loodgieterswerk</a></h4>
+                <h4><a href="../loodgieterswerk.html">Loodgieterswerk</a></h4>
                 <a href="loodgieterswerk.html#sanitair">Sanitaire installaties</a>
                 <a href="loodgieterswerk.html#rioleringen">Rioleringen</a>
                 <a href="loodgieterswerk.html#verwarming">Verwarmingssystemen</a>
               </div>
               <div class="mega-column">
-                <h4><a href="noodreparaties.html">Noodreparaties</a></h4>
+                <h4><a href="../noodreparaties.html">Noodreparaties</a></h4>
                 <a href="noodreparaties.html#spoeddienst">Spoeddienst lekkage</a>
                 <a href="noodreparaties.html#schade">Schade-inspectie</a>
               </div>
             </div>
             <div class="mega-footer">
-              <a href="contact.html" class="mega-contact-btn">
+              <a href="../contact.html" class="mega-contact-btn">
                 Neem contact op voor meer informatie
               </a>
             </div>
           </div>
         </div>
         <ul class="mobile-submenu" id="mobileSubmenu">
-          <li><a href="dakwerken.html">Dakwerken</a></li>
-          <li><a href="zinkwerk.html">Zinkwerk</a></li>
-          <li><a href="loodgieterswerk.html">Loodgieterswerk</a></li>
-          <li><a href="noodreparaties.html">Noodreparaties</a></li>
+          <li><a href="../dakwerken.html">Dakwerken</a></li>
+          <li><a href="../zinkwerk.html">Zinkwerk</a></li>
+          <li><a href="../loodgieterswerk.html">Loodgieterswerk</a></li>
+          <li><a href="../noodreparaties.html">Noodreparaties</a></li>
         </ul>
       </li>
-      <li class="nav-item"><a href="projecten.html">Projecten</a></li>
-      <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
-      <li class="nav-item"><a href="contact.html">Contact</a></li>
+      <li class="nav-item"><a href="../projecten.html">Projecten</a></li>
+      <li class="nav-item"><a href="../over-ons.html">Over Ons</a></li>
+      <li class="nav-item"><a href="../contact.html">Contact</a></li>
     </ul>
     <div class="navbar-socials">
       <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -285,7 +281,7 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 
 <div class="fab-container" id="fabContainer">
-  <a href="contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan"><i class="fas fa-file-alt"></i></a>
+  <a href="../contact.html" class="fab-button fab-quote" aria-label="Vraag offerte aan"><i class="fas fa-file-alt"></i></a>
   <a href="tel:+31612602082" class="fab-button fab-phone" aria-label="Bel ons"><i class="fas fa-phone"></i></a>
   <a href="https://wa.me/31612602082" class="fab-button fab-whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </div>
@@ -304,13 +300,9 @@
   const dienstenDesktopLink = megaDropdown.querySelector('.diensten-desktop-link');
   const dienstenToggleRow = megaDropdown.querySelector('.diensten-toggle-row');
   let timeout;
-  // ---- Pill navbar on scroll ----
+
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 60) {
-      customNavbar.classList.add('scrolled');
-    } else {
-      customNavbar.classList.remove('scrolled');
-    }
+    customNavbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
   function applyDienstenMode() {
@@ -326,11 +318,13 @@
   }
   applyDienstenMode();
   window.addEventListener('resize', applyDienstenMode);
+
   dienstenToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = mobileSubmenu.classList.toggle('open');
     dienstenToggle.classList.toggle('open', isOpen);
   });
+
   hamburger.addEventListener('click', () => {
     const isActive = hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
@@ -348,6 +342,7 @@
     }
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
   });
+
   mobileOverlay.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
@@ -359,6 +354,7 @@
     dienstenToggle.classList.remove('open');
     document.body.style.overflow = '';
   });
+
   document.querySelectorAll('.nav-item > a, .mobile-submenu a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 991) {
@@ -374,20 +370,18 @@
       }
     });
   });
+
   if (window.innerWidth > 991) {
     megaDropdown.addEventListener('mouseenter', () => { clearTimeout(timeout); megaMenu.style.opacity='1'; megaMenu.style.visibility='visible'; megaMenu.style.pointerEvents='auto'; });
     megaDropdown.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
     megaMenu.addEventListener('mouseenter', () => { clearTimeout(timeout); });
     megaMenu.addEventListener('mouseleave', () => { timeout = setTimeout(() => { megaMenu.style.opacity='0'; megaMenu.style.visibility='hidden'; megaMenu.style.pointerEvents='none'; }, 300); });
   }
+
   window.addEventListener('resize', () => {
     if (window.innerWidth > 991) {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
-      mobileLogo.classList.remove('hidden');
-      customNavbar.classList.remove('menu-open');
-      fabContainer.classList.remove('hidden');
+      hamburger.classList.remove('active'); navMenu.classList.remove('active'); mobileOverlay.classList.remove('active');
+      mobileLogo.classList.remove('hidden'); customNavbar.classList.remove('menu-open'); fabContainer.classList.remove('hidden');
       document.body.style.overflow = '';
     }
   });
@@ -395,302 +389,159 @@
 
 <!-- ===== HERO ===== -->
 <style>
-  .diensten-hero {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    background-image: url('images/resized/JS%20Techniek%2021%20kopie.jpeg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .diensten-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-  }
-  .diensten-hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    padding: 2rem;
-  }
-  .diensten-hero-content .company-name {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: 0.8;
-    margin-bottom: 1rem;
-  }
-  .diensten-hero-content h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-  .diensten-hero-content p {
-    font-size: 1.05rem;
-    font-weight: 400;
-    opacity: 0.9;
-    max-width: 650px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  @media (max-width: 768px) {
-    .diensten-hero { height: auto; min-height: 55vh; padding: 2rem 1rem; }
-    .diensten-hero-content h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); }
-    .diensten-hero-content p { font-size: 0.95rem; }
-  }
+  .wg-hero { position: relative; min-height: 460px; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('../images/resized/JS%20Techniek%202%20kopie.jpeg'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 3rem; color: #fff; }
+  .wg-hero .breadcrumb { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 0.6rem; letter-spacing: 0.5px; }
+  .wg-hero .breadcrumb a { color: #E8A800; }
+  .wg-hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); font-weight: 800; letter-spacing: -1px; line-height: 1.05; margin-bottom: 0.85rem; }
+  .wg-hero .subtitle { font-size: 1.15rem; max-width: 700px; line-height: 1.55; opacity: 0.92; margin-bottom: 1.75rem; }
+  .wg-hero .cta { display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+  .wg-hero .btn-primary { background: #E8A800; color: #111; padding: 0.85rem 1.6rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+  .wg-hero .btn-primary:hover { background: #D09800; transform: translateY(-2px); }
+  .wg-hero .btn-outline { border: 2px solid rgba(255,255,255,0.8); color: #fff; padding: 0.75rem 1.6rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .wg-hero .btn-outline:hover { background: #fff; color: #111; }
+  @media (max-width: 600px) { .wg-hero { min-height: 380px; padding: 4rem 1rem 2.5rem; } }
 </style>
-
-<div class="diensten-hero">
-  <div class="diensten-hero-content">
-    <div class="company-name">JS Techniek</div>
-    <h1>Onze Diensten</h1>
-    <p>Wij bieden hoogwaardige diensten aan met focus op kwaliteit, betrouwbaarheid en vakmanschap.</p>
+<section class="wg-hero">
+  <div class="breadcrumb"><a href="../index.html">Home</a> &middot; <a href="../werkgebied.html">Werkgebied</a> &middot; Den Helder</div>
+  <h1>Dakwerken in Den Helder</h1>
+  <p class="subtitle">Vakkundig plat-dakwerk, zinkwerk en spoedreparaties in Den Helder en omgeving. Bekend met de Lange Jaap-vuurtoren en de marinehaven.</p>
+  <div class="cta">
+    <a href="tel:+31612602082" class="btn-primary"><i class="fas fa-phone"></i> Bel direct</a>
+    <a href="../contact.html" class="btn-outline">Vrijblijvende offerte</a>
   </div>
-</div>
-
-<!-- ===== DIENSTEN SECTIE ===== -->
-<style>
-  .diensten-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
-  .dienst {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-bottom: 6rem;
-  }
-  .dienst:last-child { margin-bottom: 0; }
-  .dienst.reverse .dienst-img { order: 2; }
-  .dienst.reverse .dienst-text { order: 1; }
-  .dienst-img {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-  }
-  .dienst-img img {
-    width: 100%;
-    height: 380px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .dienst:hover .dienst-img img { transform: scale(1.03); }
-  .dienst-text { padding: 1rem 0; }
-  .dienst-text .dienst-label {
-    display: inline-block;
-    background: #E8A800;
-    color: #111;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0.35rem 1rem;
-    border-radius: 4px;
-    margin-bottom: 1.25rem;
-  }
-  .dienst-text h3 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    color: #191919;
-    margin-bottom: 1.25rem;
-    line-height: 1.2;
-  }
-  .dienst-text p {
-    color: #555;
-    line-height: 1.8;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  .dienst-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.7rem 1.8rem;
-    background: #E8A800;
-    color: #111;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  .dienst-link:hover {
-    background: #D09800;
-    transform: translateY(-2px);
-  }
-  .dienst-link i { font-size: 0.85rem; }
-
-  /* Divider between items */
-  .dienst-divider {
-    border: none;
-    border-top: 1px solid #ececec;
-    margin-bottom: 6rem;
-  }
-
-  @media (max-width: 900px) {
-    .dienst {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-    .dienst.reverse .dienst-img { order: 0; }
-    .dienst.reverse .dienst-text { order: 0; }
-    .dienst-img img { height: 280px; }
-    .dienst-divider { margin-bottom: 4rem; }
-  }
-  @media (max-width: 480px) {
-    .diensten-container { padding: 3rem 1.25rem; }
-    .dienst-img img { height: 220px; }
-  }
-  /* Placeholder voor split-section (elektra) */
-  .service-placeholder.elektra {
-    width: 100%;
-    height: 380px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #232323 50%, #2c2c2c 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.85rem;
-    color: #E8A800;
-    position: relative;
-    overflow: hidden;
-  }
-  .service-placeholder.elektra::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(232,168,0,0.14), transparent 60%);
-    pointer-events: none;
-  }
-  .service-placeholder.elektra i { font-size: 3.5rem; position: relative; z-index: 1; }
-  .service-placeholder.elektra span {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    position: relative;
-    z-index: 1;
-  }
-  @media (max-width: 900px) { .service-placeholder.elektra { height: 280px; } }
-  @media (max-width: 480px) { .service-placeholder.elektra { height: 220px; } }
-</style>
-
-<section class="diensten-container">
-
-  <!-- Dakwerken -->
-  <div class="dienst">
-    <div class="dienst-img">
-      <img loading="lazy" src="images/resized/JS%20Techniek%202%20kopie.jpeg" alt="Dakwerken — bitumen en loodwerk">
-    </div>
-    <div class="dienst-text">
-      <span class="dienst-label">Dienst</span>
-      <h3>Dakwerken</h3>
-      <p>Professioneel dakwerk voor platte daken. Bitumen dakbedekking en vakkundig loodwerk rond schoorstenen, dakranden en aansluitingen — waterdicht en gemaakt om jaren mee te gaan.</p>
-      <a href="dakwerken.html" class="dienst-link">Bekijk dienst <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-  <hr class="dienst-divider">
-
-  <!-- Zinkwerk -->
-  <div class="dienst reverse">
-    <div class="dienst-img">
-      <img loading="lazy" src="images/resized/JS%20Techniek%2033%20kopie.jpeg" alt="Zinkwerk — goten en dakdetails">
-    </div>
-    <div class="dienst-text">
-      <span class="dienst-label">Dienst</span>
-      <h3>Zinkwerk</h3>
-      <p>Zinken goten, hemelwaterafvoer en dakdetails op maat. Wij werken met titaanzink van de hoogste kwaliteit, op locatie gefabriceerd voor een strak en duurzaam resultaat.</p>
-      <a href="zinkwerk.html" class="dienst-link">Bekijk dienst <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-  <hr class="dienst-divider">
-
-  <!-- Loodgieterswerk -->
-  <div class="dienst">
-    <div class="dienst-img">
-      <img loading="lazy" src="images/resized/JS%20Techniek%2034%20kopie.jpeg" alt="Loodgieterswerk">
-    </div>
-    <div class="dienst-text">
-      <span class="dienst-label">Dienst</span>
-      <h3>Loodgieterswerk</h3>
-      <p>Compleet loodgieterswerk voor woningen en bedrijven. Van sanitaire installaties en rioleringen tot verwarmingssystemen, wij leveren betrouwbare service met vakmanschap.</p>
-      <a href="loodgieterswerk.html" class="dienst-link">Bekijk dienst <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-  <hr class="dienst-divider">
-
-  <!-- Noodreparaties -->
-  <div class="dienst reverse">
-    <div class="dienst-img">
-      <img loading="lazy" src="images/noodreparaties-1.jpeg" alt="Noodreparaties dak — spoeddienst">
-    </div>
-    <div class="dienst-text">
-      <span class="dienst-label">Dienst</span>
-      <h3>Noodreparaties</h3>
-      <p>Lekkage of stormschade? Wij staan 7 dagen per week paraat voor noodreparaties op platte daken in heel Noord-Holland. Snel ter plaatse, vakkundig hersteld.</p>
-      <a href="noodreparaties.html" class="dienst-link">Bekijk dienst <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-
 </section>
 
-<!-- ===== CTA BANNER ===== -->
+<!-- ===== INTRO ===== -->
 <style>
-  .diensten-cta {
-    background: #E8A800;
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  .diensten-cta h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    color: #111;
-    margin-bottom: 0.75rem;
-  }
-  .diensten-cta p {
-    color: rgba(17,17,17,0.75);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-  .diensten-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.8rem 2rem;
-    background: #111;
-    color: #E8A800;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  .diensten-cta-btn:hover {
-    background: #222;
-    transform: translateY(-2px);
-  }
+  .wg-intro { max-width: 920px; margin: 0 auto; padding: 4.5rem 1.5rem 2rem; }
+  .wg-intro h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; color: #191919; margin-bottom: 1.1rem; }
+  .wg-intro p { color: #444; line-height: 1.8; font-size: 1rem; margin-bottom: 1rem; }
+  .wg-intro p strong { color: #191919; }
 </style>
+<section class="wg-intro">
+  <h2>JS Techniek in Den Helder</h2>
+  <p>Den Helder is onze thuisbasis. Vanuit hier rijden we dagelijks naar klanten in heel Noord-Holland. Voor inwoners van Den Helder bieden we korte responstijden, lokale kennis en directe betrokkenheid bij elk dakproject.</p>
+  <p>Of het nu gaat om <strong>plat dakwerk</strong>, <strong>zinkwerk</strong>, <strong>loodgieterswerk</strong> of een <strong>noodreparatie</strong>: in Den Helder ben je bij JS Techniek aan het juiste adres. Wij werken efficiënt, communiceren helder en leveren vakwerk dat decennia meegaat.</p>
+</section>
 
-<div class="diensten-cta">
-  <h2>Werkzaamheden niet vermeld?</h2>
-  <p>Neem contact met ons op voor de mogelijkheden. Wij denken graag met u mee.</p>
-  <a href="contact.html" class="diensten-cta-btn">Neem contact op <i class="fas fa-arrow-right"></i></a>
-</div>
+<!-- ===== DIENSTEN IN PLAATS ===== -->
+<style>
+  .wg-services { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .wg-services h2 { text-align: center; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; color: #191919; margin-bottom: 0.5rem; }
+  .wg-services .accent { width: 70px; height: 4px; background: #E8A800; margin: 0 auto 2.5rem; border-radius: 2px; }
+  .wg-services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  .wg-service-card { background: #fff; border: 2px solid #eee; border-radius: 14px; padding: 1.75rem 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.5rem; transition: all 0.25s ease; }
+  .wg-service-card:hover { border-color: #E8A800; transform: translateY(-4px); box-shadow: 0 10px 24px rgba(232,168,0,0.13); }
+  .wg-service-card i { font-size: 1.85rem; color: #E8A800; margin-bottom: 0.4rem; }
+  .wg-service-card h3 { font-size: 1.1rem; font-weight: 800; color: #191919; }
+  .wg-service-card p { font-size: 0.88rem; color: #555; line-height: 1.55; flex: 1; }
+  .wg-service-card .arrow { color: #E8A800; font-weight: 700; font-size: 0.9rem; }
+  @media (max-width: 991px) { .wg-services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .wg-services-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="wg-services">
+  <h2>Onze diensten in Den Helder</h2>
+  <div class="accent"></div>
+  <div class="wg-services-grid">
+    <a href="../dakwerken.html" class="wg-service-card">
+      <i class="fas fa-home"></i>
+      <h3>Dakwerken</h3>
+      <p>Bitumen dakbedekking en vakkundig loodwerk voor platte daken in Den Helder.</p>
+      <span class="arrow">Bekijk dienst &rarr;</span>
+    </a>
+    <a href="../zinkwerk.html" class="wg-service-card">
+      <i class="fas fa-water"></i>
+      <h3>Zinkwerk</h3>
+      <p>Zinken goten, hemelwaterafvoer en dakdetails op maat in Den Helder.</p>
+      <span class="arrow">Bekijk dienst &rarr;</span>
+    </a>
+    <a href="../loodgieterswerk.html" class="wg-service-card">
+      <i class="fas fa-faucet"></i>
+      <h3>Loodgieterswerk</h3>
+      <p>Sanitair, riolering en verwarming &mdash; vakkundig in Den Helder.</p>
+      <span class="arrow">Bekijk dienst &rarr;</span>
+    </a>
+    <a href="../noodreparaties.html" class="wg-service-card">
+      <i class="fas fa-bolt"></i>
+      <h3>Noodreparaties</h3>
+      <p>Spoeddienst bij lekkage of stormschade in Den Helder en omgeving.</p>
+      <span class="arrow">Bekijk dienst &rarr;</span>
+    </a>
+  </div>
+</section>
 
+<!-- ===== WAAROM ===== -->
+<style>
+  .wg-waarom { background: #f7f7f7; padding: 4rem 1.5rem; }
+  .wg-waarom-inner { max-width: 1100px; margin: 0 auto; }
+  .wg-waarom h2 { text-align: center; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; color: #191919; margin-bottom: 2.5rem; }
+  .wg-waarom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .wg-waarom-card { background: #fff; padding: 1.75rem 1.5rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
+  .wg-waarom-card i { font-size: 2rem; color: #E8A800; margin-bottom: 0.85rem; }
+  .wg-waarom-card h4 { font-size: 1.05rem; font-weight: 800; color: #191919; margin-bottom: 0.6rem; }
+  .wg-waarom-card p { color: #555; font-size: 0.92rem; line-height: 1.65; }
+  @media (max-width: 768px) { .wg-waarom-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="wg-waarom">
+  <div class="wg-waarom-inner">
+    <h2>Waarom JS Techniek in Den Helder?</h2>
+    <div class="wg-waarom-grid">
+      <div class="wg-waarom-card"><i class="fas fa-map-marker-alt"></i><h4>Lokale kennis</h4><p>We kennen het werkgebied Den Helder en weten welke uitdagingen lokale daken hebben.</p></div>
+      <div class="wg-waarom-card"><i class="fas fa-clock"></i><h4>Snel ter plaatse</h4><p>Korte aanrijtijden voor planmatig werk én spoedklussen in Den Helder.</p></div>
+      <div class="wg-waarom-card"><i class="fas fa-handshake"></i><h4>Vaste prijs &amp; geen verrassingen</h4><p>Heldere offerte, scherpe prijs en geen onverwachte kosten achteraf.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<style>
+  .wg-cta { background: linear-gradient(135deg, #E8A800 0%, #D09800 100%); padding: 3.5rem 1.5rem; text-align: center; color: #111; }
+  .wg-cta h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 800; margin-bottom: 0.6rem; }
+  .wg-cta p { font-size: 1.05rem; margin-bottom: 1.75rem; opacity: 0.9; }
+  .wg-cta .btn { display: inline-block; padding: 0.95rem 2rem; background: #111; color: #E8A800; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform 0.2s; }
+  .wg-cta .btn:hover { transform: translateY(-2px); }
+</style>
+<section class="wg-cta">
+  <h2>Dakwerk nodig in Den Helder?</h2>
+  <p>Bel of stuur een bericht &mdash; we plannen meestal binnen één dag een vrijblijvende inspectie.</p>
+  <a href="../contact.html" class="btn">Vraag een offerte aan &rarr;</a>
+</section>
+
+<!-- ===== KAART ===== -->
+<style>
+  .wg-map { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+  .wg-map h2 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); font-weight: 800; color: #191919; margin-bottom: 1rem; text-align: center; }
+  .wg-map p { text-align: center; color: #555; max-width: 700px; margin: 0 auto 1.75rem; line-height: 1.65; }
+  .wg-map iframe { width: 100%; height: 420px; border: 0; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+</style>
+<section class="wg-map">
+  <h2>Locatie Den Helder</h2>
+  <p>Wij werken in heel Den Helder en omliggende dorpen. Vanuit Den Helder zijn we vlot ter plaatse.</p>
+  <iframe loading="lazy" src="https://maps.google.com/maps?q=52.9568,4.761&z=13&output=embed" allowfullscreen></iframe>
+</section>
+
+<!-- ===== NEARBY ===== -->
+<style>
+  .wg-nearby { background: #f7f7f7; padding: 3.5rem 1.5rem 4rem; }
+  .wg-nearby-inner { max-width: 1100px; margin: 0 auto; }
+  .wg-nearby h2 { text-align: center; font-size: clamp(1.4rem, 2.4vw, 1.7rem); font-weight: 800; color: #191919; margin-bottom: 1.75rem; }
+  .wg-nearby-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .wg-nearby-card { background: #fff; padding: 1.1rem 1.25rem; border-radius: 10px; text-decoration: none; color: #222; transition: all 0.2s; border-left: 3px solid #E8A800; }
+  .wg-nearby-card:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+  .wg-nearby-card h4 { font-size: 0.95rem; font-weight: 700; color: #191919; }
+  .wg-nearby-card p { font-size: 0.82rem; color: #777; margin-top: 0.2rem; }
+  @media (max-width: 768px) { .wg-nearby-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="wg-nearby">
+  <div class="wg-nearby-inner">
+    <h2>Ook werkzaam in de buurt</h2>
+    <div class="wg-nearby-grid">
+      <a class="wg-nearby-card" href="julianadorp.html"><h4>Julianadorp</h4><p>Kop van Noord-Holland</p></a>
+      <a class="wg-nearby-card" href="texel.html"><h4>Texel</h4><p>Waddeneilanden</p></a>
+      <a class="wg-nearby-card" href="anna-paulowna.html"><h4>Anna Paulowna</h4><p>Hollands Kroon</p></a>
+    </div>
+  </div>
+</section>
 <!-- ===== FOOTER ===== -->
 <style>
   .site-footer { background: #131313; padding: 4rem 2rem 1.5rem; color: rgba(255,255,255,0.65); font-family: 'Inter', sans-serif; border-top: 4px solid #E8A800; }
@@ -718,7 +569,7 @@
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-col footer-brand">
-      <img class="footer-logo" loading="lazy" src="images/logo.png" alt="JS Techniek logo">
+      <img class="footer-logo" loading="lazy" src="../images/logo.png" alt="JS Techniek logo">
       <p>Specialist in dakwerken, zinkwerk, loodgieterswerk en noodreparaties &mdash; vanuit Den Helder werkzaam in heel Noord-Holland.</p>
       <div class="footer-socials">
         <a href="https://www.facebook.com/profile.php?id=61580793825403" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -729,21 +580,21 @@
     <div class="footer-col">
       <h4>Diensten</h4>
       <ul>
-        <li><a href="dakwerken.html">Dakwerken</a></li>
-        <li><a href="zinkwerk.html">Zinkwerk</a></li>
-        <li><a href="loodgieterswerk.html">Loodgieterswerk</a></li>
-        <li><a href="noodreparaties.html">Noodreparaties</a></li>
-        <li><a href="diensten.html">Alle diensten</a></li>
+        <li><a href="../dakwerken.html">Dakwerken</a></li>
+        <li><a href="../zinkwerk.html">Zinkwerk</a></li>
+        <li><a href="../loodgieterswerk.html">Loodgieterswerk</a></li>
+        <li><a href="../noodreparaties.html">Noodreparaties</a></li>
+        <li><a href="../diensten.html">Alle diensten</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Werkgebied</h4>
       <ul>
-        <li><a href="werkgebied.html">Alle werkgebieden</a></li>
-        <li><a href="werkgebied/den-helder.html">Den Helder</a></li>
-        <li><a href="werkgebied/julianadorp.html">Julianadorp</a></li>
-        <li><a href="werkgebied/schagen.html">Schagen</a></li>
-        <li><a href="werkgebied/alkmaar.html">Alkmaar</a></li>
+        <li><a href="../werkgebied.html">Alle werkgebieden</a></li>
+        <li><a href="den-helder.html">Den Helder</a></li>
+        <li><a href="julianadorp.html">Julianadorp</a></li>
+        <li><a href="schagen.html">Schagen</a></li>
+        <li><a href="alkmaar.html">Alkmaar</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -758,7 +609,7 @@
   </div>
   <div class="footer-bottom">
     <p>&copy; JS Techniek &middot; KvK 70974306 &middot; Alle rechten voorbehouden</p>
-    <p class="footer-legal-links"><a href="privacy.html">Privacyverklaring</a> &middot; <a href="voorwaarden.html">Algemene voorwaarden</a></p>
+    <p class="footer-legal-links"><a href="../privacy.html">Privacyverklaring</a> &middot; <a href="../voorwaarden.html">Algemene voorwaarden</a></p>
     <p class="footer-credit">Webdesign door <a href="https://deprocesdesigners.nl/" target="_blank" rel="noopener">De Proces Designers</a></p>
   </div>
 </footer>
@@ -799,6 +650,5 @@
     });
   })();
 </script>
-
 </body>
 </html>
