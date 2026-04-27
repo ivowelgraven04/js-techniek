@@ -140,7 +140,7 @@
   .mobile-submenu li a { display: flex !important; align-items: center; gap: 0.5rem; padding: 0.85rem 0 0.85rem 1rem !important; font-size: 15px !important; font-weight: 600 !important; color: rgba(255,255,255,0.9) !important; text-decoration: none; }
   .mobile-submenu li a::before { content: '–'; opacity: 0.5; font-size: 13px; }
   .mobile-submenu li a:hover { color: #fff !important; padding-left: 1.4rem !important; }
-  .nav-rating-li { display: none; }
+  .nav-rating-li, .nav-call-li { display: none; }
   @media (max-width: 991px) {
     .nav-rating-li { display: flex !important; margin-top: auto !important; padding: 1.5rem 0 0.5rem !important; width: 100%; border-bottom: none !important; justify-content: center; }
     .nav-rating-pill { display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.6rem 1.1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff !important; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.2px; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
@@ -149,6 +149,11 @@
     .nav-rating-pill .nav-rating-divider { width: 1px; height: 13px; background: rgba(255,255,255,0.25); }
     .nav-rating-pill .nav-rating-text { color: rgba(255,255,255,0.92); }
     .nav-rating-pill .nav-rating-text strong { font-weight: 800; color: #fff; margin-right: 0.15rem; letter-spacing: -0.2px; }
+    .nav-call-li { display: flex !important; width: 100%; padding: 1.5rem 0 0 !important; border-bottom: none !important; justify-content: center; }
+    .nav-call-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #E8A800; color: #111 !important; padding: 0.9rem 1.6rem !important; border-radius: 50px; font-weight: 800 !important; font-size: 0.95rem !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease; box-shadow: 0 6px 18px rgba(232,168,0,0.35); letter-spacing: 0.2px; }
+    .nav-call-btn:hover { background: #D09800 !important; transform: translateY(-1px); color: #111 !important; }
+    .nav-call-btn::after { display: none !important; }
+    .nav-call-btn i { font-size: 0.85rem; }
   }
   .diensten-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; cursor: pointer; }
   .diensten-toggle .toggle-arrow { transition: transform 0.3s ease; font-size: 12px; color: rgba(255,255,255,0.8); }
@@ -260,6 +265,11 @@
       <li class="nav-item"><a href="projecten.html">Projecten</a></li>
       <li class="nav-item"><a href="over-ons.html">Over Ons</a></li>
       <li class="nav-item"><a href="contact.html">Contact</a></li>
+      <li class="nav-call-li">
+        <a href="tel:+31612602082" class="nav-call-btn">
+          <i class="fas fa-phone"></i> Bel ons direct
+        </a>
+      </li>
       <li class="nav-rating-li">
         <a href="index.html#reviews-section" class="nav-rating-pill" aria-label="5.0 op Google Reviews">
           <span class="nav-rating-stars" aria-hidden="true">★★★★★</span>
