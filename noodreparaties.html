@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NN4SJRXV');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -62,6 +69,10 @@
   </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN4SJRXV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ===== NAVBAR ===== -->
 <style>
@@ -353,7 +364,7 @@
   .hero {
     position: relative;
     width: 100%;
-    min-height: 380px;
+    min-height: 480px;
     background-image: url('images/resized/JS%20Techniek%202%20kopie.jpeg');
     background-size: cover;
     background-position: center;
@@ -361,12 +372,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
   .hero .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.55) 100%);
+  }
+  .hero-urgent-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(232,168,0,0.95);
+    color: #111;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 16px rgba(232,168,0,0.4);
+  }
+  .hero-urgent-badge .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #c0392b;
+    border-radius: 50%;
+    animation: pulse-dot 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
   }
   .hero h1 {
     position: relative;
@@ -375,81 +414,445 @@
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.05;
   }
-  .card-container {
+  .hero-slogan {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 760px;
-  }
-  .card-container .card {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
-    padding: 1.75rem 1.5rem;
-    color: white;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .card-container .card:hover {
-    background: rgba(232,168,0,0.8);
-    transform: translateY(-4px);
-  }
-  .card-container .card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-  .card-container .card p {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    line-height: 1.5;
-    flex: 1;
-  }
-  .card-container .card .arrow {
-    font-size: 1.3rem;
-    margin-top: 0.5rem;
     color: #E8A800;
-    transition: color 0.3s;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
-  .card-container .card:hover .arrow { color: white; }
-  @media (max-width: 900px) {
-    .card-container { grid-template-columns: repeat(2, 1fr); }
+  .hero-sub {
+    position: relative;
+    z-index: 1;
+    color: rgba(255,255,255,0.92);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    line-height: 1.55;
   }
+  .hero-cta-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 1.05rem 2rem;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    min-width: 240px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .hero-cta i { font-size: 1.15rem; }
+  .hero-cta-call {
+    background: #E8A800;
+    color: #111;
+    box-shadow: 0 8px 24px rgba(232,168,0,0.45), 0 0 0 0 rgba(232,168,0,0.7);
+    animation: pulse-call 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse-call {
+    0%, 100% { box-shadow: 0 8px 24px rgba(232,168,0,0.45), 0 0 0 0 rgba(232,168,0,0.7); }
+    50% { box-shadow: 0 8px 28px rgba(232,168,0,0.55), 0 0 0 14px rgba(232,168,0,0); }
+  }
+  .hero-cta-call:hover {
+    background: #ffc107;
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 12px 32px rgba(232,168,0,0.6);
+  }
+  .hero-cta-whatsapp {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  }
+  .hero-cta-whatsapp:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37,211,102,0.55);
+  }
+  .hero-trust-strip {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem 2rem;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .hero-trust-strip span { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .hero-trust-strip i { color: #E8A800; font-size: 0.95rem; }
   @media (max-width: 768px) {
-    .hero { min-height: 55vh; padding: 2rem 1rem; }
-    .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 1.5rem; }
-  }
-  @media (max-width: 560px) {
-    .card-container { grid-template-columns: 1fr; }
-    .hero { min-height: auto; }
+    .hero { min-height: auto; padding: 3rem 1.25rem; }
+    .hero h1 { font-size: clamp(2rem, 7vw, 2.8rem); margin-bottom: 0.75rem; }
+    .hero-cta { min-width: unset; width: 100%; padding: 1rem 1.5rem; font-size: 1rem; }
+    .hero-cta-row { flex-direction: column; gap: 0.75rem; }
+    .hero-trust-strip { gap: 0.6rem 1.25rem; font-size: 0.85rem; }
   }
 </style>
 
 <section class="hero">
   <div class="overlay"></div>
+  <div class="hero-urgent-badge"><span class="pulse-dot"></span> 24/7 Spoeddienst</div>
   <h1>Noodreparaties</h1>
-  <div class="card-container">
-    <a href="#spoeddienst" class="card">
-      <h3>Spoeddienst lekkage</h3>
-      <p>Snel ter plaatse bij actieve lekkage of waterschade — ook in het weekend.</p>
-      <span class="arrow">&rarr;</span>
+  <p class="hero-slogan">Vandaag gebeld, vandaag geholpen.</p>
+  <p class="hero-sub">Lekkage, stormschade of acute reparatie? Wij staan direct voor u klaar — bel of WhatsApp ons en wij komen zo snel mogelijk ter plaatse.</p>
+  <div class="hero-cta-row">
+    <a href="tel:+31612602082" class="hero-cta hero-cta-call" aria-label="Bel direct +31 6 12602082">
+      <i class="fas fa-phone-volume"></i>
+      <span>Bel direct: +31 6 12602082</span>
     </a>
-    <a href="#schade" class="card">
-      <h3>Schade-inspectie &amp; herstel</h3>
-      <p>Storm-, vorst- of waterschade vakkundig opgespoord en hersteld.</p>
-      <span class="arrow">&rarr;</span>
+    <a href="https://wa.me/31612602082?text=Hallo%2C%20ik%20heb%20een%20spoedgeval%20en%20zoek%20snel%20hulp." class="hero-cta hero-cta-whatsapp" target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp bericht">
+      <i class="fab fa-whatsapp"></i>
+      <span>WhatsApp ons direct</span>
     </a>
   </div>
+  <div class="hero-trust-strip">
+    <span><i class="fas fa-clock"></i> 24/7 bereikbaar</span>
+    <span><i class="fas fa-bolt"></i> Snel ter plaatse</span>
+    <span><i class="fas fa-handshake"></i> Vaste prijsafspraak vooraf</span>
+  </div>
 </section>
+
+<!-- ===== EMERGENCY FORM ===== -->
+<style>
+  .emergency-form-section {
+    background: linear-gradient(180deg, #f7f7f7 0%, #fff 100%);
+    padding: 4rem 1.5rem;
+  }
+  .emergency-form-card {
+    max-width: 680px;
+    margin: -5rem auto 0;
+    background: #fff;
+    border-top: 4px solid #E8A800;
+    border-radius: 14px;
+    padding: 2.5rem 2.25rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 2;
+  }
+  .emergency-form-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  .emergency-form-header .urgent-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(232,168,0,0.12);
+    color: #b87f00;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.85rem;
+  }
+  .emergency-form-header h2 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+  .emergency-form-header p {
+    color: #555;
+    font-size: 0.98rem;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .emergency-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .emergency-form .form-group {
+    margin-bottom: 1rem;
+  }
+  .emergency-form label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.4rem;
+  }
+  .emergency-form label span { color: #E8A800; }
+  .emergency-form input,
+  .emergency-form select,
+  .emergency-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #222;
+    background: #fafafa;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-sizing: border-box;
+  }
+  .emergency-form textarea {
+    resize: vertical;
+    min-height: 90px;
+    font-family: 'Inter', sans-serif;
+  }
+  .emergency-form input:focus,
+  .emergency-form select:focus,
+  .emergency-form textarea:focus {
+    outline: none;
+    border-color: #E8A800;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(232,168,0,0.12);
+  }
+  .emergency-form input.invalid,
+  .emergency-form select.invalid,
+  .emergency-form textarea.invalid {
+    border-color: #d9534f;
+    background: #fff5f5;
+  }
+  .emergency-submit-btn {
+    width: 100%;
+    padding: 1.05rem 1.5rem;
+    background: #E8A800;
+    color: #111;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(232,168,0,0.4);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+  .emergency-submit-btn:hover:not(:disabled) {
+    background: #ffc107;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(232,168,0,0.5);
+  }
+  .emergency-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  .emergency-form-fallback {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    color: #555;
+  }
+  .emergency-form-fallback a {
+    color: #b87f00;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .emergency-form-fallback a:hover { text-decoration: underline; }
+  .emergency-form-success {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .emergency-form-success.active { display: block; }
+  .emergency-form-success i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 0.75rem;
+  }
+  .emergency-form-success h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 0.5rem;
+  }
+  .emergency-form-success p {
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .emergency-form-error {
+    display: none;
+    background: #fff5f5;
+    border: 1px solid #f5c2c0;
+    color: #a02824;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+  }
+  .emergency-form-error.active { display: block; }
+  .emergency-form-error a { color: #a02824; font-weight: 700; }
+  @media (max-width: 600px) {
+    .emergency-form-card { margin: -3rem 0 0; padding: 1.75rem 1.25rem; border-radius: 12px; }
+    .emergency-form .form-row { grid-template-columns: 1fr; gap: 0; }
+    .emergency-form-section { padding: 3rem 1rem; }
+  }
+</style>
+
+<section class="emergency-form-section">
+  <div class="emergency-form-card">
+    <div class="emergency-form-header">
+      <div class="urgent-tag"><i class="fas fa-bolt"></i> Direct hulp aanvragen</div>
+      <h2>Direct hulp nodig? Vul snel in.</h2>
+      <p>Onze technicus belt u zo snel mogelijk terug — meestal binnen 15 minuten tijdens kantooruren.</p>
+    </div>
+
+    <div class="emergency-form-error" id="emergencyError">
+      Verzenden mislukt. Bel ons direct: <a href="tel:+31612602082">+31 6 12602082</a>
+    </div>
+
+    <form class="emergency-form" id="emergencyForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="em-naam">Naam<span>*</span></label>
+          <input type="text" id="em-naam" name="naam" placeholder="Uw volledige naam" required>
+        </div>
+        <div class="form-group">
+          <label for="em-telefoon">Telefoonnummer<span>*</span></label>
+          <input type="tel" id="em-telefoon" name="telefoon" placeholder="06 12345678" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="em-email">E-mailadres<span>*</span></label>
+        <input type="email" id="em-email" name="email" placeholder="uw@emailadres.nl" required>
+      </div>
+      <div class="form-group">
+        <label for="em-type">Type noodreparatie<span>*</span></label>
+        <select id="em-type" name="type" required>
+          <option value="" disabled selected>Selecteer het type spoedklus</option>
+          <option value="lekkage">Lekkage / waterschade</option>
+          <option value="stormschade">Stormschade</option>
+          <option value="dakschade">Dakschade</option>
+          <option value="verstopping">Verstopping</option>
+          <option value="anders">Anders / weet ik niet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="em-probleem">Wat is het probleem?<span>*</span></label>
+        <textarea id="em-probleem" name="probleem" rows="3" placeholder="Beschrijf kort uw situatie, bv. 'Lekkage in slaapkamer plafond, water druipt door'" required></textarea>
+      </div>
+      <button type="submit" class="emergency-submit-btn" id="emergencySubmit">
+        <i class="fas fa-paper-plane"></i> Stuur noodverzoek
+      </button>
+      <p class="emergency-form-fallback">
+        Liever direct bellen? <a href="tel:+31612602082">+31 6 12602082</a> — 24/7 spoeddienst
+      </p>
+    </form>
+
+    <div class="emergency-form-success" id="emergencySuccess">
+      <i class="fas fa-check-circle"></i>
+      <h3>Verzoek ontvangen!</h3>
+      <p>Wij bellen u zo snel mogelijk terug op het opgegeven nummer. Voor acute spoed kunt u altijd direct bellen op <a href="tel:+31612602082" style="color:#b87f00;font-weight:700;">+31 6 12602082</a>.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const form = document.getElementById('emergencyForm');
+    const submitBtn = document.getElementById('emergencySubmit');
+    const successEl = document.getElementById('emergencySuccess');
+    const errorEl = document.getElementById('emergencyError');
+
+    // TODO: Zapier webhook URL invullen zodra automation is opgezet.
+    const WEBHOOK_URL = 'REPLACE_WITH_ZAPIER_WEBHOOK_URL';
+
+    function clearInvalid() {
+      form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+    }
+
+    function validate() {
+      clearInvalid();
+      let valid = true;
+      form.querySelectorAll('[required]').forEach(el => {
+        if (!el.value.trim()) {
+          el.classList.add('invalid');
+          valid = false;
+        }
+      });
+      const email = form.querySelector('#em-email');
+      if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        email.classList.add('invalid');
+        valid = false;
+      }
+      return valid;
+    }
+
+    function showSuccess() {
+      form.style.display = 'none';
+      errorEl.classList.remove('active');
+      successEl.classList.add('active');
+    }
+
+    function showError() {
+      errorEl.classList.add('active');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Stuur noodverzoek';
+    }
+
+    form.addEventListener('input', clearInvalid);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      errorEl.classList.remove('active');
+      if (!validate()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Versturen...';
+
+      const data = {
+        naam: form.querySelector('#em-naam').value.trim(),
+        telefoon: form.querySelector('#em-telefoon').value.trim(),
+        email: form.querySelector('#em-email').value.trim(),
+        type: form.querySelector('#em-type').value,
+        probleem: form.querySelector('#em-probleem').value.trim(),
+        bron: 'noodreparaties-formulier',
+        tijdstip: new Date().toISOString()
+      };
+
+      // Als webhook nog niet is ingesteld: direct succesmelding (zelfde patroon als contact.html)
+      if (!WEBHOOK_URL || WEBHOOK_URL === 'REPLACE_WITH_ZAPIER_WEBHOOK_URL') {
+        setTimeout(showSuccess, 600);
+        return;
+      }
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          showSuccess();
+        })
+        .catch(showError);
+    });
+  })();
+</script>
 
 <!-- ===== INFO SECTION ===== -->
 <style>

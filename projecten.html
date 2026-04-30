@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NN4SJRXV');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -10,7 +17,7 @@
   <meta name="theme-color" content="#E8A800">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projecten & Referenties | JS Techniek</title>
-  <meta name="description" content="Bekijk uitgevoerde projecten van JS Techniek. Van dakbedekking en loodgieterswerk tot elektra – resultaten waar wij trots op zijn.">
+  <meta name="description" content="Bekijk uitgevoerde projecten van JS Techniek. Dakbedekking, loodgieterswerk en zinkwerk – resultaten waar wij trots op zijn.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://js-techniek.vercel.app/projecten.html">
   <meta property="og:type" content="website">
@@ -62,6 +69,10 @@
   </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN4SJRXV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ===== NAVBAR ===== -->
 <style>
@@ -462,37 +473,6 @@
     .grid { grid-template-columns: 1fr; }
     .grid .card img { height: 200px; }
   }
-  /* Placeholder voor project-card (elektra) */
-  .card-placeholder.elektra {
-    width: 100%;
-    height: 240px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #232323 50%, #2c2c2c 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    color: #E8A800;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-placeholder.elektra::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(232,168,0,0.14), transparent 60%);
-    pointer-events: none;
-  }
-  .card-placeholder.elektra i { font-size: 3rem; position: relative; z-index: 1; }
-  .card-placeholder.elektra span {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    position: relative;
-    z-index: 1;
-  }
-  @media (max-width: 768px) { .card-placeholder.elektra { height: 200px; } }
 </style>
 
 <section class="projects-section">
@@ -501,8 +481,8 @@
       <img loading="lazy" src="images/resized/JS%20Techniek%2033%20kopie.jpeg" alt="Dakbedekking">
       <div class="card-content">
         <h3>Dakbedekking</h3>
-        <small>Bitumen &amp; EPDM</small>
-        <p>Van bitumen tot EPDM dakbedekking – wij zorgen voor een waterdicht en duurzaam plat dak. Onze vakmensen werken nauwkeurig en efficiënt, met oog voor kwaliteit en een langdurig resultaat.</p>
+        <small>Bitumen &amp; platte daken</small>
+        <p>Bitumen dakbedekking en complete oplossingen voor platte daken – wij zorgen voor een waterdicht en duurzaam dak. Onze vakmensen werken nauwkeurig en efficiënt, met oog voor kwaliteit en een langdurig resultaat.</p>
       </div>
     </a>
     <a href="#" class="card">
@@ -511,14 +491,6 @@
         <h3>Loodgieterswerk</h3>
         <small>Sanitair, Rioleringen &amp; Verwarming</small>
         <p>Onze vakkundige loodgieters lossen elk probleem snel en duurzaam op – van sanitaire installaties en rioleringen tot complete verwarmingssystemen. We werken efficiënt en netjes, met minimale overlast voor u.</p>
-      </div>
-    </a>
-    <a href="#" class="card">
-      <img loading="lazy" src="images/elektra-2-hd.jpeg" alt="Elektra project">
-      <div class="card-content">
-        <h3>Elektra</h3>
-        <small>Installaties, Reparaties &amp; Inspectie</small>
-        <p>Betrouwbare elektra-installaties, snelle reparaties en grondige inspecties. Onze elektriciens zorgen voor veilige en professionele oplossingen, van nieuwbouw tot renovatie.</p>
       </div>
     </a>
   </div>
