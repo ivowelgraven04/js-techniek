@@ -1078,6 +1078,169 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.addEventListener("DOMContentLoaded", () => { updateSlide(); setTimeout(type, 1000); });
 </script>
 
+<!-- ===== NOODBANNER ===== -->
+<style>
+  .noodbanner-wrap {
+    padding: 1.25rem 1.5rem 0;
+  }
+  .noodbanner {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    background:
+      radial-gradient(circle at 90% 50%, rgba(232,168,0,0.20), transparent 60%),
+      linear-gradient(135deg, #131313 0%, #1d1d1d 50%, #131313 100%);
+    color: #fff;
+    padding: 2.5rem 2.25rem;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 2px solid rgba(232,168,0,0.85);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18), 0 0 0 1px rgba(232,168,0,0.15);
+  }
+  .noodbanner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent 0 30px, rgba(232,168,0,0.03) 30px 31px);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .noodbanner-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .noodbanner-left { display: flex; flex-direction: column; gap: 0.5rem; }
+  .noodbanner-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(232,168,0,0.15);
+    color: #E8A800;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(232,168,0,0.4);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+  }
+  .noodbanner-tag .pulse-dot {
+    width: 8px; height: 8px;
+    background: #c0392b;
+    border-radius: 50%;
+    animation: noodbanner-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes noodbanner-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+  .noodbanner h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    color: #fff;
+  }
+  .noodbanner h2 .accent { color: #E8A800; }
+  .noodbanner p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.55;
+    margin: 0.5rem 0 0;
+    max-width: 540px;
+  }
+  .noodbanner-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #E8A800;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+    width: fit-content;
+  }
+  .noodbanner-more:hover { gap: 0.7rem; color: #ffc107; }
+  .noodbanner-right { display: flex; flex-direction: column; gap: 0.85rem; }
+  .noodbanner-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .noodbanner-cta i { font-size: 1.1rem; }
+  .noodbanner-cta-call {
+    background: #E8A800;
+    color: #111;
+    box-shadow: 0 8px 24px rgba(232,168,0,0.45), 0 0 0 0 rgba(232,168,0,0.7);
+    animation: noodbanner-pulse-call 2.2s ease-in-out infinite;
+  }
+  @keyframes noodbanner-pulse-call {
+    0%, 100% { box-shadow: 0 8px 24px rgba(232,168,0,0.45), 0 0 0 0 rgba(232,168,0,0.7); }
+    50% { box-shadow: 0 8px 28px rgba(232,168,0,0.55), 0 0 0 14px rgba(232,168,0,0); }
+  }
+  .noodbanner-cta-call:hover {
+    background: #ffc107;
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 12px 32px rgba(232,168,0,0.6);
+  }
+  .noodbanner-cta-whatsapp {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  }
+  .noodbanner-cta-whatsapp:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37,211,102,0.55);
+  }
+  @media (max-width: 768px) {
+    .noodbanner-wrap { padding: 0.85rem 1rem 0; }
+    .noodbanner { padding: 2rem 1.25rem; border-radius: 18px; }
+    .noodbanner-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .noodbanner-cta { padding: 0.95rem 1.25rem; font-size: 0.95rem; }
+  }
+</style>
+
+<section class="noodbanner-wrap" aria-labelledby="noodbanner-heading">
+  <div class="noodbanner">
+    <div class="noodbanner-inner">
+    <div class="noodbanner-left">
+      <div class="noodbanner-tag"><span class="pulse-dot"></span> 24/7 Spoeddienst</div>
+      <h2 id="noodbanner-heading">Lekkage of stormschade? <span class="accent">Wij staan direct voor u klaar.</span></h2>
+      <p>Vandaag gebeld, vandaag geholpen. Bij acute lekkage, stormschade of dakproblemen rukken wij snel uit — ook in het weekend.</p>
+      <a href="/noodreparaties" class="noodbanner-more">
+        Meer over onze noodreparaties <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="noodbanner-right">
+      <a href="tel:+31612602082" class="noodbanner-cta noodbanner-cta-call" aria-label="Bel direct +31 6 12602082">
+        <i class="fas fa-phone-volume"></i>
+        <span>Bel: +31 6 12602082</span>
+      </a>
+      <a href="https://wa.me/31612602082?text=Hallo%2C%20ik%20heb%20een%20spoedgeval%20en%20zoek%20snel%20hulp." class="noodbanner-cta noodbanner-cta-whatsapp" target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp bericht">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp ons</span>
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== USP 3-COLUMN SECTION ===== -->
 <section class="usp-section">
   <div class="usp-grid">
