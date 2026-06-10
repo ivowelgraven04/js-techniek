@@ -1,0 +1,27 @@
+---
+interface UspItem {
+  /** Heroicon SVG path-d string */
+  iconPath: string;
+  title: string;
+  text: string;
+}
+interface Props { items: UspItem[]; }
+const { items } = Astro.props;
+---
+<section class="bg-white border-y border-gray-100">
+  <div class="container-content grid grid-cols-1 md:grid-cols-3 gap-8 py-10 md:py-14">
+    {items.map(item => (
+      <div class="flex items-start gap-4">
+        <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-blue-700 text-white flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <Fragment set:html={item.iconPath} />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-extrabold text-brand-blue-900">{item.title}</h3>
+          <p class="text-brand-blue-900/75 mt-1">{item.text}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

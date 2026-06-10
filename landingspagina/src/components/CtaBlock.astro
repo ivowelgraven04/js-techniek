@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  primaryCta: { text: string; href: string; trackId?: string };
+  secondaryCta?: { text: string; href: string; trackId?: string };
+  variant?: 'blue' | 'yellow';
+}
+const { title, subtitle, primaryCta, secondaryCta, variant = 'blue' } = Astro.props;
+const bg = variant === 'blue'
+  ? 'bg-brand-blue-900 text-white'
+  : 'bg-brand-yellow-500 text-brand-ink';
+---
+<section class={`${bg} relative overflow-hidden`}>
+  <div class="container-content py-16 md:py-20 text-center relative z-10">
+    <h2 class="text-h2">{title}</h2>
+    {subtitle && <p class="mt-4 text-lg opacity-90 max-w-2xl mx-auto">{subtitle}</p>}
+    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+      <a
+        href={primaryCta.href}
+        class={variant === 'blue' ? 'btn-primary text-lg' : 'btn-secondary text-lg'}
+        data-cta={primaryCta.trackId ?? 'ctablock-primary'}
+      >
+        {primaryCta.text}
+      </a>
+      {secondaryCta && (
+        <a
+          href={secondaryCta.href}
+          class={`btn text-lg border-2 ${variant === 'blue' ? 'border-white text-white hover:bg-white/10' : 'border-brand-ink text-brand-ink hover:bg-brand-ink hover:text-brand-yellow-500'}`}
+          data-cta={secondaryCta.trackId ?? 'ctablock-secondary'}
+        >
+          {secondaryCta.text}
+        </a>
+      )}
+    </div>
+  </div>
+  {/* Decorative accent */}
+  <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-brand-yellow-500/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+</section>

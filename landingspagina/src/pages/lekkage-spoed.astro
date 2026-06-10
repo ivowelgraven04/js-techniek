@@ -1,0 +1,80 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import HeroSplit from '~/components/HeroSplit.astro';
+import UspStrip from '~/components/UspStrip.astro';
+import EmergencyBlock from '~/components/EmergencyBlock.astro';
+import TestimonialGrid from '~/components/TestimonialGrid.astro';
+import ServiceAreaBlock from '~/components/ServiceAreaBlock.astro';
+import FaqAccordion from '~/components/FaqAccordion.astro';
+import CtaBlock from '~/components/CtaBlock.astro';
+import StickyMobileCta from '~/components/StickyMobileCta.astro';
+import Footer from '~/components/Footer.astro';
+import heroImage from '~/assets/images/hero-lekkage.jpeg';
+import { company, seo, testimonialsLekkage, faqLekkage } from '~/data/site';
+
+const uspItems = [
+  {
+    iconPath: '<path d="M13 10V3L4 14h7v7l9-11h-7z"/>',
+    title: `Binnen ${company.emergencyResponseMinutes} minuten terugbellen`,
+    text: 'Bij echte spoed staan we klaar, ook buiten kantooruren.',
+  },
+  {
+    iconPath: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    title: 'Specialist bitumen platte daken',
+    text: `${company.yearsActive}+ jaar ervaring, ${company.projectsCount.toLocaleString('nl-NL')}+ projecten in Noord-Holland.`,
+  },
+  {
+    iconPath: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    title: `${company.reviewsRating} sterren op Google`,
+    text: `${company.reviewsCount}+ echte reviews. Snel, vakkundig, geen verrassingen.`,
+  },
+];
+---
+<BaseLayout
+  title={seo.lekkage.title}
+  description={seo.lekkage.description}
+  ogImage="/og-lekkage.jpg"
+>
+  <TopBar ctaText="Bel direct" ctaHref={`tel:${company.phoneRaw}`} />
+
+  <main>
+    <HeroSplit
+      eyebrow="Spoedlijn Noord-Holland"
+      title="Lekkage in uw plat dak? Vandaag bellen = vandaag actie."
+      subtitle={`JS Techniek staat 24/7 paraat in Den Helder en heel Noord-Holland. Specialist bitumen platte daken.`}
+      bullets={[
+        `Binnen <strong>${company.emergencyResponseMinutes} minuten</strong> terugbellen bij spoed`,
+        `Vaak nog <strong>dezelfde dag</strong> ter plaatse in Den Helder/Schagen`,
+        `Vaste prijs <strong>vóór</strong> start, geen verrassingen`,
+      ]}
+      primaryCta={{ text: `📞 Bel direct: ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'hero-phone' }}
+      secondaryCta={{ text: 'WhatsApp ons', href: `https://wa.me/${company.whatsappRaw}?text=${encodeURIComponent('Hallo, ik heb een lekkage in mijn platte dak. Adres: ...')}`, trackId: 'hero-whatsapp' }}
+      photo={heroImage}
+      photoAlt="Vochtplek en scheur in plafond door lekkage in plat dak"
+      showGoogleBadge={true}
+      phoneOverlay={true}
+    />
+
+    <UspStrip items={uspItems} />
+
+    <EmergencyBlock />
+
+    <TestimonialGrid items={testimonialsLekkage} />
+
+    <ServiceAreaBlock />
+
+    <FaqAccordion items={faqLekkage} />
+
+    <CtaBlock
+      title="Lek in uw plat dak? Bel nu."
+      subtitle={`We bellen u binnen ${company.emergencyResponseMinutes} minuten terug en plannen indien nodig dezelfde dag een bezoek in.`}
+      primaryCta={{ text: `📞 ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'final-phone' }}
+      secondaryCta={{ text: 'WhatsApp ons', href: `https://wa.me/${company.whatsappRaw}`, trackId: 'final-whatsapp' }}
+    />
+
+    <Footer />
+  </main>
+
+  <StickyMobileCta variant="phone" />
+</BaseLayout>

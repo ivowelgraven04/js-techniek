@@ -1,0 +1,33 @@
+---
+import type { FaqItem } from '~/data/site';
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  items: FaqItem[];
+}
+const { eyebrow = 'Veelgestelde vragen', title = 'We zetten het even op een rij', items } = Astro.props;
+---
+<section class="bg-white" id="faq">
+  <div class="container-content section max-w-3xl">
+    <div class="text-center mb-10">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h2 class="text-h2 text-brand-blue-900 mt-3">{title}</h2>
+    </div>
+
+    <div class="space-y-3">
+      {items.map(item => (
+        <details class="group bg-brand-paper rounded-2xl border border-gray-100 open:shadow-brand/30 transition">
+          <summary class="cursor-pointer list-none flex items-start gap-4 p-5 sm:p-6 font-bold text-brand-blue-900 text-lg select-none">
+            <span class="flex-1">{item.q}</span>
+            <svg class="w-6 h-6 mt-1 shrink-0 text-brand-blue-700 transition group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </summary>
+          <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-brand-ink/85 leading-relaxed">
+            {item.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

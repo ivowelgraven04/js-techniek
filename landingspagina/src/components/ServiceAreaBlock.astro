@@ -1,0 +1,46 @@
+---
+import { serviceArea, allServiceAreaCities } from '~/data/site';
+interface Props {
+  eyebrow?: string;
+  title?: string;
+}
+const { eyebrow = 'Werkgebied', title = `Actief in ${allServiceAreaCities.length} steden in Noord-Holland` } = Astro.props;
+---
+<section class="bg-brand-blue-50/40">
+  <div class="container-content section">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 class="text-h2 text-brand-blue-900 mt-3">{title}</h2>
+      <p class="mt-4 text-brand-blue-900/75">
+        Den Helder en directe omgeving. Bel gerust ook als uw plaats niet in de lijst staat.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 md:p-8 shadow-brand/30 border border-gray-100">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-extrabold text-brand-blue-900 mb-3">Kerngebied</h3>
+          <ul class="grid grid-cols-2 gap-y-2 text-brand-ink">
+            {serviceArea.tier1.map(c => (
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow-500"></span>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-brand-blue-900 mb-3">Uitgebreid werkgebied</h3>
+          <ul class="grid grid-cols-2 gap-y-2 text-brand-ink">
+            {serviceArea.tier2.map(c => (
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-blue-500"></span>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
