@@ -1,0 +1,183 @@
+---
+import { company } from '~/data/site';
+interface Props {
+  /** Used to tag submissions (becomes bron_pagina in webhook payload) */
+  sourcePage: string;
+}
+const { sourcePage } = Astro.props;
+---
+<section id="offerte" class="bg-brand-blue-50/60 scroll-mt-24">
+  <div class="container-content section">
+    <div class="grid lg:grid-cols-5 gap-10">
+      <div class="lg:col-span-2">
+        <span class="eyebrow">Gratis & vrijblijvend</span>
+        <h2 class="text-h2 text-brand-blue-900 mt-3">Vraag een gratis dakinspectie aan</h2>
+        <p class="mt-4 text-brand-blue-900/75 text-lg">
+          Vul het formulier in. Wij bellen u binnen <strong>1 werkdag</strong> terug en plannen
+          een gratis inspectie op locatie. Vervolgens krijgt u een vaste prijsopgave.
+        </p>
+        <ul class="mt-6 space-y-3 text-brand-ink">
+          <li class="flex gap-3"><span class="text-brand-yellow-600">✓</span> Vaste prijsopgave vóór start</li>
+          <li class="flex gap-3"><span class="text-brand-yellow-600">✓</span> {company.warrantyYearsBitumen} jaar garantie op bitumen werk</li>
+          <li class="flex gap-3"><span class="text-brand-yellow-600">✓</span> Eigen vakmensen, geen onderaannemers</li>
+        </ul>
+        <p class="mt-8 text-sm text-brand-blue-900/60">
+          Liever bellen? <a href={`tel:${company.phoneRaw}`} class="font-bold text-brand-blue-700 hover:text-brand-blue-900">{company.phoneDisplay}</a>
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <form
+          id="quote-form"
+          action="/api/submit-quote"
+          method="POST"
+          class="bg-white rounded-3xl p-6 sm:p-8 shadow-brand border border-gray-100 space-y-5"
+          novalidate
+        >
+          <input type="hidden" name="bron_pagina" value={sourcePage} />
+          <!-- Honeypot: bots zullen dit invullen, mensen niet -->
+          <div class="hp-field" aria-hidden="true">
+            <label>
+              Laat dit veld leeg
+              <input type="text" name="company_url" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Uw naam *</span>
+              <input
+                type="text"
+                name="naam"
+                required
+                autocomplete="name"
+                placeholder="Jan Jansen"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+              />
+            </label>
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Telefoonnummer *</span>
+              <input
+                type="tel"
+                name="telefoon"
+                required
+                autocomplete="tel"
+                placeholder="06 12 34 56 78"
+                pattern="[0-9 +\-]{8,}"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+              />
+            </label>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Postcode *</span>
+              <input
+                type="text"
+                name="postcode"
+                required
+                autocomplete="postal-code"
+                placeholder="1781 AA"
+                pattern="[0-9]{4}\s?[A-Za-z]{2}"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+              />
+            </label>
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Type werk *</span>
+              <select
+                name="type_werk"
+                required
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none bg-white"
+              >
+                <option value="">Kies een optie…</option>
+                <option value="vervangen">Plat dak vervangen</option>
+                <option value="repareren">Plat dak repareren</option>
+                <option value="isolatie">Plat dak isoleren</option>
+                <option value="zinkwerk">Zinkwerk (goten, slabben)</option>
+                <option value="loodwerk">Loodwerk (dakdetails)</option>
+                <option value="lekkage">Lekkage / spoed</option>
+                <option value="anders">Iets anders</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Vertel kort wat er speelt <span class="font-normal text-brand-blue-900/50">(optioneel)</span></span>
+            <textarea
+              name="opmerking"
+              rows="4"
+              placeholder="Bijvoorbeeld: dak van ca. 40m², vochtplek op slaapkamerplafond sinds vorige week..."
+              class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none resize-none"
+            ></textarea>
+          </label>
+
+          <button
+            type="submit"
+            class="btn-primary text-lg w-full sm:w-auto"
+            data-cta="form-submit"
+          >
+            Vraag gratis dakinspectie
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <p class="text-xs text-brand-blue-900/60">
+            Door op verzenden te klikken geeft u toestemming voor het verwerken van deze gegevens.
+            Zie <a href="/privacy" class="underline">privacy</a>.
+          </p>
+          <div id="form-error" role="alert" class="hidden text-red-700 text-sm bg-red-50 border border-red-200 rounded-lg p-3"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  const err = document.getElementById('form-error');
+  if (form && err) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.classList.add('hidden');
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Versturen…';
+      try {
+        // Build JSON payload (consistente parsing op de Vercel-function kant)
+        const formData = new FormData(form);
+        const payload: Record<string, string> = {};
+        formData.forEach((v, k) => { if (typeof v === 'string') payload[k] = v; });
+        const url = new URL(window.location.href);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'].forEach(k => {
+          const v = url.searchParams.get(k);
+          if (v) payload[k] = v;
+        });
+        payload.user_agent = navigator.userAgent;
+        payload.timestamp = new Date().toISOString();
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        // GA4 + Google Ads conversion
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: form.querySelector('input[name="bron_pagina"]')?.getAttribute('value') ?? '',
+          });
+        }
+        window.location.href = '/bedankt';
+      } catch (e2) {
+        err.textContent = 'Er ging iets mis bij het versturen. Probeer het nogmaals of bel ons direct.';
+        err.classList.remove('hidden');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    });
+  }
+</script>

@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-brand-paper text-brand-ink antialiased;
+    font-feature-settings: 'cv11', 'ss03';
+    text-rendering: optimizeLegibility;
+  }
+  /* Honeypot is hidden but cannot be display:none (some bots detect it) */
+  .hp-field {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-bold rounded-2xl px-6 py-4 transition-all duration-150 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/40;
+    min-height: 48px;
+  }
+  .btn-primary {
+    @apply btn bg-brand-yellow-500 text-brand-ink hover:bg-brand-yellow-600 active:scale-[0.98] shadow-brand;
+  }
+  .btn-secondary {
+    @apply btn bg-brand-blue-700 text-white hover:bg-brand-blue-500 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border-2 border-brand-blue-700 text-brand-blue-700 hover:bg-brand-blue-50;
+  }
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+  .section {
+    @apply py-14 md:py-20;
+  }
+  .eyebrow {
+    @apply inline-block text-sm font-bold uppercase tracking-widest text-brand-blue-700;
+  }
+}

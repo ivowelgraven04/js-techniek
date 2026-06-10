@@ -1,0 +1,59 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import Footer from '~/components/Footer.astro';
+import { company } from '~/data/site';
+
+const title = 'Bedankt | JS Techniek';
+const description = 'We hebben uw aanvraag ontvangen en nemen binnen 1 werkdag contact op.';
+const adsId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID;
+const adsLabel = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+---
+<BaseLayout title={title} description={description}>
+  <TopBar />
+
+  <!-- Google Ads conversion tracking pixel -->
+  {adsId && adsLabel && (
+    <script is:inline define:vars={{ adsId, adsLabel }}>
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          send_to: `${adsId}/${adsLabel}`,
+          event_callback: function() {},
+        });
+      }
+    </script>
+  )}
+
+  <main>
+    <section class="bg-gradient-to-b from-white to-brand-blue-50/60">
+      <div class="container-content py-20 md:py-28 text-center max-w-2xl mx-auto">
+        <div class="mx-auto w-20 h-20 rounded-full bg-brand-yellow-500 flex items-center justify-center shadow-brand">
+          <svg class="w-10 h-10 text-brand-ink" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <h1 class="text-hero text-brand-blue-900 mt-8">Bedankt voor uw aanvraag</h1>
+        <p class="mt-5 text-lg md:text-xl text-brand-blue-900/80">
+          We hebben uw bericht ontvangen en nemen <strong>binnen 1 werkdag</strong> telefonisch contact met u op om de situatie door te nemen.
+        </p>
+
+        <div class="mt-10 bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-brand/30 text-left">
+          <h2 class="text-h3 text-brand-blue-900">Spoed?</h2>
+          <p class="mt-2 text-brand-blue-900/75">
+            Bij acute lekkage of waterschade: bel direct.
+          </p>
+          <a href={`tel:${company.phoneRaw}`} class="btn-primary mt-5 text-lg" data-cta="bedankt-phone">
+            📞 {company.phoneDisplay}
+          </a>
+        </div>
+
+        <a href="/" class="inline-block mt-8 text-brand-blue-700 hover:text-brand-blue-900 font-bold">
+          ← Terug naar de homepage
+        </a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+const services = [
+  { title: 'Plat dak vervangen', desc: 'Bitumen toplaag met leislag of granulaat, inclusief onderlagen en isolatie.' },
+  { title: 'Bitumen dakbedekking aanbrengen', desc: 'Vakkundig gebrand of mechanisch bevestigd. SBS gemodificeerd voor lange levensduur.' },
+  { title: 'Plat dak isoleren', desc: 'PIR, EPS of glaswol. Passend bij Rc-waarde en bestaande constructie.' },
+  { title: 'Zinkwerk', desc: 'Goten, hemelwaterafvoer, slabben en kimmen. Vakkundig gesoldeerd en gefelst.' },
+  { title: 'Loodwerk', desc: 'Dakdetails, schoorsteen-aansluiting, loodslabben. Volgens BMI-richtlijnen.' },
+  { title: 'Boeiboorden vervangen', desc: 'Houten of kunststof boeiboorden, keurig afgewerkt rond uw platte dak.' },
+  { title: 'Dakkapel-bovenkant bitumen', desc: 'Vernieuwen van bitumen op dakkapel-bovenkant inclusief detailaansluitingen.' },
+  { title: 'Aanbouw / garage / schuur', desc: 'Plat dak bij aanbouw, garage, schuur of uitbouw. Vaste prijs, snelle uitvoering.' },
+];
+---
+<section id="diensten" class="bg-white">
+  <div class="container-content section">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="eyebrow">Wat we doen</span>
+      <h2 class="text-h2 text-brand-blue-900 mt-3">Alles voor uw platte dak in één hand</h2>
+      <p class="mt-4 text-brand-blue-900/75">
+        Geen onderaannemers, geen verrassingen. Onze eigen vakmensen doen het complete werk:
+        van isolatie tot zinkwerk tot de finale toplaag.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map(s => (
+        <div class="bg-brand-paper rounded-2xl p-6 border border-gray-100 hover:shadow-brand hover:-translate-y-0.5 transition">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 mt-1 text-brand-yellow-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <div>
+              <h3 class="font-extrabold text-brand-blue-900">{s.title}</h3>
+              <p class="text-brand-blue-900/75 text-sm mt-1">{s.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

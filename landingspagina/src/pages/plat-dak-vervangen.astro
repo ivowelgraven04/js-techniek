@@ -1,0 +1,83 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import HeroSplit from '~/components/HeroSplit.astro';
+import UspStrip from '~/components/UspStrip.astro';
+import ServiceList from '~/components/ServiceList.astro';
+import TestimonialGrid from '~/components/TestimonialGrid.astro';
+import QuoteForm from '~/components/QuoteForm.astro';
+import ServiceAreaBlock from '~/components/ServiceAreaBlock.astro';
+import FaqAccordion from '~/components/FaqAccordion.astro';
+import CtaBlock from '~/components/CtaBlock.astro';
+import StickyMobileCta from '~/components/StickyMobileCta.astro';
+import Footer from '~/components/Footer.astro';
+import heroImage from '~/assets/images/hero-plat-dak.jpeg';
+import { company, seo, testimonialsPlatDak, faqPlatDak } from '~/data/site';
+
+const uspItems = [
+  {
+    iconPath: '<path d="M3 12l2-2 4 4 8-8 4 4-12 12-6-6z"/>',
+    title: `${company.yearsActive}+ jaar ervaring`,
+    text: `${company.projectsCount.toLocaleString('nl-NL')}+ daken in Noord-Holland. Eigen vakmensen, geen onderaannemers.`,
+  },
+  {
+    iconPath: '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
+    title: 'Specialist bitumen + zink + lood',
+    text: 'Plat dak, zinkwerk en loodwerk. Alles uit één hand.',
+  },
+  {
+    iconPath: '<path d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"/>',
+    title: `${company.warrantyYearsBitumen} jaar garantie op nieuw werk`,
+    text: 'Schriftelijk vastgelegd. Bij ons werk valt niets in de kleine lettertjes.',
+  },
+];
+---
+<BaseLayout
+  title={seo.platDak.title}
+  description={seo.platDak.description}
+  ogImage="/og-plat-dak.jpg"
+>
+  <TopBar ctaText="Gratis dakinspectie" ctaHref="#offerte" />
+
+  <main>
+    <HeroSplit
+      eyebrow="Bitumen specialist Noord-Holland"
+      title="Plat dak vervangen of repareren in Noord-Holland?"
+      subtitle={`Vakwerk door bitumen-specialist. Erkend dakdekkersbedrijf, ${company.warrantyYearsBitumen} jaar garantie en eerlijk advies.`}
+      bullets={[
+        '<strong>Erkend</strong> dakdekkersbedrijf, lokaal in Noord-Holland',
+        `<strong>${company.warrantyYearsBitumen} jaar garantie</strong> op nieuwe bitumen dakbedekking`,
+        '<strong>Gratis dakinspectie</strong> op locatie, geen voorrijkosten',
+      ]}
+      primaryCta={{ text: 'Vraag gratis dakinspectie', href: '#offerte', trackId: 'hero-form' }}
+      secondaryCta={{ text: `Of bel: ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'hero-phone' }}
+      photo={heroImage}
+      photoAlt="Plat dak met bitumen dakbedekking, overzicht achtertuin"
+      showGoogleBadge={true}
+      badge={`${company.projectsCount.toLocaleString('nl-NL')}+ daken in NH`}
+    />
+
+    <UspStrip items={uspItems} />
+
+    <ServiceList />
+
+    <TestimonialGrid items={testimonialsPlatDak} />
+
+    <QuoteForm sourcePage="/plat-dak-vervangen" />
+
+    <ServiceAreaBlock />
+
+    <FaqAccordion items={faqPlatDak} />
+
+    <CtaBlock
+      title="Klaar om uw platte dak te vernieuwen?"
+      subtitle="Vraag een gratis dakinspectie aan. We bellen u binnen 1 werkdag terug om langs te komen."
+      primaryCta={{ text: 'Vraag gratis dakinspectie', href: '#offerte', trackId: 'final-form' }}
+      secondaryCta={{ text: `Of bel: ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'final-phone' }}
+    />
+
+    <Footer />
+  </main>
+
+  <StickyMobileCta variant="form" formHref="#offerte" />
+</BaseLayout>

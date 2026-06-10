@@ -1,0 +1,61 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import Footer from '~/components/Footer.astro';
+import { company } from '~/data/site';
+
+const title = 'Privacyverklaring | JS Techniek';
+const description = 'Hoe JS Techniek omgaat met uw persoonsgegevens.';
+---
+<BaseLayout title={title} description={description}>
+  <TopBar />
+
+  <main>
+    <article class="container-content max-w-3xl section">
+      <h1 class="text-hero text-brand-blue-900">Privacyverklaring</h1>
+      <p class="mt-3 text-sm text-brand-blue-900/60">Laatst bijgewerkt: {new Date().toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' })}</p>
+
+      <div class="prose prose-lg mt-8 space-y-6 text-brand-ink">
+        <p><strong>JS Techniek</strong> (KvK {company.kvk}) hecht waarde aan uw privacy. Op deze pagina leggen we uit welke gegevens we verzamelen en waarom.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Welke gegevens verzamelen we?</h2>
+        <p>Wanneer u het offerteformulier invult of contact opneemt, verzamelen we:</p>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Uw naam en telefoonnummer</li>
+          <li>Uw postcode (voor inschatting werkgebied en route)</li>
+          <li>Een korte omschrijving van uw vraag (optioneel)</li>
+          <li>Datum/tijd en bron-pagina van de aanvraag</li>
+        </ul>
+
+        <h2 class="text-h2 text-brand-blue-900">Waarom?</h2>
+        <p>We gebruiken deze gegevens uitsluitend om contact met u op te nemen over uw aanvraag, een gratis offerte op te stellen en het werk uit te voeren.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Bewaartermijn</h2>
+        <p>We bewaren uw gegevens maximaal 5 jaar na de laatste interactie, of zoveel langer als de Belastingdienst van ons verlangt voor offertes en facturen.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Delen met derden</h2>
+        <p>We delen uw gegevens niet met derden, behalve waar nodig voor de uitvoering van de overeenkomst (bijvoorbeeld een toelevering ter plaatse) of waar wettelijk verplicht.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Tracking en cookies</h2>
+        <p>Deze website gebruikt Google Analytics 4 (geanonimiseerd) en Google Ads conversie-pixels om te begrijpen welke advertenties leads opleveren. Er worden geen advertentie-cookies van derden geplaatst.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Uw rechten</h2>
+        <p>U kunt uw gegevens opvragen, laten corrigeren of laten verwijderen door te mailen naar <a href={`mailto:${company.email}`} class="underline">{company.email}</a>.</p>
+
+        <h2 class="text-h2 text-brand-blue-900">Contact</h2>
+        <p>
+          {company.name}<br />
+          KvK: {company.kvk}<br />
+          E-mail: <a href={`mailto:${company.email}`} class="underline">{company.email}</a><br />
+          Telefoon: <a href={`tel:${company.phoneRaw}`} class="underline">{company.phoneDisplay}</a>
+        </p>
+
+        <p class="text-sm text-brand-blue-900/60 italic">
+          Deze privacyverklaring is een eerste versie. Bij wijzigingen in onze processen zal hij worden bijgewerkt.
+        </p>
+      </div>
+    </article>
+
+    <Footer />
+  </main>
+</BaseLayout>

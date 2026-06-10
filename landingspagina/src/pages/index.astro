@@ -1,0 +1,74 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import Footer from '~/components/Footer.astro';
+import StickyMobileCta from '~/components/StickyMobileCta.astro';
+import { company } from '~/data/site';
+
+const title = `${company.name} | Specialist bitumen platte daken in Noord-Holland`;
+const description = `JS Techniek is dé specialist in bitumen platte daken, zinkwerk en loodwerk in Den Helder en Noord-Holland. ${company.yearsActive}+ jaar ervaring, ${company.warrantyYearsBitumen} jaar garantie, ${company.reviewsRating} ★ op Google.`;
+---
+<BaseLayout title={title} description={description}>
+  <TopBar ctaText="Gratis offerte" ctaHref="/plat-dak-vervangen#offerte" />
+
+  <main>
+    <section class="bg-gradient-to-b from-white to-brand-blue-50/60">
+      <div class="container-content py-12 md:py-20 text-center max-w-3xl mx-auto">
+        <span class="eyebrow">JS Techniek · Den Helder</span>
+        <h1 class="text-hero text-brand-blue-900 mt-3">
+          Specialist bitumen platte daken in Noord-Holland
+        </h1>
+        <p class="mt-5 text-base md:text-lg text-brand-blue-900/80">
+          {company.yearsActive}+ jaar ervaring · {company.projectsCount.toLocaleString('nl-NL')}+ projecten in Noord-Holland. Kies hieronder wat van toepassing is, of bel direct.
+        </p>
+
+        <div class="mt-7 flex flex-col items-center gap-2">
+          <a
+            href={`tel:${company.phoneRaw}`}
+            class="inline-flex items-center gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-600 text-brand-ink font-extrabold rounded-2xl shadow-brand border-2 border-white pl-4 pr-5 py-3 transition active:scale-[0.98]"
+            data-cta="home-hero-phone"
+          >
+            <span class="w-10 h-10 rounded-full bg-brand-ink text-brand-yellow-500 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+            </span>
+            <span class="flex flex-col items-start leading-tight">
+              <span class="text-[11px] font-bold uppercase tracking-widest opacity-75">Bel direct</span>
+              <span class="text-lg md:text-xl">{company.phoneDisplay}</span>
+            </span>
+          </a>
+          <p class="text-xs sm:text-sm text-brand-blue-900/80 font-medium">
+            <span class="text-brand-yellow-600">★</span>
+            <span class="font-bold">{company.reviewsRating}</span>
+            op Google · {company.reviewsCount}+ reviews
+          </p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-5 text-left">
+          <a href="/plat-dak-vervangen" class="group bg-white rounded-3xl p-7 border border-gray-100 shadow-brand/40 hover:-translate-y-1 hover:shadow-brand transition">
+            <div class="text-2xl">🏠</div>
+            <h2 class="text-h3 text-brand-blue-900 mt-2">Plat dak vervangen of repareren</h2>
+            <p class="mt-2 text-brand-blue-900/75">Bitumen, zinkwerk, loodwerk. Vakwerk met {company.warrantyYearsBitumen} jaar garantie. Vraag een gratis dakinspectie.</p>
+            <span class="inline-flex items-center gap-2 mt-4 font-bold text-brand-blue-700 group-hover:text-brand-blue-900">
+              Bekijk →
+            </span>
+          </a>
+
+          <a href="/lekkage-spoed" class="group bg-white rounded-3xl p-7 border border-gray-100 shadow-brand/40 hover:-translate-y-1 hover:shadow-brand transition">
+            <div class="text-2xl">💧</div>
+            <h2 class="text-h3 text-brand-blue-900 mt-2">Lekkage / spoed</h2>
+            <p class="mt-2 text-brand-blue-900/75">Acute lekkage? Binnen {company.emergencyResponseMinutes} minuten terugbellen, vaak nog dezelfde dag onsite.</p>
+            <span class="inline-flex items-center gap-2 mt-4 font-bold text-brand-blue-700 group-hover:text-brand-blue-900">
+              Bel of stuur WhatsApp →
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+
+  <StickyMobileCta variant="form" formHref="/plat-dak-vervangen#offerte" />
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import GoogleBadge from './GoogleBadge.astro';
+import { company } from '~/data/site';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  bullets: string[];
+  primaryCta: { text: string; href: string; trackId?: string };
+  secondaryCta?: { text: string; href: string; trackId?: string };
+  photo: ImageMetadata;
+  photoAlt: string;
+  /** Optionele extra badge (bv. "2.500+ daken in NH") */
+  badge?: string;
+  /** Toont de "4,9 op Google · 50+ reviews"-zin onder de CTAs en (als geen phoneOverlay) een card-badge op de foto. */
+  showGoogleBadge?: boolean;
+  /**
+   * Wanneer true: photo-overlay = belknop (ietsjes groter dan de card-badge),
+   * met "4,9 op Google" als kleine zin daaronder. Vervangt de card-badge variant.
+   * Aanbevolen voor pagina's waar bellen de primaire actie is.
+   */
+  phoneOverlay?: boolean;
+}
+const {
+  eyebrow,
+  title,
+  subtitle,
+  bullets,
+  primaryCta,
+  secondaryCta,
+  photo,
+  photoAlt,
+  badge,
+  showGoogleBadge = true,
+  phoneOverlay = false,
+} = Astro.props;
+---
+<section class="relative overflow-hidden bg-gradient-to-b from-white to-brand-blue-50/60">
+  <div class="container-content grid lg:grid-cols-2 gap-8 lg:gap-14 items-center pt-8 pb-14 md:pt-12 md:pb-20 lg:pt-14 lg:pb-24">
+    <!-- LEFT: text + CTA (CTAs zitten boven de bullets → actie boven fold) -->
+    <div class="order-2 lg:order-1">
+      {eyebrow && <span class="eyebrow mb-3">{eyebrow}</span>}
+      <h1 class="text-hero text-brand-blue-900 mt-2">
+        {title}
+      </h1>
+      {subtitle && <p class="mt-4 text-base md:text-lg text-brand-blue-900/80 max-w-xl">{subtitle}</p>}
+
+      <!-- CTA stack: boven bullets voor max above-fold zichtbaarheid -->
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a href={primaryCta.href} class="btn-primary text-base md:text-lg" data-cta={primaryCta.trackId ?? 'hero-primary'}>
+          {primaryCta.text}
+        </a>
+        {secondaryCta && (
+          <a
+            href={secondaryCta.href}
+            target={secondaryCta.href.startsWith('http') ? '_blank' : undefined}
+            rel={secondaryCta.href.startsWith('http') ? 'noopener' : undefined}
+            class="btn-outline text-base md:text-lg"
+            data-cta={secondaryCta.trackId ?? 'hero-secondary'}
+          >
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+
+      <!-- Reviews als kleine zin (geen badge): trust binnen 1 oogopslag -->
+      {showGoogleBadge && (
+        <p class="mt-3 text-sm text-brand-blue-900/70">
+          <span class="text-brand-yellow-600">★</span>
+          <span class="font-bold text-brand-blue-900">{company.reviewsRating}</span>
+          op Google · {company.reviewsCount}+ reviews
+        </p>
+      )}
+
+      <!-- Bullets als supporting proof, onder de actie -->
+      <ul class="mt-6 space-y-2.5">
+        {bullets.map(b => (
+          <li class="flex items-start gap-3 text-sm md:text-base">
+            <svg class="w-5 h-5 mt-0.5 text-brand-yellow-600 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-brand-ink"><Fragment set:html={b} /></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- RIGHT: image with optional overlay -->
+    <div class="order-1 lg:order-2 relative">
+      <div class="relative aspect-[4/3] rounded-4xl overflow-hidden shadow-brand">
+        <Image
+          src={photo}
+          alt={photoAlt}
+          widths={[480, 720, 1080, 1440]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+      {/* Overlay onderkant: ofwel belknop ofwel card-badge */}
+      {phoneOverlay ? (
+        <div class="absolute -bottom-6 left-4 sm:left-6 flex flex-col items-start gap-1.5 max-w-[calc(100%-2rem)]">
+          <a
+            href={`tel:${company.phoneRaw}`}
+            class="inline-flex items-center gap-3 bg-brand-yellow-500 hover:bg-brand-yellow-600 text-brand-ink font-extrabold rounded-2xl shadow-brand border-2 border-white pl-4 pr-5 py-3 transition active:scale-[0.98]"
+            data-cta="hero-overlay-phone"
+          >
+            <span class="w-10 h-10 rounded-full bg-brand-ink text-brand-yellow-500 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+            </span>
+            <span class="flex flex-col items-start leading-tight">
+              <span class="text-[11px] font-bold uppercase tracking-widest opacity-75">Bel direct</span>
+              <span class="text-lg md:text-xl">{company.phoneDisplay}</span>
+            </span>
+          </a>
+          <p class="text-xs sm:text-sm text-brand-blue-900/80 pl-2 font-medium">
+            <span class="text-brand-yellow-600">★</span>
+            <span class="font-bold">{company.reviewsRating}</span>
+            op Google · {company.reviewsCount}+ reviews
+          </p>
+        </div>
+      ) : (
+        (showGoogleBadge || badge) && (
+          <div class="absolute -bottom-4 left-4 sm:left-6 flex flex-wrap items-center gap-2">
+            {showGoogleBadge && <GoogleBadge variant="card" showCount={true} />}
+            {badge && (
+              <div class="bg-brand-yellow-500 text-brand-ink font-extrabold px-4 py-2.5 rounded-2xl shadow-brand text-sm">
+                {badge}
+              </div>
+            )}
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</section>
