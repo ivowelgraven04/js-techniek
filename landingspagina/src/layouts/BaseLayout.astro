@@ -13,6 +13,7 @@ const siteUrl = 'https://www.jschoutentechniek.com';
 const canonicalUrl = canonical ?? `${siteUrl}${Astro.url.pathname}`;
 const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 const adsId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID;
+const phoneConvLabel = import.meta.env.PUBLIC_GOOGLE_ADS_PHONE_CONVERSION_LABEL;
 ---
 <!doctype html>
 <html lang="nl">
@@ -60,5 +61,23 @@ const adsId = import.meta.env.PUBLIC_GOOGLE_ADS_CONVERSION_ID;
   </head>
   <body>
     <slot />
+
+    {/* Google Ads conversie-tracking voor klikken op tel: links (alle LP's) */}
+    {adsId && phoneConvLabel && (
+      <script is:inline define:vars={{ adsId, phoneConvLabel }}>
+        document.addEventListener('click', function (e) {
+          var t = e.target;
+          if (!t || typeof t.closest !== 'function') return;
+          var link = t.closest('a[href^="tel:"]');
+          if (!link) return;
+          if (typeof window.gtag !== 'function') return;
+          window.gtag('event', 'conversion', {
+            send_to: adsId + '/' + phoneConvLabel,
+            value: 1.0,
+            currency: 'EUR'
+          });
+        });
+      </script>
+    )}
   </body>
 </html>
