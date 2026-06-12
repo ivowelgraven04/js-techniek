@@ -379,6 +379,15 @@ const { sourcePage } = Astro.props;
             eigenaar: payload.eigenaar,
           });
         }
+        // Meta Pixel Lead event — fires HERE because /bedankt has no pixel.
+        if (typeof (window as any).fbq === 'function') {
+          (window as any).fbq('track', 'Lead', {
+            content_name: 'Gratis dakinspectie',
+            content_category: payload.situatie,
+            currency: 'EUR',
+            value: 0,
+          });
+        }
         clear();
         window.location.href = '/bedankt';
       } catch (e2: any) {
