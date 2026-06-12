@@ -1,0 +1,413 @@
+---
+import { quizSituatie, quizEigenaar, company } from '~/data/site';
+
+interface Props {
+  sourcePage: string;
+}
+const { sourcePage } = Astro.props;
+---
+<section id="quiz-mode" class="bg-gradient-to-b from-white to-brand-blue-50/60 scroll-mt-24" hidden>
+  <div class="container-content py-10 md:py-16">
+    <div
+      id="quiz-card"
+      class="mx-auto max-w-3xl bg-white rounded-3xl border border-gray-100 shadow-brand p-6 sm:p-10 scroll-mt-24"
+    >
+      <!-- Progress + eyebrow -->
+      <div class="flex items-center justify-between mb-5">
+        <span class="eyebrow" id="quiz-eyebrow">Gratis dakinspectie · stap 1 van 3</span>
+        <span class="text-sm font-bold text-brand-blue-700" id="quiz-step-text">1/3</span>
+      </div>
+      <div class="h-2 bg-brand-blue-50 rounded-full overflow-hidden mb-8">
+        <div
+          id="quiz-progress"
+          class="h-full bg-brand-yellow-500 transition-all duration-300"
+          style="width: 33%"
+        ></div>
+      </div>
+
+      <!-- ─── STAP 1: Situatie ─────────────────────────────── -->
+      <div data-step="1">
+        <h2 class="text-h2 text-brand-blue-900">{quizSituatie.question}</h2>
+        <p class="mt-3 text-brand-blue-900/75">{quizSituatie.sub}</p>
+
+        <ul class="mt-7 space-y-3" role="radiogroup" aria-label={quizSituatie.question}>
+          {quizSituatie.options.map(opt => (
+            <li>
+              <button
+                type="button"
+                role="radio"
+                aria-checked="false"
+                data-quiz-option="situatie"
+                data-value={opt.value}
+                class="quiz-option group w-full flex items-center gap-4 text-left bg-white border-2 border-gray-200 hover:border-brand-blue-700 hover:bg-brand-blue-50/40 rounded-2xl px-5 py-4 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/40"
+              >
+                <span class="shrink-0 w-12 h-12 rounded-2xl bg-brand-blue-50 text-2xl flex items-center justify-center group-hover:bg-brand-yellow-500/20">
+                  {opt.icon}
+                </span>
+                <span class="flex-1">
+                  <span class="block font-extrabold text-brand-blue-900 text-base sm:text-lg">{opt.label}</span>
+                  {opt.hint && <span class="block text-sm text-brand-blue-900/65">{opt.hint}</span>}
+                </span>
+                <svg class="w-5 h-5 text-brand-blue-700 opacity-0 group-hover:opacity-100 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-8 flex justify-between items-center text-sm">
+          <button type="button" data-quiz-action="close" class="text-brand-blue-700 hover:text-brand-blue-900 underline underline-offset-2">
+            ← Terug naar startpagina
+          </button>
+          <span class="text-brand-blue-900/55">⏱ ± 30 seconden</span>
+        </div>
+      </div>
+
+      <!-- ─── STAP 2: Eigenaar ─────────────────────────────── -->
+      <div data-step="2" hidden>
+        <h2 class="text-h2 text-brand-blue-900">{quizEigenaar.question}</h2>
+        <p class="mt-3 text-brand-blue-900/75">{quizEigenaar.sub}</p>
+
+        <div class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3" role="radiogroup" aria-label={quizEigenaar.question}>
+          {quizEigenaar.options.map(opt => (
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              data-quiz-option="eigenaar"
+              data-value={opt.value}
+              class="quiz-option group flex flex-col items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-brand-blue-700 hover:bg-brand-blue-50/40 rounded-2xl px-6 py-8 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/40"
+            >
+              <span class="w-16 h-16 rounded-2xl bg-brand-blue-50 text-3xl flex items-center justify-center group-hover:bg-brand-yellow-500/20">
+                {opt.icon}
+              </span>
+              <span class="font-extrabold text-brand-blue-900 text-lg">{opt.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="mt-8 flex justify-between items-center text-sm">
+          <button type="button" data-quiz-action="back" class="text-brand-blue-700 hover:text-brand-blue-900 underline underline-offset-2">
+            ← Vorige
+          </button>
+          <span class="text-brand-blue-900/55">Geen verplichtingen.</span>
+        </div>
+      </div>
+
+      <!-- ─── STAP 3: Contact ─────────────────────────────── -->
+      <div data-step="3" hidden>
+        <h2 class="text-h2 text-brand-blue-900">Laatste stap: waar mogen we u bereiken?</h2>
+        <p class="mt-3 text-brand-blue-900/75">Wij bellen u binnen <strong>1 werkdag</strong> voor het inplannen van uw gratis inspectie.</p>
+
+        <!-- Trust-strip BOVEN de knop (CRO-audit finding) -->
+        <ul class="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
+          <li class="flex items-center gap-2 bg-brand-blue-50/60 rounded-xl px-3 py-2">
+            <span class="text-brand-yellow-600 font-bold">✓</span>
+            <span class="text-brand-blue-900/85">Max 1 keer bellen</span>
+          </li>
+          <li class="flex items-center gap-2 bg-brand-blue-50/60 rounded-xl px-3 py-2">
+            <span class="text-brand-yellow-600 font-bold">✓</span>
+            <span class="text-brand-blue-900/85">Geen spam of nieuwsbrief</span>
+          </li>
+          <li class="flex items-center gap-2 bg-brand-blue-50/60 rounded-xl px-3 py-2">
+            <span class="text-brand-yellow-600 font-bold">✓</span>
+            <span class="text-brand-blue-900/85">Gegevens veilig</span>
+          </li>
+        </ul>
+
+        <form
+          id="quiz-form"
+          action="/api/submit-quote"
+          method="POST"
+          class="mt-6 space-y-5"
+          novalidate
+        >
+          <input type="hidden" name="bron_pagina" value={sourcePage} />
+          <input type="hidden" name="situatie" id="quiz-situatie-input" value="" />
+          <input type="hidden" name="eigenaar" id="quiz-eigenaar-input" value="" />
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Laat dit veld leeg
+              <input type="text" name="company_url" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Uw naam *</span>
+            <input
+              type="text"
+              name="naam"
+              required
+              autocomplete="name"
+              placeholder="Jan Jansen"
+              class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+            />
+          </label>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">Telefoonnummer *</span>
+              <input
+                type="tel"
+                name="telefoon"
+                required
+                autocomplete="tel"
+                placeholder="06 12 34 56 78"
+                pattern="[0-9 +\-]{8,}"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+              />
+            </label>
+            <label class="block">
+              <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">E-mailadres *</span>
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="jan@voorbeeld.nl"
+                class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none"
+              />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="block text-sm font-bold text-brand-blue-900 mb-1.5">
+              Iets toelichten? <span class="font-normal text-brand-blue-900/50">(optioneel)</span>
+            </span>
+            <textarea
+              name="opmerking"
+              rows="3"
+              placeholder="Bv. dak van ~40m², lekkage sinds vorige week"
+              class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none resize-none"
+            ></textarea>
+          </label>
+
+          <button
+            type="submit"
+            class="btn-primary text-lg w-full"
+            data-cta="quiz-submit"
+          >
+            Plan mijn gratis dakinspectie
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <p class="text-xs text-brand-blue-900/60 text-center">
+            Door op verzenden te klikken geeft u toestemming voor het verwerken van deze gegevens.
+            Zie <a href="/privacy" class="underline">privacy</a>.
+          </p>
+
+          <div id="quiz-form-error" role="alert" class="hidden text-red-700 text-sm bg-red-50 border border-red-200 rounded-lg p-3"></div>
+        </form>
+
+        <div class="mt-6 flex justify-between items-center text-sm">
+          <button type="button" data-quiz-action="back" class="text-brand-blue-700 hover:text-brand-blue-900 underline underline-offset-2">
+            ← Vorige
+          </button>
+          <span class="text-brand-blue-900/55">Of bel: <a href={`tel:${company.phoneRaw}`} class="font-bold text-brand-blue-900 hover:text-brand-blue-700">{company.phoneDisplay}</a></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // ─── Quiz state-manager ────────────────────────────────────
+  type StepNum = 1 | 2 | 3;
+  type QuizState = {
+    situatie: string | null;
+    eigenaar: string | null;
+    step: StepNum;
+  };
+
+  const STORAGE_KEY = 'js-dakinspectie-quiz-v1';
+  const TOTAL_STEPS = 3;
+
+  function load(): QuizState {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (!raw) return { situatie: null, eigenaar: null, step: 1 };
+      return { ...{ situatie: null, eigenaar: null, step: 1 as StepNum }, ...JSON.parse(raw) };
+    } catch {
+      return { situatie: null, eigenaar: null, step: 1 };
+    }
+  }
+  function save(s: QuizState) {
+    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {}
+  }
+  function clear() {
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
+  }
+
+  const state: QuizState = load();
+
+  const card = document.getElementById('quiz-card')!;
+  const eyebrow = document.getElementById('quiz-eyebrow')!;
+  const stepText = document.getElementById('quiz-step-text')!;
+  const progress = document.getElementById('quiz-progress')!;
+  const situatieInput = document.getElementById('quiz-situatie-input') as HTMLInputElement;
+  const eigenaarInput = document.getElementById('quiz-eigenaar-input') as HTMLInputElement;
+
+  function render(stepNum: StepNum, opts: { scrollToTop?: boolean; updateHash?: boolean } = {}) {
+    state.step = stepNum;
+    save(state);
+    situatieInput.value = state.situatie ?? '';
+    eigenaarInput.value = state.eigenaar ?? '';
+
+    // Show/hide step blocks
+    card.querySelectorAll<HTMLDivElement>('[data-step]').forEach(el => {
+      el.hidden = Number(el.dataset.step) !== stepNum;
+    });
+    // Mark selected options as checked (for back-navigation visual)
+    card.querySelectorAll<HTMLButtonElement>('[data-quiz-option]').forEach(btn => {
+      const field = btn.dataset.quizOption as 'situatie' | 'eigenaar';
+      const isSelected = state[field] === btn.dataset.value;
+      btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+      btn.classList.toggle('border-brand-blue-700', isSelected);
+      btn.classList.toggle('bg-brand-blue-50/40', isSelected);
+    });
+
+    eyebrow.textContent = `Gratis dakinspectie · stap ${stepNum} van ${TOTAL_STEPS}`;
+    stepText.textContent = `${stepNum}/${TOTAL_STEPS}`;
+    (progress as HTMLElement).style.width = `${(stepNum / TOTAL_STEPS) * 100}%`;
+
+    if (opts.updateHash !== false) {
+      const newHash = `#stap-${stepNum}`;
+      if (window.location.hash !== newHash) {
+        history.pushState({ quizStep: stepNum }, '', newHash);
+      }
+    }
+    if (opts.scrollToTop !== false) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // GA4 per-step event
+    if (typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', `quiz_step_${stepNum}_view`, {
+        event_category: 'quiz_dakinspectie',
+        situatie: state.situatie ?? '',
+        eigenaar: state.eigenaar ?? '',
+      });
+    }
+  }
+
+  // Option clicks → set state, auto-advance
+  card.querySelectorAll<HTMLButtonElement>('[data-quiz-option]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const field = btn.dataset.quizOption as 'situatie' | 'eigenaar';
+      state[field] = btn.dataset.value ?? null;
+      save(state);
+      const next: StepNum = (state.step + 1) as StepNum;
+      if (next <= TOTAL_STEPS) {
+        render(next);
+      }
+    });
+  });
+
+  // Back / close actions
+  card.querySelectorAll<HTMLButtonElement>('[data-quiz-action="back"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prev = Math.max(1, state.step - 1) as StepNum;
+      render(prev);
+    });
+  });
+  card.querySelectorAll<HTMLButtonElement>('[data-quiz-action="close"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      clear();
+      window.dispatchEvent(new CustomEvent('dakinspectie:close-quiz'));
+    });
+  });
+
+  // Hash → step sync (browser back/forward)
+  function hashToStep(hash: string): StepNum | null {
+    const m = hash.match(/^#stap-(\d)$/);
+    if (!m) return null;
+    const n = Number(m[1]);
+    return n >= 1 && n <= TOTAL_STEPS ? (n as StepNum) : null;
+  }
+  window.addEventListener('popstate', () => {
+    const fromHash = hashToStep(window.location.hash);
+    if (fromHash) render(fromHash, { updateHash: false });
+    else {
+      // Hash gone → close quiz
+      window.dispatchEvent(new CustomEvent('dakinspectie:close-quiz'));
+    }
+  });
+
+  // ─── Form submit ──────────────────────────────────────────
+  const form = document.getElementById('quiz-form') as HTMLFormElement | null;
+  const errBox = document.getElementById('quiz-form-error');
+  if (form && errBox) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errBox.classList.add('hidden');
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Versturen…';
+      try {
+        const formData = new FormData(form);
+        const payload: Record<string, string> = {};
+        formData.forEach((v, k) => { if (typeof v === 'string') payload[k] = v; });
+        // UTM/gclid uit URL plakken
+        const url = new URL(window.location.href);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'].forEach(k => {
+          const v = url.searchParams.get(k);
+          if (v) payload[k] = v;
+        });
+        payload.user_agent = navigator.userAgent;
+        payload.timestamp = new Date().toISOString();
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error ?? `HTTP ${res.status}`);
+        }
+
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: payload.bron_pagina ?? '',
+            situatie: payload.situatie,
+            eigenaar: payload.eigenaar,
+          });
+        }
+        clear();
+        window.location.href = '/bedankt';
+      } catch (e2: any) {
+        errBox.textContent = e2?.message
+          ? `Er ging iets mis: ${e2.message}. Probeer het nogmaals of bel ons direct.`
+          : 'Er ging iets mis bij het versturen. Probeer het nogmaals of bel ons direct.';
+        errBox.classList.remove('hidden');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    });
+  }
+
+  // ─── Public API: opening from outside ────────────────────
+  window.addEventListener('dakinspectie:open-quiz', (e: Event) => {
+    const detail = (e as CustomEvent).detail as { resume?: boolean } | undefined;
+    const startStep: StepNum = detail?.resume && state.step ? state.step : 1;
+    if (!detail?.resume) {
+      state.situatie = null;
+      state.eigenaar = null;
+      save(state);
+    }
+    render(startStep);
+  });
+
+  // On load: if URL hash points to a step AND state has progress, jump there
+  const initialHash = hashToStep(window.location.hash);
+  if (initialHash && (state.situatie || state.eigenaar)) {
+    // Quiz-mode wordt door de page-controller geopend; alleen step bijwerken
+    render(initialHash, { updateHash: false, scrollToTop: false });
+  }
+</script>

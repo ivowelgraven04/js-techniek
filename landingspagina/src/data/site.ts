@@ -130,6 +130,33 @@ export const faqLekkage: FaqItem[] = [
   },
 ];
 
+export const faqDakinspectie: FaqItem[] = [
+  {
+    q: 'Wat kost een dakinspectie?',
+    a: 'Niets. De inspectie op locatie is 100% gratis en vrijblijvend. Geen voorrijkosten, geen verplichtingen achteraf.',
+  },
+  {
+    q: 'Hoe snel komen jullie langs?',
+    a: 'Wij bellen u binnen 1 werkdag terug om een moment in te plannen. De inspectie zelf is meestal binnen 1 tot 3 werkdagen op locatie.',
+  },
+  {
+    q: 'Krijg ik een vaste prijs vooraf?',
+    a: `Ja. Na de inspectie ontvangt u een schriftelijke prijsopgave met vaste prijs voordat we starten. ${company.warrantyYearsBitumen} jaar garantie op nieuw bitumen werk.`,
+  },
+  {
+    q: 'Werken jullie ook bij mij in de buurt?',
+    a: 'We werken in heel Noord-Holland: Den Helder, Schagen, Hippolytushoef, Anna Paulowna, Julianadorp en alle dorpen daaromheen.',
+  },
+  {
+    q: 'Wat als ik geen offerte wil aannemen?',
+    a: 'Geen probleem. U bent na de gratis inspectie nergens toe verplicht. Geen kosten, geen druk, geen achteraf-rekening.',
+  },
+  {
+    q: 'Sluit ik iets af door dit formulier in te vullen?',
+    a: 'Nee. U geeft alleen aan dat u gebeld wilt worden voor het inplannen van een gratis dakinspectie. Geen contract, geen abonnement.',
+  },
+];
+
 export const faqPlatDak: FaqItem[] = [
   {
     q: 'Hoe lang gaat een nieuw bitumen plat dak mee?',
@@ -166,4 +193,40 @@ export const seo = {
     title: 'Plat dak vervangen Noord-Holland | JS Techniek',
     description: `Plat dak vervangen of repareren? Vakwerk door bitumen-specialist met ${company.warrantyYearsBitumen} jaar garantie. ${company.reviewsRating} ★ op Google. Vraag een gratis dakinspectie.`,
   },
+  dakinspectie: {
+    title: 'Gratis dakinspectie Noord-Holland | JS Techniek',
+    description: `Plan een gratis dakinspectie op locatie. Vaste prijsopgave vóór start, ${company.warrantyYearsBitumen} jaar garantie. ${company.reviewsRating} ★ op Google · ${company.reviewsCount}+ reviews. Wij bellen binnen 1 werkdag.`,
+  },
 } as const;
+
+// ─────────────────────────────────────────────────────────────
+// Quiz (Facebook ads landing page) — 3 stappen
+// ─────────────────────────────────────────────────────────────
+
+export type QuizOption = {
+  value: string;
+  label: string;
+  hint?: string;
+  icon: string; // emoji of korte SVG-id
+};
+
+export const quizSituatie: { question: string; sub: string; options: QuizOption[] } = {
+  question: 'Wat speelt er op dit moment met uw dak?',
+  sub: 'Kies wat het beste past — meer details volgen straks.',
+  options: [
+    { value: 'lekkage',     label: 'Lekkage',           hint: 'Water komt binnen',                 icon: '💧' },
+    { value: 'vochtplekken', label: 'Vochtplekken',      hint: 'Plek op plafond of muur',           icon: '🟫' },
+    { value: 'verbouwing',  label: 'Verbouwing',        hint: 'Uitbouw, aanbouw of dakkapel',      icon: '🏗' },
+    { value: 'renovatie',   label: 'Renovatie',         hint: 'Dak is toe aan vervanging',         icon: '🛠' },
+    { value: 'periodiek',   label: 'Periodieke check',  hint: 'Al >10 jaar niet geïnspecteerd',    icon: '📅' },
+  ],
+};
+
+export const quizEigenaar: { question: string; sub: string; options: QuizOption[] } = {
+  question: 'Bent u eigenaar van de woning?',
+  sub: 'Wij komen alleen langs als er iemand met beslisbevoegdheid aanwezig is.',
+  options: [
+    { value: 'ja', label: 'Ja, ik ben eigenaar', icon: '✅' },
+    { value: 'nee', label: 'Nee, ik huur',       icon: '🔑' },
+  ],
+};
