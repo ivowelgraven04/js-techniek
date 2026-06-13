@@ -5,6 +5,9 @@
 // Posts validated payload to Zapier (env var ZAPIER_WEBHOOK_URL). Node 18+.
 
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE = process.env.SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE;
 
 const ALWAYS_REQUIRED = ['naam', 'telefoon', 'bron_pagina'];
 
@@ -37,6 +40,7 @@ export default async function handler(req, res) {
     eigenaar: sanitize(body.eigenaar, 8),
     opmerking: sanitize(body.opmerking, 4000),
     bron_pagina: sanitize(body.bron_pagina, 200),
+    session_id: sanitize(body.session_id, 80),
     timestamp: sanitize(body.timestamp, 40) || new Date().toISOString(),
     user_agent: sanitize(body.user_agent, 500),
     utm_source: sanitize(body.utm_source, 80),
@@ -82,6 +86,47 @@ export default async function handler(req, res) {
   if (payload.eigenaar === 'nee') tags.push('huurder');
   if (payload.situatie === 'lekkage') tags.push('spoed-kandidaat');
   if (tags.length) payload.tags = tags.join(',');
+
+  // Best-effort: ook in Supabase leads-tabel schrijven
+  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY && SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE && payload.bron_pagina === '/gratis-dakinspectie') {
+    try {
+      const leadRow = {
+        session_id: payload.session_id || null,
+        landing_page_id: SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE,
+        naam: payload.naam,
+        telefoon: payload.telefoon,
+        email: payload.email || null,
+        opmerking: payload.opmerking || null,
+        situatie: payload.situatie || null,
+        eigenaar: payload.eigenaar || null,
+        postcode: payload.postcode || null,
+        type_werk: payload.type_werk || null,
+        tags: payload.tags || null,
+        user_agent: payload.user_agent || null,
+        utm_source: payload.utm_source || null,
+        utm_medium: payload.utm_medium || null,
+        utm_campaign: payload.utm_campaign || null,
+        utm_content: payload.utm_content || null,
+        utm_term: payload.utm_term || null,
+        gclid: payload.gclid || null,
+      };
+      const supaRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_SERVICE_ROLE_KEY,
+          'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal',
+        },
+        body: JSON.stringify(leadRow),
+      });
+      if (!supaRes.ok) {
+        console.error('[submit-quote] Supabase lead insert failed:', supaRes.status, await supaRes.text().catch(() => ''));
+      }
+    } catch (err) {
+      console.error('[submit-quote] Supabase write threw:', err);
+    }
+  }
 
   if (!ZAPIER_WEBHOOK_URL) {
     console.error('[submit-quote] ZAPIER_WEBHOOK_URL niet geconfigureerd. Payload:', payload);

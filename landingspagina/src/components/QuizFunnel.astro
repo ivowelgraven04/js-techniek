@@ -224,7 +224,56 @@ const { sourcePage } = Astro.props;
   };
 
   const STORAGE_KEY = 'js-dakinspectie-quiz-v1';
+  const SESSION_KEY = 'js-dakinspectie-session-v1';
   const TOTAL_STEPS = 3;
+
+  // ─── Session ID + beacon tracking ─────────────────────────
+  function getOrCreateSessionId(): string {
+    try {
+      const existing = sessionStorage.getItem(SESSION_KEY);
+      if (existing) return existing;
+      const sid = (crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`);
+      sessionStorage.setItem(SESSION_KEY, sid);
+      return sid;
+    } catch {
+      return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+  }
+  const sessionId = getOrCreateSessionId();
+
+  function utmParams(): Record<string, string> {
+    const url = new URL(window.location.href);
+    const out: Record<string, string> = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'].forEach(k => {
+      const v = url.searchParams.get(k);
+      if (v) out[k] = v;
+    });
+    return out;
+  }
+
+  function track(event_type: string, extra: Record<string, unknown> = {}) {
+    const payload = {
+      session_id: sessionId,
+      event_type,
+      user_agent: navigator.userAgent,
+      referrer: document.referrer || null,
+      ...utmParams(),
+      ...extra,
+    };
+    try {
+      const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+      if (navigator.sendBeacon && navigator.sendBeacon('/api/track-event', blob)) return;
+    } catch {}
+    // Fallback (sendBeacon kan geblokkeerd zijn): keepalive fetch
+    try {
+      fetch('/api/track-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {}
+  }
 
   function load(): QuizState {
     try {
@@ -292,14 +341,23 @@ const { sourcePage } = Astro.props;
         eigenaar: state.eigenaar ?? '',
       });
     }
+    // Supabase beacon: step_view
+    track('step_view', { step_number: stepNum });
   }
 
   // Option clicks → set state, auto-advance
   card.querySelectorAll<HTMLButtonElement>('[data-quiz-option]').forEach(btn => {
     btn.addEventListener('click', () => {
       const field = btn.dataset.quizOption as 'situatie' | 'eigenaar';
-      state[field] = btn.dataset.value ?? null;
+      const value = btn.dataset.value ?? null;
+      state[field] = value;
       save(state);
+      // Supabase beacon: option_select
+      track('option_select', {
+        step_number: state.step,
+        field_name: field,
+        field_value: value,
+      });
       const next: StepNum = (state.step + 1) as StepNum;
       if (next <= TOTAL_STEPS) {
         render(next);
@@ -348,6 +406,8 @@ const { sourcePage } = Astro.props;
       const originalText = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = 'Versturen…';
+      // Supabase beacon: submit_attempt
+      track('submit_attempt', { step_number: 3 });
       try {
         const formData = new FormData(form);
         const payload: Record<string, string> = {};
@@ -360,6 +420,7 @@ const { sourcePage } = Astro.props;
         });
         payload.user_agent = navigator.userAgent;
         payload.timestamp = new Date().toISOString();
+        payload.session_id = sessionId;
 
         const res = await fetch(form.action, {
           method: 'POST',
@@ -388,6 +449,8 @@ const { sourcePage } = Astro.props;
             value: 0,
           });
         }
+        // Supabase beacon: submit_success (synchroon vóór redirect — sendBeacon overleeft de unload)
+        track('submit_success', { step_number: 3 });
         clear();
         window.location.href = '/bedankt';
       } catch (e2: any) {
@@ -397,6 +460,7 @@ const { sourcePage } = Astro.props;
         errBox.classList.remove('hidden');
         btn.disabled = false;
         btn.innerHTML = originalText;
+        track('submit_error', { step_number: 3, field_value: e2?.message ?? null });
       }
     });
   }
@@ -410,6 +474,8 @@ const { sourcePage } = Astro.props;
       state.eigenaar = null;
       save(state);
     }
+    // Supabase beacon: page_view (quiz opened — eerste echte funnel-stap voor sessie-attributie)
+    track('page_view');
     render(startStep);
   });
 

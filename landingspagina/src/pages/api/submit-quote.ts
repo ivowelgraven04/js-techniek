@@ -3,6 +3,9 @@ import type { APIRoute } from 'astro';
 export const prerender = false; // dynamic — moet als serverless API draaien
 
 const ZAPIER_WEBHOOK_URL = import.meta.env.ZAPIER_WEBHOOK_URL;
+const SUPABASE_URL = import.meta.env.SUPABASE_URL;
+const SUPABASE_SERVICE_ROLE_KEY = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;
+const SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE = import.meta.env.SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE;
 
 interface QuotePayload {
   naam: string;
@@ -14,6 +17,7 @@ interface QuotePayload {
   eigenaar?: string;
   opmerking?: string;
   bron_pagina: string;
+  session_id?: string;
   tags?: string;
   timestamp?: string;
   user_agent?: string;
@@ -76,6 +80,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     eigenaar: sanitize(raw.eigenaar, 8),
     opmerking: sanitize(raw.opmerking, 4000),
     bron_pagina: sanitize(raw.bron_pagina, 200),
+    session_id: sanitize(raw.session_id, 80),
     timestamp: sanitize(raw.timestamp, 40) || new Date().toISOString(),
     user_agent: sanitize(raw.user_agent, 500),
     utm_source: sanitize(raw.utm_source, 80),
@@ -126,6 +131,48 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (payload.eigenaar === 'nee') tags.push('huurder');
   if (payload.situatie === 'lekkage') tags.push('spoed-kandidaat');
   if (tags.length) payload.tags = tags.join(',');
+
+  // Best-effort: ook in Supabase leads-tabel schrijven (geen blocker voor Zapier)
+  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY && SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE && payload.bron_pagina === '/gratis-dakinspectie') {
+    try {
+      const leadRow = {
+        session_id: payload.session_id || null,
+        landing_page_id: SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE,
+        naam: payload.naam,
+        telefoon: payload.telefoon,
+        email: payload.email || null,
+        opmerking: payload.opmerking || null,
+        situatie: payload.situatie || null,
+        eigenaar: payload.eigenaar || null,
+        postcode: payload.postcode || null,
+        type_werk: payload.type_werk || null,
+        tags: payload.tags || null,
+        user_agent: payload.user_agent || null,
+        utm_source: payload.utm_source || null,
+        utm_medium: payload.utm_medium || null,
+        utm_campaign: payload.utm_campaign || null,
+        utm_content: payload.utm_content || null,
+        utm_term: payload.utm_term || null,
+        gclid: payload.gclid || null,
+      };
+      // Geen await op de promise zou crash betekenen — wel await maar in try/catch
+      const supaRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_SERVICE_ROLE_KEY,
+          'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal',
+        },
+        body: JSON.stringify(leadRow),
+      });
+      if (!supaRes.ok) {
+        console.error('[submit-quote] Supabase lead insert failed:', supaRes.status, await supaRes.text().catch(() => ''));
+      }
+    } catch (err) {
+      console.error('[submit-quote] Supabase write threw:', err);
+    }
+  }
 
   // Zapier-webhook URL niet geconfigureerd → log + fail-soft
   if (!ZAPIER_WEBHOOK_URL) {
