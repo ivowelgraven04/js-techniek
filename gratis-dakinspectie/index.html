@@ -81,14 +81,27 @@ Specialist bitumen platte daken, zinkwerk en loodwerk in Noord-Holland.
         // Auto: page_view bij eerste laden
         window.dpdTrack('page_view');
 
-        // Auto: klik-handler voor data-track-event="phone_click"/"whatsapp_click" links.
-        // Werkt op alle tel:/wa.me-links die zo'n attribuut hebben.
+        // Auto-detect klik-tracking:
+        // 1) Expliciete data-track-event="..." → vuur dat event
+        // 2) Of: tel:-link → phone_click
+        // 3) Of: wa.me / whatsapp link → whatsapp_click
+        // Zo hoeven we niet elk individueel tel:/wa.me-element handmatig te taggen.
         document.addEventListener('click', function (e) {
           var t = e.target;
           if (!t || typeof t.closest !== 'function') return;
-          var el = t.closest('[data-track-event]');
-          if (!el) return;
-          window.dpdTrack(el.getAttribute('data-track-event'));
+          var explicit = t.closest('[data-track-event]');
+          if (explicit) {
+            window.dpdTrack(explicit.getAttribute('data-track-event'));
+            return;
+          }
+          var link = t.closest('a[href]');
+          if (!link) return;
+          var href = (link.getAttribute('href') || '').toLowerCase();
+          if (href.indexOf('tel:') === 0) {
+            window.dpdTrack('phone_click');
+          } else if (href.indexOf('wa.me/') !== -1 || href.indexOf('whatsapp.com') !== -1 || href.indexOf('api.whatsapp') !== -1) {
+            window.dpdTrack('whatsapp_click');
+          }
         });
       })();
     </script>   </body> </html>
