@@ -228,7 +228,11 @@ const { sourcePage } = Astro.props;
   const TOTAL_STEPS = 3;
 
   // ─── Session ID + beacon tracking ─────────────────────────
+  // Prefer de globale window.dpdSession.id (gezet door BaseLayout) zodat
+  // de QuizFunnel-events bij dezelfde sessie horen als BaseLayout's page_view.
   function getOrCreateSessionId(): string {
+    const fromGlobal = (window as any).dpdSession?.id;
+    if (fromGlobal) return fromGlobal;
     try {
       const existing = sessionStorage.getItem(SESSION_KEY);
       if (existing) return existing;

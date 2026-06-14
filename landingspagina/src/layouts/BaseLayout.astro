@@ -63,6 +63,71 @@ const phoneConvLabel = import.meta.env.PUBLIC_GOOGLE_ADS_PHONE_CONVERSION_LABEL;
   <body>
     <slot />
 
+    {/* DPD funnel tracking — session-id + beacon-tracker, gedeeld door alle LP's */}
+    <script is:inline>
+      (function () {
+        var TRACKED = ['gratis-dakinspectie', 'plat-dak-vervangen', 'lekkage-spoed'];
+        var SESSION_KEY = 'dpd-session-v1';
+        var slug = (location.pathname.replace(/^\/+/, '').split('/')[0] || '').toLowerCase();
+        if (TRACKED.indexOf(slug) === -1) return; // alleen op getrackte LP's
+
+        function sid() {
+          try {
+            var existing = sessionStorage.getItem(SESSION_KEY);
+            if (existing) return existing;
+            var fresh = (crypto.randomUUID && crypto.randomUUID()) ||
+              (Date.now() + '-' + Math.random().toString(36).slice(2));
+            sessionStorage.setItem(SESSION_KEY, fresh);
+            return fresh;
+          } catch (e) { return Date.now() + '-' + Math.random().toString(36).slice(2); }
+        }
+
+        function utm() {
+          var u = new URL(location.href);
+          var out = {};
+          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid'].forEach(function(k){
+            var v = u.searchParams.get(k); if (v) out[k] = v;
+          });
+          return out;
+        }
+
+        window.dpdSession = { id: sid(), lpSlug: slug };
+        window.dpdTrack = function (eventType, extra) {
+          if (!eventType) return;
+          var payload = Object.assign({
+            session_id: window.dpdSession.id,
+            event_type: eventType,
+            landing_page_slug: window.dpdSession.lpSlug,
+            user_agent: navigator.userAgent,
+            referrer: document.referrer || null,
+          }, utm(), extra || {});
+          try {
+            var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+            if (navigator.sendBeacon && navigator.sendBeacon('/api/track-event', blob)) return;
+          } catch (e) {}
+          try {
+            fetch('/api/track-event', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload), keepalive: true,
+            }).catch(function () {});
+          } catch (e) {}
+        };
+
+        // Auto: page_view bij eerste laden
+        window.dpdTrack('page_view');
+
+        // Auto: klik-handler voor data-track-event="phone_click"/"whatsapp_click" links.
+        // Werkt op alle tel:/wa.me-links die zo'n attribuut hebben.
+        document.addEventListener('click', function (e) {
+          var t = e.target;
+          if (!t || typeof t.closest !== 'function') return;
+          var el = t.closest('[data-track-event]');
+          if (!el) return;
+          window.dpdTrack(el.getAttribute('data-track-event'));
+        });
+      })();
+    </script>
+
     {/* Google Ads conversie-tracking voor klikken op tel: links (alle LP's) */}
     {adsId && phoneConvLabel && (
       <script is:inline define:vars={{ adsId, phoneConvLabel }}>

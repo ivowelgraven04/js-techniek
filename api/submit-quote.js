@@ -87,41 +87,62 @@ export default async function handler(req, res) {
   if (payload.situatie === 'lekkage') tags.push('spoed-kandidaat');
   if (tags.length) payload.tags = tags.join(',');
 
-  // Best-effort: ook in Supabase leads-tabel schrijven
-  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY && SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE && payload.bron_pagina === '/gratis-dakinspectie') {
+  // Best-effort: óók in Supabase leads-tabel schrijven.
+  // Landing-page-id wordt afgeleid van bron_pagina (slug-lookup); werkt voor alle LP's.
+  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY && payload.bron_pagina) {
     try {
-      const leadRow = {
-        session_id: payload.session_id || null,
-        landing_page_id: SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE,
-        naam: payload.naam,
-        telefoon: payload.telefoon,
-        email: payload.email || null,
-        opmerking: payload.opmerking || null,
-        situatie: payload.situatie || null,
-        eigenaar: payload.eigenaar || null,
-        postcode: payload.postcode || null,
-        type_werk: payload.type_werk || null,
-        tags: payload.tags || null,
-        user_agent: payload.user_agent || null,
-        utm_source: payload.utm_source || null,
-        utm_medium: payload.utm_medium || null,
-        utm_campaign: payload.utm_campaign || null,
-        utm_content: payload.utm_content || null,
-        utm_term: payload.utm_term || null,
-        gclid: payload.gclid || null,
-      };
-      const supaRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
-        method: 'POST',
-        headers: {
-          'apikey': SUPABASE_SERVICE_ROLE_KEY,
-          'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal',
-        },
-        body: JSON.stringify(leadRow),
-      });
-      if (!supaRes.ok) {
-        console.error('[submit-quote] Supabase lead insert failed:', supaRes.status, await supaRes.text().catch(() => ''));
+      const slug = String(payload.bron_pagina).trim().replace(/^\/+|\/+$/g, '').split('/')[0] || null;
+      let landing_page_id = null;
+      if (slug) {
+        const lpRes = await fetch(
+          `${SUPABASE_URL}/rest/v1/landing_pages?select=id&slug=eq.${encodeURIComponent(slug)}&limit=1`,
+          { headers: { 'apikey': SUPABASE_SERVICE_ROLE_KEY, 'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}` } }
+        );
+        if (lpRes.ok) {
+          const rows = await lpRes.json();
+          if (Array.isArray(rows) && rows[0]?.id) landing_page_id = rows[0].id;
+        }
+      }
+      // Legacy fallback: env-var
+      if (!landing_page_id && SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE && slug === 'gratis-dakinspectie') {
+        landing_page_id = SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE;
+      }
+      if (landing_page_id) {
+        const leadRow = {
+          session_id: payload.session_id || null,
+          landing_page_id,
+          naam: payload.naam,
+          telefoon: payload.telefoon,
+          email: payload.email || null,
+          opmerking: payload.opmerking || null,
+          situatie: payload.situatie || null,
+          eigenaar: payload.eigenaar || null,
+          postcode: payload.postcode || null,
+          type_werk: payload.type_werk || null,
+          tags: payload.tags || null,
+          user_agent: payload.user_agent || null,
+          utm_source: payload.utm_source || null,
+          utm_medium: payload.utm_medium || null,
+          utm_campaign: payload.utm_campaign || null,
+          utm_content: payload.utm_content || null,
+          utm_term: payload.utm_term || null,
+          gclid: payload.gclid || null,
+        };
+        const supaRes = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_SERVICE_ROLE_KEY,
+            'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(leadRow),
+        });
+        if (!supaRes.ok) {
+          console.error('[submit-quote] Supabase lead insert failed:', supaRes.status, await supaRes.text().catch(() => ''));
+        }
+      } else {
+        console.warn('[submit-quote] No landing_page_id resolved for bron_pagina:', payload.bron_pagina);
       }
     } catch (err) {
       console.error('[submit-quote] Supabase write threw:', err);

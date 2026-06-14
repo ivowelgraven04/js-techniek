@@ -137,6 +137,15 @@ const { sourcePage } = Astro.props;
   const form = document.getElementById('quote-form') as HTMLFormElement | null;
   const err = document.getElementById('form-error');
   if (form && err) {
+    // First-focus tracking: vuurt maximaal één keer per sessie wanneer iemand
+    // het form-formulier daadwerkelijk gaat invullen.
+    let firstFocusFired = false;
+    form.addEventListener('focusin', () => {
+      if (firstFocusFired) return;
+      firstFocusFired = true;
+      (window as any).dpdTrack?.('form_focus');
+    }, true);
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       err.classList.add('hidden');
@@ -144,6 +153,7 @@ const { sourcePage } = Astro.props;
       const originalText = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = 'Versturen…';
+      (window as any).dpdTrack?.('submit_attempt');
       try {
         // Build JSON payload (consistente parsing op de Vercel-function kant)
         const formData = new FormData(form);
@@ -156,6 +166,9 @@ const { sourcePage } = Astro.props;
         });
         payload.user_agent = navigator.userAgent;
         payload.timestamp = new Date().toISOString();
+        // Koppel deze submit aan de funnel-events sessie
+        const sid = (window as any).dpdSession?.id;
+        if (sid) payload.session_id = sid;
 
         const res = await fetch(form.action, {
           method: 'POST',
@@ -171,8 +184,10 @@ const { sourcePage } = Astro.props;
             event_label: form.querySelector('input[name="bron_pagina"]')?.getAttribute('value') ?? '',
           });
         }
+        (window as any).dpdTrack?.('submit_success');
         window.location.href = '/bedankt';
-      } catch (e2) {
+      } catch (e2: any) {
+        (window as any).dpdTrack?.('submit_error', { field_value: e2?.message ?? null });
         err.textContent = 'Er ging iets mis bij het versturen. Probeer het nogmaals of bel ons direct.';
         err.classList.remove('hidden');
         btn.disabled = false;

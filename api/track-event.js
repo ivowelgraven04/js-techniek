@@ -1,15 +1,18 @@
 // Vercel serverless function: /api/track-event
-// Ontvangt sendBeacon JSON-payloads van de quiz-funnel en schrijft ze naar
-// Supabase funnel_events. No-op (200) als Supabase env vars niet gezet zijn.
+// Ontvangt sendBeacon JSON-payloads en schrijft naar Supabase funnel_events.
+// Resolves landing_page_id by slug — werkt voor alle LP's, niet alleen dakinspectie.
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const LANDING_PAGE_ID = process.env.SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE;
 
 const ALLOWED_EVENT_TYPES = new Set([
   'page_view', 'step_view', 'option_select',
   'submit_attempt', 'submit_success', 'submit_error',
+  'form_focus', 'phone_click', 'whatsapp_click',
 ]);
+
+// In-memory cache: slug → uuid (per cold-start lifetime, perf only)
+const slugCache = new Map();
 
 function sanitize(v, maxLen = 500) {
   if (typeof v !== 'string') return null;
@@ -21,20 +24,47 @@ function isUuid(v) {
   return typeof v === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v);
 }
 
+function normalizeSlug(raw) {
+  if (typeof raw !== 'string') return null;
+  return raw.trim().toLowerCase().replace(/^\/+|\/+$/g, '').split('/')[0] || null;
+}
+
+async function lookupLandingPageId(slug) {
+  if (!slug) return null;
+  if (slugCache.has(slug)) return slugCache.get(slug);
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/landing_pages?select=id&slug=eq.${encodeURIComponent(slug)}&limit=1`,
+      {
+        headers: {
+          'apikey': SUPABASE_SERVICE_ROLE_KEY,
+          'Authorization': `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+        },
+      }
+    );
+    if (!res.ok) return null;
+    const rows = await res.json();
+    const id = Array.isArray(rows) && rows[0]?.id;
+    if (id) { slugCache.set(slug, id); return id; }
+  } catch (err) {
+    console.error('[track-event] slug lookup failed:', err);
+  }
+  return null;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // sendBeacon stuurt vaak text/plain met JSON body — Vercel parsest dat niet automatisch.
   let raw = req.body;
   if (typeof raw === 'string') {
     try { raw = JSON.parse(raw); } catch { raw = {}; }
   }
   raw = raw || {};
 
-  if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !LANDING_PAGE_ID) {
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
     return res.status(200).json({ ok: true, warn: 'supabase not configured' });
   }
 
@@ -44,10 +74,22 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'invalid event' });
   }
 
+  // Resolve landing_page_id via slug (preferred) of legacy env-var fallback
+  let landing_page_id = null;
+  const slug = normalizeSlug(raw.landing_page_slug);
+  if (slug) landing_page_id = await lookupLandingPageId(slug);
+  if (!landing_page_id) {
+    // Legacy: oude dakinspectie env-var voor backward-compatibility
+    landing_page_id = process.env.SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE || null;
+  }
+  if (!landing_page_id) {
+    return res.status(400).json({ error: 'unknown landing page' });
+  }
+
   const stepNum = typeof raw.step_number === 'number' ? Math.floor(raw.step_number) : null;
   const row = {
     session_id,
-    landing_page_id: LANDING_PAGE_ID,
+    landing_page_id,
     event_type,
     step_number: (stepNum != null && stepNum >= 1 && stepNum <= 10) ? stepNum : null,
     field_name:  sanitize(raw.field_name, 40),
