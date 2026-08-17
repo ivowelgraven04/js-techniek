@@ -7,6 +7,7 @@
     { "source": "/lekkage", "destination": "/daklekkage", "permanent": false },
     { "source": "/spoed", "destination": "/spoed-dakdekker", "permanent": false },
     { "source": "/noodreparatie", "destination": "/spoed-dakdekker", "permanent": false },
+    { "source": "/lekkage-opsporen", "destination": "/daklekkage", "permanent": false },
     { "source": "/plat-dak", "destination": "/plat-dak-vervangen", "permanent": true }
   ],
   "headers": [
