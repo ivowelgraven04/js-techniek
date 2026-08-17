@@ -9,3 +9,4 @@ Thumbs.db
 node_modules/
 images/IMG_0494.mov
 .vercel
+.env*

@@ -14,7 +14,7 @@
   <title>Bedankt, wij bellen u terug | JS Techniek</title>
   <meta name="description" content="Uw aanvraag is bij ons binnen. Wij bellen u zo snel mogelijk terug.">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#001060">
+  <meta name="theme-color" content="#FBFAF7">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -22,30 +22,83 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/lp-lekkage.css">
 
   <style>
-    .bedankt { min-height: 78vh; display: flex; align-items: center; background: linear-gradient(180deg,#fff 0%,var(--blue-50) 100%); }
-    .bedankt .card {
-      max-width: 620px; margin: 0 auto; text-align: center;
-      background: #fff; border-radius: 26px; padding: 40px 26px;
-      box-shadow: var(--shadow);
+    .thanks {
+      min-height: calc(100vh - 220px);
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(110% 80% at 50% 0%, var(--navy-50) 0%, transparent 60%),
+        var(--paper);
+      padding-block: clamp(40px, 6vw, 80px);
     }
-    @media (min-width: 600px) { .bedankt .card { padding: 52px 46px; } }
-    .vink {
-      width: 74px; height: 74px; border-radius: 50%;
-      background: #e7f6ee; color: var(--green);
+    .thanks .card {
+      max-width: 640px;
+      margin-inline: auto;
+      background: var(--white);
+      border: 1px solid var(--line-2);
+      border-radius: var(--r-xl);
+      padding: clamp(30px, 5vw, 54px);
+      box-shadow: var(--sh-3);
+      text-align: center;
+    }
+    .thanks .mark {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      color: var(--green);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 22px;
+      margin: 0 auto 24px;
     }
-    .bedankt p { color: rgba(10,23,51,.78); margin-top: 14px; font-size: 1.05rem; }
-    .volgende {
-      text-align: left; margin-top: 30px; padding-top: 26px;
-      border-top: 1px solid var(--grey-line);
+    .thanks h1 { font-size: clamp(1.65rem, 4vw, 2.4rem); }
+    .thanks .lead { margin: 16px auto 0; text-align: center; }
+    .thanks .next {
+      text-align: left;
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-2);
     }
-    .volgende h2 { font-size: 1.15rem; }
-    .volgende ol { margin: 14px 0 0 20px; display: grid; gap: 10px; color: rgba(10,23,51,.78); font-size: .98rem; }
+    .thanks .next h2 { font-size: 1.14rem; }
+    .thanks .next ol {
+      margin: 16px 0 0;
+      padding-left: 0;
+      list-style: none;
+      counter-reset: s;
+      display: grid;
+      gap: 14px;
+    }
+    .thanks .next li {
+      counter-increment: s;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 13px;
+      align-items: start;
+      color: var(--ink-64);
+      font-size: .99rem;
+      line-height: 1.5;
+    }
+    .thanks .next li::before {
+      content: counter(s);
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--navy-50);
+      color: var(--navy-700);
+      border: 1px solid var(--navy-100);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: .85rem;
+      margin-top: 1px;
+    }
+    .thanks .callback {
+      margin-top: 32px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line-2);
+    }
+    .thanks .callback p { font-size: .97rem; color: var(--ink-64); }
+    .thanks .callback .btn { margin-top: 14px; }
   </style>
 </head>
 <body data-lp="bedankt-lekkage">
@@ -54,11 +107,14 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header class="topbar">
-    <div class="wrap inner">
-      <div class="brand">
-        <img src="/images/circular_logo_full.png" alt="JS Techniek" width="40" height="40">
-        <span>JS Techniek</span>
-      </div>
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="JS Techniek">
+        <img src="/images/circular_logo_full.png" alt="" width="42" height="42">
+        <span class="brandtext">
+          <b>JS Techniek</b>
+          <span class="sub">Specialist platte daken</span>
+        </span>
+      </a>
       <a href="tel:+31612602082" class="tel" data-cta="topbar-phone">
         <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
         06 12 60 20 82
@@ -66,44 +122,44 @@
     </div>
   </header>
 
-  <main class="bedankt">
+  <main class="thanks">
     <div class="wrap">
       <div class="card">
-        <div class="vink">
+        <div class="mark">
           <svg width="38" height="38" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
         </div>
 
-        <h1 style="font-size:clamp(1.6rem,4.5vw,2.3rem)">Bedankt, uw aanvraag is binnen</h1>
-        <p>
-          Wij bellen u zo snel mogelijk terug tijdens onze bereikbare uren. Overdag,
-          's avonds en in het weekend nemen we op. Vult u dit 's nachts in, dan
-          belt u de volgende ochtend als eerste terug.
+        <h1>Bedankt, uw aanvraag is binnen</h1>
+        <p class="lead">
+          Wij bellen u zo snel mogelijk terug tijdens onze bereikbare uren. Overdag, 's avonds en
+          in het weekend nemen we op. Vult u dit 's nachts in, dan belt u de volgende ochtend als
+          eerste terug.
         </p>
 
-        <div class="volgende">
+        <div class="next">
           <h2>Wat er nu gebeurt</h2>
           <ol>
             <li>Wij bellen u terug om de situatie kort door te nemen.</li>
-            <li>We plannen een moment in, binnen 24 uur staan we bij u op het dak.</li>
+            <li>We plannen een moment in. Binnen 24 uur staan we bij u op het dak.</li>
             <li>U hoort wat er nodig is, wat het kost en hoe lang het duurt. Daarna beslist u.</li>
           </ol>
         </div>
 
-        <p style="margin-top:28px;font-size:.96rem">
-          Kan het niet wachten? Bel ons gerust zelf:
-        </p>
-        <a href="tel:+31612602082" class="btn btn-call" style="margin-top:12px" data-cta="bedankt-phone">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-          <span class="num">06 12 60 20 82</span>
-        </a>
+        <div class="callback">
+          <p>Kan het niet wachten? Bel ons gerust zelf.</p>
+          <a href="tel:+31612602082" class="btn btn-call" data-cta="bedankt-phone">
+            <svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            06 12 60 20 82
+          </a>
+        </div>
       </div>
     </div>
   </main>
 
   <footer class="foot">
-    <div class="wrap inner">
+    <div class="wrap row">
       <div>
-        <strong style="color:#fff">JS Techniek</strong> &middot; Specialist platte daken Noord-Holland<br>
+        <b>JS Techniek</b> &middot; Specialist platte daken Noord-Holland<br>
         KvK 70974306 &middot; <a href="tel:+31612602082">06 12 60 20 82</a>
       </div>
       <div class="links">
@@ -114,8 +170,8 @@
   </footer>
 
   <script>
-    // Conversie-event voor GTM. Hierop koppel je in GTM de Google Ads conversieactie
-    // "Formulier lekkagecampagne". Vuurt exact één keer per pagina-weergave.
+    /* Conversie-event voor GTM. Hierop koppel je in GTM de Google Ads
+       conversieactie "Formulier lekkage-LP". Vuurt één keer per weergave. */
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lead_bedankt_lekkage' });
   </script>

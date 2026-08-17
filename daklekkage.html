@@ -15,7 +15,7 @@
   <meta name="description" content="Lekkage in uw dak? JS Techniek staat binnen 24 uur bij u op het dak, spoort het lek op en zegt eerlijk wat er nodig is. Specialist platte daken in Den Helder en omgeving. 4,9 sterren op Google.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://jschoutentechniek.com/daklekkage">
-  <meta name="theme-color" content="#001060">
+  <meta name="theme-color" content="#FBFAF7">
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/lp-lekkage.css">
 </head>
 <body data-lp="daklekkage">
@@ -39,11 +39,14 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header class="topbar">
-    <div class="wrap inner">
-      <div class="brand">
-        <img src="/images/circular_logo_full.png" alt="JS Techniek" width="40" height="40">
-        <span>JS Techniek</span>
-      </div>
+    <div class="wrap bar">
+      <a href="/" class="brand" aria-label="JS Techniek">
+        <img src="/images/circular_logo_full.png" alt="" width="42" height="42">
+        <span class="brandtext">
+          <b>JS Techniek</b>
+          <span class="sub">Specialist platte daken</span>
+        </span>
+      </a>
       <a href="tel:+31612602082" class="tel" data-cta="topbar-phone">
         <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
         06 12 60 20 82
@@ -52,239 +55,288 @@
   </header>
 
   <main>
-    <!-- ============ HERO ============ -->
+    <!-- ══════════════ HERO ══════════════ -->
     <section class="hero">
-      <div class="wrap grid">
+      <div class="wrap hero-grid">
         <div>
-          <div class="urgency"><span class="dot"></span> Spoedlijn Noord-Holland is nu bereikbaar</div>
-          <h1 style="margin-top:16px">Daklekkage? Binnen 24 uur staan wij op uw dak.</h1>
+          <span class="pill"><span class="dot"></span> Spoedlijn Noord-Holland is nu bereikbaar</span>
+
+          <h1>Daklekkage? Binnen 24&nbsp;uur op uw dak.</h1>
+
           <p class="lead">
-            Wij beloven u geen wonderen over de reparatie. Wel dat u binnen een dag weet
-            waar u aan toe bent: wat er lekt, wat het kost en hoe lang het duurt.
+            Wij beloven u geen wonderen over de reparatie. Wel dat u binnen een dag weet waar
+            u aan toe bent: wat er lekt, wat het kost en hoe lang het duurt.
           </p>
 
-          <div class="cta-stack">
+          <div class="cta-row">
             <a href="tel:+31612602082" class="btn btn-call" data-cta="hero-phone">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-              <span class="num">Bel 06 12 60 20 82</span>
+              <svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              Bel 06 12 60 20 82
             </a>
-            <a href="#aanvraag" class="btn btn-outline" data-cta="hero-form">Liever teruggebeld worden</a>
+            <a href="#aanvraag" class="btn btn-ghost" data-cta="hero-form">Liever teruggebeld worden</a>
           </div>
 
-          <p class="stars"><span class="s">&#9733;</span> <b>4,9</b> op Google &middot; 50+ reviews &middot; 25 jaar in Noord-Holland</p>
+          <div class="proof">
+            <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            <span class="score">4,9</span>
+            <span class="stars">★★★★★</span>
+            <span class="sep"></span>
+            <span>50+ reviews</span>
+            <span class="sep hide-sm"></span>
+            <span class="hide-sm">25 jaar in Noord-Holland</span>
+          </div>
 
           <ul class="checks">
             <li>
-              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="tick"><svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <span><strong>Binnen 24 uur ter plaatse</strong> voor een echte diagnose op het dak</span>
             </li>
             <li>
-              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="tick"><svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <span>Ook <strong>'s avonds en in het weekend</strong> gewoon bereikbaar</span>
             </li>
             <li>
-              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span class="tick"><svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
               <span>Prijs staat vast <strong>voordat</strong> we beginnen, geen verrassingen achteraf</span>
             </li>
           </ul>
         </div>
 
-        <div class="photo">
-          <img src="/images/noodreparaties-1.jpeg" alt="Dakdekker van JS Techniek spoort een lekkage op in een plat dak" width="800" height="600" fetchpriority="high">
+        <div class="shot">
+          <div class="frame">
+            <img src="/images/noodreparaties-1.jpeg" alt="Dakdekker van JS Techniek spoort een lekkage op in een plat dak" width="900" height="710" fetchpriority="high">
+          </div>
+          <div class="tag">
+            <span class="ic">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+            </span>
+            <span>
+              <b>Binnen 24 uur op uw dak</b>
+              <span>In het kerngebied vaak nog dezelfde dag</span>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ USP STRIP ============ -->
-    <section class="usps">
-      <div class="wrap grid">
-        <div class="usp">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+    <!-- ══════════════ VERTROUWENSBALK ══════════════ -->
+    <section class="trustbar">
+      <div class="wrap row">
+        <div class="item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
           <div>
             <h3>Snel een echt antwoord</h3>
             <p>Geen callcenter en geen wachtrij. U spreekt direct iemand die het dak op gaat.</p>
           </div>
         </div>
-        <div class="usp">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <div>
             <h3>Specialist platte daken</h3>
             <p>25 jaar ervaring en ruim 2.500 daken in Noord-Holland. Bitumen is ons vak.</p>
           </div>
         </div>
-        <div class="usp">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7.5 3v5.4c0 4.3-3.1 8.3-7.5 9.6-4.4-1.3-7.5-5.3-7.5-9.6V6L12 3z"/></svg></span>
           <div>
-            <h3>4,9 sterren op Google</h3>
-            <p>Ruim 50 echte reviews. Snel, vakkundig en eerlijk over wat er nodig is.</p>
+            <h3>Vaste prijs vooraf</h3>
+            <p>U weet wat het kost voordat wij beginnen. Geen verrassingen op de rekening.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ BELOFTE + STAPPEN ============ -->
-    <section class="promise section">
+    <!-- ══════════════ BELOFTE ══════════════ -->
+    <section class="dark section">
       <div class="wrap">
-        <span class="eyebrow" style="color:var(--yellow)">Zo werkt het</span>
-        <h2 style="margin-top:12px">Vandaag gebeld is morgen duidelijkheid</h2>
-        <p class="lead">
-          Bij een lekkage wilt u vooral weten hoe erg het is. Daarom draait onze belofte
-          niet om de reparatie, maar om de duidelijkheid. Die krijgt u binnen een dag.
-        </p>
+        <div class="section-head">
+          <span class="eyebrow on-dark">Zo werkt het</span>
+          <h2>Vandaag gebeld is morgen duidelijkheid</h2>
+          <p class="lead">
+            Bij een lekkage wilt u vooral weten hoe erg het is. Daarom draait onze belofte niet
+            om de reparatie, maar om de duidelijkheid. Die krijgt u binnen een dag.
+          </p>
+        </div>
 
         <div class="steps">
           <div class="step">
-            <div class="n">1</div>
-            <h3>U belt of vraagt terugbelverzoek aan</h3>
-            <p>We stellen een paar korte vragen en plannen meteen een moment in. Foto via WhatsApp mag ook, dat scheelt tijd.</p>
+            <span class="n">1</span>
+            <h3>U belt of laat uw nummer achter</h3>
+            <p>We stellen een paar korte vragen en plannen meteen een moment in. Een foto via WhatsApp mag ook, dat scheelt tijd.</p>
           </div>
           <div class="step">
-            <div class="n">2</div>
+            <span class="n">2</span>
             <h3>Binnen 24 uur staan we op uw dak</h3>
             <p>We sporen het lek op waar het echt zit. Niet gokken vanaf de grond, maar kijken op het dak zelf.</p>
           </div>
           <div class="step">
-            <div class="n">3</div>
-            <h3>U hoort wat er nodig is en wat het kost</h3>
+            <span class="n">3</span>
+            <h3>U hoort wat er nodig is</h3>
             <p>Een eerlijke inschatting van de reparatie, de kosten en de doorlooptijd. Daarna beslist u.</p>
           </div>
         </div>
 
-        <p class="disclaimer">
-          <strong>Wat wij bewust niet beloven:</strong> dat elk lek binnen 24 uur verholpen is.
-          Soms is een noodreparatie genoeg, soms blijkt het dak op. Wat wij wel garanderen is dat
-          we binnen 24 uur langskomen, het probleem in beeld brengen en u een eerlijke inschatting
-          geven van wat er nodig is en hoe lang het duurt.
-        </p>
+        <div class="honest">
+          <p>
+            <strong>Wat wij bewust niet beloven:</strong> dat elk lek binnen 24 uur verholpen is.
+            Soms is een noodreparatie genoeg, soms blijkt het dak op. Wat wij wel garanderen is dat
+            we binnen 24 uur langskomen, het probleem in beeld brengen en u een eerlijke inschatting
+            geven van wat er nodig is en hoe lang het duurt.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ ALLEEN PLATTE DAKEN ============ -->
-    <section class="only-flat section">
+    <!-- ══════════════ ALLEEN PLATTE DAKEN ══════════════ -->
+    <section class="scope section">
       <div class="wrap">
-        <div class="box">
-          <span class="eyebrow">Belangrijk om te weten</span>
-          <h2 style="margin-top:10px">Wij werken uitsluitend aan platte daken</h2>
-          <p style="margin-top:12px;color:rgba(10,23,51,.78);max-width:46em">
-            Daar zijn we specialist in, en daarom zijn we snel en scherp. Heeft u pannen of leien op
-            uw dak, dan zijn wij niet de juiste partij. Dat zeggen we liever nu dan nadat u een
-            middag heeft zitten wachten.
-          </p>
+        <div class="panel">
+          <div class="section-head">
+            <span class="eyebrow">Belangrijk om te weten</span>
+            <h2>Wij werken uitsluitend aan platte daken</h2>
+            <p>
+              Daar zijn we specialist in, en daarom zijn we snel en scherp. Heeft u pannen of leien
+              op uw dak, dan zijn wij niet de juiste partij. Dat zeggen we liever nu dan nadat u een
+              middag heeft zitten wachten.
+            </p>
+          </div>
 
           <div class="cols">
-            <div class="yes">
-              <b style="display:block;margin-bottom:11px">Dit doen wij wel</b>
+            <div class="do">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Dit doen wij wel
+              </h3>
               <ul>
-                <li><span class="mark">&#10003;</span> Lekkage in een plat dak, van woonhuis tot bedrijfspand</li>
-                <li><span class="mark">&#10003;</span> Bitumen, dakleer, EPDM en kunststof dakbedekking</li>
-                <li><span class="mark">&#10003;</span> Platte daken op een aanbouw, uitbouw, garage of dakkapel</li>
-                <li><span class="mark">&#10003;</span> Lekkende dakgoten, zinkwerk en loodwerk rond het platte dak</li>
-                <li><span class="mark">&#10003;</span> Waterplassen, scheuren, losse naden en verstopte afvoeren</li>
+                <li><span class="mk"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span> Lekkage in een plat dak, van woonhuis tot bedrijfspand</li>
+                <li><span class="mk"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span> Bitumen, dakleer, EPDM en kunststof dakbedekking</li>
+                <li><span class="mk"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span> Platte daken op een aanbouw, uitbouw, garage of dakkapel</li>
+                <li><span class="mk"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span> Lekkende dakgoten, zinkwerk en loodwerk rond het platte dak</li>
+                <li><span class="mk"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span> Waterplassen, scheuren, losse naden en verstopte afvoeren</li>
               </ul>
             </div>
-            <div class="no">
-              <b style="display:block;margin-bottom:11px">Dit doen wij niet</b>
+
+            <div class="rule" aria-hidden="true"></div>
+
+            <div class="dont">
+              <h3>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                Dit doen wij niet
+              </h3>
               <ul>
-                <li><span class="mark">&#10007;</span> Pannendaken en hellende daken</li>
-                <li><span class="mark">&#10007;</span> Rieten daken en leien daken</li>
-                <li><span class="mark">&#10007;</span> Schoorsteenwerk op een schuin dak</li>
-                <li><span class="mark">&#10007;</span> Losse dakpannen vervangen of verschuiven</li>
+                <li><span class="mk"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span> Pannendaken en hellende daken</li>
+                <li><span class="mk"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span> Rieten daken en leien daken</li>
+                <li><span class="mk"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span> Schoorsteenwerk op een schuin dak</li>
+                <li><span class="mk"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span> Losse dakpannen vervangen of verschuiven</li>
               </ul>
             </div>
           </div>
 
-          <p style="margin-top:22px;font-size:.94rem;color:rgba(10,23,51,.62)">
-            Twijfelt u welk type dak u heeft? Bel gerust, dan hoort u het binnen een minuut.
+          <p class="foot-note">
+            Twijfelt u welk type dak u heeft? <a href="tel:+31612602082" data-cta="scope-phone">Bel gerust</a>, dan hoort u het binnen een minuut.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ============ SIGNALEN ============ -->
+    <!-- ══════════════ SIGNALEN ══════════════ -->
     <section class="signs section">
       <div class="wrap">
-        <span class="eyebrow">Herkenbaar?</span>
-        <h2 style="margin-top:10px">Dit zijn de signalen die wij het vaakst zien</h2>
-        <p style="margin-top:12px;color:rgba(10,23,51,.75);max-width:44em">
-          Een lek in een plat dak begint bijna altijd klein en op een plek die u niet ziet. Vaak zit
-          het probleem meters verderop dan de vlek op uw plafond.
-        </p>
+        <div class="section-head">
+          <span class="eyebrow">Herkenbaar?</span>
+          <h2>Dit zijn de signalen die wij het vaakst zien</h2>
+          <p>
+            Een lek in een plat dak begint bijna altijd klein en op een plek die u niet ziet. Vaak
+            zit het probleem meters verderop dan de vlek op uw plafond.
+          </p>
+        </div>
 
         <div class="grid">
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s5.5 6.1 5.5 9.8a5.5 5.5 0 11-11 0C6.5 8.8 12 2.7 12 2.7z"/></svg></div>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s5.5 6.1 5.5 9.8a5.5 5.5 0 11-11 0C6.5 8.8 12 2.7 12 2.7z"/></svg></span>
             <h3>Vochtplek op het plafond</h3>
             <p>Een bruine of gelige kring die langzaam groter wordt. Het water loopt vaak al weken onder de dakbedekking door.</p>
-          </div>
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M5 17V9l7-5 7 5v8"/><path d="M9 17v-4h6v4"/></svg></div>
+          </article>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18M5 17V9l7-5 7 5v8"/><path d="M9 17v-4h6v4"/></svg></span>
             <h3>Water op zolder of in de aanbouw</h3>
             <p>Druppels, natte isolatie of een muffe lucht. Vaak het eerste teken dat de dakbedekking het begeeft.</p>
-          </div>
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h14"/></svg></div>
+          </article>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h14"/></svg></span>
             <h3>Scheurtjes of blazen in de bedekking</h3>
             <p>Bitumen dat is uitgedroogd, opbolt of scheurt. Meestal een teken dat de toplaag zijn tijd heeft gehad.</p>
-          </div>
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="8" ry="4"/><path d="M12 4v6"/></svg></div>
+          </article>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="14" rx="8" ry="4"/><path d="M12 4v6"/></svg></span>
             <h3>Waterplassen die blijven staan</h3>
             <p>Water dat na een bui dagen op het dak blijft liggen. Dat is precies waar naden het eerst loslaten.</p>
-          </div>
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v12a3 3 0 003 3h9"/><path d="M6 8h6"/></svg></div>
+          </article>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v12a3 3 0 003 3h9"/><path d="M6 8h6"/></svg></span>
             <h3>Lekkende dakgoot of afvoer</h3>
             <p>Een verstopte of gescheurde afvoer laat water de verkeerde kant op lopen, tot in de spouw.</p>
-          </div>
-          <div class="sign">
-            <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15a4 4 0 004 4h10a4 4 0 000-8 6 6 0 00-11.6-1.5A4 4 0 003 15z"/></svg></div>
+          </article>
+          <article class="sign">
+            <span class="ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15a4 4 0 004 4h10a4 4 0 000-8 6 6 0 00-11.6-1.5A4 4 0 003 15z"/></svg></span>
             <h3>Schade na een storm</h3>
             <p>Losgewaaide randen of opgetild dakleer. Hier telt snelheid, want de volgende bui maakt het erger.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ REVIEWS ============ -->
+    <!-- ══════════════ REVIEWS ══════════════ -->
     <section class="reviews section">
       <div class="wrap">
-        <span class="eyebrow">Wat klanten zeggen</span>
-        <h2 style="margin-top:10px">4,9 sterren op Google, 50+ reviews</h2>
+        <div class="section-head">
+          <span class="eyebrow">Wat klanten zeggen</span>
+          <h2>4,9 sterren op Google, ruim 50 reviews</h2>
+        </div>
 
         <div class="grid">
-          <div class="review">
-            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <figure class="review">
+            <div class="stars">★★★★★</div>
             <blockquote>Toppers, vooral bij calamiteiten. Snelle reactie en goede prijs-kwaliteit.</blockquote>
-            <div class="who">Sylvia Z. &middot; Google review</div>
-          </div>
-          <div class="review">
-            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <figcaption class="who">
+              <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Sylvia Z.
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <div class="stars">★★★★★</div>
             <blockquote>Ineens was alles van A tot Z duidelijk. 24 uur later stond er iemand op mijn dak.</blockquote>
-            <div class="who">Joris V. uit Alkmaar &middot; Google review</div>
-          </div>
-          <div class="review">
-            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <figcaption class="who">
+              <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Joris V. uit Alkmaar
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <div class="stars">★★★★★</div>
             <blockquote>Snel, deskundig en nog aardig ook.</blockquote>
-            <div class="who">Ruud D. &middot; Google review</div>
-          </div>
+            <figcaption class="who">
+              <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Ruud D.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ FORMULIER ============ -->
+    <!-- ══════════════ FORMULIER ══════════════ -->
     <section class="formsec section" id="aanvraag">
       <div class="wrap grid">
-        <div>
+        <div class="intro">
           <span class="eyebrow">Liever teruggebeld</span>
-          <h2 style="margin-top:10px">Laat uw nummer achter, wij bellen u terug</h2>
-          <p style="margin-top:14px;color:rgba(10,23,51,.78);font-size:1.04rem">
-            Kunt u niet bellen of belt u liever niet zelf? Vul dan deze drie velden in.
-            We bellen u zo snel mogelijk terug tijdens onze bereikbare uren en plannen
-            direct een moment in om te komen kijken.
+          <h2 style="margin-top:14px">Laat uw nummer achter, wij bellen u terug</h2>
+          <p>
+            Kunt u niet bellen of belt u liever niet zelf? Vul dan deze drie velden in. We bellen
+            u zo snel mogelijk terug tijdens onze bereikbare uren en plannen direct een moment in
+            om te komen kijken.
           </p>
-          <p style="margin-top:20px;font-size:.95rem;color:rgba(10,23,51,.62)">
+          <p class="alt">
             Spoed en wilt u niet wachten? Bel dan direct
-            <a href="tel:+31612602082" style="font-weight:800;color:var(--blue-700)" data-cta="formsec-phone">06 12 60 20 82</a>.
+            <a href="tel:+31612602082" data-cta="formsec-phone">06 12 60 20 82</a>.
           </p>
         </div>
 
@@ -301,23 +353,24 @@
               <input type="text" name="naam" required autocomplete="name" placeholder="Jan Jansen">
             </label>
 
-            <label class="field">
-              <span>Telefoonnummer</span>
-              <input type="tel" name="telefoon" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78">
-            </label>
-
-            <label class="field">
-              <span>Postcode</span>
-              <input type="text" name="postcode" required autocomplete="postal-code" placeholder="1781 AA" maxlength="8">
-            </label>
-
-            <div class="trust-row">
-              <span><b>&#10003;</b> Wij bellen u maximaal één keer terug, geen spam</span>
-              <span><b>&#10003;</b> Uw gegevens gaan nooit naar derden</span>
-              <span><b>&#10003;</b> Vrijblijvend, u zit nergens aan vast</span>
+            <div class="field-row">
+              <label class="field">
+                <span>Telefoonnummer</span>
+                <input type="tel" name="telefoon" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78">
+              </label>
+              <label class="field">
+                <span>Postcode</span>
+                <input type="text" name="postcode" required autocomplete="postal-code" placeholder="1781 AA" maxlength="8">
+              </label>
             </div>
 
-            <button type="submit" class="btn btn-call">Bel mij terug over mijn lekkage</button>
+            <div class="assure">
+              <span><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Wij bellen u maximaal één keer terug, geen spam</span>
+              <span><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Uw gegevens gaan nooit naar derden</span>
+              <span><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Vrijblijvend, u zit nergens aan vast</span>
+            </div>
+
+            <button type="submit" class="btn btn-call btn-block">Bel mij terug over mijn lekkage</button>
             <p class="privacy-note">Door te verzenden gaat u akkoord met onze <a href="/privacy">privacyverklaring</a>.</p>
             <div class="form-error" id="form-error" role="alert"></div>
           </form>
@@ -325,94 +378,94 @@
       </div>
     </section>
 
-    <!-- ============ WERKGEBIED ============ -->
+    <!-- ══════════════ WERKGEBIED ══════════════ -->
     <section class="area section">
       <div class="wrap">
-        <span class="eyebrow">Werkgebied</span>
-        <h2 style="margin-top:10px">Den Helder en omgeving, tot 45 kilometer</h2>
-        <p style="margin-top:12px;color:rgba(10,23,51,.75);max-width:44em">
-          Van de kop van Noord-Holland tot Alkmaar en Hoorn. Staat uw plaats er niet bij maar zit u
-          in de buurt? Bel gerust, dan kijken we of we het redden.
-        </p>
-        <div class="box">
-          <ul>
-            <li>Den Helder</li><li>Julianadorp</li><li>Anna Paulowna</li><li>Breezand</li>
-            <li>Callantsoog</li><li>'t Zand</li><li>Schagen</li><li>Petten</li>
-            <li>Hippolytushoef</li><li>Den Oever</li><li>Wieringerwerf</li><li>Middenmeer</li>
-            <li>Medemblik</li><li>Warmenhuizen</li><li>Tuitjenhorn</li><li>Schoorl</li>
-            <li>Bergen</li><li>Egmond</li><li>Alkmaar</li><li>Heerhugowaard</li>
-            <li>Heiloo</li><li>Castricum</li><li>Hoorn</li><li>Obdam</li>
-          </ul>
+        <div class="section-head">
+          <span class="eyebrow">Werkgebied</span>
+          <h2>Den Helder en omgeving, tot 45 kilometer</h2>
+          <p>
+            Van de kop van Noord-Holland tot Alkmaar en Hoorn. Staat uw plaats er niet bij maar
+            zit u in de buurt? Bel gerust, dan kijken we of we het redden.
+          </p>
+        </div>
+        <ul class="chips">
+          <li class="core">Den Helder</li><li class="core">Julianadorp</li><li class="core">Anna Paulowna</li>
+          <li class="core">Schagen</li><li>Breezand</li><li>Callantsoog</li><li>'t Zand</li>
+          <li>Petten</li><li>Hippolytushoef</li><li>Den Oever</li><li>Wieringerwerf</li>
+          <li>Middenmeer</li><li>Medemblik</li><li>Warmenhuizen</li><li>Tuitjenhorn</li>
+          <li>Schoorl</li><li>Bergen</li><li>Egmond</li><li>Alkmaar</li>
+          <li>Heerhugowaard</li><li>Heiloo</li><li>Castricum</li><li>Hoorn</li><li>Obdam</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════ FAQ ══════════════ -->
+    <section class="faq section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Veelgestelde vragen</span>
+          <h2>Goed om te weten</h2>
+        </div>
+
+        <div class="list">
+          <details>
+            <summary>Hoe snel kunnen jullie er zijn?</summary>
+            <div class="answer">Bij een lekkage staan we binnen 24 uur bij u op het dak. In het kerngebied rond Den Helder en Schagen lukt het vaak nog dezelfde dag. Belt u laat op de avond, dan plannen we u de volgende ochtend als eerste in.</div>
+          </details>
+          <details>
+            <summary>Zijn jullie 's avonds en in het weekend bereikbaar?</summary>
+            <div class="answer">Ja. In de avond en in het weekend nemen we gewoon op. 's Nachts niet, dan staat de telefoon uit. Belt u midden in de nacht, laat dan een bericht achter of vul het formulier in, dan bellen we u 's ochtends als eerste terug.</div>
+          </details>
+          <details>
+            <summary>Wat kost het om een lekkage te laten verhelpen?</summary>
+            <div class="answer">Dat kunnen we pas zeggen als we het gezien hebben. Bij het ene dak volstaat een reparatie van een naad, bij het andere blijkt de bedekking versleten en is vervangen verstandiger. Daarom komen we eerst kijken en krijgt u een vaste prijs voordat er iets gebeurt. Wij starten nooit werk zonder dat u de prijs kent.</div>
+          </details>
+          <details>
+            <summary>Kan de lekkage direct verholpen worden?</summary>
+            <div class="answer">Soms wel. Kleine reparaties doen we vaak meteen mee als de weersomstandigheden het toelaten. Maar we beloven dat niet vooraf, want dat zou oneerlijk zijn. Wat we wel altijd doen is de schade stoppen of beperken, zodat het niet erger wordt terwijl u nadenkt over de definitieve oplossing.</div>
+          </details>
+          <details>
+            <summary>Ik weet niet zeker of ik een plat dak heb. Wat nu?</summary>
+            <div class="answer">Bel ons even, dan is dat binnen een minuut duidelijk. Wij werken uitsluitend aan platte daken. Blijkt u een pannendak of hellend dak te hebben, dan zeggen we dat meteen eerlijk en bent u geen tijd kwijt.</div>
+          </details>
+          <details>
+            <summary>Geven jullie garantie?</summary>
+            <div class="answer">Op noodreparaties geven we 1 jaar garantie. Op nieuw aangebrachte bitumen dakbedekking 10 jaar garantie op materiaal en uitvoering, schriftelijk vastgelegd. Op zinkwerk en loodwerk 5 jaar.</div>
+          </details>
+          <details>
+            <summary>Werken jullie met onderaannemers?</summary>
+            <div class="answer">Nee. Al het werk doen we met onze eigen vakmensen. Daardoor staan we volledig achter de kwaliteit en de garantie.</div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="faq section">
-      <div class="wrap" style="max-width:820px">
-        <span class="eyebrow">Veelgestelde vragen</span>
-        <h2 style="margin-top:10px;margin-bottom:26px">Goed om te weten</h2>
-
-        <details>
-          <summary>Hoe snel kunnen jullie er zijn?</summary>
-          <div class="answer">Bij een lekkage staan we binnen 24 uur bij u op het dak. In het kerngebied rond Den Helder en Schagen lukt het vaak nog dezelfde dag. Belt u laat op de avond, dan plannen we u de volgende ochtend als eerste in.</div>
-        </details>
-
-        <details>
-          <summary>Zijn jullie 's avonds en in het weekend bereikbaar?</summary>
-          <div class="answer">Ja. In de avond en in het weekend nemen we gewoon op. 's Nachts niet, dan staat de telefoon uit. Belt u midden in de nacht, laat dan een bericht of vul het formulier in, dan bellen we u 's ochtends als eerste terug.</div>
-        </details>
-
-        <details>
-          <summary>Wat kost het om een lekkage te laten verhelpen?</summary>
-          <div class="answer">Dat kunnen we pas zeggen als we het gezien hebben. Bij het ene dak volstaat een reparatie van een naad, bij het andere blijkt de bedekking versleten en is vervangen verstandiger. Daarom komen we eerst kijken en krijgt u een vaste prijs voordat er iets gebeurt. Wij starten nooit werk zonder dat u de prijs kent.</div>
-        </details>
-
-        <details>
-          <summary>Kan de lekkage direct verholpen worden?</summary>
-          <div class="answer">Soms wel. Kleine reparaties doen we vaak meteen mee als de weersomstandigheden het toelaten. Maar we beloven dat niet vooraf, want dat zou oneerlijk zijn. Wat we wel altijd doen is de schade stoppen of beperken, zodat het niet erger wordt terwijl u nadenkt over de definitieve oplossing.</div>
-        </details>
-
-        <details>
-          <summary>Ik weet niet zeker of ik een plat dak heb. Wat nu?</summary>
-          <div class="answer">Bel ons even, dan is dat binnen een minuut duidelijk. Wij werken uitsluitend aan platte daken. Blijkt u een pannendak of hellend dak te hebben, dan zeggen we dat meteen eerlijk en bent u geen tijd kwijt.</div>
-        </details>
-
-        <details>
-          <summary>Geven jullie garantie?</summary>
-          <div class="answer">Op noodreparaties geven we 1 jaar garantie. Op nieuw aangebrachte bitumen dakbedekking 10 jaar garantie op materiaal en uitvoering, schriftelijk vastgelegd. Op zinkwerk en loodwerk 5 jaar.</div>
-        </details>
-
-        <details>
-          <summary>Werken jullie met onderaannemers?</summary>
-          <div class="answer">Nee. Al het werk doen we met onze eigen vakmensen. Daardoor staan we volledig achter de kwaliteit en de garantie.</div>
-        </details>
-      </div>
-    </section>
-
-    <!-- ============ SLOT ============ -->
-    <section class="finalcta section">
+    <!-- ══════════════ SLOT ══════════════ -->
+    <section class="dark finalcta section">
       <div class="wrap">
-        <h2>Lekkage in uw platte dak? Bel nu.</h2>
-        <p>Hoe eerder we kijken, hoe kleiner de schade blijft. Binnen 24 uur op uw dak, met een eerlijk verhaal over wat er nodig is.</p>
-        <div class="cta-stack">
-          <a href="tel:+31612602082" class="btn btn-call" data-cta="final-phone">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-            <span class="num">06 12 60 20 82</span>
-          </a>
-          <a href="https://wa.me/31612602082?text=Hallo%2C%20ik%20heb%20een%20lekkage%20in%20mijn%20platte%20dak.%20Mijn%20adres%3A%20" target="_blank" rel="noopener" class="btn btn-wa" data-cta="final-whatsapp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-            Stuur een foto via WhatsApp
-          </a>
+        <div class="inner">
+          <h2>Lekkage in uw platte dak? Bel nu.</h2>
+          <p>Hoe eerder we kijken, hoe kleiner de schade blijft. Binnen 24 uur op uw dak, met een eerlijk verhaal over wat er nodig is.</p>
+          <div class="cta-row">
+            <a href="tel:+31612602082" class="btn btn-call" data-cta="final-phone">
+              <svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              06 12 60 20 82
+            </a>
+            <a href="https://wa.me/31612602082?text=Hallo%2C%20ik%20heb%20een%20lekkage%20in%20mijn%20platte%20dak.%20Mijn%20adres%3A%20" target="_blank" rel="noopener" class="btn btn-ghost-dark" data-cta="final-whatsapp">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+              Foto sturen via WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="wrap inner">
+    <div class="wrap row">
       <div>
-        <strong style="color:#fff">JS Techniek</strong> &middot; Specialist platte daken Noord-Holland<br>
+        <b>JS Techniek</b> &middot; Specialist platte daken Noord-Holland<br>
         KvK 70974306 &middot; <a href="tel:+31612602082">06 12 60 20 82</a> &middot;
         <a href="mailto:info@jschoutentechniek.com">info@jschoutentechniek.com</a>
       </div>
@@ -426,11 +479,11 @@
 
   <nav class="mobilebar" aria-label="Snel contact">
     <a href="tel:+31612602082" class="call" data-cta="mobilebar-phone">
-      <svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
       Bel direct
     </a>
     <a href="https://wa.me/31612602082?text=Hallo%2C%20ik%20heb%20een%20lekkage%20in%20mijn%20platte%20dak.%20Mijn%20adres%3A%20" target="_blank" rel="noopener" class="wa" data-cta="mobilebar-whatsapp">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
       WhatsApp
     </a>
   </nav>
