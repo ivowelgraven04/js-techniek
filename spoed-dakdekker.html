@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NN4SJRXV');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Spoed dakdekker Noord-Holland | Binnen 24 uur op uw dak | JS Techniek</title>
+  <meta name="description" content="Spoed met uw platte dak? JS Techniek komt binnen 24 uur langs, stopt de schade en zegt eerlijk wat er nodig is. Den Helder, Schagen, Alkmaar en omgeving. Bel 06 12 60 20 82.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://jschoutentechniek.com/spoed-dakdekker">
+  <meta name="theme-color" content="#001060">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Spoed dakdekker Noord-Holland | JS Techniek">
+  <meta property="og:description" content="Binnen 24 uur op uw dak. Wij stoppen de schade en zeggen eerlijk wat er nodig is.">
+  <meta property="og:url" content="https://jschoutentechniek.com/spoed-dakdekker">
+  <meta property="og:image" content="https://jschoutentechniek.com/images/og-image.png">
+  <meta property="og:locale" content="nl_NL">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/lp-lekkage.css">
+
+  <style>
+    /* Spoedpagina: alles boven de vouw, geen afleiding. */
+    .spoed-hero { background: linear-gradient(180deg, #001060 0%, #10286e 100%); color: #fff; }
+    .spoed-hero h1 { color: #fff; }
+    .spoed-hero .lead { color: rgba(255,255,255,.85); font-size: 1.08rem; margin-top: 15px; max-width: 32em; }
+    /* Mobiel: kop -> belkaart -> bewijs. De belknop staat zo boven de vouw.
+       Desktop: tekst links, belkaart rechts. */
+    .spoed-grid { display: flex; flex-direction: column; gap: 22px; padding: 22px 0 38px; }
+    .spoed-grid .col-top { order: 1; }
+    .spoed-grid .col-card { order: 2; }
+    .spoed-grid .col-bottom { order: 3; }
+    @media (min-width: 900px) {
+      .spoed-grid {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        grid-template-areas: "top card" "bottom card";
+        column-gap: 44px;
+        row-gap: 20px;
+        align-items: start;
+        padding: 46px 0 58px;
+      }
+      .spoed-grid .col-top { grid-area: top; }
+      .spoed-grid .col-card { grid-area: card; align-self: center; }
+      .spoed-grid .col-bottom { grid-area: bottom; }
+    }
+    .spoed-hero .checks li { color: rgba(255,255,255,.92); }
+    .spoed-hero .stars { color: rgba(255,255,255,.8); }
+    .spoed-hero .stars b { color: #fff; }
+    .spoed-hero .urgency { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22); color: #fff; box-shadow: none; }
+    .callcard {
+      background: #fff;
+      border-radius: 24px;
+      padding: 26px 24px;
+      box-shadow: 0 20px 50px -12px rgba(0,0,0,.4);
+      text-align: center;
+    }
+    .callcard .kop { font-size: .78rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-700); }
+    .callcard .nummer {
+      display: block;
+      font-size: clamp(1.85rem, 7vw, 2.6rem);
+      font-weight: 900;
+      color: var(--blue-900);
+      letter-spacing: -.02em;
+      margin: 8px 0 4px;
+    }
+    .callcard .uren { font-size: .87rem; color: rgba(10,23,51,.62); margin-bottom: 18px; }
+    .callcard .btn { width: 100%; margin-bottom: 10px; }
+    .callcard .of { font-size: .82rem; color: rgba(10,23,51,.45); margin: 10px 0; }
+    .spoed-strip { background: var(--yellow); }
+    .spoed-strip .inner { padding: 20px 0; display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; text-align: center; font-weight: 800; color: var(--ink); }
+  </style>
+</head>
+<body data-lp="spoed-dakdekker">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NN4SJRXV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <img src="/images/circular_logo_full.png" alt="JS Techniek" width="40" height="40">
+        <span>JS Techniek</span>
+      </div>
+      <a href="tel:+31612602082" class="tel" data-cta="topbar-phone">
+        <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        06 12 60 20 82
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO: alles boven de vouw ============ -->
+    <section class="spoed-hero">
+      <div class="wrap spoed-grid">
+        <div class="col-top">
+          <div class="urgency"><span class="dot"></span> Spoedlijn is nu bereikbaar</div>
+          <h1 style="margin-top:15px">Spoed met uw platte dak? Wij zijn er binnen 24 uur.</h1>
+          <p class="lead">
+            Bel direct. We stellen een paar korte vragen, plannen meteen in en komen kijken.
+          </p>
+        </div>
+
+        <div class="col-bottom">
+          <ul class="checks">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Binnen 24 uur ter plaatse</strong>, in het kerngebied vaak dezelfde dag</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>We <strong>stoppen of beperken de schade</strong> zodat het niet erger wordt</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" width="21" height="21" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.292a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.29-7.294a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Geen callcenter. U spreekt <strong>direct de dakdekker</strong></span>
+            </li>
+          </ul>
+
+          <p class="stars" style="margin-top:18px"><span class="s">&#9733;</span> <b>4,9</b> op Google &middot; 50+ reviews &middot; 25 jaar in Noord-Holland</p>
+        </div>
+
+        <div class="col-card callcard">
+          <div class="kop">Bel de spoedlijn</div>
+          <a href="tel:+31612602082" class="nummer" data-cta="callcard-number">06 12 60 20 82</a>
+          <div class="uren">Bereikbaar overdag, 's avonds en in het weekend</div>
+
+          <a href="tel:+31612602082" class="btn btn-call" data-cta="callcard-phone">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            Nu bellen
+          </a>
+
+          <a href="https://wa.me/31612602082?text=Spoed%3A%20probleem%20met%20mijn%20platte%20dak.%20Mijn%20adres%3A%20" target="_blank" rel="noopener" class="btn btn-wa" data-cta="callcard-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+            Foto sturen via WhatsApp
+          </a>
+
+          <div class="of">of</div>
+          <a href="#aanvraag" class="btn btn-outline" data-cta="callcard-form">Laat uw nummer achter</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="spoed-strip">
+      <div class="wrap inner">
+        <span>&#9888;&#65039; Wij werken uitsluitend aan platte daken. Pannen of leien? Dan zijn wij niet uw partij.</span>
+      </div>
+    </div>
+
+    <!-- ============ WAT GEBEURT ER ALS U BELT ============ -->
+    <section class="promise section">
+      <div class="wrap">
+        <span class="eyebrow" style="color:var(--yellow)">Wat gebeurt er als u belt</span>
+        <h2 style="margin-top:12px">Drie stappen, geen omwegen</h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="n">1</div>
+            <h3>U krijgt meteen iemand aan de lijn</h3>
+            <p>We vragen waar u zit, wat u ziet en hoe erg het is. Daarna weten we of het spoed is of dat het kan wachten.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h3>Binnen 24 uur op uw dak</h3>
+            <p>We komen kijken waar het lek werkelijk zit en stoppen de schade zodat het niet verder uitloopt.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h3>Eerlijk verhaal, vaste prijs</h3>
+            <p>Wat er nodig is, wat het kost en hoe lang het duurt. Pas daarna beslist u of we doorgaan.</p>
+          </div>
+        </div>
+
+        <p class="disclaimer">
+          <strong>Eerlijk over wat wij niet beloven:</strong> dat elk probleem binnen 24 uur is opgelost.
+          Soms is een noodreparatie genoeg, soms blijkt het dak versleten. Wat we wel garanderen is dat
+          we binnen 24 uur langskomen, de schade stoppen waar dat kan, en u een eerlijke inschatting
+          geven van wat er nodig is en hoe lang het duurt.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews section">
+      <div class="wrap">
+        <span class="eyebrow">Wat klanten zeggen</span>
+        <h2 style="margin-top:10px">4,9 sterren op Google, 50+ reviews</h2>
+        <div class="grid">
+          <div class="review">
+            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Toppers, vooral bij calamiteiten. Snelle reactie en goede prijs-kwaliteit.</blockquote>
+            <div class="who">Sylvia Z. &middot; Google review</div>
+          </div>
+          <div class="review">
+            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Ineens was alles van A tot Z duidelijk. 24 uur later stond er iemand op mijn dak.</blockquote>
+            <div class="who">Joris V. uit Alkmaar &middot; Google review</div>
+          </div>
+          <div class="review">
+            <div class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>Snel, deskundig en nog aardig ook.</blockquote>
+            <div class="who">Ruud D. &middot; Google review</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMULIER ============ -->
+    <section class="formsec section" id="aanvraag">
+      <div class="wrap grid">
+        <div>
+          <span class="eyebrow">Kunt u nu niet bellen</span>
+          <h2 style="margin-top:10px">Laat uw nummer achter, wij bellen u terug</h2>
+          <p style="margin-top:14px;color:rgba(10,23,51,.78);font-size:1.04rem">
+            Zit u in een vergadering, is het midden in de nacht of belt u liever niet zelf?
+            Vul deze drie velden in. Wij bellen u zo snel mogelijk terug tijdens onze
+            bereikbare uren.
+          </p>
+          <p style="margin-top:20px;font-size:.95rem;color:rgba(10,23,51,.62)">
+            Echt haast? Bellen gaat sneller:
+            <a href="tel:+31612602082" style="font-weight:800;color:var(--blue-700)" data-cta="formsec-phone">06 12 60 20 82</a>.
+          </p>
+        </div>
+
+        <div class="formcard">
+          <form id="lead-form" novalidate>
+            <input type="hidden" name="bron_pagina" value="spoed-dakdekker">
+            <input type="hidden" name="type_werk" value="spoed">
+            <div class="hp" aria-hidden="true">
+              <label>Laat dit veld leeg <input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <label class="field">
+              <span>Uw naam</span>
+              <input type="text" name="naam" required autocomplete="name" placeholder="Jan Jansen">
+            </label>
+
+            <label class="field">
+              <span>Telefoonnummer</span>
+              <input type="tel" name="telefoon" required autocomplete="tel" inputmode="tel" placeholder="06 12 34 56 78">
+            </label>
+
+            <label class="field">
+              <span>Postcode</span>
+              <input type="text" name="postcode" required autocomplete="postal-code" placeholder="1781 AA" maxlength="8">
+            </label>
+
+            <div class="trust-row">
+              <span><b>&#10003;</b> Wij bellen u maximaal één keer terug, geen spam</span>
+              <span><b>&#10003;</b> Uw gegevens gaan nooit naar derden</span>
+              <span><b>&#10003;</b> Vrijblijvend, u zit nergens aan vast</span>
+            </div>
+
+            <button type="submit" class="btn btn-call">Bel mij zo snel mogelijk terug</button>
+            <p class="privacy-note">Door te verzenden gaat u akkoord met onze <a href="/privacy">privacyverklaring</a>.</p>
+            <div class="form-error" id="form-error" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WERKGEBIED ============ -->
+    <section class="area section">
+      <div class="wrap">
+        <span class="eyebrow">Werkgebied</span>
+        <h2 style="margin-top:10px">Den Helder en omgeving, tot 45 kilometer</h2>
+        <div class="box">
+          <ul>
+            <li>Den Helder</li><li>Julianadorp</li><li>Anna Paulowna</li><li>Breezand</li>
+            <li>Callantsoog</li><li>'t Zand</li><li>Schagen</li><li>Petten</li>
+            <li>Hippolytushoef</li><li>Den Oever</li><li>Wieringerwerf</li><li>Middenmeer</li>
+            <li>Medemblik</li><li>Warmenhuizen</li><li>Tuitjenhorn</li><li>Schoorl</li>
+            <li>Bergen</li><li>Egmond</li><li>Alkmaar</li><li>Heerhugowaard</li>
+            <li>Heiloo</li><li>Castricum</li><li>Hoorn</li><li>Obdam</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLOT ============ -->
+    <section class="finalcta section">
+      <div class="wrap">
+        <h2>Wacht niet tot de volgende bui</h2>
+        <p>Hoe eerder we kijken, hoe kleiner de schade blijft. Bel nu, dan staan we binnen 24 uur bij u op het dak.</p>
+        <div class="cta-stack">
+          <a href="tel:+31612602082" class="btn btn-call" data-cta="final-phone">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            <span class="num">06 12 60 20 82</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap inner">
+      <div>
+        <strong style="color:#fff">JS Techniek</strong> &middot; Specialist platte daken Noord-Holland<br>
+        KvK 70974306 &middot; <a href="tel:+31612602082">06 12 60 20 82</a> &middot;
+        <a href="mailto:info@jschoutentechniek.com">info@jschoutentechniek.com</a>
+      </div>
+      <div class="links">
+        <a href="/">Website</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/voorwaarden">Voorwaarden</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobilebar" aria-label="Snel contact">
+    <a href="tel:+31612602082" class="call" data-cta="mobilebar-phone">
+      <svg width="19" height="19" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+      Bel direct
+    </a>
+    <a href="https://wa.me/31612602082?text=Spoed%3A%20probleem%20met%20mijn%20platte%20dak.%20Mijn%20adres%3A%20" target="_blank" rel="noopener" class="wa" data-cta="mobilebar-whatsapp">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+      WhatsApp
+    </a>
+  </nav>
+
+  <script src="/assets/lp-lekkage.js" defer></script>
+</body>
+</html>

@@ -187,7 +187,7 @@ export const faqPlatDak: FaqItem[] = [
 export const seo = {
   lekkage: {
     title: 'Lekkage plat dak Noord-Holland | JS Techniek',
-    description: `Daklekkage in uw platte dak? JS Techniek staat 24/7 paraat in Den Helder en Noord-Holland. ${company.reviewsRating} ★ op Google, ${company.reviewsCount}+ reviews. Bel direct: ${company.phoneDisplay}.`,
+    description: `Daklekkage in uw platte dak? JS Techniek staat klaar in Den Helder en Noord-Holland. ${company.reviewsRating} ★ op Google, ${company.reviewsCount}+ reviews. Bel direct: ${company.phoneDisplay}.`,
   },
   platDak: {
     title: 'Plat dak vervangen Noord-Holland | JS Techniek',
