@@ -1,0 +1,6 @@
+# Alleen de website zelf publiceren, geen broncode, sjablonen of documenten
+landingspagina/
+og-image-*.html
+*.md
+*.docx
+.claude/
