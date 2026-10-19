@@ -11,8 +11,8 @@ export const company = {
   whatsappRaw: '31612602082',        // for wa.me/ href
   email: 'info@jschoutentechniek.com',
   domain: 'jschoutentechniek.com',
-  reviewsRating: '4,9',
-  reviewsCount: 50,
+  reviewsRating: '5,0',
+  reviewsCount: 20,
   yearsActive: 25,
   projectsCount: 2500,
   warrantyYearsBitumen: 10,
