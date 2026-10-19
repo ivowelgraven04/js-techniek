@@ -57,50 +57,44 @@ export const allServiceAreaCities = [...serviceArea.tier1, ...serviceArea.tier2]
 export type Testimonial = {
   quote: string;
   name: string;
-  location: string;
+  location?: string;
   date?: string;
 };
 
-// Echte Google Reviews (bron: MoF/_ad-copy.md reviews-carousel).
-// TODO (klant levert): plaats + datum verifiëren voor elke review.
+// Letterlijke teksten uit Google-reviews van J.S techniek (gecontroleerd 19-10-2026).
+// "…" markeert een ingekorte review. Geen plaatsnaam: die staat niet in de review.
 export const testimonialsLekkage: Testimonial[] = [
   {
-    quote: 'Toppers, vooral bij calamiteiten. Snelle reactie en goede prijs-kwaliteit.',
-    name: 'Sylvia Z.',
-    location: 'Noord-Holland',
+    quote: 'Vanwege lekkage aan mijn dak kwam ik via google bij J.S terecht. Tijdens mijn eerste telefonische contact heel prettig te woord gestaan en gelijk een afspraak gepland voor een dakinspectie. …',
+    name: 'Jens K.',
     date: 'Google review',
   },
   {
-    quote: 'Snel, deskundig en nog aardig ook.',
-    name: 'Ruud D.',
-    location: 'Noord-Holland',
+    quote: 'Snel gehandeld na mijn hulpvraag. Ik kreeg uitleg over wat en hoe hij het ging doen. …',
+    name: 'Riny B.',
     date: 'Google review',
   },
   {
-    quote: 'Ineens was alles van A tot Z duidelijk. 24 uur later stond er iemand op m\'n dak.',
-    name: 'Joris V.',
-    location: 'Alkmaar',
+    quote: 'J.S techniek reageerde snel en correct. … Het gevraagde was snel gerepareerd.',
+    name: 'M. B.',
     date: 'Google review',
   },
 ];
 
 export const testimonialsPlatDak: Testimonial[] = [
   {
-    quote: 'Gewoon één woord: VAKMANNEN. Eerlijk advies en duidelijke kennis van zaken.',
+    quote: 'Harde werkers met een goeie dosis positieve energie en eerlijkheid! Denken mee, kijken mee en hebben absoluut kennis van zaken. …',
     name: 'S. Kramer',
-    location: 'Noord-Holland',
     date: 'Google review',
   },
   {
-    quote: 'Toppers, vooral bij calamiteiten. Snelle reactie en goede prijs-kwaliteit.',
-    name: 'Sylvia Z.',
-    location: 'Noord-Holland',
+    quote: "Leuke vakmensen die kundig te werk gaan. Duidelijke prijs van tevoren en mooi resultaat. … Zeer tevreden met m'n nieuwe dak!",
+    name: 'Rene de V.',
     date: 'Google review',
   },
   {
-    quote: 'Snel, deskundig en nog aardig ook.',
-    name: 'Ruud D.',
-    location: 'Noord-Holland',
+    quote: 'Dit is echt vakwerk, voor een goede prijs, ook na de werkzaamheden wordt alles netjes opgeruimd en afval afgevoerd.',
+    name: 'Donald F.',
     date: 'Google review',
   },
 ];

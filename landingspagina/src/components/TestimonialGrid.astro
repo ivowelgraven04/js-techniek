@@ -45,7 +45,7 @@ const { eyebrow = 'Wat klanten zeggen', title = `${company.reviewsRating} sterre
           <blockquote class="text-brand-ink text-lg leading-relaxed">"{t.quote}"</blockquote>
           <figcaption class="mt-5 text-sm text-brand-blue-900/70">
             <span class="font-bold text-brand-blue-900">{t.name}</span>
-            <span>, {t.location}</span>
+            {t.location && <span>, {t.location}</span>}
             {t.date && <span class="text-brand-blue-900/50"> · {t.date}</span>}
           </figcaption>
         </figure>
