@@ -66,7 +66,7 @@ const phoneConvLabel = import.meta.env.PUBLIC_GOOGLE_ADS_PHONE_CONVERSION_LABEL;
     {/* DPD funnel tracking — session-id + beacon-tracker, gedeeld door alle LP's */}
     <script is:inline>
       (function () {
-        var TRACKED = ['gratis-dakinspectie', 'plat-dak-vervangen', 'lekkage-spoed'];
+        var TRACKED = ['gratis-dakinspectie', 'plat-dak-vervangen', 'lekkage-spoed', 'plat-dak-probleem'];
         var SESSION_KEY = 'dpd-session-v1';
         var slug = (location.pathname.replace(/^\/+/, '').split('/')[0] || '').toLowerCase();
         if (TRACKED.indexOf(slug) === -1) return; // alleen op getrackte LP's

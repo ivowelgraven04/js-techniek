@@ -2,7 +2,15 @@
 // Accepts both form shapes:
 //   - Google Ads LPs (/plat-dak-vervangen, /lekkage-spoed): naam + telefoon + postcode + type_werk
 //   - Dakinspectie quiz (/gratis-dakinspectie): naam + telefoon + email + situatie + eigenaar
+//   - Plat-dak-probleem quiz (/plat-dak-probleem): naam + telefoon + postcode + situatie
+//     + eigenaar + termijn + bereikbaar (+ optioneel email). Server bepaalt de
+//     kwalificatie opnieuw en stuurt bij 'gekwalificeerd' een Lead naar de Meta CAPI.
 // Posts validated payload to Zapier (env var ZAPIER_WEBHOOK_URL). Node 18+.
+
+import { sendMetaEvent } from './_lib/meta-capi.js';
+import {
+  bepaalKwalificatie, PROBLEEM_WAARDEN, TERMIJN_WAARDEN, BEREIKBAAR_WAARDEN,
+} from './_lib/plat-dak-probleem.js';
 
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -51,15 +59,37 @@ export default async function handler(req, res) {
     gclid: sanitize(body.gclid, 200),
   };
 
+  // Extra velden alleen voor /plat-dak-probleem (andere flows blijven ongewijzigd)
+  const bronSlug = payload.bron_pagina.replace(/^\/+|\/+$/g, '').split('/')[0];
+  const isPlatDakProbleemFlow = bronSlug === 'plat-dak-probleem';
+  let meta = null;
+  if (isPlatDakProbleemFlow) {
+    payload.termijn = sanitize(body.termijn, 20);
+    payload.bereikbaar = sanitize(body.bereikbaar, 20);
+    payload.kwalificatie = sanitize(body.kwalificatie, 20);
+    payload.event_id = sanitize(body.event_id, 80);
+    meta = {
+      fbp: sanitize(body.fbp, 200),
+      fbc: sanitize(body.fbc, 300),
+      event_source_url: sanitize(body.event_source_url, 500),
+    };
+  }
+
   for (const field of ALWAYS_REQUIRED) {
     if (!payload[field]) {
       return res.status(400).json({ error: `Veld ontbreekt: ${field}` });
     }
   }
 
-  // Welke flow: dakinspectie (situatie+eigenaar+email) of Google-Ads (postcode+type_werk)?
-  const isDakinspectieFlow = !!(payload.situatie || payload.eigenaar || payload.email);
-  if (isDakinspectieFlow) {
+  // Welke flow: plat-dak-probleem, dakinspectie (situatie+eigenaar+email) of Google-Ads (postcode+type_werk)?
+  const isDakinspectieFlow = !isPlatDakProbleemFlow && !!(payload.situatie || payload.eigenaar || payload.email);
+  if (isPlatDakProbleemFlow) {
+    if (!payload.postcode) return res.status(400).json({ error: 'Veld ontbreekt: postcode' });
+    if (!PROBLEEM_WAARDEN.includes(payload.situatie)) return res.status(400).json({ error: 'Veld ontbreekt: situatie' });
+    if (!payload.eigenaar) return res.status(400).json({ error: 'Veld ontbreekt: eigenaar' });
+    if (!TERMIJN_WAARDEN.includes(payload.termijn)) return res.status(400).json({ error: 'Veld ontbreekt: termijn' });
+    if (!BEREIKBAAR_WAARDEN.includes(payload.bereikbaar)) return res.status(400).json({ error: 'Veld ontbreekt: bereikbaar' });
+  } else if (isDakinspectieFlow) {
     if (!payload.email)    return res.status(400).json({ error: 'Veld ontbreekt: email' });
     if (!payload.situatie) return res.status(400).json({ error: 'Veld ontbreekt: situatie' });
     if (!payload.eigenaar) return res.status(400).json({ error: 'Veld ontbreekt: eigenaar' });
@@ -81,10 +111,27 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Postcode lijkt niet te kloppen' });
   }
 
+  if (isPlatDakProbleemFlow) {
+    // Server is leidend: huurder of buiten werkgebied wordt geen lead,
+    // en de browser kan zichzelf niet "gekwalificeerd" maken.
+    const kwalificatie = bepaalKwalificatie(payload);
+    if (!kwalificatie) {
+      return res.status(422).json({ error: 'Deze aanvraag valt buiten ons werkgebied of is voor een huurwoning' });
+    }
+    payload.kwalificatie = kwalificatie;
+    // Zichtbaar in bestaande Zapier-mail en Sheet zonder de Zap aan te passen
+    payload.type_werk = payload.type_werk || payload.situatie;
+    const samenvatting = `Termijn: ${payload.termijn} | Bereikbaar: ${payload.bereikbaar} | Kwalificatie: ${kwalificatie}`;
+    payload.opmerking = payload.opmerking ? `${payload.opmerking}\n${samenvatting}` : samenvatting;
+  }
+
   // Interne tags voor Zapier-routing
   const tags = [];
   if (payload.eigenaar === 'nee') tags.push('huurder');
-  if (payload.situatie === 'lekkage') tags.push('spoed-kandidaat');
+  if (payload.situatie === 'lekkage' || payload.situatie === 'lekt_nu') tags.push('spoed-kandidaat');
+  if (isPlatDakProbleemFlow) {
+    tags.push(payload.kwalificatie, `termijn:${payload.termijn}`, `bereikbaar:${payload.bereikbaar}`);
+  }
   if (tags.length) payload.tags = tags.join(',');
 
   // Best-effort: óók in Supabase leads-tabel schrijven.
@@ -151,7 +198,10 @@ export default async function handler(req, res) {
 
   if (!ZAPIER_WEBHOOK_URL) {
     console.error('[submit-quote] ZAPIER_WEBHOOK_URL niet geconfigureerd. Payload:', payload);
-    return res.status(200).json({ ok: true, warn: 'webhook not configured' });
+    const capi = await sendPlatDakLead(req, payload, meta);
+    return res.status(200).json(isPlatDakProbleemFlow
+      ? { ok: true, warn: 'webhook not configured', kwalificatie: payload.kwalificatie, capi }
+      : { ok: true, warn: 'webhook not configured' });
   }
 
   try {
@@ -170,5 +220,38 @@ export default async function handler(req, res) {
     return res.status(502).json({ error: 'Doorgeven aan systeem mislukte' });
   }
 
-  return res.status(200).json({ ok: true });
+  const capi = await sendPlatDakLead(req, payload, meta);
+  return res.status(200).json(isPlatDakProbleemFlow ? { ok: true, kwalificatie: payload.kwalificatie, capi } : { ok: true });
+}
+
+// Meta CAPI: alleen voor /plat-dak-probleem en alleen bij 'gekwalificeerd'.
+// Zelfde event_id als de browser-pixel, zodat Meta dedupliceert.
+async function sendPlatDakLead(req, payload, meta) {
+  if (!meta || payload.kwalificatie !== 'gekwalificeerd' || !payload.event_id) return 'skipped';
+  try {
+    const r = await sendMetaEvent({
+      eventName: 'Lead',
+      eventId: payload.event_id,
+      eventSourceUrl: meta.event_source_url || 'https://www.jschoutentechniek.com/plat-dak-probleem',
+      req,
+      user: {
+        telefoon: payload.telefoon,
+        email: payload.email,
+        naam: payload.naam,
+        postcode: payload.postcode,
+        externalId: payload.session_id,
+        fbp: meta.fbp,
+        fbc: meta.fbc,
+      },
+      customData: {
+        content_name: 'Plat dak probleem',
+        content_category: payload.situatie,
+        lead_type: payload.termijn,
+      },
+    });
+    return r.sent ? 'sent' : r.reason;
+  } catch (err) {
+    console.error('[submit-quote] CAPI threw:', err);
+    return 'error';
+  }
 }

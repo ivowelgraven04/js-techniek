@@ -224,3 +224,97 @@ export const quizEigenaar: { question: string; sub: string; options: QuizOption[
     { value: 'nee', label: 'Nee, ik huur',       icon: '🔑' },
   ],
 };
+
+// ─────────────────────────────────────────────────────────────
+// /plat-dak-probleem: Meta-ads quiz (5 stappen, kwalificerend)
+// Copyregels: je-vorm, geen gedachtestreepjes, geen apostrof-afkortingen,
+// geen "gratis", geen 24/7, geen bedragen, alleen platte daken.
+// ─────────────────────────────────────────────────────────────
+
+export const seoPlatDakProbleem = {
+  title: 'Probleem met je platte dak? | JS Techniek Den Helder',
+  description: `Lekkage, vochtplek, oud dak of slecht werk van een vorige dakdekker? We komen kijken, je krijgt duidelijke uitleg en vooraf een duidelijke prijs. ${company.reviewsRating} ★ op Google (${company.reviewsCount} reviews).`,
+} as const;
+
+export const pdpProbleem: { question: string; sub: string; options: QuizOption[] } = {
+  question: 'Wat speelt er aan je platte dak?',
+  sub: 'Kies wat het beste past.',
+  options: [
+    { value: 'lekt_nu',      label: 'Het lekt nu binnen',                      hint: 'Er komt op dit moment water binnen',   icon: '💧' },
+    { value: 'lekkage_vocht', label: 'Lekkage of vochtplek',                   hint: 'Bijvoorbeeld een plek op het plafond', icon: '🌧️' },
+    { value: 'oud_dak',      label: 'Mijn dak is oud en moet vervangen worden', hint: 'Scheuren, blazen of plassen op het dak', icon: '🏚️' },
+    { value: 'slecht_werk',  label: 'Slecht werk van een vorige dakdekker',    hint: 'Het is niet goed gemaakt',             icon: '🛠️' },
+    { value: 'anders',       label: 'Iets anders',                             icon: '💬' },
+  ],
+};
+
+export const pdpEigenaar: { question: string; sub: string; options: QuizOption[] } = {
+  question: 'Ben je eigenaar van de woning?',
+  sub: 'Wij werken voor huiseigenaren, omdat zij beslissen over het dak.',
+  options: [
+    { value: 'ja',  label: 'Ja, ik ben eigenaar', icon: '🏠' },
+    { value: 'nee', label: 'Nee, ik huur',        icon: '🔑' },
+  ],
+};
+
+export const pdpTermijn: { question: string; sub: string; options: QuizOption[] } = {
+  question: 'Wanneer wil je het laten oplossen?',
+  sub: 'Zo kunnen we je aanvraag goed inplannen.',
+  options: [
+    { value: 'zsm',        label: 'Zo snel mogelijk',        icon: '⚡' },
+    { value: '1_3_maanden', label: 'Binnen 1 tot 3 maanden', icon: '📅' },
+    { value: 'orienteren', label: 'Ik oriënteer me alleen', icon: '🔍' },
+  ],
+};
+
+export const pdpBereikbaar = [
+  { value: 'ochtend', label: 'Ochtend' },
+  { value: 'middag',  label: 'Middag' },
+  { value: 'avond',   label: 'Avond' },
+] as const;
+
+// Letterlijke, volledige teksten uit Google Maps (opgehaald 30-10-2026,
+// bron: projects/JS-Techniek/data-analysis/Reviews/30-10-2026-google-reviews.md).
+// Namen afgekort zoals elders op de site.
+export const testimonialsPlatDakProbleem: Testimonial[] = [
+  {
+    quote: 'Flinke lekkage doordat de vorige dakdekkers mijn dak niet goed hebben gemaakt, aansluiting dakkapel naar dak hebben ze helemaal verkeerd gedaan waardoor bij hevige regenbui alles naar binnen liep (letterlijk een waterval) gelukkig hebben de mannen van js techniek dit zeer snel en vakkundig weer helemaal in orde gemaakt.',
+    name: 'Saskia M.',
+    date: 'Google review',
+  },
+  {
+    quote: 'Na inspectie van mijn dak de conclusie dat nieuwe dakbedekking echt noodzakelijk was. Ik kreeg duidelijke uitleg wat er moest gebeuren, een heldere offerte en ze konden de dag erna meteen beginnen. Het ziet er weer picobello uit. Vriendelijkheid en service gericht: een aanrader !!',
+    name: 'Bert M.',
+    date: 'Google review',
+  },
+  {
+    quote: 'Wij zijn prima geholpen door dit bedrijf. Goede en snelle service. Alles goed afgewerkt en heel netjes gewerkt. Ze ruimen ook alles op en voeren alles af. Kortom wij zijn zeer tevreden.',
+    name: 'Johan W.',
+    date: 'Google review',
+  },
+];
+
+export const faqPlatDakProbleem: FaqItem[] = [
+  {
+    q: 'Weet ik vooraf wat het gaat kosten?',
+    a: 'Ja. Wat een klus kost hangt af van wat er aan de hand is, daarom komen we eerst kijken. Daarna krijg je een duidelijke prijs, voordat we iets doen. Pas dan beslis je.',
+  },
+  {
+    q: 'Hoe snel kunnen jullie komen?',
+    a: `Na je aanvraag bellen we je terug om een afspraak te maken. Lekt het op dit moment binnen? Bel ons dan direct op ${company.phoneDisplay}, dan kijken we samen wat er kan.`,
+  },
+  {
+    q: 'Mijn vorige dakdekker heeft het niet goed gedaan. Kunnen jullie dat herstellen?',
+    a: 'Ja. We kijken wat er mis is gegaan, leggen je uit wat er moet gebeuren en maken het goed. Je krijgt ook hier vooraf een duidelijke prijs.',
+  },
+  {
+    q: 'Doen jullie ook schuine daken met dakpannen?',
+    a: 'Nee. Wij zijn specialist in platte daken: lekkages, reparaties, bitumen dakbedekking en het vervangen van een oud plat dak.',
+  },
+];
+
+export const werkgebiedPlatDakProbleem = [
+  'Den Helder', 'Julianadorp', 'Anna Paulowna', 'Breezand', 'Callantsoog',
+  'Petten', 'Schagen', 'Hippolytushoef', 'Den Oever', 'Wieringerwerf',
+  'Middenmeer', 'Schoorl', 'Medemblik', 'Niedorp',
+] as const;

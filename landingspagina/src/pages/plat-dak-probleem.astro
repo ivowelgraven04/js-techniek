@@ -1,0 +1,193 @@
+---
+// /plat-dak-probleem: landingspagina voor Meta-ads (vervangt Instant Forms).
+// Quiz staat direct boven de vouw. Filtert huurders, buiten-gebied en
+// oriënterende bezoekers; Lead alleen bij gekwalificeerd (zie PlatDakQuiz).
+import { Image } from 'astro:assets';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import TopBar from '~/components/TopBar.astro';
+import FaqAccordion from '~/components/FaqAccordion.astro';
+import CtaBlock from '~/components/CtaBlock.astro';
+import Footer from '~/components/Footer.astro';
+import PlatDakQuiz from '~/components/PlatDakQuiz.astro';
+import probleemFoto from '~/assets/images/plat-dak-probleem.jpg';
+import vakmanFoto from '~/assets/images/vakman-aan-het-werk.jpeg';
+import {
+  company,
+  seoPlatDakProbleem,
+  testimonialsPlatDakProbleem,
+  faqPlatDakProbleem,
+  werkgebiedPlatDakProbleem,
+} from '~/data/site';
+
+const SOURCE_PAGE = '/plat-dak-probleem';
+
+const stappen = [
+  { n: 1, title: 'Vul de dakcheck in', text: 'Vijf korte vragen over je dak. Binnen een minuut klaar.' },
+  { n: 2, title: 'We bellen je terug', text: 'Op het moment dat jou het beste uitkomt: ochtend, middag of avond.' },
+  { n: 3, title: 'Inspectie en prijs vooraf', text: 'We bekijken je dak, leggen uit wat er aan de hand is en je krijgt vooraf een duidelijke prijs. Daarna beslis jij.' },
+];
+
+const star = 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.363 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.366-2.447a1 1 0 00-1.176 0l-3.367 2.447c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.07 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z';
+---
+<BaseLayout
+  title={seoPlatDakProbleem.title}
+  description={seoPlatDakProbleem.description}
+  ogImage="/og-plat-dak.jpg"
+>
+  {/* Meta Pixel: PageView bij laden. QuizStap per vraag, Lead alleen bij gekwalificeerd (met eventID voor dedup met CAPI). */}
+  <script is:inline>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3056730661197575');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3056730661197575&ev=PageView&noscript=1" alt="" /></noscript>
+
+  <TopBar ctaText="Start de dakcheck" ctaHref="#dakcheck" />
+
+  <main>
+    <!-- Hero + quiz -->
+    <section class="bg-gradient-to-b from-brand-blue-50 to-brand-paper">
+      <div class="container-content pt-5 pb-10 md:pt-12 md:pb-16 grid lg:grid-cols-[1fr_minmax(0,34rem)] gap-6 lg:gap-12 items-start">
+        <div class="lg:pt-6">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm font-semibold text-brand-ink">
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span>{company.reviewsRating} <span class="text-brand-yellow-600">★</span> op Google ({company.reviewsCount} reviews)</span>
+            </span>
+            <span class="text-brand-blue-900/70">Specialist platte daken</span>
+          </div>
+
+          <h1 class="mt-3 text-[2rem] leading-[1.1] sm:text-5xl font-black tracking-tight text-brand-blue-900">
+            Probleem met je platte dak?
+          </h1>
+          <p class="mt-3 text-lg sm:text-xl text-brand-blue-900/80 max-w-xl">
+            We komen kijken, je krijgt duidelijke uitleg en vooraf een duidelijke prijs.
+          </p>
+
+          <ul class="hidden lg:block mt-8 space-y-3 text-brand-ink">
+            <li class="flex gap-3"><span class="text-brand-yellow-600 font-black">✓</span>Lekkage, vochtplek, oud dak of slecht werk van een vorige dakdekker</li>
+            <li class="flex gap-3"><span class="text-brand-yellow-600 font-black">✓</span>Eigen vakmensen uit Den Helder en omgeving</li>
+            <li class="flex gap-3"><span class="text-brand-yellow-600 font-black">✓</span>Je weet vooraf waar je aan toe bent</li>
+          </ul>
+          <figure class="hidden lg:block mt-8">
+            <Image src={probleemFoto} alt="Plat dak met plassen water rond de lichtkoepel" widths={[480, 720]} quality={70} sizes="(min-width: 1024px) 40vw, 100vw" class="rounded-3xl shadow-brand w-full max-w-lg h-auto" loading="lazy" />
+            <figcaption class="mt-2 text-sm text-brand-blue-900/60">Plassen op een plat dak: vaak het begin van een lekkage.</figcaption>
+          </figure>
+        </div>
+
+        <PlatDakQuiz sourcePage={SOURCE_PAGE} />
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="bg-white">
+      <div class="container-content section">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="eyebrow">Wat klanten zeggen</span>
+          <h2 class="text-h2 text-brand-blue-900 mt-3">{company.reviewsRating} op Google uit {company.reviewsCount} reviews</h2>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-5">
+          {testimonialsPlatDakProbleem.map(t => (
+            <figure class="bg-brand-paper rounded-3xl p-6 border border-gray-100 flex flex-col">
+              <div class="flex gap-0.5" aria-label="5 sterren">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg class="w-5 h-5 text-brand-yellow-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d={star}/></svg>
+                ))}
+              </div>
+              <blockquote class="mt-3 text-brand-ink leading-relaxed flex-1">"{t.quote}"</blockquote>
+              <figcaption class="mt-4 text-sm text-brand-blue-900/70">
+                <span class="font-bold text-brand-blue-900">{t.name}</span> · {t.date}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Zo werkt het -->
+    <section class="bg-brand-paper">
+      <div class="container-content section grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="eyebrow">Zo werkt het</span>
+          <h2 class="text-h2 text-brand-blue-900 mt-3">In drie stappen naar een dak dat weer dicht is</h2>
+          <ol class="mt-8 space-y-4">
+            {stappen.map(s => (
+              <li class="flex gap-4 bg-white rounded-2xl border border-gray-100 p-5">
+                <span class="shrink-0 w-11 h-11 rounded-xl bg-brand-yellow-500 text-brand-ink font-black text-lg flex items-center justify-center">{s.n}</span>
+                <div>
+                  <h3 class="font-extrabold text-brand-blue-900 text-lg">{s.title}</h3>
+                  <p class="mt-1 text-brand-blue-900/75">{s.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <a href="#dakcheck" class="btn-primary text-lg mt-8 w-full sm:w-auto" data-cta="stappen-quiz">Start de dakcheck</a>
+        </div>
+        <figure>
+          <Image src={vakmanFoto} alt="Vakman van JS Techniek aan het werk op een steiger" widths={[480, 800]} quality={70} sizes="(min-width: 1024px) 45vw, 100vw" class="rounded-3xl shadow-brand w-full h-auto" loading="lazy" />
+          <figcaption class="mt-2 text-sm text-brand-blue-900/60">Eigen vakmensen, geen onderaannemers.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Werkgebied -->
+    <section class="bg-brand-blue-50/50">
+      <div class="container-content section max-w-3xl text-center">
+        <span class="eyebrow">Werkgebied</span>
+        <h2 class="text-h2 text-brand-blue-900 mt-3">Den Helder en omgeving</h2>
+        <p class="mt-4 text-brand-blue-900/75">
+          We werken in Den Helder en de dorpen tot ongeveer 35 kilometer daaromheen. Zo zijn we snel bij je. Texel valt buiten ons werkgebied.
+        </p>
+        <ul class="mt-6 flex flex-wrap justify-center gap-2">
+          {werkgebiedPlatDakProbleem.map(p => (
+            <li class="bg-white rounded-full px-4 py-1.5 text-sm font-semibold text-brand-blue-900 border border-gray-100">{p}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <FaqAccordion items={faqPlatDakProbleem} title="Goed om te weten" />
+
+    <CtaBlock
+      title="Probleem met je platte dak?"
+      subtitle="Doe de dakcheck, dan bellen we je terug op een moment dat jou uitkomt."
+      primaryCta={{ text: 'Start de dakcheck', href: '#dakcheck', trackId: 'final-quiz' }}
+      secondaryCta={{ text: `Bel ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'final-phone' }}
+    />
+
+    <Footer />
+    <div class="h-20 lg:hidden" aria-hidden="true"></div>
+  </main>
+
+  <!-- Sticky mobiele CTA: verdwijnt zolang de quiz in beeld is -->
+  <div
+    id="pdq-sticky"
+    class="lg:hidden fixed inset-x-0 bottom-0 z-50 bg-white/95 backdrop-blur border-t border-gray-200 px-4 pt-3 flex gap-3 transition-transform duration-200 translate-y-full"
+    style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));"
+  >
+    <a href="#dakcheck" class="btn-primary flex-1 py-3" data-cta="sticky-quiz">Start de dakcheck</a>
+    <a href={`tel:${company.phoneRaw}`} class="btn-secondary px-4 py-3" aria-label={`Bel ${company.phoneDisplay}`} data-cta="sticky-phone">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+      <span>Bel</span>
+    </a>
+  </div>
+
+  <script>
+    // Ankers naar #dakcheck: soepel scrollen zonder de quiz-hash te breken
+    document.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement)?.closest?.('a[href="#dakcheck"]');
+      if (!link) return;
+      e.preventDefault();
+      document.getElementById('dakcheck')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Sticky balk alleen tonen als de quiz niet in beeld is
+    const sticky = document.getElementById('pdq-sticky');
+    const quiz = document.getElementById('dakcheck');
+    if (sticky && quiz && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        sticky.classList.toggle('translate-y-full', entry.isIntersecting);
+      }, { threshold: 0.15 }).observe(quiz);
+    }
+  </script>
+</BaseLayout>

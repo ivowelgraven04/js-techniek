@@ -1,0 +1,531 @@
+---
+// Kwalificerende quiz voor /plat-dak-probleem (Meta-ads).
+// 5 stappen: probleem → eigenaar → termijn → postcode → contact.
+// Huurder of buiten werkgebied = vriendelijk eindscherm, geen lead, geen Lead-event.
+// Lead (pixel + CAPI, zelfde eventID) alleen bij gekwalificeerd.
+import { pdpProbleem, pdpEigenaar, pdpTermijn, pdpBereikbaar, company } from '~/data/site';
+
+interface Props {
+  sourcePage: string;
+}
+const { sourcePage } = Astro.props;
+
+const optionClass =
+  'pdq-option group w-full flex items-center gap-3 sm:gap-4 text-left bg-white border-2 border-gray-200 hover:border-brand-blue-700 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 min-h-[60px] transition active:scale-[0.99] focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow-500/40 aria-checked:border-brand-blue-700 aria-checked:bg-brand-blue-50';
+const iconClass =
+  'shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-blue-50 text-xl sm:text-2xl flex items-center justify-center';
+const inputClass =
+  'w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-base focus:border-brand-blue-700 focus:ring-2 focus:ring-brand-blue-700/20 outline-none';
+const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline underline-offset-2 py-2';
+---
+<div
+  id="dakcheck"
+  class="pdq bg-white rounded-3xl border border-gray-100 shadow-brand p-5 sm:p-8 scroll-mt-24"
+  data-source-page={sourcePage}
+>
+  <!-- Voortgang -->
+  <div id="pdq-progress-wrap">
+    <div class="flex items-center justify-between mb-3">
+      <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-blue-700">Dakcheck</span>
+      <span class="text-sm font-bold text-brand-blue-700" id="pdq-step-text">Vraag 1 van 5</span>
+    </div>
+    <div class="h-2 bg-brand-blue-50 rounded-full overflow-hidden mb-6" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="pdq-progressbar">
+      <div id="pdq-progress" class="h-full bg-brand-yellow-500 transition-all duration-300" style="width: 20%"></div>
+    </div>
+  </div>
+
+  <!-- Spoedhint (alleen na "Het lekt nu binnen") -->
+  <div id="pdq-spoed" class="hidden mb-5 rounded-2xl bg-brand-yellow-500/20 border border-brand-yellow-600/40 px-4 py-3 text-sm text-brand-ink">
+    <strong>Lekt het nu binnen?</strong> Bel ons gerust direct op
+    <a href={`tel:${company.phoneRaw}`} class="font-extrabold underline whitespace-nowrap">{company.phoneDisplay}</a>.
+    Je kunt ook de vragen afmaken, dan bellen wij jou.
+  </div>
+
+  <!-- STAP 1: Probleem -->
+  <div data-step="1">
+    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">{pdpProbleem.question}</h2>
+    <p class="mt-1 text-sm text-brand-blue-900/70">{pdpProbleem.sub}</p>
+    <div class="mt-4 space-y-2.5" role="radiogroup" aria-label={pdpProbleem.question}>
+      {pdpProbleem.options.map(opt => (
+        <button type="button" role="radio" aria-checked="false" data-field="probleem" data-value={opt.value} class={optionClass}>
+          <span class={iconClass} aria-hidden="true">{opt.icon}</span>
+          <span class="flex-1">
+            <span class="block font-extrabold text-brand-blue-900 text-base leading-snug">{opt.label}</span>
+            {opt.hint && <span class="block text-sm text-brand-blue-900/60">{opt.hint}</span>}
+          </span>
+          <svg class="w-5 h-5 shrink-0 text-brand-blue-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      ))}
+    </div>
+    <p class="mt-4 text-xs text-brand-blue-900/55 text-center">5 korte vragen, binnen een minuut klaar.</p>
+  </div>
+
+  <!-- STAP 2: Eigenaar -->
+  <div data-step="2" hidden>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">{pdpEigenaar.question}</h2>
+    <p class="mt-1 text-sm text-brand-blue-900/70">{pdpEigenaar.sub}</p>
+    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5" role="radiogroup" aria-label={pdpEigenaar.question}>
+      {pdpEigenaar.options.map(opt => (
+        <button type="button" role="radio" aria-checked="false" data-field="eigenaar" data-value={opt.value} class={optionClass}>
+          <span class={iconClass} aria-hidden="true">{opt.icon}</span>
+          <span class="flex-1 font-extrabold text-brand-blue-900 text-base">{opt.label}</span>
+        </button>
+      ))}
+    </div>
+    <div class="mt-5 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
+  </div>
+
+  <!-- STAP 3: Termijn -->
+  <div data-step="3" hidden>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">{pdpTermijn.question}</h2>
+    <p class="mt-1 text-sm text-brand-blue-900/70">{pdpTermijn.sub}</p>
+    <div class="mt-4 space-y-2.5" role="radiogroup" aria-label={pdpTermijn.question}>
+      {pdpTermijn.options.map(opt => (
+        <button type="button" role="radio" aria-checked="false" data-field="termijn" data-value={opt.value} class={optionClass}>
+          <span class={iconClass} aria-hidden="true">{opt.icon}</span>
+          <span class="flex-1 font-extrabold text-brand-blue-900 text-base">{opt.label}</span>
+        </button>
+      ))}
+    </div>
+    <div class="mt-5 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
+  </div>
+
+  <!-- STAP 4: Postcode -->
+  <div data-step="4" hidden>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Wat is je postcode?</h2>
+    <p class="mt-1 text-sm text-brand-blue-900/70">Zo weten we of je woning in ons werkgebied ligt.</p>
+    <form id="pdq-postcode-form" class="mt-4" novalidate>
+      <label for="pdq-postcode" class="sr-only">Postcode</label>
+      <input
+        id="pdq-postcode"
+        name="postcode"
+        type="text"
+        inputmode="text"
+        autocomplete="postal-code"
+        autocapitalize="characters"
+        maxlength="7"
+        placeholder="1781 AB"
+        class={`${inputClass} text-lg tracking-wider uppercase`}
+      />
+      <p id="pdq-postcode-error" class="hidden mt-2 text-sm text-red-700" role="alert">Vul een geldige postcode in, bijvoorbeeld 1781 AB.</p>
+      <button type="submit" class="btn-primary w-full text-lg mt-4">
+        Volgende
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+    </form>
+    <div class="mt-4 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
+  </div>
+
+  <!-- STAP 5: Contact -->
+  <div data-step="5" hidden>
+    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Waar kunnen we je bereiken?</h2>
+    <p class="mt-1 text-sm text-brand-blue-900/70">We bellen je terug om je situatie door te nemen en een afspraak te maken.</p>
+
+    <form id="pdq-form" class="mt-4 space-y-4" novalidate>
+      <div class="hp-field" aria-hidden="true">
+        <label>Laat dit veld leeg <input type="text" name="company_url" tabindex="-1" autocomplete="off" /></label>
+      </div>
+
+      <label class="block">
+        <span class="block text-sm font-bold text-brand-blue-900 mb-1">Naam</span>
+        <input type="text" name="naam" autocomplete="name" placeholder="Jan Jansen" class={inputClass} />
+        <span data-error-for="naam" class="hidden mt-1 block text-sm text-red-700">Vul je naam in.</span>
+      </label>
+
+      <label class="block">
+        <span class="block text-sm font-bold text-brand-blue-900 mb-1">Telefoonnummer</span>
+        <input type="tel" name="telefoon" inputmode="tel" autocomplete="tel" placeholder="06 12345678" class={inputClass} />
+        <span data-error-for="telefoon" class="hidden mt-1 block text-sm text-red-700">Vul een Nederlands telefoonnummer in, bijvoorbeeld 06 12345678.</span>
+      </label>
+
+      <label class="block">
+        <span class="block text-sm font-bold text-brand-blue-900 mb-1">E-mailadres <span class="font-normal text-brand-blue-900/50">(optioneel)</span></span>
+        <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="jan@voorbeeld.nl" class={inputClass} />
+        <span data-error-for="email" class="hidden mt-1 block text-sm text-red-700">Dit e-mailadres lijkt niet te kloppen.</span>
+      </label>
+
+      <fieldset>
+        <legend class="block text-sm font-bold text-brand-blue-900 mb-1">Wanneer ben je het best bereikbaar?</legend>
+        <div class="grid grid-cols-3 gap-2">
+          {pdpBereikbaar.map(b => (
+            <label class="relative">
+              <input type="radio" name="bereikbaar" value={b.value} class="peer sr-only" />
+              <span class="flex items-center justify-center min-h-[48px] rounded-xl border-2 border-gray-200 font-bold text-brand-blue-900 cursor-pointer transition peer-checked:border-brand-blue-700 peer-checked:bg-brand-blue-50 peer-focus-visible:ring-4 peer-focus-visible:ring-brand-yellow-500/40">{b.label}</span>
+            </label>
+          ))}
+        </div>
+        <span data-error-for="bereikbaar" class="hidden mt-1 block text-sm text-red-700">Kies wanneer we je het beste kunnen bellen.</span>
+      </fieldset>
+
+      <button type="submit" class="btn-primary text-lg w-full">
+        Verstuur mijn dakcheck
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <p class="text-xs text-brand-blue-900/60 text-center">
+        We gebruiken je gegevens alleen om contact met je op te nemen over je dak. Zie onze <a href="/privacy" class="underline">privacyverklaring</a>.
+      </p>
+      <div id="pdq-form-error" role="alert" class="hidden text-red-700 text-sm bg-red-50 border border-red-200 rounded-lg p-3"></div>
+    </form>
+    <div class="mt-3 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
+  </div>
+
+  <!-- EINDSCHERM: huurder -->
+  <div data-end="huurder" hidden>
+    <div class="text-4xl" aria-hidden="true">🔑</div>
+    <h2 class="mt-3 text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Neem contact op met je verhuurder</h2>
+    <p class="mt-3 text-brand-blue-900/80">
+      Bij een huurwoning is de verhuurder verantwoordelijk voor het dak. Meld het probleem bij je verhuurder of woningcorporatie, zij regelen het herstel.
+    </p>
+    <p class="mt-3 text-brand-blue-900/80">Wij werken voor huiseigenaren, daarom kunnen we je hier zelf niet mee helpen. Bedankt voor je begrip.</p>
+    <button type="button" data-action="back" class={`${backClass} mt-5 text-sm`}>← Toch eigenaar? Pas je antwoord aan</button>
+  </div>
+
+  <!-- EINDSCHERM: buiten werkgebied -->
+  <div data-end="buiten" hidden>
+    <div class="text-4xl" aria-hidden="true">📍</div>
+    <h2 class="mt-3 text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight" id="pdq-buiten-title">Je woning ligt buiten ons werkgebied</h2>
+    <p class="mt-3 text-brand-blue-900/80" id="pdq-buiten-text">
+      We werken in Den Helder en de dorpen tot ongeveer 35 kilometer daaromheen, zodat we snel bij je kunnen zijn. Voor jouw postcode kunnen we dat helaas niet waarmaken. We raden je aan een dakdekker bij jou in de buurt te zoeken.
+    </p>
+    <button type="button" data-action="back" class={`${backClass} mt-5 text-sm`}>← Postcode verkeerd ingevuld? Pas hem aan</button>
+  </div>
+
+  <!-- EINDSCHERM: verzonden -->
+  <div data-end="klaar" hidden>
+    <div class="w-14 h-14 rounded-2xl bg-brand-yellow-500 flex items-center justify-center" aria-hidden="true">
+      <svg class="w-8 h-8 text-brand-ink" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h2 class="mt-4 text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Dank je<span id="pdq-klaar-naam"></span>, je dakcheck is binnen</h2>
+    <p class="mt-3 text-brand-blue-900/80">
+      We bellen je terug, het liefst in de <strong id="pdq-klaar-moment">ochtend</strong>. We bellen vanaf
+      <strong class="whitespace-nowrap">{company.phoneDisplay}</strong>. Sla het nummer gerust op, dan weet je dat wij het zijn.
+    </p>
+    <div id="pdq-klaar-spoed" class="hidden mt-4 rounded-2xl bg-brand-yellow-500/20 border border-brand-yellow-600/40 px-4 py-3 text-sm">
+      Lekt het nu binnen? Wacht dan niet en bel ons direct.
+    </div>
+    <a href={`tel:${company.phoneRaw}`} class="btn-secondary w-full mt-5">Bel {company.phoneDisplay}</a>
+  </div>
+</div>
+
+<script>
+  import { pdpProbleem } from '~/data/site';
+  import { normalizePostcode, inWerkgebied, isTexel } from '~/data/werkgebied-postcodes';
+
+  type Step = 1 | 2 | 3 | 4 | 5;
+  type End = 'huurder' | 'buiten' | 'klaar';
+  type State = {
+    step: Step;
+    end: End | null;
+    probleem: string | null;
+    eigenaar: string | null;
+    termijn: string | null;
+    postcode: string | null;
+    eventId: string | null;
+  };
+
+  const STORAGE_KEY = 'js-platdak-quiz-v1';
+  const TOTAL = 5;
+  const STEP_NAMES: Record<number, string> = { 1: 'probleem', 2: 'eigenaar', 3: 'termijn', 4: 'postcode', 5: 'contact' };
+  const W = window as any;
+
+  const root = document.getElementById('dakcheck') as HTMLElement;
+  const sourcePage = root.dataset.sourcePage || '/plat-dak-probleem';
+
+  // ─── state ──────────────────────────────────────────────
+  const empty = (): State => ({ step: 1, end: null, probleem: null, eigenaar: null, termijn: null, postcode: null, eventId: null });
+  function load(): State {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      return raw ? { ...empty(), ...JSON.parse(raw) } : empty();
+    } catch { return empty(); }
+  }
+  function save() { try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {} }
+  const state = load();
+
+  // UTM + fbclid bij binnenkomst bewaren (overleeft herladen zonder parameters)
+  const ATTR_KEY = 'js-platdak-attr-v1';
+  const ATTR_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
+  function attribution(): Record<string, string> {
+    let stored: Record<string, string> = {};
+    try { stored = JSON.parse(sessionStorage.getItem(ATTR_KEY) || '{}'); } catch {}
+    const url = new URL(location.href);
+    const fresh: Record<string, string> = {};
+    ATTR_FIELDS.forEach(k => { const v = url.searchParams.get(k); if (v) fresh[k] = v; });
+    const merged = Object.keys(fresh).length ? fresh : stored;
+    try { sessionStorage.setItem(ATTR_KEY, JSON.stringify(merged)); } catch {}
+    return merged;
+  }
+  const attr = attribution();
+
+  // ─── tracking helpers ───────────────────────────────────
+  function beacon(event_type: string, extra: Record<string, unknown> = {}) {
+    if (typeof W.dpdTrack === 'function') W.dpdTrack(event_type, extra);
+  }
+  function fbq(...args: unknown[]) {
+    if (typeof W.fbq === 'function') W.fbq(...args);
+  }
+  function gtag(...args: unknown[]) {
+    if (typeof W.gtag === 'function') W.gtag(...args);
+  }
+  function cookie(name: string): string {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function fbc(): string {
+    const c = cookie('_fbc');
+    if (c) return c;
+    return attr.fbclid ? `fb.1.${Date.now()}.${attr.fbclid}` : '';
+  }
+  function uuid(): string {
+    return (crypto as any).randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  }
+
+  // ─── rendering ──────────────────────────────────────────
+  const stepText = document.getElementById('pdq-step-text')!;
+  const progress = document.getElementById('pdq-progress') as HTMLElement;
+  const progressbar = document.getElementById('pdq-progressbar')!;
+  const progressWrap = document.getElementById('pdq-progress-wrap')!;
+  const spoed = document.getElementById('pdq-spoed')!;
+  const seenSteps = new Set<number>();
+
+  function keepInView() {
+    const top = root.getBoundingClientRect().top;
+    if (top < 0 || top > window.innerHeight * 0.6) {
+      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function render(opts: { push?: boolean; scroll?: boolean } = {}) {
+    save();
+    root.querySelectorAll<HTMLElement>('[data-step]').forEach(el => {
+      el.hidden = state.end !== null || Number(el.dataset.step) !== state.step;
+    });
+    root.querySelectorAll<HTMLElement>('[data-end]').forEach(el => {
+      el.hidden = el.dataset.end !== state.end;
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-field]').forEach(btn => {
+      const f = btn.dataset.field as 'probleem' | 'eigenaar' | 'termijn';
+      btn.setAttribute('aria-checked', state[f] === btn.dataset.value ? 'true' : 'false');
+    });
+    progressWrap.hidden = state.end !== null;
+    spoed.classList.toggle('hidden', !(state.probleem === 'lekt_nu' && state.end === null && state.step > 1));
+    stepText.textContent = `Vraag ${state.step} van ${TOTAL}`;
+    progress.style.width = `${(state.step / TOTAL) * 100}%`;
+    progressbar.setAttribute('aria-valuenow', String(state.step));
+
+    const pc = document.getElementById('pdq-postcode') as HTMLInputElement;
+    if (state.postcode && !pc.value) pc.value = state.postcode;
+
+    root.dispatchEvent(new CustomEvent('pdq:change', { bubbles: true, detail: { step: state.step, end: state.end } }));
+
+    if (opts.push !== false) {
+      const hash = state.end ? `#dakcheck-${state.end}` : `#vraag-${state.step}`;
+      if (location.hash !== hash) history.pushState({ pdq: true }, '', hash);
+    }
+    if (opts.scroll !== false) keepInView();
+
+    if (state.end === null && !seenSteps.has(state.step)) {
+      seenSteps.add(state.step);
+      fbq('trackCustom', 'QuizStap', { stap: state.step, stap_naam: STEP_NAMES[state.step] });
+      gtag('event', `quiz_step_${state.step}_view`, { event_category: 'quiz_plat_dak_probleem' });
+      beacon('step_view', { step_number: state.step });
+    }
+    if (state.step === 4 && state.end === null && opts.scroll !== false) {
+      setTimeout(() => pc.focus({ preventScroll: true }), 250);
+    }
+  }
+
+  function goto(step: Step) { state.end = null; state.step = step; render(); }
+  function finish(end: End) {
+    state.end = end;
+    render();
+    beacon('option_select', { step_number: state.step, field_name: 'uitkomst', field_value: end });
+    gtag('event', `quiz_einde_${end}`, { event_category: 'quiz_plat_dak_probleem' });
+  }
+
+  // ─── stap 1 t/m 3: keuzeknoppen ─────────────────────────
+  root.querySelectorAll<HTMLButtonElement>('[data-field]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const field = btn.dataset.field as 'probleem' | 'eigenaar' | 'termijn';
+      const value = btn.dataset.value!;
+      state[field] = value;
+      beacon('option_select', { step_number: state.step, field_name: field, field_value: value });
+      if (field === 'eigenaar' && value === 'nee') return finish('huurder');
+      goto((state.step + 1) as Step);
+    });
+  });
+
+  // ─── terug ──────────────────────────────────────────────
+  root.querySelectorAll<HTMLButtonElement>('[data-action="back"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (state.end === 'huurder') return goto(2);
+      if (state.end === 'buiten') return goto(4);
+      goto(Math.max(1, state.step - 1) as Step);
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    const m = location.hash.match(/^#vraag-([1-5])$/);
+    if (m) { state.end = null; state.step = Number(m[1]) as Step; render({ push: false }); return; }
+    if (location.hash === '' || location.hash === '#dakcheck') {
+      state.end = null; state.step = 1; render({ push: false });
+    }
+  });
+
+  // ─── stap 4: postcode ───────────────────────────────────
+  const pcForm = document.getElementById('pdq-postcode-form') as HTMLFormElement;
+  const pcInput = document.getElementById('pdq-postcode') as HTMLInputElement;
+  const pcError = document.getElementById('pdq-postcode-error')!;
+  pcForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pc = normalizePostcode(pcInput.value);
+    if (!pc) {
+      pcError.classList.remove('hidden');
+      pcInput.setAttribute('aria-invalid', 'true');
+      pcInput.focus();
+      return;
+    }
+    pcError.classList.add('hidden');
+    pcInput.removeAttribute('aria-invalid');
+    pcInput.value = pc;
+    state.postcode = pc;
+    const binnen = inWerkgebied(pc);
+    beacon('option_select', { step_number: 4, field_name: 'postcode_pc4', field_value: `${pc.slice(0, 4)}:${binnen ? 'binnen' : 'buiten'}` });
+    if (!binnen) {
+      const title = document.getElementById('pdq-buiten-title')!;
+      title.textContent = isTexel(pc) ? 'Texel valt buiten ons werkgebied' : 'Je woning ligt buiten ons werkgebied';
+      return finish('buiten');
+    }
+    goto(5);
+  });
+
+  // ─── stap 5: contact + verzenden ────────────────────────
+  const form = document.getElementById('pdq-form') as HTMLFormElement;
+  const errBox = document.getElementById('pdq-form-error')!;
+
+  function normalizePhone(raw: string): string | null {
+    let d = raw.replace(/[^\d+]/g, '');
+    if (d.startsWith('+')) d = d.slice(1);
+    if (d.startsWith('0031')) d = '0' + d.slice(4);
+    else if (d.startsWith('31') && d.length === 11) d = '0' + d.slice(2);
+    return /^0[1-9]\d{8}$/.test(d) ? d : null;
+  }
+  function showError(field: string, show: boolean) {
+    form.querySelector(`[data-error-for="${field}"]`)?.classList.toggle('hidden', !show);
+    const input = form.querySelector(`[name="${field}"]`);
+    if (input && input.tagName === 'INPUT' && (input as HTMLInputElement).type !== 'radio') {
+      show ? input.setAttribute('aria-invalid', 'true') : input.removeAttribute('aria-invalid');
+    }
+  }
+
+  let firstFocus = true;
+  form.addEventListener('focusin', () => {
+    if (firstFocus) { firstFocus = false; beacon('form_focus', { step_number: 5 }); }
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errBox.classList.add('hidden');
+    const fd = new FormData(form);
+    const naam = String(fd.get('naam') || '').trim();
+    const telefoonRaw = String(fd.get('telefoon') || '').trim();
+    const email = String(fd.get('email') || '').trim();
+    const bereikbaar = String(fd.get('bereikbaar') || '');
+    const telefoon = normalizePhone(telefoonRaw);
+
+    const errors = {
+      naam: naam.length < 2,
+      telefoon: !telefoon,
+      email: !!email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+      bereikbaar: !bereikbaar,
+    };
+    (Object.keys(errors) as Array<keyof typeof errors>).forEach(k => showError(k, errors[k]));
+    const firstBad = (Object.keys(errors) as Array<keyof typeof errors>).find(k => errors[k]);
+    if (firstBad) {
+      (form.querySelector(`[name="${firstBad}"]`) as HTMLElement | null)?.focus();
+      return;
+    }
+    if (!state.probleem || state.eigenaar !== 'ja' || !state.termijn || !state.postcode || !inWerkgebied(state.postcode)) {
+      // Onvolledige state (bv. direct op #vraag-5 geland): terug naar begin
+      return goto(1);
+    }
+
+    const kwalificatie = state.termijn === 'orienteren' ? 'orienterend' : 'gekwalificeerd';
+    if (!state.eventId) { state.eventId = `lead-${uuid()}`; save(); }
+
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const original = btn.innerHTML;
+    btn.disabled = true;
+    btn.textContent = 'Versturen...';
+    beacon('submit_attempt', { step_number: 5 });
+
+    const probleemLabel = pdpProbleem.options.find(o => o.value === state.probleem)?.label ?? state.probleem;
+    const payload: Record<string, string> = {
+      naam,
+      telefoon: telefoon!,
+      email,
+      postcode: state.postcode,
+      situatie: state.probleem,
+      eigenaar: state.eigenaar,
+      termijn: state.termijn,
+      bereikbaar,
+      kwalificatie,
+      bron_pagina: sourcePage,
+      company_url: String(fd.get('company_url') || ''),
+      session_id: W.dpdSession?.id ?? '',
+      event_id: state.eventId,
+      event_source_url: location.origin + location.pathname,
+      fbp: cookie('_fbp'),
+      fbc: fbc(),
+      user_agent: navigator.userAgent,
+      timestamp: new Date().toISOString(),
+    };
+    ATTR_FIELDS.filter(k => k !== 'fbclid').forEach(k => { if (attr[k]) payload[k] = attr[k]; });
+
+    try {
+      const res = await fetch('/api/submit-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error ?? `HTTP ${res.status}`);
+
+      // Server is leidend voor de kwalificatie
+      const finalKwal = body.kwalificatie || kwalificatie;
+      const customData = { content_name: 'Plat dak probleem', content_category: state.probleem, lead_type: state.termijn };
+      if (finalKwal === 'gekwalificeerd') {
+        fbq('track', 'Lead', customData, { eventID: state.eventId });
+      } else {
+        fbq('trackCustom', 'LeadOrienterend', customData, { eventID: state.eventId });
+      }
+      gtag('event', 'generate_lead', { event_category: 'quiz_plat_dak_probleem', kwalificatie: finalKwal, probleem: probleemLabel });
+      beacon('submit_success', { step_number: 5, field_name: 'kwalificatie', field_value: finalKwal });
+
+      const voornaam = naam.split(/\s+/)[0];
+      document.getElementById('pdq-klaar-naam')!.textContent = voornaam ? `, ${voornaam}` : '';
+      document.getElementById('pdq-klaar-moment')!.textContent = bereikbaar;
+      document.getElementById('pdq-klaar-spoed')!.classList.toggle('hidden', state.probleem !== 'lekt_nu');
+      form.reset();
+      state.eventId = null;
+      finish('klaar');
+      // Nieuwe sessie-quiz pas na herladen; eindscherm blijft staan
+      try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
+    } catch (err: any) {
+      errBox.textContent = `Er ging iets mis bij het versturen${err?.message ? ` (${err.message})` : ''}. Probeer het nog eens of bel ons direct.`;
+      errBox.classList.remove('hidden');
+      btn.disabled = false;
+      btn.innerHTML = original;
+      beacon('submit_error', { step_number: 5, field_value: err?.message ?? null });
+    }
+  });
+
+  // ─── start ──────────────────────────────────────────────
+  // Afgeronde of afgewezen sessie bij herladen: toon hetzelfde eindscherm niet
+  // opnieuw als lead, maar wel de uitkomst (huurder/buiten) zodat er niet
+  // simpelweg opnieuw geklikt wordt.
+  if (state.end === 'klaar') { Object.assign(state, empty()); }
+  const startHash = location.hash.match(/^#vraag-([1-5])$/);
+  if (startHash && state.end === null) state.step = Math.min(Number(startHash[1]), state.step) as Step;
+  render({ push: false, scroll: false });
+</script>

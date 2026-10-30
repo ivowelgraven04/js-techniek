@@ -78,8 +78,10 @@ export default async function handler(req, res) {
   let landing_page_id = null;
   const slug = normalizeSlug(raw.landing_page_slug);
   if (slug) landing_page_id = await lookupLandingPageId(slug);
-  if (!landing_page_id) {
-    // Legacy: oude dakinspectie env-var voor backward-compatibility
+  if (!landing_page_id && slug !== 'plat-dak-probleem') {
+    // Legacy: oude dakinspectie env-var voor backward-compatibility.
+    // Niet voor /plat-dak-probleem: zonder eigen landing_pages-rij zouden die
+    // events anders bij de dakinspectie-funnel worden geteld.
     landing_page_id = process.env.SUPABASE_LANDING_PAGE_ID_DAKINSPECTIE || null;
   }
   if (!landing_page_id) {
