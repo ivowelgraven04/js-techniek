@@ -286,7 +286,7 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
     if (state.end === null && !seenSteps.has(state.step)) {
       seenSteps.add(state.step);
       fbq('trackCustom', 'QuizStap', { stap: state.step, stap_naam: STEP_NAMES[state.step] });
-      gtag('event', `quiz_step_${state.step}_view`, { event_category: 'quiz_plat_dak_probleem' });
+      gtag('event', `quiz_step_${state.step}_view`, { event_category: 'quiz_plat_dak_probleem', stap_naam: STEP_NAMES[state.step] });
       beacon('step_view', { step_number: state.step });
     }
   }
