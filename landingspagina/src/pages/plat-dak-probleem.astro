@@ -34,11 +34,15 @@ const star = 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69
   description={seoPlatDakProbleem.description}
   ogImage="/og-plat-dak.jpg"
 >
-  {/* Google Tag Manager (zelfde container als de homepage, laadt GA4 G-17FRYCYLEH en Google Ads).
-      gtag() schrijft naar dataLayer, zodat de quiz-events via de Google-tag in GA4 landen. */}
+  {/* Google Tag Manager (zelfde container als de homepage: page_view naar GA4 G-17FRYCYLEH en Google Ads).
+      De container stuurt gtag-events niet door, dus GA4 ook direct voor de quiz-events,
+      zonder eigen page_view zodat er niets dubbel telt. */}
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-17FRYCYLEH"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-17FRYCYLEH', { send_page_view: false });
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
