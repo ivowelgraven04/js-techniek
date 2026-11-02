@@ -1,7 +1,7 @@
 ---
 // Kwalificerende quiz voor /plat-dak-probleem (Meta-ads).
-// 5 stappen: probleem → eigenaar → termijn → postcode → contact.
-// Huurder of buiten werkgebied = vriendelijk eindscherm, geen lead, geen Lead-event.
+// 4 stappen: probleem → eigenaar → termijn → contact.
+// Huurder = vriendelijk eindscherm, geen lead, geen Lead-event.
 // Lead (pixel + CAPI, zelfde eventID) alleen bij gekwalificeerd.
 import { pdpProbleem, pdpEigenaar, pdpTermijn, pdpBereikbaar, company } from '~/data/site';
 
@@ -27,10 +27,10 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
   <div id="pdq-progress-wrap">
     <div class="flex items-center justify-between mb-3">
       <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-brand-blue-700">Dakcheck</span>
-      <span class="text-sm font-bold text-brand-blue-700" id="pdq-step-text">Vraag 1 van 5</span>
+      <span class="text-sm font-bold text-brand-blue-700" id="pdq-step-text">Vraag 1 van 4</span>
     </div>
-    <div class="h-2 bg-brand-blue-50 rounded-full overflow-hidden mb-6" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="pdq-progressbar">
-      <div id="pdq-progress" class="h-full bg-brand-yellow-500 transition-all duration-300" style="width: 20%"></div>
+    <div class="h-2 bg-brand-blue-50 rounded-full overflow-hidden mb-6" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" id="pdq-progressbar">
+      <div id="pdq-progress" class="h-full bg-brand-yellow-500 transition-all duration-300" style="width: 25%"></div>
     </div>
   </div>
 
@@ -57,7 +57,7 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
         </button>
       ))}
     </div>
-    <p class="mt-4 text-xs text-brand-blue-900/55 text-center">5 korte vragen, binnen een minuut klaar.</p>
+    <p class="mt-4 text-xs text-brand-blue-900/55 text-center">4 korte vragen, binnen een minuut klaar.</p>
   </div>
 
   <!-- STAP 2: Eigenaar -->
@@ -90,34 +90,8 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
     <div class="mt-5 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
   </div>
 
-  <!-- STAP 4: Postcode -->
+  <!-- STAP 4: Contact -->
   <div data-step="4" hidden>
-    <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Wat is je postcode?</h2>
-    <p class="mt-1 text-sm text-brand-blue-900/70">Zo weten we of je woning in ons werkgebied ligt.</p>
-    <form id="pdq-postcode-form" class="mt-4" novalidate>
-      <label for="pdq-postcode" class="sr-only">Postcode</label>
-      <input
-        id="pdq-postcode"
-        name="postcode"
-        type="text"
-        inputmode="text"
-        autocomplete="postal-code"
-        autocapitalize="characters"
-        maxlength="7"
-        placeholder="1781 AB"
-        class={`${inputClass} text-lg tracking-wider uppercase`}
-      />
-      <p id="pdq-postcode-error" class="hidden mt-2 text-sm text-red-700" role="alert">Vul een geldige postcode in, bijvoorbeeld 1781 AB.</p>
-      <button type="submit" class="btn-primary w-full text-lg mt-4">
-        Volgende
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </button>
-    </form>
-    <div class="mt-4 text-sm"><button type="button" data-action="back" class={backClass}>← Vorige vraag</button></div>
-  </div>
-
-  <!-- STAP 5: Contact -->
-  <div data-step="5" hidden>
     <h2 class="text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight">Waar kunnen we je bereiken?</h2>
     <p class="mt-1 text-sm text-brand-blue-900/70">We bellen je terug om je situatie door te nemen en een afspraak te maken.</p>
 
@@ -180,16 +154,6 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
     <button type="button" data-action="back" class={`${backClass} mt-5 text-sm`}>← Toch eigenaar? Pas je antwoord aan</button>
   </div>
 
-  <!-- EINDSCHERM: buiten werkgebied -->
-  <div data-end="buiten" hidden>
-    <div class="text-4xl" aria-hidden="true">📍</div>
-    <h2 class="mt-3 text-xl sm:text-2xl font-extrabold text-brand-blue-900 leading-tight" id="pdq-buiten-title">Je woning ligt buiten ons werkgebied</h2>
-    <p class="mt-3 text-brand-blue-900/80" id="pdq-buiten-text">
-      We werken in Den Helder en de dorpen tot ongeveer 35 kilometer daaromheen, zodat we snel bij je kunnen zijn. Voor jouw postcode kunnen we dat helaas niet waarmaken. We raden je aan een dakdekker bij jou in de buurt te zoeken.
-    </p>
-    <button type="button" data-action="back" class={`${backClass} mt-5 text-sm`}>← Postcode verkeerd ingevuld? Pas hem aan</button>
-  </div>
-
   <!-- EINDSCHERM: verzonden -->
   <div data-end="klaar" hidden>
     <div class="w-14 h-14 rounded-2xl bg-brand-yellow-500 flex items-center justify-center" aria-hidden="true">
@@ -209,30 +173,28 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
 
 <script>
   import { pdpProbleem } from '~/data/site';
-  import { normalizePostcode, inWerkgebied, isTexel } from '~/data/werkgebied-postcodes';
 
-  type Step = 1 | 2 | 3 | 4 | 5;
-  type End = 'huurder' | 'buiten' | 'klaar';
+  type Step = 1 | 2 | 3 | 4;
+  type End = 'huurder' | 'klaar';
   type State = {
     step: Step;
     end: End | null;
     probleem: string | null;
     eigenaar: string | null;
     termijn: string | null;
-    postcode: string | null;
     eventId: string | null;
   };
 
   const STORAGE_KEY = 'js-platdak-quiz-v1';
-  const TOTAL = 5;
-  const STEP_NAMES: Record<number, string> = { 1: 'probleem', 2: 'eigenaar', 3: 'termijn', 4: 'postcode', 5: 'contact' };
+  const TOTAL = 4;
+  const STEP_NAMES: Record<number, string> = { 1: 'probleem', 2: 'eigenaar', 3: 'termijn', 4: 'contact' };
   const W = window as any;
 
   const root = document.getElementById('dakcheck') as HTMLElement;
   const sourcePage = root.dataset.sourcePage || '/plat-dak-probleem';
 
   // ─── state ──────────────────────────────────────────────
-  const empty = (): State => ({ step: 1, end: null, probleem: null, eigenaar: null, termijn: null, postcode: null, eventId: null });
+  const empty = (): State => ({ step: 1, end: null, probleem: null, eigenaar: null, termijn: null, eventId: null });
   function load(): State {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEY);
@@ -313,9 +275,6 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
     progress.style.width = `${(state.step / TOTAL) * 100}%`;
     progressbar.setAttribute('aria-valuenow', String(state.step));
 
-    const pc = document.getElementById('pdq-postcode') as HTMLInputElement;
-    if (state.postcode && !pc.value) pc.value = state.postcode;
-
     root.dispatchEvent(new CustomEvent('pdq:change', { bubbles: true, detail: { step: state.step, end: state.end } }));
 
     if (opts.push !== false) {
@@ -329,9 +288,6 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
       fbq('trackCustom', 'QuizStap', { stap: state.step, stap_naam: STEP_NAMES[state.step] });
       gtag('event', `quiz_step_${state.step}_view`, { event_category: 'quiz_plat_dak_probleem' });
       beacon('step_view', { step_number: state.step });
-    }
-    if (state.step === 4 && state.end === null && opts.scroll !== false) {
-      setTimeout(() => pc.focus({ preventScroll: true }), 250);
     }
   }
 
@@ -359,47 +315,19 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
   root.querySelectorAll<HTMLButtonElement>('[data-action="back"]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (state.end === 'huurder') return goto(2);
-      if (state.end === 'buiten') return goto(4);
       goto(Math.max(1, state.step - 1) as Step);
     });
   });
 
   window.addEventListener('popstate', () => {
-    const m = location.hash.match(/^#vraag-([1-5])$/);
+    const m = location.hash.match(/^#vraag-([1-4])$/);
     if (m) { state.end = null; state.step = Number(m[1]) as Step; render({ push: false }); return; }
     if (location.hash === '' || location.hash === '#dakcheck') {
       state.end = null; state.step = 1; render({ push: false });
     }
   });
 
-  // ─── stap 4: postcode ───────────────────────────────────
-  const pcForm = document.getElementById('pdq-postcode-form') as HTMLFormElement;
-  const pcInput = document.getElementById('pdq-postcode') as HTMLInputElement;
-  const pcError = document.getElementById('pdq-postcode-error')!;
-  pcForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const pc = normalizePostcode(pcInput.value);
-    if (!pc) {
-      pcError.classList.remove('hidden');
-      pcInput.setAttribute('aria-invalid', 'true');
-      pcInput.focus();
-      return;
-    }
-    pcError.classList.add('hidden');
-    pcInput.removeAttribute('aria-invalid');
-    pcInput.value = pc;
-    state.postcode = pc;
-    const binnen = inWerkgebied(pc);
-    beacon('option_select', { step_number: 4, field_name: 'postcode_pc4', field_value: `${pc.slice(0, 4)}:${binnen ? 'binnen' : 'buiten'}` });
-    if (!binnen) {
-      const title = document.getElementById('pdq-buiten-title')!;
-      title.textContent = isTexel(pc) ? 'Texel valt buiten ons werkgebied' : 'Je woning ligt buiten ons werkgebied';
-      return finish('buiten');
-    }
-    goto(5);
-  });
-
-  // ─── stap 5: contact + verzenden ────────────────────────
+  // ─── stap 4: contact + verzenden ────────────────────────
   const form = document.getElementById('pdq-form') as HTMLFormElement;
   const errBox = document.getElementById('pdq-form-error')!;
 
@@ -420,7 +348,7 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
 
   let firstFocus = true;
   form.addEventListener('focusin', () => {
-    if (firstFocus) { firstFocus = false; beacon('form_focus', { step_number: 5 }); }
+    if (firstFocus) { firstFocus = false; beacon('form_focus', { step_number: 4 }); }
   });
 
   form.addEventListener('submit', async (e) => {
@@ -445,8 +373,8 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
       (form.querySelector(`[name="${firstBad}"]`) as HTMLElement | null)?.focus();
       return;
     }
-    if (!state.probleem || state.eigenaar !== 'ja' || !state.termijn || !state.postcode || !inWerkgebied(state.postcode)) {
-      // Onvolledige state (bv. direct op #vraag-5 geland): terug naar begin
+    if (!state.probleem || state.eigenaar !== 'ja' || !state.termijn) {
+      // Onvolledige state (bv. direct op #vraag-4 geland): terug naar begin
       return goto(1);
     }
 
@@ -457,14 +385,13 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
     const original = btn.innerHTML;
     btn.disabled = true;
     btn.textContent = 'Versturen...';
-    beacon('submit_attempt', { step_number: 5 });
+    beacon('submit_attempt', { step_number: 4 });
 
     const probleemLabel = pdpProbleem.options.find(o => o.value === state.probleem)?.label ?? state.probleem;
     const payload: Record<string, string> = {
       naam,
       telefoon: telefoon!,
       email,
-      postcode: state.postcode,
       situatie: state.probleem,
       eigenaar: state.eigenaar,
       termijn: state.termijn,
@@ -500,7 +427,7 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
         fbq('trackCustom', 'LeadOrienterend', customData, { eventID: state.eventId });
       }
       gtag('event', 'generate_lead', { event_category: 'quiz_plat_dak_probleem', kwalificatie: finalKwal, probleem: probleemLabel });
-      beacon('submit_success', { step_number: 5, field_name: 'kwalificatie', field_value: finalKwal });
+      beacon('submit_success', { step_number: 4, field_name: 'kwalificatie', field_value: finalKwal });
 
       const voornaam = naam.split(/\s+/)[0];
       document.getElementById('pdq-klaar-naam')!.textContent = voornaam ? `, ${voornaam}` : '';
@@ -516,16 +443,16 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
       errBox.classList.remove('hidden');
       btn.disabled = false;
       btn.innerHTML = original;
-      beacon('submit_error', { step_number: 5, field_value: err?.message ?? null });
+      beacon('submit_error', { step_number: 4, field_value: err?.message ?? null });
     }
   });
 
   // ─── start ──────────────────────────────────────────────
   // Afgeronde of afgewezen sessie bij herladen: toon hetzelfde eindscherm niet
-  // opnieuw als lead, maar wel de uitkomst (huurder/buiten) zodat er niet
+  // opnieuw als lead, maar wel de uitkomst (huurder) zodat er niet
   // simpelweg opnieuw geklikt wordt.
   if (state.end === 'klaar') { Object.assign(state, empty()); }
-  const startHash = location.hash.match(/^#vraag-([1-5])$/);
+  const startHash = location.hash.match(/^#vraag-([1-4])$/);
   if (startHash && state.end === null) state.step = Math.min(Number(startHash[1]), state.step) as Step;
   render({ push: false, scroll: false });
 </script>

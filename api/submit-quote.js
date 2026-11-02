@@ -2,7 +2,7 @@
 // Accepts both form shapes:
 //   - Google Ads LPs (/plat-dak-vervangen, /lekkage-spoed): naam + telefoon + postcode + type_werk
 //   - Dakinspectie quiz (/gratis-dakinspectie): naam + telefoon + email + situatie + eigenaar
-//   - Plat-dak-probleem quiz (/plat-dak-probleem): naam + telefoon + postcode + situatie
+//   - Plat-dak-probleem quiz (/plat-dak-probleem): naam + telefoon + situatie
 //     + eigenaar + termijn + bereikbaar (+ optioneel email). Server bepaalt de
 //     kwalificatie opnieuw en stuurt bij 'gekwalificeerd' een Lead naar de Meta CAPI.
 // Posts validated payload to Zapier (env var ZAPIER_WEBHOOK_URL). Node 18+.
@@ -84,7 +84,6 @@ export default async function handler(req, res) {
   // Welke flow: plat-dak-probleem, dakinspectie (situatie+eigenaar+email) of Google-Ads (postcode+type_werk)?
   const isDakinspectieFlow = !isPlatDakProbleemFlow && !!(payload.situatie || payload.eigenaar || payload.email);
   if (isPlatDakProbleemFlow) {
-    if (!payload.postcode) return res.status(400).json({ error: 'Veld ontbreekt: postcode' });
     if (!PROBLEEM_WAARDEN.includes(payload.situatie)) return res.status(400).json({ error: 'Veld ontbreekt: situatie' });
     if (!payload.eigenaar) return res.status(400).json({ error: 'Veld ontbreekt: eigenaar' });
     if (!TERMIJN_WAARDEN.includes(payload.termijn)) return res.status(400).json({ error: 'Veld ontbreekt: termijn' });
@@ -112,11 +111,11 @@ export default async function handler(req, res) {
   }
 
   if (isPlatDakProbleemFlow) {
-    // Server is leidend: huurder of buiten werkgebied wordt geen lead,
+    // Server is leidend: huurder wordt geen lead,
     // en de browser kan zichzelf niet "gekwalificeerd" maken.
     const kwalificatie = bepaalKwalificatie(payload);
     if (!kwalificatie) {
-      return res.status(422).json({ error: 'Deze aanvraag valt buiten ons werkgebied of is voor een huurwoning' });
+      return res.status(422).json({ error: 'Deze aanvraag is voor een huurwoning' });
     }
     payload.kwalificatie = kwalificatie;
     // Zichtbaar in bestaande Zapier-mail en Sheet zonder de Zap aan te passen

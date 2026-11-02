@@ -23,10 +23,9 @@ export const PROBLEEM_WAARDEN = ['lekt_nu', 'lekkage_vocht', 'oud_dak', 'slecht_
 export const TERMIJN_WAARDEN = ['zsm', '1_3_maanden', 'orienteren'];
 export const BEREIKBAAR_WAARDEN = ['ochtend', 'middag', 'avond'];
 
-/** 'gekwalificeerd' | 'orienterend' | null (null = geen lead: huurder of buiten gebied) */
-export function bepaalKwalificatie({ eigenaar, postcode, termijn }) {
+/** 'gekwalificeerd' | 'orienterend' | null (null = geen lead: huurder) */
+export function bepaalKwalificatie({ eigenaar, termijn }) {
   if (eigenaar !== 'ja') return null;
-  if (!inWerkgebied(postcode)) return null;
   if (termijn === 'orienteren') return 'orienterend';
   if (TERMIJN_WAARDEN.includes(termijn)) return 'gekwalificeerd';
   return null;
