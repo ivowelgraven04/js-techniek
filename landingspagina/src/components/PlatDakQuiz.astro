@@ -226,7 +226,9 @@ const backClass = 'text-brand-blue-700 hover:text-brand-blue-900 underline under
   function fbq(...args: unknown[]) {
     if (typeof W.fbq === 'function') W.fbq(...args);
   }
+  // GTM-container stuurt events zonder send_to niet naar GA4, dus expliciet adresseren.
   function gtag(...args: unknown[]) {
+    if (args[0] === 'event') args[2] = { send_to: 'G-17FRYCYLEH', ...(args[2] as object) };
     if (typeof W.gtag === 'function') W.gtag(...args);
   }
   function cookie(name: string): string {
