@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  {{gebouwd}}
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NN4SJRXV');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="theme-color" content="#E8A800">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{paginatitel}}</title>
+  <meta name="description" content="{{beschrijving}}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{canonical}}">
+  <meta property="og:type" content="{{ogtype}}">
+  <meta property="og:title" content="{{ogtitel}}">
+  <meta property="og:description" content="{{beschrijving}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{ogbeeld}}">
+  <meta property="og:image:alt" content="{{ogbeeld_alt}}">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="JS Techniek">
+{{extra_meta}}  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ogtitel}}">
+  <meta name="twitter:description" content="{{beschrijving}}">
+  <meta name="twitter:image" content="{{ogbeeld}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; background: #fff; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+  </style>
+  <style>
+{{stijl}}
+  </style>
+{{schema}}
+</head>
+<body>
+{{menu}}
+<main id="inhoud">
+{{inhoud}}
+</main>
+
+{{voet}}
+<script>
+  (function() {
+    document.querySelectorAll('.faq-question').forEach(function(knop) {
+      knop.addEventListener('click', function() {
+        var open = knop.getAttribute('aria-expanded') === 'true';
+        knop.setAttribute('aria-expanded', open ? 'false' : 'true');
+        knop.closest('.faq-item').classList.toggle('open', !open);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -144,13 +144,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-<url>
-    <loc>https://jschoutentechniek.com/werkgebied/enkhuizen</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
+  <url>
     <loc>https://jschoutentechniek.com/werkgebied/haarlem</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -173,5 +167,47 @@
     <lastmod>2026-04-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/rubriek/kosten</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/rubriek/bitumen-en-platte-daken</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/rubriek/lekkage-en-schade</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/bitumen-of-epdm-wat-is-beter</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/wat-kost-een-daklekkage-repareren</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/wat-kost-een-plat-dak-vervangen-per-m2</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

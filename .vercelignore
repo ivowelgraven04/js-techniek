@@ -4,3 +4,9 @@ og-image-*.html
 *.md
 *.docx
 .claude/
+# Kennisbank: alleen de gebouwde pagina's publiceren, niet de bron
+kennisbank/bouw.py
+kennisbank/sjabloon/
+kennisbank/artikelen/
+kennisbank/*.json
+kennisbank/__pycache__/

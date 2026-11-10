@@ -1,0 +1,23 @@
+{
+  "_uitleg": "Prijsindicaties voor de kennisbank van JS Techniek. Afspraak met Ivo (10-11-2026): altijd een range, nooit een vast bedrag, en ruim aan de bovenkant van de markt. Basis is het marktonderzoek van 03-11-2026 (Spoed Dak Techniek, prijzen.json). Alle bedragen inclusief 21% btw, materiaal en arbeid. Gebruik in artikelen alleen deze ranges; wijk je af, pas dan eerst dit bestand aan. Dit bestand gaat niet mee naar de live site.",
+  "prijspeil": "november 2026",
+  "btw": 21,
+  "klussen": [
+    {"id": "bitumen-vernieuwen", "naam": "Bitumen dakbedekking vernieuwen (oude bedekking eraf, nieuw tweelaags systeem)", "vanaf": 90, "tot": 135, "eenheid": "m²", "markt": "75 tot 120"},
+    {"id": "bitumen-overlagen", "naam": "Nieuwe laag bitumen over de bestaande bedekking", "vanaf": 50, "tot": 75, "eenheid": "m²", "markt": "40 tot 65"},
+    {"id": "bitumen-met-isolatie", "naam": "Plat dak vernieuwen inclusief isolatie", "vanaf": 140, "tot": 200, "eenheid": "m²", "markt": "120 tot 180"},
+    {"id": "onderhoud", "naam": "Onderhoudsbeurt plat dak", "vanaf": 15, "tot": 25, "eenheid": "m²", "markt": "12 tot 22"},
+    {"id": "lekkage-klein", "naam": "Kleine lekkagereparatie (naad, opstand, rond een doorvoer)", "vanaf": 195, "tot": 450, "eenheid": "klus", "markt": "150 tot 400"},
+    {"id": "herstel-stuk", "naam": "Stuk dakbedekking herstellen", "vanaf": 350, "tot": 900, "eenheid": "klus", "markt": "300 tot 800"},
+    {"id": "herstel-groot", "naam": "Groter herstel (meerdere plekken of aansluitingen)", "vanaf": 900, "tot": 2750, "eenheid": "klus", "markt": "800 tot 2500"},
+    {"id": "zinken-goot", "naam": "Zinken dakgoot vervangen", "vanaf": 95, "tot": 150, "eenheid": "meter", "markt": "80 tot 130"},
+    {"id": "goot-solderen", "naam": "Naad of trechter in een zinken goot solderen", "vanaf": 175, "tot": 400, "eenheid": "klus", "markt": "150 tot 350"}
+  ],
+  "voorbeelden_bitumen_vernieuwen": [
+    {"naam": "Dakkapel (ongeveer 6 m²)", "vanaf": 750, "tot": 1250},
+    {"naam": "Aanbouw of uitbouw (ongeveer 15 m²)", "vanaf": 1500, "tot": 2300},
+    {"naam": "Garage of berging (ongeveer 20 m²)", "vanaf": 1900, "tot": 2900},
+    {"naam": "Plat dak van een rijwoning (ongeveer 40 m²)", "vanaf": 3600, "tot": 5400},
+    {"naam": "Groter plat dak (ongeveer 60 m²)", "vanaf": 5400, "tot": 8100}
+  ]
+}
