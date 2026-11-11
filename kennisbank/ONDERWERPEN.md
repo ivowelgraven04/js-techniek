@@ -15,7 +15,7 @@ elektra, EPDM als eigen dienst).
 | 1 | live 2026-11-10 | Wat kost een plat dak vervangen per m²? | kosten plat dak vervangen per m2 | kosten | dakwerken |
 | 2 | live 2026-11-10 | Bitumen of EPDM: wat is beter voor een plat dak? | epdm of bitumen | bitumen-en-platte-daken | dakwerken |
 | 3 | live 2026-11-10 | Wat kost een daklekkage repareren? | daklekkage repareren kosten | lekkage-en-schade | noodreparaties |
-| 4 | open | Hoe lang gaat een bitumen dak mee? | hoe lang gaat een bitumen dak mee | bitumen-en-platte-daken | dakwerken |
+| 4 | live 2026-11-11 | Hoe lang gaat een bitumen dak mee? | hoe lang gaat een bitumen dak mee | bitumen-en-platte-daken | dakwerken |
 | 5 | open | Wat kost een zinken dakgoot per meter? | zinken dakgoot vervangen prijs per meter | kosten | zinkwerk |
 | 6 | open | Valt daklekkage onder de opstalverzekering? | daklekkage opstalverzekering | lekkage-en-schade | noodreparaties |
 | 7 | open | Wat is bitumen dakbedekking? | wat is bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
