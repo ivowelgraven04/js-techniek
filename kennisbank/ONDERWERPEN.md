@@ -19,7 +19,7 @@ elektra, EPDM als eigen dienst).
 | 5 | live 2026-11-13 | Wat kost een zinken dakgoot per meter? | zinken dakgoot vervangen prijs per meter | kosten | zinkwerk |
 | 6 | live 2026-11-15 | Valt daklekkage onder de opstalverzekering? | daklekkage opstalverzekering | lekkage-en-schade | noodreparaties |
 | 7 | live 2026-11-16 | Wat is bitumen dakbedekking? | wat is bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
-| 8 | open | Dakgoot lekt: repareren of vervangen? | dakgoot lekt | zinkwerk-en-goten | zinkwerk |
+| 8 | live 2026-11-17 | Dakgoot lekt: repareren of vervangen? | dakgoot lekt | zinkwerk-en-goten | zinkwerk |
 | 9 | open | Daklekkage in Den Helder: wat moet u nu doen? | daklekkage den helder | lekkage-en-schade | noodreparaties |
 | 10 | open | Grind op een plat dak: wel of niet? | grind op plat dak | bitumen-en-platte-daken | dakwerken |
 | 11 | open | Wat kost het om een dakkapel opnieuw te bedekken? | dakkapel bitumen vervangen kosten | kosten | dakwerken |

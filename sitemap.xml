@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -191,6 +191,18 @@
     <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/rubriek/zinkwerk-en-goten</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/dakgoot-lekt-repareren-of-vervangen</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank/wat-is-bitumen-dakbedekking</loc>
