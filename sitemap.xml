@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank/rubriek/lekkage-en-schade</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -197,6 +197,12 @@
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/daklekkage-den-helder-wat-moet-u-doen</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank/dakgoot-lekt-repareren-of-vervangen</loc>
