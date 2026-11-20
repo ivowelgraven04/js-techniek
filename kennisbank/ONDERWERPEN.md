@@ -22,7 +22,7 @@ elektra, EPDM als eigen dienst).
 | 8 | live 2026-11-17 | Dakgoot lekt: repareren of vervangen? | dakgoot lekt | zinkwerk-en-goten | zinkwerk |
 | 9 | live 2026-11-18 | Daklekkage in Den Helder: wat moet u nu doen? | daklekkage den helder | lekkage-en-schade | noodreparaties |
 | 10 | live 2026-11-19 | Grind op een plat dak: wel of niet? | grind op plat dak | bitumen-en-platte-daken | dakwerken |
-| 11 | open | Wat kost het om een dakkapel opnieuw te bedekken? | dakkapel bitumen vervangen kosten | kosten | dakwerken |
+| 11 | live 2026-11-20 | Wat kost het om een dakkapel opnieuw te bedekken? | dakkapel bitumen vervangen kosten | kosten | dakwerken |
 | 12 | open | Hoe wordt een bitumen dak gelegd? | bitumen dak leggen | bitumen-en-platte-daken | dakwerken |
 | 13 | open | Hoe dik is bitumen dakbedekking? | dikte bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
 | 14 | open | Hoe vaak moet een dakgoot worden schoongemaakt? | dakgoot schoonmaken | zinkwerk-en-goten | zinkwerk |
