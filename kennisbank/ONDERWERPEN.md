@@ -24,7 +24,7 @@ elektra, EPDM als eigen dienst).
 | 10 | live 2026-11-19 | Grind op een plat dak: wel of niet? | grind op plat dak | bitumen-en-platte-daken | dakwerken |
 | 11 | live 2026-11-20 | Wat kost het om een dakkapel opnieuw te bedekken? | dakkapel bitumen vervangen kosten | kosten | dakwerken |
 | 12 | live 2026-11-21 | Hoe wordt een bitumen dak gelegd? | bitumen dak leggen | bitumen-en-platte-daken | dakwerken |
-| 13 | open | Hoe dik is bitumen dakbedekking? | dikte bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
+| 13 | live 2026-11-22 | Hoe dik is bitumen dakbedekking? | dikte bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
 | 14 | open | Hoe vaak moet een dakgoot worden schoongemaakt? | dakgoot schoonmaken | zinkwerk-en-goten | zinkwerk |
 | 15 | open | Hoe lang gaat een zinken dakgoot mee? | levensduur zinken dakgoot | zinkwerk-en-goten | zinkwerk |
 | 16 | open | Water blijft staan op mijn platte dak: is dat erg? | water blijft staan op plat dak | lekkage-en-schade | dakwerken |
