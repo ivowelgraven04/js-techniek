@@ -25,27 +25,29 @@ elektra, EPDM als eigen dienst).
 | 11 | live 2026-11-20 | Wat kost het om een dakkapel opnieuw te bedekken? | dakkapel bitumen vervangen kosten | kosten | dakwerken |
 | 12 | live 2026-11-21 | Hoe wordt een bitumen dak gelegd? | bitumen dak leggen | bitumen-en-platte-daken | dakwerken |
 | 13 | live 2026-11-22 | Hoe dik is bitumen dakbedekking? | dikte bitumen dakbedekking | bitumen-en-platte-daken | dakwerken |
-| 14 | open | Hoe vaak moet een dakgoot worden schoongemaakt? | dakgoot schoonmaken | zinkwerk-en-goten | zinkwerk |
+| 14 | live 2026-11-23 | Hoe vaak moet een dakgoot worden schoongemaakt? | dakgoot schoonmaken | zinkwerk-en-goten | zinkwerk |
 | 15 | open | Hoe lang gaat een zinken dakgoot mee? | levensduur zinken dakgoot | zinkwerk-en-goten | zinkwerk |
 | 16 | open | Water blijft staan op mijn platte dak: is dat erg? | water blijft staan op plat dak | lekkage-en-schade | dakwerken |
-| 17 | open | Wat kost onderhoud van een plat dak? | onderhoud plat dak kosten | kosten | dakwerken |
-| 18 | open | Blazen in een bitumen dak: waar komen ze vandaan? | blazen in bitumen dak | bitumen-en-platte-daken | dakwerken |
-| 19 | open | Wat kost een plat dak isoleren? | plat dak isoleren kosten | kosten | dakwerken |
-| 20 | open | Stormschade aan een plat dak: wat nu? | stormschade plat dak | lekkage-en-schade | noodreparaties |
-| 21 | open | Natte plek op het plafond onder een plat dak: waar zit het lek? | natte plek plafond plat dak | lekkage-en-schade | noodreparaties |
-| 22 | open | Wanneer moet een plat dak vervangen worden? | wanneer plat dak vervangen | bitumen-en-platte-daken | dakwerken |
-| 23 | open | Kan een nieuwe laag bitumen over de oude heen? | bitumen over oude dakbedekking | bitumen-en-platte-daken | dakwerken |
-| 24 | open | Lekkage bij een lichtkoepel: oorzaak en oplossing | lichtkoepel lekt | lekkage-en-schade | noodreparaties |
-| 25 | open | Wat kost een lekkende dakgoot repareren? | dakgoot repareren kosten | kosten | zinkwerk |
-| 26 | open | Welke garantie krijgt u op een nieuw plat dak? | garantie plat dak | bitumen-en-platte-daken | dakwerken |
-| 27 | open | Zinken dakrand of aluminium daktrim: wat is beter? | zinken dakrand | zinkwerk-en-goten | zinkwerk |
-| 28 | open | Hoe vaak moet een plat dak gecontroleerd worden? | plat dak controleren | bitumen-en-platte-daken | dakwerken |
-| 29 | open | Wat kost een plat dak van een aanbouw vervangen? | plat dak aanbouw vervangen kosten | kosten | dakwerken |
-| 30 | open | Daklekkage na zware regen: hoe kan dat? | lekkage na regen plat dak | lekkage-en-schade | noodreparaties |
-| 31 | open | SBS of APP bitumen: wat is het verschil? | sbs of app bitumen | bitumen-en-platte-daken | dakwerken |
-| 32 | open | Hemelwaterafvoer verstopt: wat kunt u zelf doen? | hemelwaterafvoer verstopt | zinkwerk-en-goten | zinkwerk |
-| 33 | open | Zonnepanelen op een plat dak: moet het dak eerst worden nagekeken? | zonnepanelen plat dak bitumen | bitumen-en-platte-daken | dakwerken |
-| 34 | open | Dakbedekking voor een garage of schuur: waar let u op? | dakbedekking garage | bitumen-en-platte-daken | dakwerken |
-| 35 | open | Mos en vuil op een plat dak: schoonmaken of laten liggen? | plat dak schoonmaken | bitumen-en-platte-daken | dakwerken |
-| 36 | open | Lekkende naad in een zinken goot: solderen of vervangen? | zinken goot solderen | zinkwerk-en-goten | zinkwerk |
-| 37 | open | Wat controleert een dakdekker bij een inspectie van een plat dak? | inspectie plat dak | bitumen-en-platte-daken | dakwerken |
+| 17 | open | Plat dak repareren of helemaal vervangen: hoe kiest u? | plat dak repareren | lekkage-en-schade | dakwerken |
+| 18 | open | Lekkage op een plat dak opsporen: hoe gaat dat en wat kost het? | lekkage dak opsporen kosten | lekkage-en-schade | noodreparaties |
+| 19 | open | Wat kost onderhoud van een plat dak? | onderhoud plat dak kosten | kosten | dakwerken |
+| 20 | open | Blazen in een bitumen dak: waar komen ze vandaan? | blazen in bitumen dak | bitumen-en-platte-daken | dakwerken |
+| 21 | open | Wat kost een plat dak isoleren? | plat dak isoleren kosten | kosten | dakwerken |
+| 22 | open | Stormschade aan een plat dak: wat nu? | stormschade plat dak | lekkage-en-schade | noodreparaties |
+| 23 | open | Natte plek op het plafond onder een plat dak: waar zit het lek? | natte plek plafond plat dak | lekkage-en-schade | noodreparaties |
+| 24 | open | Wanneer moet een plat dak vervangen worden? | wanneer plat dak vervangen | bitumen-en-platte-daken | dakwerken |
+| 25 | open | Kan een nieuwe laag bitumen over de oude heen? | bitumen over oude dakbedekking | bitumen-en-platte-daken | dakwerken |
+| 26 | open | Lekkage bij een lichtkoepel: oorzaak en oplossing | lichtkoepel lekt | lekkage-en-schade | noodreparaties |
+| 27 | open | Wat kost een lekkende dakgoot repareren? | dakgoot repareren kosten | kosten | zinkwerk |
+| 28 | open | Welke garantie krijgt u op een nieuw plat dak? | garantie plat dak | bitumen-en-platte-daken | dakwerken |
+| 29 | open | Zinken dakrand of aluminium daktrim: wat is beter? | zinken dakrand | zinkwerk-en-goten | zinkwerk |
+| 30 | open | Hoe vaak moet een plat dak gecontroleerd worden? | plat dak controleren | bitumen-en-platte-daken | dakwerken |
+| 31 | open | Wat kost een plat dak van een aanbouw vervangen? | plat dak aanbouw vervangen kosten | kosten | dakwerken |
+| 32 | open | Daklekkage na zware regen: hoe kan dat? | lekkage na regen plat dak | lekkage-en-schade | noodreparaties |
+| 33 | open | SBS of APP bitumen: wat is het verschil? | sbs of app bitumen | bitumen-en-platte-daken | dakwerken |
+| 34 | open | Hemelwaterafvoer verstopt: wat kunt u zelf doen? | hemelwaterafvoer verstopt | zinkwerk-en-goten | zinkwerk |
+| 35 | open | Zonnepanelen op een plat dak: moet het dak eerst worden nagekeken? | zonnepanelen plat dak bitumen | bitumen-en-platte-daken | dakwerken |
+| 36 | open | Dakbedekking voor een garage of schuur: waar let u op? | dakbedekking garage | bitumen-en-platte-daken | dakwerken |
+| 37 | open | Mos en vuil op een plat dak: schoonmaken of laten liggen? | plat dak schoonmaken | bitumen-en-platte-daken | dakwerken |
+| 38 | open | Lekkende naad in een zinken goot: solderen of vervangen? | zinken goot solderen | zinkwerk-en-goten | zinkwerk |
+| 39 | open | Wat controleert een dakdekker bij een inspectie van een plat dak? | inspectie plat dak | bitumen-en-platte-daken | dakwerken |
