@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -194,9 +194,15 @@
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank/rubriek/zinkwerk-en-goten</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jschoutentechniek.com/kennisbank/hoe-lang-gaat-een-zinken-dakgoot-mee</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jschoutentechniek.com/kennisbank/hoe-vaak-moet-een-dakgoot-worden-schoongemaakt</loc>
