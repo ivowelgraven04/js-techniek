@@ -284,6 +284,7 @@ h3 {
 }
 .topbar .brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
 .topbar .brand img { width: 42px; height: 42px; border-radius: 50%; flex: 0 0 auto; }
+.topbar .brand picture { display: flex; flex: 0 0 auto; }
 .topbar .brand .brandtext { min-width: 0; }
 .topbar .brand b {
   display: block;
@@ -357,6 +358,14 @@ h3 {
   70%  { box-shadow: 0 0 0 7px rgba(214,45,32,0); }
   100% { box-shadow: 0 0 0 0 rgba(214,45,32,0); }
 }
+/* Tijdsafhankelijk label: neutraal tot JS weet of de lijn open is */
+.pill[data-bereikbaar]:not(.is-open) .dot {
+  background: var(--ink-48);
+  box-shadow: none;
+  animation: none;
+}
+.pill.on-dark[data-bereikbaar]:not(.is-open) .dot { background: rgba(255,255,255,.55); }
+.pill[data-bereikbaar].is-closed .dot { background: var(--sun-600); }
 .pill.on-dark {
   background: rgba(255,255,255,.09);
   color: #fff;

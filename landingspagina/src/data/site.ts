@@ -104,11 +104,11 @@ export type FaqItem = { q: string; a: string };
 export const faqLekkage: FaqItem[] = [
   {
     q: 'Hoe snel kunnen jullie ter plaatse zijn?',
-    a: `Bij acute lekkage bellen we u binnen ${company.emergencyResponseMinutes} minuten terug en zijn we in het werkgebied Den Helder/Schagen vaak nog dezelfde dag op locatie. Buiten kantooruren? Bel direct het mobiele nummer.`,
+    a: `Bij een lekkage staan we binnen 24 uur bij u op het dak, met een diagnose, een prijs en de doorlooptijd. Rond Den Helder en Schagen lukt dat vaak nog dezelfde dag. U kunt ons overdag, 's avonds en in het weekend bellen. 's Nachts staat de telefoon uit. Stuur dan een WhatsApp, dan bellen we u 's ochtends terug.`,
   },
   {
     q: 'Wat kost een noodreparatie?',
-    a: 'Een noodreparatie begint bij €150,- (excl. btw) voor kleine lekken. Bij grotere schades maken we eerst een gratis inspectie en een vaste prijsopgave voordat we beginnen. Geen verrassingen achteraf.',
+    a: 'Dat verschilt per dak, daarom noemen we hier geen bedragen. U weet de prijs altijd voordat we beginnen. Geen verrassingen achteraf.',
   },
   {
     q: 'Werken jullie ook in het weekend?',
@@ -158,7 +158,7 @@ export const faqPlatDak: FaqItem[] = [
   },
   {
     q: 'Wat is de gemiddelde prijs voor een plat dak vervangen?',
-    a: 'De prijs hangt af van oppervlakte, isolatie en bestaande staat. Een eengezinswoning-aanbouw ligt vaak tussen €80-€140 per m² (incl. isolatie en afwerking). U krijgt altijd een vaste prijsopgave na gratis inspectie op locatie.',
+    a: 'De prijs hangt af van de oppervlakte, de isolatie en de staat van het huidige dak. Daarom noemen we online geen bedragen. U krijgt altijd een vaste prijsopgave na een gratis inspectie op locatie.',
   },
   {
     q: 'Werken jullie met onderaannemers?',

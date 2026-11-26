@@ -16,8 +16,8 @@ import { company, seo, testimonialsLekkage, faqLekkage } from '~/data/site';
 const uspItems = [
   {
     iconPath: '<path d="M13 10V3L4 14h7v7l9-11h-7z"/>',
-    title: `Binnen ${company.emergencyResponseMinutes} minuten terugbellen`,
-    text: 'Bij echte spoed staan we klaar, ook buiten kantooruren.',
+    title: 'Ook \'s avonds en in het weekend bereikbaar',
+    text: 'U spreekt direct met Jonathan, geen callcenter.',
   },
   {
     iconPath: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
@@ -44,7 +44,7 @@ const uspItems = [
       title="Lekkage in uw plat dak? Vandaag bellen = vandaag actie."
       subtitle={`JS Techniek staat klaar in Den Helder en heel Noord-Holland. Specialist bitumen platte daken.`}
       bullets={[
-        `Binnen <strong>${company.emergencyResponseMinutes} minuten</strong> terugbellen bij spoed`,
+        `Binnen <strong>24 uur op uw dak</strong>, met diagnose en prijs`,
         `Vaak nog <strong>dezelfde dag</strong> ter plaatse in Den Helder/Schagen`,
         `Vaste prijs <strong>vóór</strong> start, geen verrassingen`,
       ]}
@@ -68,7 +68,7 @@ const uspItems = [
 
     <CtaBlock
       title="Lek in uw plat dak? Bel nu."
-      subtitle={`We bellen u binnen ${company.emergencyResponseMinutes} minuten terug en plannen indien nodig dezelfde dag een bezoek in.`}
+      subtitle={`Binnen 24 uur op uw dak, met diagnose, prijs en doorlooptijd. Ook 's avonds en in het weekend bereikbaar.`}
       primaryCta={{ text: `📞 ${company.phoneDisplay}`, href: `tel:${company.phoneRaw}`, trackId: 'final-phone' }}
       secondaryCta={{ text: 'WhatsApp ons', href: `https://wa.me/${company.whatsappRaw}`, trackId: 'final-whatsapp' }}
     />

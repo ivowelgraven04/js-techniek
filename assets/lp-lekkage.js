@@ -15,6 +15,38 @@
     window.dataLayer.push(payload);
   }
 
+  /* ---- 0. Bereikbaarheidslabel (Europe/Amsterdam) -------------------------
+     In de HTML staat een neutrale tekst. Pas hier wordt bepaald of de lijn
+     nu open is (07:00 tot 22:00) of niet. Zonder JavaScript blijft de
+     neutrale tekst staan, dus nooit 'nu bereikbaar' als het 's nachts is. */
+  function uurInAmsterdam() {
+    try {
+      var h = new Intl.DateTimeFormat('nl-NL', {
+        timeZone: 'Europe/Amsterdam', hour: '2-digit', hourCycle: 'h23'
+      }).format(new Date());
+      var n = parseInt(h, 10);
+      return isNaN(n) ? null : n;
+    } catch (ignored) { return null; }
+  }
+
+  var uur = uurInAmsterdam();
+  if (uur !== null) {
+    var labels = document.querySelectorAll('[data-bereikbaar]');
+    for (var i = 0; i < labels.length; i++) {
+      var el = labels[i];
+      var tekst = el.querySelector('.pill-text') || el;
+      if (uur >= 7 && uur < 22) {
+        tekst.textContent = el.getAttribute('data-open') || 'Nu bereikbaar';
+        el.classList.add('is-open');
+      } else {
+        tekst.textContent = uur < 7
+          ? 'Nu buiten openingstijd. Bel vanaf 07:00 of stuur een WhatsApp'
+          : 'Nu buiten openingstijd. Bel morgen vanaf 07:00 of stuur een WhatsApp';
+        el.classList.add('is-closed');
+      }
+    }
+  }
+
   /* ---- 1. Telefoon- en WhatsApp-klikken ---------------------------------- */
   document.addEventListener('click', function (e) {
     var t = e.target;
