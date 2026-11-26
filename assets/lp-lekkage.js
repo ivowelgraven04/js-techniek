@@ -63,6 +63,47 @@
     }
   });
 
+  /* ---- 1b. Google Ads gesprekken via website (doorschakelnummer) ---------
+     De awcc-tag in GTM vervangt alleen het zichtbare nummer. Hier zetten we
+     ook de href van alle tel-links om, zodat een tik op mobiel via het
+     doorschakelnummer loopt. Komt _googWcmGet niet binnen ~10 s (geen
+     bezoeker uit een advertentie), dan verandert er niets. De klikmeting
+     hierboven blijft werken: die kijkt naar a[href^="tel:"] en data-cta. */
+  var WCM_NUMMER = '06 12 60 20 82';
+
+  function vervangNummer(formatted, mobile) {
+    var nieuw = String(mobile || formatted || '').replace(/[^\d+]/g, '');
+    if (!nieuw || nieuw.length < 8) return;
+
+    var links = document.querySelectorAll('a[href^="tel:"]');
+    for (var j = 0; j < links.length; j++) links[j].setAttribute('href', 'tel:' + nieuw);
+
+    if (!formatted) return;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var p = n.parentNode && n.parentNode.nodeName;
+        if (p === 'SCRIPT' || p === 'STYLE' || p === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.indexOf(WCM_NUMMER) !== -1 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (var k = 0; k < nodes.length; k++) {
+      nodes[k].nodeValue = nodes[k].nodeValue.split(WCM_NUMMER).join(formatted);
+    }
+  }
+
+  var wcmPogingen = 0;
+  var wcmTimer = setInterval(function () {
+    wcmPogingen++;
+    if (typeof window._googWcmGet === 'function') {
+      clearInterval(wcmTimer);
+      try { window._googWcmGet(vervangNummer, WCM_NUMMER); } catch (ignored) { /* nummer blijft staan */ }
+    } else if (wcmPogingen >= 34) {
+      clearInterval(wcmTimer);
+    }
+  }, 300);
+
   /* ---- 2. Pageview met campagneparameters -------------------------------- */
   var params = new URLSearchParams(window.location.search);
   push('lp_view', {
