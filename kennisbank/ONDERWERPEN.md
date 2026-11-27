@@ -29,7 +29,7 @@ elektra, EPDM als eigen dienst).
 | 15 | live 2026-11-24 | Hoe lang gaat een zinken dakgoot mee? | levensduur zinken dakgoot | zinkwerk-en-goten | zinkwerk |
 | 16 | live 2026-11-25 | Water blijft staan op mijn platte dak: is dat erg? | water blijft staan op plat dak | lekkage-en-schade | dakwerken |
 | 17 | live 2026-11-26 | Plat dak repareren of helemaal vervangen: hoe kiest u? | plat dak repareren | lekkage-en-schade | dakwerken |
-| 18 | open | Lekkage op een plat dak opsporen: hoe gaat dat en wat kost het? | lekkage dak opsporen kosten | lekkage-en-schade | noodreparaties |
+| 18 | live 2026-11-27 | Lekkage op een plat dak opsporen: hoe gaat dat en wat kost het? | lekkage dak opsporen kosten | lekkage-en-schade | noodreparaties |
 | 19 | open | Wat kost onderhoud van een plat dak? | onderhoud plat dak kosten | kosten | dakwerken |
 | 20 | open | Blazen in een bitumen dak: waar komen ze vandaan? | blazen in bitumen dak | bitumen-en-platte-daken | dakwerken |
 | 21 | open | Wat kost een plat dak isoleren? | plat dak isoleren kosten | kosten | dakwerken |
