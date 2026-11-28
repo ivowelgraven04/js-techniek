@@ -30,7 +30,7 @@ elektra, EPDM als eigen dienst).
 | 16 | live 2026-11-25 | Water blijft staan op mijn platte dak: is dat erg? | water blijft staan op plat dak | lekkage-en-schade | dakwerken |
 | 17 | live 2026-11-26 | Plat dak repareren of helemaal vervangen: hoe kiest u? | plat dak repareren | lekkage-en-schade | dakwerken |
 | 18 | live 2026-11-27 | Lekkage op een plat dak opsporen: hoe gaat dat en wat kost het? | lekkage dak opsporen kosten | lekkage-en-schade | noodreparaties |
-| 19 | open | Wat kost onderhoud van een plat dak? | onderhoud plat dak kosten | kosten | dakwerken |
+| 19 | live 2026-11-28 | Wat kost onderhoud van een plat dak? | onderhoud plat dak kosten | kosten | dakwerken |
 | 20 | open | Blazen in een bitumen dak: waar komen ze vandaan? | blazen in bitumen dak | bitumen-en-platte-daken | dakwerken |
 | 21 | open | Wat kost een plat dak isoleren? | plat dak isoleren kosten | kosten | dakwerken |
 | 22 | open | Stormschade aan een plat dak: wat nu? | stormschade plat dak | lekkage-en-schade | noodreparaties |
